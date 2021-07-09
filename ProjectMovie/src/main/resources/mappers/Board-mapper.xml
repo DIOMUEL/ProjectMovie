@@ -15,4 +15,8 @@
 		where user_id = #{user_id}
 		and user_pw = #{user_pw}
 	</select>
+	<select id="checkDupId" resultType="int">
+		select count(*) from tbl_member
+		where user_id = #{user_id}
+	</select>
 </mapper>

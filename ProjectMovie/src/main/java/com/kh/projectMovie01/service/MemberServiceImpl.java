@@ -24,4 +24,13 @@ public class MemberServiceImpl implements MemberService {
 		return memberVo;
 	}
 
+	@Override
+	public boolean checkDupId(String user_id) {
+		boolean result = memberDao.checkDupId(user_id);
+		if(result == true) {
+			return true;
+		}
+		return false;
+	}
+
 }
