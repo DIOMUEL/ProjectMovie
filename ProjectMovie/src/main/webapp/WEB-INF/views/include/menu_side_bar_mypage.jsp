@@ -11,7 +11,8 @@
 		<div class="single-info">
 			<h5># 내 구매 내역</h5>
 			<ul class="subul">
-				<li><a href="/mypage/Ticketing" class="btn btn-active">영화 구매 내역</a></li>
+				<li><a href="/mypage/Purchase_history_Movie" class="btn btn-active">영화 구매 내역</a></li>
+				<li><a href="/mypage/Purchase_history_Food" class="btn btn-active">음식 구매 내역</a></li>
 				
 			</ul>
 		</div>
@@ -33,12 +34,6 @@
 				<li><a href="/mypage/Message" class="btn btn-active">쪽지함</a></li>
 			</ul>
 		</div>
-		<div class="single-info">
-			<h5 class="title1"># 1:1 문의</h5>
-			<ul class="subul">
-				<li><a href="/mypage/questionList" class="btn btn-active">1:1 문의 내역</a></li>
-				<li><a href="/mypage/question" class="btn btn-active">1:1 문의 하기</a></li>
-			</ul>
-		</div>
+		
 	</div>
 </div>
