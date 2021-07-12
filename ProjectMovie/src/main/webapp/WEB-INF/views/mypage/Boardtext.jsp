@@ -44,26 +44,10 @@
 				<c:forEach var="messageVo" items="${list}">
 					<tr>
 						<td>${messageVo.msg_no}</td>
-						<td>
-						<a href="/message/messageRead?msg_no=${messageVo.msg_no}">	${messageVo.msg_content}</a>
-						
-						</span>
-						
-						</td>
+						<td></td>
 						<td>${messageVo.msg_sender}</td>
-						<td>${messageVo.msg_senddate}</td>
-						
-						<td>
-						<c:choose>
-						<c:when test="${empty messageVo.msg_opendate}">
-							읽지 않음
-						</c:when>
-						<c:otherwise>
-							${messageVo.msg_opendate}
-						</c:otherwise>
-						
-						</c:choose>
-						</td>
+						<td>${messageVo.msg_senddate}</td>				
+						<td></td>
 					</tr>
 					</c:forEach>
 				</tbody>
