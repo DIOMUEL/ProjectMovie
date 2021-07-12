@@ -72,11 +72,7 @@
 			<c:forEach var="boardVo" items="${list}">
 				<tr>
 					<td>${boardVo.b_no}</td>
-					
-<%-- 					<a class="a_title" href="#" data-bno="${boardVo.b_no}"> --%>
-<%-- 								${boardVo.b_title}  --%>
-<!-- 							</a> -->
-					<td><a class="title" href="/board/noticeBoardContentPage">${boardVo.b_title}</a></td>
+					<td><a class="title" href="/noticeBoard/noticeBoardContentPage">${boardVo.b_title}</a></td>
 					<td>${boardVo.user_id}</td>
 					<td>${boardVo.b_regdate}</td>
 					<td>${boardVo.b_viewcnt}</td>
