@@ -29,26 +29,17 @@ $(document).ready(function(){
 			</div>
 			<div class="row text-center">
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-					</span>
+						<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
 					<h4 class="my-3">영화1</h4>
 					<p class="text-muted">영화 소개1</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-					</span>
+					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
 					<h4 class="my-3">영화2</h4>
 					<p class="text-muted">영화 소개2</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-lock fa-stack-1x fa-inverse"></i>
-					</span>
+					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
 					<h4 class="my-3">영화3</h4>
 					<p class="text-muted">영화 소개</p>
 				</div>
@@ -66,14 +57,13 @@ $(document).ready(function(){
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 1-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal1">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
+									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
 								</div>
 							</div> 
-							<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/1.jpg" alt="..." />
+							<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화1</div>
@@ -84,13 +74,12 @@ $(document).ready(function(){
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 2-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal2">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/2.jpg" alt="..." />
+							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화2</div>
@@ -101,13 +90,12 @@ $(document).ready(function(){
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 3-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal3">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/3.jpg" alt="..." />
+							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화3</div>
@@ -124,7 +112,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/4.jpg"
+							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
@@ -142,7 +130,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/5.jpg"
+							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
@@ -160,7 +148,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/6.jpg"
+							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
