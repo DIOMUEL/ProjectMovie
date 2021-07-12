@@ -49,6 +49,7 @@
 							<li class="nav-item"><a class="nav-link" href="/mypage/Management">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">예매</a></li>
+							<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">My페이지</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/logout">로그아웃</a></li>
 						</c:otherwise>
 					</c:choose>
