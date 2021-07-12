@@ -16,7 +16,7 @@ import com.kh.projectMovie01.vo.MemberVo;
 
 @Controller
 @RequestMapping(value="/board")
-public class boardController {
+public class BoardController {
 	
 	@Inject
 	private MemberService memberService;

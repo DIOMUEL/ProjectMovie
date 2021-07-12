@@ -40,7 +40,7 @@
 			<!-- 로그인이 안되어있는경우 -->
 					<c:choose>
 						<c:when test="${empty sessionScope.loginVo}">
-							<li class="nav-item"><a class="nav-link" href="/mypage/Management">서비스</a></li>
+							<li class="nav-item"><a class="nav-link" href="#service">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/loginPage">로그인</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/registForm">회원가입</a></li>
@@ -49,8 +49,28 @@
 							<li class="nav-item"><a class="nav-link" href="#">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">예매</a></li>
-							<li class="nav-item"><a class="nav-link" href="/mypage/Management">My페이지</a></li>
-							<li class="nav-item"><a class="nav-link" href="/board/logout">로그아웃</a></li>
+							<li class="nav-item dropdown no-arrow">
+								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+									<span class="mr-2 d-none d-lg-inline text-gray-600 small">"${sessionScope.loginVo.user_name}"님</span> 
+										<img class="img-profile rounded-circle" width="35" src=".././resources/images/undraw_profile.svg"/>
+								</a> <!-- Dropdown - User Information -->
+								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+									<a class="dropdown-item" href="/mypage/Management"> 
+										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My페이지
+									</a> 
+									<a class="dropdown-item" href="/mypage/Message"> 
+										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
+									</a> 
+									<a class="dropdown-item" href="/mypage/Ticketing"> 
+										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>구매내역
+									</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/board/logout"> 
+										<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+											로그아웃
+									</a>
+								</div>
+							</li>
 						</c:otherwise>
 					</c:choose>
 				</ul>

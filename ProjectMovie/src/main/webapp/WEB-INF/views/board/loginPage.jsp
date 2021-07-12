@@ -7,10 +7,12 @@ $(document).ready(function(){
 	var msgInsertMember = "${msgInsertMember}";
 	if(msgInsertMember == "success"){
 		alert("회원가입 성공");
+		session.removeAttribute("${msgInsertMember}");
 	}
 	var msgLoginMember = "${msgLoginMember}";
 	if(msgLoginMember == "fail"){
 		alert("로그인 실패하였습니다.");
+		session.removeAttribute("${msgLoginMember}");
 	}
 });
 </script>
