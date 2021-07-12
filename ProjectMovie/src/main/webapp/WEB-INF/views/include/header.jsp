@@ -58,11 +58,11 @@
 									<a class="dropdown-item" href="/mypage/Management"> 
 										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My페이지
 									</a> 
-									<a class="dropdown-item" href="#"> 
-										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Settings
+									<a class="dropdown-item" href="/mypage/Message"> 
+										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
 									</a> 
-									<a class="dropdown-item" href="#"> 
-										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>Activity Log
+									<a class="dropdown-item" href="/mypage/Ticketing"> 
+										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>구매내역
 									</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/board/logout"> 
