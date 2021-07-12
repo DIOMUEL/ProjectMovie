@@ -45,4 +45,11 @@
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/WEB-INF/sql/movie.sql</name>
+			<type>1</type>
+			<location>C:/Users/KH302/movie.sql</location>
+		</link>
+	</linkedResources>
 </projectDescription>
