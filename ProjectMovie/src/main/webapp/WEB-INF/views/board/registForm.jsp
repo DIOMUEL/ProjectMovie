@@ -80,14 +80,18 @@
 			};
 			//이메일로 코드를 보냄과 동시에 비교할 코드를 받아 저장
 			$.get(uri, sendData, function(rData){
-				//console.log("rData : "+rData);
-				$("#collectCode").text(rData);
+				console.log("rData : "+ rData);
+				$("#collectCode").val(rData);
+				//var collectCode = $("#collectCode").val();
+				//console.log("collectCode: "+collectCode);
 			});
 		});
 		//사용자가 이메일로 받은 코드를 입력하면 그 코드와 시스템에서 받은 코드와 비교하기
 		$("#btnCheckDupCode").click(function(){
 			var responseCode = $("#responseCode").val();
 			var collectCode = $("#collectCode").val();
+			//console.log("responseCode: "+responseCode);
+			//console.log("collectCode: "+collectCode);
 			//두개의 코드가 일치할시 회원가입버튼 활성화
 			if(responseCode == collectCode){
 				alert("인증완료 되었습니다.");
@@ -95,7 +99,7 @@
 			//두개의 코드가 다를시 보안상의 이유로 회원등록창을 초기화
 			}else if(responseCode != collectCode){
 				alert("입력하신 코드가 다릅니다. 보안에 따라 다시 양식을 작성해 주세요.");
-				location.href("/board/registForm");
+				location.replace("/board/registForm");
 			}
 		});
 	});

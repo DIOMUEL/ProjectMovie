@@ -12,6 +12,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.projectMovie01.vo.EmailDto;
 
@@ -29,6 +30,7 @@ public class EmailController {
 	}
 	
 	@RequestMapping(value="/sendMail", method=RequestMethod.GET)
+	@ResponseBody
 	public String sendMail(EmailDto emailDto, HttpSession session) throws Exception {
 		//System.out.println("emailDto:" + emailDto);
 		//코드 6자리 랜덤으로 생성
@@ -43,6 +45,7 @@ public class EmailController {
 		}
 		//System.out.println("buf : " + buf);
 		String code = String.valueOf(buf);
+		System.out.println("code : "+code);
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {		
 			@Override
 			public void prepare(MimeMessage mimeMessage) throws Exception {
