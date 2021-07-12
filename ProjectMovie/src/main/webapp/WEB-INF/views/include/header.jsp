@@ -40,15 +40,15 @@
 			<!-- 로그인이 안되어있는경우 -->
 					<c:choose>
 						<c:when test="${empty sessionScope.loginVo}">
-							<li class="nav-item"><a class="nav-link" href="#service">서비스</a></li>
+							<li class="nav-item"><a class="nav-link" href="/board/mainPage#services">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/loginPage">로그인</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/registForm">회원가입</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="#">서비스</a></li>
+							<li class="nav-item"><a class="nav-link" href="/board/mainPage#services">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
-							<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">예매</a></li>
+							<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">예매하기</a></li>
 							<li class="nav-item dropdown no-arrow">
 								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
 									<span class="mr-2 d-none d-lg-inline text-gray-600 small">"${sessionScope.loginVo.user_name}"님</span> 
