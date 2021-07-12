@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.projectMovie01.service.MemberService;
@@ -68,6 +69,13 @@ public class boardController {
 	public String registForm() { 
 		return "board/registForm"; 
 	}
+	@RequestMapping(value="/checkDupId", method=RequestMethod.GET)
+	@ResponseBody
+	public String checkDupId(String user_id)  throws Exception{
+		boolean result = memberService.checkDupId(user_id);
+		return String.valueOf(result);
+	}
+	
 	@RequestMapping(value = "/registRun", method = RequestMethod.POST)
 	public String registRun(MemberVo memberVo, HttpSession session) { 
 		memberService.insertMember(memberVo);

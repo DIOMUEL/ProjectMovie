@@ -31,6 +31,15 @@ public class MemberDaoImpl implements MemberDao {
 		MemberVo memberVo = sqlSession.selectOne(NAMESPACE + "loginMember", map);
 		return memberVo;
 	}
+
+	@Override
+	public boolean checkDupId(String user_id) {
+		int count = sqlSession.selectOne(NAMESPACE + "checkDupId", user_id);
+		if(count > 0) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 }
