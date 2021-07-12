@@ -72,7 +72,7 @@ $(document).ready(function(){
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
 							</div> 
-							<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/1.jpg" alt="..." />
+							<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화1</div>
@@ -88,7 +88,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/2.jpg" alt="..." />
+							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화2</div>
@@ -104,7 +104,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/3.jpg" alt="..." />
+							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화3</div>
@@ -121,7 +121,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/4.jpg"
+							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
@@ -139,7 +139,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/5.jpg"
+							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
@@ -157,7 +157,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/6.jpg"
+							</div> <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
