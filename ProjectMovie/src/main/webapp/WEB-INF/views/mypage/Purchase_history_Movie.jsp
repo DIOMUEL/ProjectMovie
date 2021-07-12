@@ -18,7 +18,7 @@
 							
 			<div class="jumbotron" style="background-color:rgba(0, 255, 255, 0.8)" >
 			
-<h2>예매 내역</h2>
+<h2>영화예매 내역</h2>
 	<br>
 	<!-- Nav tabs -->
 	
@@ -29,11 +29,11 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>쪽지내용</th>
-						<th>보낸사람</th>
-						<th>보낸날짜</th>
-						<th>읽은날짜</th>
+						<th>구분</th>
+						<th>영화제목</th>
+						<th>가격</th>
+						<th>구매일자</th>
+						<th>비고</th>
 					</tr>
 				</thead>
 				<tbody>

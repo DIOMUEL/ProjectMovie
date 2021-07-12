@@ -18,14 +18,10 @@
 							
 			<div class="jumbotron" style="background-color:rgba(0, 255, 255, 0.8)" >
 			
-<h2>게시글 확인</h2>
+<h2>음식 구매내역</h2>
 	<br>
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs">
-		<li class="nav-item"><a class="nav-link" data-toggle="tab"
-			href="#home">내가쓴글</a></li>
 	
-	</ul>
 
 	<!-- Tab panes -->
 	<div class="row">
@@ -34,36 +30,20 @@
 				<thead>
 					<tr>
 						<th>구분</th>
-						<th>제목</th>
-						<th>글쓴이</th>
-						<th>내용</th>
-						<th>글쓴날짜</th>
+						<th>상품명</th>
+						<th>가격</th>
+						<th>구매일자</th>
+						<th>비고</th>
 					</tr>
 				</thead>
 				<tbody>
 				<c:forEach var="messageVo" items="${list}">
 					<tr>
 						<td>${messageVo.msg_no}</td>
-						<td>
-						<a href="/message/messageRead?msg_no=${messageVo.msg_no}">	${messageVo.msg_content}</a>
-						
-						</span>
-						
-						</td>
+						<td></td>
 						<td>${messageVo.msg_sender}</td>
 						<td>${messageVo.msg_senddate}</td>
-						
-						<td>
-						<c:choose>
-						<c:when test="${empty messageVo.msg_opendate}">
-							읽지 않음
-						</c:when>
-						<c:otherwise>
-							${messageVo.msg_opendate}
-						</c:otherwise>
-						
-						</c:choose>
-						</td>
+						<td></td>
 					</tr>
 					</c:forEach>
 				</tbody>

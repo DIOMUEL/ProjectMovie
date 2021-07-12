@@ -26,9 +26,14 @@ public class mypageController {
 		return "mypage/Point";
 		
 	}
-	@RequestMapping(value="/Ticketing",method=RequestMethod.GET)
-	public String Ticketing() {
-		return "mypage/Ticketing";
+	@RequestMapping(value="/Purchase_history_Movie",method=RequestMethod.GET)
+	public String Purchase_history_Movie() {
+		return "mypage/Purchase_history_Movie";
+		
+	}
+	@RequestMapping(value="/Purchase_history_Food",method=RequestMethod.GET)
+	public String Purchase_history_Food() {
+		return "mypage/Purchase_history_Food";
 		
 	}
 }

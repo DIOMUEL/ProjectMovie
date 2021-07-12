@@ -21,8 +21,10 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="jumbotron">
-				<h2>Hello, world!</h2>
-				
+				<h4>0 P</h4> 
+				<p>
+				현재 포인트
+				</p>
 			</div>
 		</div>
 		<div class="col-md-6">

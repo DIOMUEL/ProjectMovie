@@ -2,21 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 	
-<div class="container" style="background-image: url('.././resources/images/cinemaFront.jpg'); background-repeat : no-repeat; background-size : cover;">
+<%@ include file="../include/header.jsp"%>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-	<div class="row align-items-center">
-	<br>
-		<div class="col-lg-3"></div>
-		<div class="col-lg-6 my-3 my-lg-0" style="background-color:rgba(0, 255, 255, 0.5)">		
-		<br>
+<br>
+	<div class="container">
+			<div class="contact-head">
+				<div class="row">
+					<%@ include file="../include/menu_side_bar_mypage.jsp"%>
+					<div class="col-lg-8 col-12">
+						<div class="form-main">
+							<div class="title">
+							
 			<div class="jumbotron" style="background-color:rgba(0, 255, 255, 0.8)" >
 			
-<h2>받은쪽지목록함</h2>
+<h2>쪽지 함</h2>
 	<br>
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs">
@@ -78,13 +82,8 @@
 		<br>
 		</div>	
 		<div class="col-lg-3"></div>
-	</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
-</div>
+					
+				</div>
+			</div>
+		</div>
 <%@ include file="../include/footer.jsp"%>
