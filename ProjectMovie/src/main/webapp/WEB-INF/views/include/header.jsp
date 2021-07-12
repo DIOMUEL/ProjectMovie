@@ -46,7 +46,7 @@
 							<li class="nav-item"><a class="nav-link" href="/board/registForm">회원가입</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="#">서비스</a></li>
+							<li class="nav-item"><a class="nav-link" href="#services">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">예매하기</a></li>
 							<li class="nav-item dropdown no-arrow">
