@@ -84,18 +84,15 @@
         <section class="bg-light py-5 border-bottom">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bolder">Pay as you grow</h2>
-                    <p class="lead mb-0">With our no hassle pricing plans</p>
+                    <h2 class="fw-bolder">지역 / 좌석 선택</h2>
+                    <p class="lead mb-0">상영하실 지역과 좌석을 올바르게 입력해주세요.</p>
                 </div>
                 <div class="row gx-5 justify-content-center">
-                    <!-- Pricing card free-->
                     <div class="col-lg-6 col-xl-4">
                         <div class="card mb-5 mb-xl-0">
                             <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted">Free</div>
                                 <div class="mb-3">
-                                    <span class="display-4 fw-bold">$0</span>
-                                    <span class="text-muted">/ mo.</span>
+                                    <span class="display-4 fw-bold">지역 설정</span>
                                 </div>
                                 <ul class="list-unstyled mb-4">
                                     <li class="mb-2">
@@ -131,21 +128,16 @@
                                         Monthly status reports
                                     </li>
                                 </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
+                                <div class="d-grid"><a class="btn btn-outline-dark" href="#!">확인</a></div>
                             </div>
                         </div>
                     </div>
-                    <!-- Pricing card pro-->
+
                     <div class="col-lg-6 col-xl-4">
                         <div class="card mb-5 mb-xl-0">
                             <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    Pro
-                                </div>
                                 <div class="mb-3">
-                                    <span class="display-4 fw-bold">$9</span>
-                                    <span class="text-muted">/ mo.</span>
+                                    <span class="display-4 fw-bold">좌석 선택</span>
                                 </div>
                                 <ul class="list-unstyled mb-4">
                                     <li class="mb-2">
@@ -181,7 +173,7 @@
                                         Monthly status reports
                                     </li>
                                 </ul>
-                                <div class="d-grid"><a class="btn btn-primary" href="#!">Choose plan</a></div>
+                                <div class="d-grid"><a class="btn btn-dark" href="#!">확인</a></div>
                             </div>
                         </div>
                     </div>
@@ -189,10 +181,9 @@
                     <div class="col-lg-6 col-xl-4">
                         <div class="card">
                             <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted">Enterprise</div>
+                                <div class="small text-uppercase fw-bold text-muted"></div>
                                 <div class="mb-3">
-                                    <span class="display-4 fw-bold">$49</span>
-                                    <span class="text-muted">/ mo.</span>
+                                    <span class="display-4 fw-bold">음식 예약</span>
                                 </div>
                                 <ul class="list-unstyled mb-4">
                                     <li class="mb-2">
@@ -229,7 +220,7 @@
                                         Monthly status reports
                                     </li>
                                 </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
+                                <div class="d-grid"><a class="btn btn-outline-dark" href="#!">확인</a></div>
                             </div>
                         </div>
                     </div>
@@ -240,8 +231,8 @@
             <div class="container px-5 my-5 px-5">
                 <div class="text-center mb-5">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                    <h2 class="fw-bolder">Get in touch</h2>
-                    <p class="lead mb-0">We'd love to hear from you</p>
+                    <h2 class="fw-bolder">추가 정보 입력</h2>
+                    <p class="lead mb-0"></p>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
@@ -249,27 +240,21 @@
                             <!-- Name input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <label for="name">이름</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">이름을 입력하지 않았습니다.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <label for="email">이메일</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">이메일을 입력하지 않았습니다.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">이메일 양식이 정확하지 않습니다.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <label for="phone">전화번호(휴대폰번호)</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">전화번호를 입력하지 않았습니다.</div>
                             </div>
 
                             <div class="d-none" id="submitSuccessMessage">
