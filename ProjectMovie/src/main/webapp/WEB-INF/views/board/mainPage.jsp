@@ -29,25 +29,25 @@ $(document).ready(function(){
 			</div>
 			<div class="row text-center">
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+					<span class="fa-stack fa-4x"> 
+						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
+						<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
 					</span>
 					<h4 class="my-3">영화1</h4>
 					<p class="text-muted">영화 소개1</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+					<span class="fa-stack fa-4x"> 
+						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
+						<i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
 					</span>
 					<h4 class="my-3">영화2</h4>
 					<p class="text-muted">영화 소개2</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-lock fa-stack-1x fa-inverse"></i>
+					<span class="fa-stack fa-4x"> 
+						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
+						<i class="fas fa-lock fa-stack-1x fa-inverse"></i>
 					</span>
 					<h4 class="my-3">영화3</h4>
 					<p class="text-muted">영화 소개</p>
@@ -66,8 +66,7 @@ $(document).ready(function(){
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 1-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal1">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
@@ -84,8 +83,7 @@ $(document).ready(function(){
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 2-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal2">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
@@ -101,8 +99,7 @@ $(document).ready(function(){
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 3-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal3">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
