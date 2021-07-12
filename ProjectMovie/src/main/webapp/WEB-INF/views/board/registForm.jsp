@@ -4,36 +4,34 @@
 <title>회원등록페이지</title>
 <script>
 	$(document).ready(function(){
-		//
+		//아이디 입력란
 		$("#btnCheckDupId").click(function(){
+			//아이디가 빈값일때 메세지 띄우고 리턴
 			if($("#user_id").val().trim() == ""){
 				$("#user_id").focus();
 				alert("아이디를 입력해 주세요");
 				return false;
 			}
+			//아이디 값을 컨트롤러에 보내어 유무체크 하기 
 			var url = "/board/checkDupId";
 			var user_id = $("#user_id").val();
 			var sendData = {
 					"user_id" : user_id
 			};
 			$.get(url, sendData, function(rData){
-				console.log(rData);
+				//console.log(rData);
 				if(rData == "true"){
+					//아이디가 존재하고 있으면 true리턴 하고 메세지 표시
 					$("#checkDupIdResult").text("이미 있는 아이디입니다.").css("color", "red");
 				}else{
+					//아이디가 존재하지 않으면 false리턴 하고 메세지 표시 및 readOnly 제거
 					$("#checkDupIdResult").text("사용가능한 아이디입니다.").css("color", "blue");
 					$(".form-Read").attr("readonly", false);
 					$("#btnCheckDupEmail").removeAttr("disabled");
 				}
 			});
 		});
-		$("#btnCheckDupEmail").click(function(){
-			var date = $("#user_date").val();
-			var dateControl = date.replace(/-/g,"");
-			$("#user_rrn").val(dateControl);
-			console.log(dateControl);
-		});
-			
+		//회원등록버튼을 누를 시 각 양식이 빈값일때 경고메세지와 포커싱하기 
 		$("#frmRegist").submit(function(){
 			if($("#user_id").val().trim() == ""){
 				$("#user_id").focus();
@@ -66,24 +64,35 @@
 				return false;
 			}
 		});
+		
 		$("#btnCheckDupEmail").click(function(){
+			//이메일 인증하기 누르면 생년월일의 값의 하이픈을 제거('-')
+			var date = $("#user_date").val();
+			var dateControl = date.replace(/-/g,"");
+			$("#user_rrn").val(dateControl);
+			console.log(dateControl);
+			//이메일 인증하기 누르면 안보였던 코드인증란 보이게 하고 이메일값으로 코드보내기
 			$("#checkCode").attr("style", "display:''")
 			var to = $("#user_email").val();
 			var uri = "/email/sendMail";
 			var sendData ={
 					"to" : to
 			};
+			//이메일로 코드를 보냄과 동시에 비교할 코드를 받아 저장
 			$.get(uri, sendData, function(rData){
 				//console.log("rData : "+rData);
 				$("#collectCode").text(rData);
 			});
 		});
+		//사용자가 이메일로 받은 코드를 입력하면 그 코드와 시스템에서 받은 코드와 비교하기
 		$("#btnCheckDupCode").click(function(){
 			var responseCode = $("#responseCode").val();
 			var collectCode = $("#collectCode").val();
+			//두개의 코드가 일치할시 회원가입버튼 활성화
 			if(responseCode == collectCode){
 				alert("인증완료 되었습니다.");
 				$("#btnRegistRun").removeAttr("disabled");
+			//두개의 코드가 다를시 보안상의 이유로 회원등록창을 초기화
 			}else if(responseCode != collectCode){
 				alert("입력하신 코드가 다릅니다. 보안에 따라 다시 양식을 작성해 주세요.");
 				location.href("/board/registForm");
