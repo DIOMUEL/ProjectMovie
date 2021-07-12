@@ -31,7 +31,8 @@ public class EmailController {
 	
 	@RequestMapping(value="/sendMail", method=RequestMethod.GET)
 	public String sendMail(EmailDto emailDto, HttpSession session) throws Exception {
-		System.out.println("emailDto:" + emailDto);
+		//System.out.println("emailDto:" + emailDto);
+		//코드 6자리 랜덤으로 생성
 		Random rnd =new Random();
 		StringBuffer buf =new StringBuffer();
 		for(int i=0;i<6;i++){
@@ -41,7 +42,7 @@ public class EmailController {
 		        buf.append((rnd.nextInt(10)));
 		    }
 		}
-		System.out.println("buf : " + buf);
+		//System.out.println("buf : " + buf);
 		String code = String.valueOf(buf);
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {		
 			@Override
@@ -50,10 +51,12 @@ public class EmailController {
 				helper.setFrom(emailDto.getFrom());
 				helper.setTo(emailDto.getTo());
 				helper.setSubject(emailDto.getSubject());
-				helper.setText(code);
+				//생성된코드 text란에 집어넣기
+				helper.setText("인증코드는 [" + code + "] 입니다.");
 			}
 		};
 		mailSender.send(preparator);
+		//코드값 리턴
 		return code;
 	}
 }
