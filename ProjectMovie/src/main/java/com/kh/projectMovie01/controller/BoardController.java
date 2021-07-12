@@ -62,7 +62,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/ticketingPage", method = RequestMethod.GET)
 	public String ticketingPage() { 
-		return "board/noticeBoardPage"; 
+		return "board/ticketingPage"; 
 	}
 	 
 	@RequestMapping(value = "/registForm", method = RequestMethod.GET)
