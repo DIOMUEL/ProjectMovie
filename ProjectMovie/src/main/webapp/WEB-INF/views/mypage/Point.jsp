@@ -9,15 +9,20 @@
 <br>
 <br>
 <br>
+
+<div class="container">
+	<div class="contact-head">
+		<div class="row">
+			<%@ include file="../include/menu_side_bar_mypage.jsp"%>
+			<div class="col-lg-8 col-12">
+				<div class="form-main">
+					<div class="title">
 <div class="col-md-12">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="jumbotron">
 				<h2>Hello, world!</h2>
-				<p></p>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
+				
 			</div>
 		</div>
 		<div class="col-md-6">
@@ -26,14 +31,6 @@
 		</div>
 	</div>
 </div>
-<div class="container">
-	<div class="contact-head">
-		<div class="row">
-			<%@ include file="../include/menu_side_bar_mypage.jsp"%>
-			<div class="col-lg-8 col-12">
-				<div class="form-main">
-					<div class="title">
-
 						<div class="jumbotron"
 							style="background-color: rgba(0, 255, 255, 0.8)">
 
