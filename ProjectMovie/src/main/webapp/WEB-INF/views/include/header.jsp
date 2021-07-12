@@ -40,7 +40,7 @@
 			<!-- 로그인이 안되어있는경우 -->
 					<c:choose>
 						<c:when test="${empty sessionScope.loginVo}">
-							<li class="nav-item"><a class="nav-link" href="/mypage/Management">서비스</a></li>
+							<li class="nav-item"><a class="nav-link" href="#service">서비스</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/loginPage">로그인</a></li>
 							<li class="nav-item"><a class="nav-link" href="/board/registForm">회원가입</a></li>
