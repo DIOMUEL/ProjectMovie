@@ -29,26 +29,17 @@ $(document).ready(function(){
 			</div>
 			<div class="row text-center">
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> 
-						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
-						<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-					</span>
+						<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
 					<h4 class="my-3">영화1</h4>
 					<p class="text-muted">영화 소개1</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> 
-						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
-						<i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-					</span>
+					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
 					<h4 class="my-3">영화2</h4>
 					<p class="text-muted">영화 소개2</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> 
-						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
-						<i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-					</span>
+					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
 					<h4 class="my-3">영화3</h4>
 					<p class="text-muted">영화 소개</p>
 				</div>
