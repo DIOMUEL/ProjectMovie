@@ -1,6 +1,5 @@
 package com.kh.projectMovie01.controller;
 
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,7 +20,7 @@ import com.kh.projectMovie01.vo.NoticeBoardVo;
 @Controller
 @RequestMapping(value="/board")
 public class BoardController {
-	
+
 	@Inject
 	private MemberService memberService;
 	@Inject
@@ -31,16 +30,17 @@ public class BoardController {
 	public String mainPage() { 
 		return "board/mainPage"; 
 	}
-	  
+
 	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
 	public String loginPage() {
 		return "board/loginPage"; 
-	} 
+	}
+
 	@RequestMapping(value = "/loginRun", method = RequestMethod.POST)
 	public String loginRun(String user_id, String user_pw, HttpSession session, RedirectAttributes rttr) { 
 		MemberVo memberVo = memberService.loginMember(user_id, user_pw);
 		System.out.println("memberVo: "+memberVo);
-		String msg = null;
+		String msg = null; 
 		String page = null;
 		if(memberVo != null) {
 			String user_name = memberVo.getUser_name();
@@ -60,7 +60,7 @@ public class BoardController {
 		session.invalidate();
 		return "redirect:/board/loginPage";
 	}
-	
+
 	@RequestMapping(value = "/noticeBoardPage", method = RequestMethod.GET)
 	public String noticeBoardPage(Model model) {
 		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage();
@@ -72,10 +72,10 @@ public class BoardController {
 	public String ticketingPage() { 
 		return "board/ticketingPage"; 
 	}
-	 
+
 	@RequestMapping(value = "/registForm", method = RequestMethod.GET)
 	public String registForm() {
-		return "board/registForm"; 
+		return "board/registForm";
 	}
 	@RequestMapping(value="/checkDupId", method=RequestMethod.GET)
 	@ResponseBody
@@ -83,7 +83,7 @@ public class BoardController {
 		boolean result = memberService.checkDupId(user_id);
 		return String.valueOf(result);
 	}
-	
+
 	@RequestMapping(value = "/registRun", method = RequestMethod.POST)
 	public String registRun(MemberVo memberVo, HttpSession session) { 
 		memberService.insertMember(memberVo);

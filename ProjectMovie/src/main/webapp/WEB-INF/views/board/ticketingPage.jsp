@@ -240,8 +240,8 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <div class="d-grid"><a href="/board/mainPage"></a><button class="btn btn-info btn-lg" id="submitButton" type="submit">
-                            	확인</button></div>
+                            <div class="d-grid"><a href="/board/mainPage"><button class="btn btn-info btn-lg" id="submitButton" type="submit">
+                            	확인</button></a></div>
                         </form>
                     </div>
                 </div>
