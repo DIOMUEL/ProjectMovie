@@ -11,7 +11,7 @@
         <title>예매 페이지</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- 몸통 부분 -->
@@ -30,40 +30,62 @@
                 </div>
             </div>
         </header>
-        <!-- Features section-->
+        <!-- 영화 선택 -->
         <section class="py-5 border-bottom" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                        <h2 class="h4 fw-bolder">영화1</h2>
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">분노의 질주 (더 얼티메이트)</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
-                            	영화 정보보기
-                            <i class="bi bi-arrow-right"></i>
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                        <h2 class="h4 fw-bolder">영화2</h2>
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">미드나이트</h2>
                         <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
-                            	영화 정보보기
-                            <i class="bi bi-arrow-right"></i>
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
                         </a>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">영화3</h2>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">컨저링3</h2>
                         <p>영화3</p>
                         <a class="text-decoration-none" href="#!">
-                            	영화 정보보기
-                            <i class="bi bi-arrow-right"></i>
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">블랙 위도우</h2>
+                        <p>영화1</p>
+                        <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">시카다 3301</h2>
+                        <p>영화1</p>
+                        <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">바르다가 사랑한 얼굴들</h2>
+                        <p>영화1</p>
+                        <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg" alt="..." />
                         </a>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- 지역, 좌석, 음식 선택 -->
         <section class="bg-light py-5 border-bottom">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
@@ -212,31 +234,13 @@
         <section class="bg-light py-5">
             <div class="container px-5 my-5 px-5">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bolder">추가 정보 입력</h2>
+                    <h2 class="fw-bolder">예매자 개인 정보 입력</h2>
                     <p class="lead mb-0"></p>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">이름</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">이름을 입력하지 않았습니다.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">이메일</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">이메일을 입력하지 않았습니다.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">이메일 양식이 정확하지 않습니다.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">전화번호(휴대폰번호)</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">전화번호를 입력하지 않았습니다.</div>
-                            </div>
-                            <div class="d-grid"><button class="btn btn-info btn-lg disabled" id="submitButton" type="submit">
+                            <div class="d-grid"><a href="/board/mainPage"></a><button class="btn btn-info btn-lg" id="submitButton" type="submit">
                             	확인</button></div>
                         </form>
                     </div>
