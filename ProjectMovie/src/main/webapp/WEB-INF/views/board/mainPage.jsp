@@ -237,7 +237,7 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/point.jpg"
+						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/point.png"
 							alt="..." />
 						<h4>포인트</h4>
 					</div>
