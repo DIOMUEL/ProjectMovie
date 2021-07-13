@@ -10,8 +10,6 @@
 		insert into tbl_member(user_id, user_pw, user_name, user_rrn, user_email)
 		values(#{user_id}, #{user_pw}, #{user_name}, #{user_rrn}, #{user_email})
 	</insert>
-	
-	
 	<select id="loginMember" resultType="memberVo">
 		select * from tbl_member
 		where user_id = #{user_id}
@@ -21,4 +19,10 @@
 		select count(*) from tbl_member
 		where user_id = #{user_id}
 	</select>
+	<!-- 마이정보 페이지 -->
+	<select id="myinfo" resultType="memberVo">
+		select * from tbl_member
+		where user_id = #{user_id}
+	</select>
+	
 </mapper>
