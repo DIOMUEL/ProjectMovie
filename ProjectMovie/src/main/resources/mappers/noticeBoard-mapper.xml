@@ -5,10 +5,44 @@
   
 <mapper namespace="com.kh.projectMovie01.noticeBoard">
 
-	<!-- 게시판목록 -->
+	<!-- 글목록 -->
 	<select id="listAll" resultType="NoticeBoardVo">
 		select * from tbl_noticeboard
 		order by b_no
 	</select>
+	
+	<!-- 글조회 -->
+	<select id="selectByBno" resultType="NoticeBoardVo">
+		select * from tbl_noticeboard
+		where b_no = #{b_no}
+	</select>
+	
+	<!-- 글번호 -->
+	<select id="getNextVal" resultType="int">
+		select seq_board_bno.nextval
+		from dual
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="insertArticle">
+		insert into tbl_noticeboard 
+			(b_no, b_title, b_content, user_id, re_group)
+		values 
+			(#{b_no}, #{b_title}, #{b_content, jdbcType=VARCHAR}, 
+			 #{user_id}, #{b_no})
+	</insert>
 
+	<!-- 글수정 -->
+	<update id="updateArticle">
+	 update tbl_noticeboard set
+	 	b_title = #{b_title},
+		b_content = #{b_content, jdbcType=VARCHAR}
+		where b_no = #{b_no}
+	</update>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteArticle">
+		delete from tbl_noticeboard
+		where b_no = #{b_no}
+	</delete>
 </mapper>

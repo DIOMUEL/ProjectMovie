@@ -24,4 +24,33 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 		return list;
 	}
 
+	@Override
+	public NoticeBoardVo selectByBno(int b_no) {
+		NoticeBoardVo noticeboardVo = sqlSession.selectOne(NAMESPACE + "selectByBno", b_no); 
+		return noticeboardVo;
+	}
+
+	@Override
+	public void insertArticle(NoticeBoardVo noticeBoardVo) {
+		sqlSession.insert(NAMESPACE + "insertArticle", noticeBoardVo);
+	}
+
+	@Override
+	public int getNextVal() {
+		int nextval = sqlSession.selectOne(NAMESPACE + "getNextVal"); 
+		return nextval;
+	}
+
+	@Override
+	public void updateArticle(NoticeBoardVo noticeBoardVo) {
+		sqlSession.update(NAMESPACE + "updateArticle", noticeBoardVo);
+		
+	}
+
+	@Override
+	public void deleteArticle(int b_no) {
+		sqlSession.delete(NAMESPACE + "deleteArticle", b_no);
+		
+	}
+
 }
