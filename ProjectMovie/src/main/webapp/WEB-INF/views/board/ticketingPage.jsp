@@ -11,7 +11,7 @@
         <title>예매 페이지</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- 몸통 부분 -->
@@ -47,7 +47,7 @@
                         <h2 class="h4 fw-bolder">영화2</h2>
                         <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpeg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -85,6 +85,7 @@
                 </div>
             </div>
         </section>
+        <!-- 지역, 좌석, 음식 선택 -->
         <section class="bg-light py-5 border-bottom">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
@@ -233,25 +234,26 @@
         <section class="bg-light py-5">
             <div class="container px-5 my-5 px-5">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bolder">추가 정보 입력</h2>
+                    <h2 class="fw-bolder">예매자 개인 정보 입력</h2>
                     <p class="lead mb-0"></p>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
+                            <!-- 성명 입력란-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                 <label for="name">이름</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">이름을 입력하지 않았습니다.</div>
                             </div>
+                            <!-- 이메일 입력란 -->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                 <label for="email">이메일</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">이메일을 입력하지 않았습니다.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">이메일 양식이 정확하지 않습니다.</div>
                             </div>
-                            <!-- Phone number input-->
+                            <!-- 전화번호 입력란 -->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
                                 <label for="phone">전화번호(휴대폰번호)</label>
