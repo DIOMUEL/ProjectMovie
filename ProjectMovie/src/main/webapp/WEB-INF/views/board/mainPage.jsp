@@ -57,17 +57,17 @@ $(document).ready(function(){
 				<div class="col-md-4">
 						<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
 					<h4 class="my-3">웬디</h4>
-					<p class="text-muted"><a href="/moiveintro/Movie1-1">영화 정보보기</a></p>
+					<p class="text-muted"><a href="/moiveintro/Movie1-1">영화 정보</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
 					<h4 class="my-3">푸치니 투란도트</h4>
-					<p class="text-muted"><a href="/moiveintro/Movie1-2">영화 정보보기</a></p>
+					<p class="text-muted"><a href="/moiveintro/Movie1-2">영화 정보</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
 					<h4 class="my-3">메이드 인 루프탑</h4>
-					<p class="text-muted"><a href="/moiveintro/Movie1-3">영화 정보보기</a></p>
+					<p class="text-muted"><a href="/moiveintro/Movie1-3">영화 정보</a></p>
 				</div>
 			</div>
 		</div>
@@ -86,31 +86,29 @@ $(document).ready(function(){
 						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
 								</div>
 							</div> 
-							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
+							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
 						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">분노의 질주</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie1">영화 정보보기</a></div>
+						<div class="portfolio-caption" style="background-color:#00ff0000">
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/moiveintro/Movie1">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 mb-4">
-					<!-- Portfolio item 2-->
+					<!-- Portfolio item 3-->
 					<div class="portfolio-item">
 						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpeg" alt="..." />
+									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpg" alt="..." />
 								</div>
 							</div> 
-							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
+							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
 						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">미드나이트</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie2">영화 정보보기</a></div>
+						<div class="portfolio-caption" style="background-color:#00ff0000">
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/moiveintro/Movie2">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
@@ -120,49 +118,47 @@ $(document).ready(function(){
 						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack3.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack3.jpg" alt="..." />
 								</div>
-							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
+							</div> 
+							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">컨저링3</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie3">영화 정보보기</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-					<!-- Portfolio item 4-->
-					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal4">
-							<div class="portfolio-hover">
-								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
-								</div>
-							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
-							alt="..." />
-						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">블랙 위도우</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie4">영화 정보보기</a></div>
+						<div class="portfolio-caption" style="background-color:#00ff0000">
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/moiveintro/Movie3">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
 					<!-- Portfolio item 5-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal5">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
 								</div>
-							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg"
+							</div> 
+							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
 							alt="..." />
 						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">시카다 3301</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie5">영화 정보보기</a></div>
+						<div class="portfolio-caption" style="background-color:#00ff0000">
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/moiveintro/Movie4">영화 정보</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+					<!-- Portfolio item 5-->
+					<div class="portfolio-item">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
+								</div>
+							</div> 
+							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg"
+							alt="..." />
+						</a>
+						<div class="portfolio-caption" style="background-color:#00ff0000">
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/moiveintro/Movie5">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
@@ -173,14 +169,14 @@ $(document).ready(function(){
 							href="#portfolioModal6">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
 								</div>
-							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg"
+							</div> 
+							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg"
 							alt="..." />
 						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">바르다가 사랑한 얼굴들</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie6">영화 정보보기</a></div>
+						<div class="portfolio-caption" style="background-color:#00ff0000">
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/moiveintro/Movie6">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
@@ -267,28 +263,28 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/point.png"
+						<img class="mx-auto rounded-circle" style="border-color:black" src=".././resources/mainPage/assets/img/team/point.png"
 							alt="..." />
 						<h4 style="color:white">포인트</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/sale.jpg"
+						<img class="mx-auto rounded-circle" style="border-color:black" src=".././resources/mainPage/assets/img/team/sale.jpg"
 							alt="..." />
 						<h4 style="color:white">할인안내</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/membership.jpg"
+						<img class="mx-auto rounded-circle" style="border-color:black" src=".././resources/mainPage/assets/img/team/membership.jpg"
 							alt="..." />
 						<h4 style="color:white">멤버쉽</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/VIP.jpg"
+						<img class="mx-auto rounded-circle" style="border-color:gray" src=".././resources/mainPage/assets/img/team/VIP.jpg"
 							alt="..." />
 						<h4 style="color:white">Vip</h4>
 					</div>
