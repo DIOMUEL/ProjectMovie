@@ -1,6 +1,7 @@
 package com.kh.projectMovie01.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -40,6 +41,16 @@ public class MemberDaoImpl implements MemberDao {
 		}
 		return false;
 	}
+
+	@Override
+	public MemberVo myinfo(String user_id) {
+		MemberVo memberVo = sqlSession.selectOne(NAMESPACE + "myinfo", user_id);
+		return memberVo;
+	}
+
+	
+
+	
 	
 	
 }

@@ -19,4 +19,10 @@
 		select count(*) from tbl_member
 		where user_id = #{user_id}
 	</select>
+	<!-- 마이정보 페이지 -->
+	<select id="myinfo" resultType="memberVo">
+		select * from tbl_member
+		where user_id = #{user_id}
+	</select>
+	
 </mapper>
