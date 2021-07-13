@@ -39,7 +39,7 @@
                         <h2 class="h4 fw-bolder">영화1</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -47,7 +47,7 @@
                         <h2 class="h4 fw-bolder">영화2</h2>
                         <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpeg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -55,7 +55,7 @@
                         <h2 class="h4 fw-bolder">영화3</h2>
                         <p>영화3</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack3.jpg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -63,7 +63,7 @@
                         <h2 class="h4 fw-bolder">영화1</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -71,7 +71,7 @@
                         <h2 class="h4 fw-bolder">영화1</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -79,7 +79,7 @@
                         <h2 class="h4 fw-bolder">영화1</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg" alt="..." />
                         </a>
                     </div>
                 </div>
