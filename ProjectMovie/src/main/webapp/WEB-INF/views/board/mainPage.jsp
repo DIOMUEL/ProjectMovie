@@ -1,6 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+<style>
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 800;
+  src: url('.././resources/fontStyle/Monoton-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'FrederickatheGreat';
+  font-style: normal;
+  font-weight: 800;
+  src: url('.././resources/fontStyle/FrederickatheGreat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'GravitasOne';
+  font-style: normal;
+  font-weight: 800;
+  src: url('.././resources/fontStyle/GravitasOne-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'HennyPenny';
+  font-style: normal;
+  font-weight: 800;
+  src: url('.././resources/fontStyle/HennyPenny-Regular.ttf') format('truetype');
+}
+</style>
 <title>메인메뉴</title>
 <script>
 $(document).ready(function(){
@@ -166,7 +192,7 @@ $(document).ready(function(){
 		<div class="container">
 			<div class="text-center">
 			<!-- https://www.megabox.co.kr/specialtheater/dolby 참고 -->
-				<h2 class="section-heading text-uppercase">영화관 소개</h2>
+				<h2 class="section-heading text-uppercase" style="font-weight:bolder">영화관 소개</h2>
 			</div>
 			<ul class="timeline">
 				<li>
@@ -176,8 +202,9 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>4D</h4>
-							<h4 class="subheading">간략소개</h4>
+							<h3 style="font-weight:bolder">4D</h3>
+							<h4 class="subheading" style="font-family:'Monoton';">GET INTO THE ACTION.</h4> 
+							<h5>영화속의 생동감을 온몸으로 느끼다.</h5>
 							<!-- 사진 누르면 소개페이지로 이동 -->
 						</div>
 					</div>
@@ -189,8 +216,9 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>IMAX</h4>
-							<h4 class="subheading">간략소개</h4>
+							<h3 style="font-weight:bolder">IMAX</h3>
+							<h4 class="subheading" style="font-family:'FrederickatheGreat';">ABSOLUTE IMMERSION</h4>
+							<h5>재창조된 비주얼 가장 선명하고 실감나게 보다.</h5>
 						</div>
 					</div>
 				</li>
@@ -201,8 +229,9 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>PremiumSeat</h4>
-							<h4 class="subheading">간략소개</h4>
+							<h3 style="font-weight:bolder">PremiumSeat</h3>
+							<h4 class="subheading" style="font-family:'GravitasOne';">MORE COMFORTERABLE, MORE LUXURIOUSLY</h4>
+							<h5> 더 편안하고 더 여유있음을 맛보다.</h5>
 						</div>
 					</div>
 				</li>
@@ -213,8 +242,9 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>서라운드</h4>
-							<h4 class="subheading">간략소개</h4>
+							<h3 style="font-weight:bolder">서라운드</h3>
+							<h4 class="subheading" style="font-family:'HennyPenny';">ENJOY THE BEST POWER OVERWHERMING SOUND</h4>
+							<h5>객체화된 각각의 사운드를 단 한자리에서 듣다.</h5>
 						</div>
 					</div>
 				</li>
