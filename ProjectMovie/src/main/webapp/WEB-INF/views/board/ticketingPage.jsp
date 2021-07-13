@@ -30,35 +30,38 @@
                 </div>
             </div>
         </header>
-        <!-- Features section-->
+        <!-- 영화 선택 -->
         <section class="py-5 border-bottom" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">영화1</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
                             	영화 정보보기
-                            <i class="bi bi-arrow-right"></i>
+                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">영화2</h2>
                         <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
                             	영화 정보보기
-                            <i class="bi bi-arrow-right"></i>
+                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">영화3</h2>
                         <p>영화3</p>
                         <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
                             	영화 정보보기
-                            <i class="bi bi-arrow-right"></i>
+                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -236,7 +239,7 @@
                                 <label for="phone">전화번호(휴대폰번호)</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">전화번호를 입력하지 않았습니다.</div>
                             </div>
-                            <div class="d-grid"><button class="btn btn-info btn-lg disabled" id="submitButton" type="submit">
+                            <div class="d-grid"><a href="/board/mainPage"></a><button class="btn btn-info btn-lg" id="submitButton" type="submit">
                             	확인</button></div>
                         </form>
                     </div>
