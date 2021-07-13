@@ -171,12 +171,12 @@ $(document).ready(function(){
 			<ul class="timeline">
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/1.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/4D.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제1</h4>
+							<h4>4D</h4>
 							<h4 class="subheading">간략소개</h4>
 							<!-- 사진 누르면 소개페이지로 이동 -->
 						</div>
@@ -184,36 +184,36 @@ $(document).ready(function(){
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/2.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/IMAX.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제2</h4>
+							<h4>IMAX</h4>
 							<h4 class="subheading">간략소개</h4>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/3.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/PremiumSeat.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제3</h4>
+							<h4>PremiumSeat</h4>
 							<h4 class="subheading">간략소개</h4>
 						</div>
 					</div>
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/4.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/SoundX.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제4</h4>
+							<h4>서라운드</h4>
 							<h4 class="subheading">간략소개</h4>
 						</div>
 					</div>
