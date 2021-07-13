@@ -19,8 +19,6 @@ public class MemberDaoImpl implements MemberDao {
 	@Inject
 	private SqlSession sqlSession;
 
-	
-	
 	@Override
 	public void insertMember(MemberVo memberVo) {
 		sqlSession.insert(NAMESPACE + "insertMember", memberVo);
@@ -42,6 +40,12 @@ public class MemberDaoImpl implements MemberDao {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public MemberVo myinfo(String user_id) {
+		MemberVo memberVo = sqlSession.selectOne(NAMESPACE + "myinfo", user_id);
+		return memberVo;
 	}
 
 	

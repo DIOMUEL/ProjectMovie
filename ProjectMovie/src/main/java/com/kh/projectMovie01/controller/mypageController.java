@@ -21,8 +21,6 @@ public class mypageController {
 		return "mypage/Management";	
 	}
 	
-	
-	
 	@RequestMapping(value="/Message",method=RequestMethod.GET)
 	public String Message() {
 		return "mypage/Message";
