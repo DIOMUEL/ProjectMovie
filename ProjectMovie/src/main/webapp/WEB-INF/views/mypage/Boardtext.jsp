@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+<script>
+
+
+</script>
 <br>
 <br>
 <br>
@@ -43,7 +47,7 @@
 				<tbody>
 				<c:forEach var="messageVo" items="${list}">
 					<tr>
-						<td>${messageVo.msg_no}</td>
+						<td>${member.msg_no}</td>
 						<td></td>
 						<td>${messageVo.msg_sender}</td>
 						<td>${messageVo.msg_senddate}</td>				

@@ -1,5 +1,7 @@
 package com.kh.projectMovie01.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -33,4 +35,7 @@ public class MemberServiceImpl implements MemberService {
 		return false;
 	}
 
+	
+
+	
 }

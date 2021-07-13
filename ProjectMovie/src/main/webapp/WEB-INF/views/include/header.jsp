@@ -61,7 +61,7 @@
 									<a class="dropdown-item" href="/mypage/Message"> 
 										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
 									</a> 
-									<a class="dropdown-item" href="/mypage/Ticketing"> 
+									<a class="dropdown-item" href="/mypage/Purchase_history_Movie"> 
 										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>구매내역
 									</a>
 									<div class="dropdown-divider"></div>
