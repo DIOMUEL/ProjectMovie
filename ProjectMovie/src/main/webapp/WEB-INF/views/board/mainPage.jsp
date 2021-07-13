@@ -171,7 +171,7 @@ $(document).ready(function(){
 			<ul class="timeline">
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/1.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/4D.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
@@ -184,7 +184,7 @@ $(document).ready(function(){
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/2.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/IMAX.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
@@ -196,7 +196,7 @@ $(document).ready(function(){
 				</li>
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/3.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/PremiumSeat.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
@@ -208,7 +208,7 @@ $(document).ready(function(){
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/4.jpg"
+						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/SoundX.jpg"
 							alt="..." />
 					</div>
 					<div class="timeline-panel">
