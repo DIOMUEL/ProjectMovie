@@ -33,4 +33,13 @@ public class MemberServiceImpl implements MemberService {
 		return false;
 	}
 
+	@Override
+	public MemberVo myinfo(String user_id) {
+		MemberVo memberVo = memberDao.myinfo(user_id);
+		return memberVo;
+	}
+
+	
+
+	
 }

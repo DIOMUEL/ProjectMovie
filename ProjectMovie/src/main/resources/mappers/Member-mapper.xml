@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kh.projectMovie01.member">
+
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		insert into tbl_member(user_id, user_pw, user_name, user_rrn, user_email)
+		values(#{user_id}, #{user_pw}, #{user_name}, #{user_rrn}, #{user_email})
+	</insert>
+	<select id="loginMember" resultType="memberVo">
+		select * from tbl_member
+		where user_id = #{user_id}
+		and user_pw = #{user_pw}
+	</select>
+	<select id="checkDupId" resultType="int">
+		select count(*) from tbl_member
+		where user_id = #{user_id}
+	</select>
+	<!-- 마이정보 페이지 -->
+	<select id="myinfo" resultType="memberVo">
+		select * from tbl_member
+		where user_id = #{user_id}
+	</select>
+	
+</mapper>
