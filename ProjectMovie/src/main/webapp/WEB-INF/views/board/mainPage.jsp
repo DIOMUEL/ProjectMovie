@@ -176,7 +176,7 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제1</h4>
+							<h4>4D</h4>
 							<h4 class="subheading">간략소개</h4>
 							<!-- 사진 누르면 소개페이지로 이동 -->
 						</div>
@@ -189,7 +189,7 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제2</h4>
+							<h4>IMAX</h4>
 							<h4 class="subheading">간략소개</h4>
 						</div>
 					</div>
@@ -201,7 +201,7 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제3</h4>
+							<h4>PremiumSeat</h4>
 							<h4 class="subheading">간략소개</h4>
 						</div>
 					</div>
@@ -213,7 +213,7 @@ $(document).ready(function(){
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4>소개주제4</h4>
+							<h4>서라운드</h4>
 							<h4 class="subheading">간략소개</h4>
 						</div>
 					</div>
