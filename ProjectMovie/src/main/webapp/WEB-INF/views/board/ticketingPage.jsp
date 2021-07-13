@@ -40,8 +40,6 @@
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -50,8 +48,6 @@
                         <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -60,8 +56,6 @@
                         <p>영화3</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack3.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -70,8 +64,6 @@
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -80,8 +72,6 @@
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -90,8 +80,6 @@
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>

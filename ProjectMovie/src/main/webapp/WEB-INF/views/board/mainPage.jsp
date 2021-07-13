@@ -66,8 +66,8 @@ $(document).ready(function(){
 							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">영화1</div>
-							<div class="portfolio-caption-subheading text-muted">영화소개</div>
+							<div class="portfolio-caption-heading">분노의 질주</div>
+							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
 						</div>
 					</div>
 				</div>
@@ -83,8 +83,8 @@ $(document).ready(function(){
 							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">영화2</div>
-							<div class="portfolio-caption-subheading text-muted">간략소개2</div>
+							<div class="portfolio-caption-heading">미드나이트</div>
+							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
 						</div>
 					</div>
 				</div>
@@ -99,8 +99,8 @@ $(document).ready(function(){
 							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">영화3</div>
-							<div class="portfolio-caption-subheading text-muted">간략소개3</div>
+							<div class="portfolio-caption-heading">컨저링3</div>
+							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
 						</div>
 					</div>
 				</div>
@@ -117,8 +117,8 @@ $(document).ready(function(){
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">영화4</div>
-							<div class="portfolio-caption-subheading text-muted">간략소개4</div>
+							<div class="portfolio-caption-heading">블랙 위도우</div>
+							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
 						</div>
 					</div>
 				</div>
@@ -135,8 +135,8 @@ $(document).ready(function(){
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">영화5</div>
-							<div class="portfolio-caption-subheading text-muted">간략소개5</div>
+							<div class="portfolio-caption-heading">시카다 3301</div>
+							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
 						</div>
 					</div>
 				</div>
@@ -153,8 +153,8 @@ $(document).ready(function(){
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">영화6</div>
-							<div class="portfolio-caption-subheading text-muted">간략소개6</div>
+							<div class="portfolio-caption-heading">바르다가 사랑한 얼굴들</div>
+							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
 						</div>
 					</div>
 				</div>
