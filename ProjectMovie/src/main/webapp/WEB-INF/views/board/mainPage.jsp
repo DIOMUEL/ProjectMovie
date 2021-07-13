@@ -237,28 +237,28 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/1.jpg"
+						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/point.jpg"
 							alt="..." />
 						<h4>포인트</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/2.jpg"
+						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/.jpg"
 							alt="..." />
 						<h4>할인안내</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/3.jpg"
+						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/membership.jpg"
 							alt="..." />
 						<h4>멤버쉽</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/3.jpg"
+						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/VIP.jpg"
 							alt="..." />
 						<h4>Vip</h4>
 					</div>
