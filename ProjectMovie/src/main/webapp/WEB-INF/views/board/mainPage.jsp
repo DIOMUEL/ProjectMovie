@@ -73,10 +73,10 @@ $(document).ready(function(){
 		</div>
 	</section>
 	<!-- 상영중인 영화-->
-	<section class="page-section bg-light" id="portfolio">
+	<section class="page-section" style="background-color:#2F4F4F" id="portfolio">
 		<div class="container">
 			<div class="text-center">
-				<h2 class="section-heading text-uppercase">상영중인 영화</h2>
+				<h2 class="section-heading text-uppercase" style="color:white; font-weight:border;">상영중인 영화</h2>
 				<h3 class="section-subheading text-muted">신작</h3>
 			</div>
 			<div class="row">
@@ -188,7 +188,7 @@ $(document).ready(function(){
 		</div>
 	</section>
 	<!-- 영화관 소개 -->
-	<section class="page-section" id="about">
+	<section class="page-section" style="background-color:#B8860B" id="about">
 		<div class="container">
 			<div class="text-center">
 			<!-- https://www.megabox.co.kr/specialtheater/dolby 참고 -->
@@ -259,44 +259,44 @@ $(document).ready(function(){
 		</div>
 	</section>
 	<!-- Team-->
-	<section class="page-section bg-light" id="services">
+	<section class="page-section" style="background-color:#4B0082" id="services">
 		<div class="container">
 			<div class="text-center">
-				<h2 class="section-heading text-uppercase">멤버쉽 관리</h2>
+				<h2 class="section-heading" style="color:white">멤버쉽 관리</h2>
 			</div>
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="team-member">
 						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/point.png"
 							alt="..." />
-						<h4>포인트</h4>
+						<h4 style="color:white">포인트</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
 						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/sale.jpg"
 							alt="..." />
-						<h4>할인안내</h4>
+						<h4 style="color:white">할인안내</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
 						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/membership.jpg"
 							alt="..." />
-						<h4>멤버쉽</h4>
+						<h4 style="color:white">멤버쉽</h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
 						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/VIP.jpg"
 							alt="..." />
-						<h4>Vip</h4>
+						<h4 style="color:white">Vip</h4>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
-					<p class="large text-muted">Lorem ipsum dolor sit amet,
+					<p class="large text-muted" style="color:white">Lorem ipsum dolor sit amet,
 						consectetur adipisicing elit. Aut eaque, laboriosam veritatis,
 						quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 				</div>
