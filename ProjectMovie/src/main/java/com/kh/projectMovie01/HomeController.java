@@ -14,5 +14,8 @@ public class HomeController {
 	public String startPage(Locale locale, Model model) {
 		return "/board/startPage";
 	}
-	
+	@RequestMapping(value = "/administerPage/administerMainPage", method = RequestMethod.GET)
+	public String administerMainPage(Locale locale, Model model) {
+		return "/administerPage/administerMainPage";
+	}
 }
