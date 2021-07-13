@@ -10,13 +10,14 @@ $(document).ready(function() {
 
 </script>
 
+
+
+
 <br>
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
+<section class="page-section bg-light" >
 <div class="container">
 	<div class="contact-head">
 		<div class="row">
@@ -89,7 +90,10 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
+
 <br>
 <br>
 <br>
+
+</section>
 <%@ include file="../include/footer.jsp"%>
