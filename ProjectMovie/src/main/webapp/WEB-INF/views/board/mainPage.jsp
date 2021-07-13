@@ -63,7 +63,7 @@ $(document).ready(function(){
 									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
 								</div>
 							</div> 
-							<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
+							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화1</div>
@@ -80,7 +80,7 @@ $(document).ready(function(){
 									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpeg" alt="..." />
 								</div>
 							</div> 
-							<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
+							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">영화2</div>
@@ -111,7 +111,7 @@ $(document).ready(function(){
 							href="#portfolioModal4">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;height:100%;" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
 								</div>
 							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
 							alt="..." />
@@ -129,7 +129,7 @@ $(document).ready(function(){
 							href="#portfolioModal5">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;height:100%;" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
 								</div>
 							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg"
 							alt="..." />
@@ -147,7 +147,7 @@ $(document).ready(function(){
 							href="#portfolioModal6">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%;height:100%;" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
 								</div>
 							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg"
 							alt="..." />
