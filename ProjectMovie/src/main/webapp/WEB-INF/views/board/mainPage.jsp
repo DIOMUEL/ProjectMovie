@@ -60,7 +60,7 @@ $(document).ready(function(){
 						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
+									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
 								</div>
 							</div> 
 							<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />

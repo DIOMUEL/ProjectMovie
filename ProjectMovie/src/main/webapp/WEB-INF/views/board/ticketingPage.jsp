@@ -15,7 +15,6 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
                 <a class="navbar-brand" href="#!">Start Bootstrap</a>
@@ -128,7 +127,7 @@
                                         Monthly status reports
                                     </li>
                                 </ul>
-                                <div class="d-grid"><a class="btn btn-outline-dark" href="#!">확인</a></div>
+                                <div class="d-grid"><a class="btn btn-dark" href="#!">확인</a></div>
                             </div>
                         </div>
                     </div>
@@ -266,21 +265,13 @@
                                 </div>
                             </div>
 
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <div class="d-grid"><button class="btn btn-Dark btn-lg disabled" id="submitButton" type="submit">확인</button></div>
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">메시지 송신 오류 발생</div></div>
+                            <div class="d-grid"><button class="btn btn-Info btn-lg disabled" id="submitButton" type="submit">확인</button></div>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
 
