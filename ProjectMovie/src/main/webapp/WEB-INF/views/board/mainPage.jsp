@@ -92,8 +92,8 @@ $(document).ready(function(){
 							<img class="img-fluid" style="width:100%; height:100%;" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">분노의 질주</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie1">영화 정보보기</a></div>
+							<div class="portfolio-caption-heading">분노의 질주 (더 얼티메이트)</div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie1">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -110,7 +110,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">미드나이트</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie2">영화 정보보기</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie2">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">컨저링3</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie3">영화 정보보기</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie3">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -144,7 +144,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">블랙 위도우</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie4">영화 정보보기</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie4">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -162,7 +162,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">시카다 3301</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie5">영화 정보보기</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie5">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -180,7 +180,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">바르다가 사랑한 얼굴들</div>
-							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie6">영화 정보보기</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie6">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>

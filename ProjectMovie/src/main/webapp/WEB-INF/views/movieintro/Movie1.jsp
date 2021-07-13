@@ -20,40 +20,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="#!">Start Bootstrap</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#!">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#!">All Products</a></li>
-							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="#!">Popular Items</a></li>
-							<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-						</ul></li>
-				</ul>
-				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit">
-						<i class="bi-cart-fill me-1"></i> Cart <span
-							class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-					</button>
-				</form>
-			</div>
-		</div>
-	</nav>
 	<!-- Product section-->
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 my-5">
@@ -63,21 +29,17 @@
 						src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." />
 				</div>
 				<div class="col-md-6">
-					<div class="small mb-1">SKU: BST-498</div>
-					<h1 class="display-5 fw-bolder">Shop item template</h1>
+					<h1 class="display-5 fw-bolder">분노의 질주 (더 얼티메이트)</h1>
 					<div class="fs-5 mb-5">
-						<span class="text-decoration-line-through">$45.00</span> <span>$40.00</span>
+						<span>액션</span> <span>미국</span>
 					</div>
-					<p class="lead">Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi
-						consequatur obcaecati excepturi alias magni, accusamus eius
-						blanditiis delectus ipsam minima ea iste laborum vero?</p>
+					<p class="lead">도미닉(빈 디젤)은 자신과 가장 가까웠던 형제 제이콥(존 시나)이 사이퍼(샤를리즈 테론)와 
+					연합해 전 세계를 위기로 빠트릴 위험천만한 계획을 세운다는 사실을 알게 되고, 이를 막기 위해 다시 한 번 패밀리들을 소환한다. 
+					가장 가까운 자가 한순간, 가장 위험한 적이 된 상황 도미닉과 패밀리들은 이에 반격할 놀라운 컴백과 작전을 세우고 
+					지상도, 상공도, 국경도 경계가 없는 불가능한 대결이 시작되는데…</p>
 					<div class="d-flex">
-						<input class="form-control text-center me-3" id="inputQuantity"
-							type="num" value="1" style="max-width: 3rem" />
-						<button class="btn btn-outline-dark flex-shrink-0" type="button">
-							<i class="bi-cart-fill me-1"></i> Add to cart
-						</button>
+						<button class="btn btn-outline-dark flex-shrink-0" type="button" >
+							<i class="bi-cart-fill me-1"></i>예매하기</button>
 					</div>
 				</div>
 			</div>
