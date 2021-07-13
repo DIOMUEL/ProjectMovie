@@ -111,7 +111,7 @@ $(document).ready(function(){
 							href="#portfolioModal4">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%;height:100%;" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
+									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
 								</div>
 							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
 							alt="..." />
