@@ -1,15 +1,17 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-		pageEncoding="UTF-8"%>
-	<%@ include file="administerHeader.jsp" %>
-	<!-- Begin Page Content -->
-	<div class="container-fluid">
-		<!-- Page Heading -->
-	<div
-		class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-		<a href="#"
-			class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-			class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="administerHeader.jsp" %>
+<script type="text/javascript">
+
+</script>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 class="h3 mb-0 text-gray-800">관리자 페이지</h1>
+		<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+			<i class="fas fa-download fa-sm text-white-50"></i> 리포트 생성하기
+		</a>
 	</div>
 	<!-- Content Row -->
 	<div class="row">
@@ -58,7 +60,7 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
 							<div
-								class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+								class="text-xs font-weight-bold text-info text-uppercase mb-1">오늘 할일
 							</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
