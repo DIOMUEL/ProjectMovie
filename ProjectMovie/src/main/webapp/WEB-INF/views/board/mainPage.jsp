@@ -128,23 +128,6 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-					<!-- Portfolio item 4-->
-					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal4">
-							<div class="portfolio-hover">
-								<div class="portfolio-hover-content">
-									<img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
-								</div>
-							</div> <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg"
-							alt="..." />
-						</a>
-						<div class="portfolio-caption" style="background-color:#00ff0000">
-							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/movieintro/Movie3">영화 정보</a></div>
-						</div>
-					</div>
-				</div>
 				<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
 					<!-- Portfolio item 5-->
 					<div class="portfolio-item">
