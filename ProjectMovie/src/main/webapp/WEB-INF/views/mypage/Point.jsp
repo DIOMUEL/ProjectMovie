@@ -17,22 +17,19 @@
 			<div class="col-lg-8 col-12">
 				<div class="form-main">
 					<div class="title">
-<div class="col-md-12">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="jumbotron">
-				<h4>0 P</h4> 
-				<p>
-				현재 포인트
-				</p>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<img alt="Bootstrap Image Preview"
-				src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
-		</div>
-	</div>
-</div>
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="jumbotron">
+										<h4>0 P</h4>
+										<p>현재 포인트</p>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+								</div>
+							</div>
+						</div>
 						<div class="jumbotron"
 							style="background-color: rgba(0, 255, 255, 0.8)">
 
@@ -41,8 +38,7 @@
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs">
 
-								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#menu1">포인트</a></li>
+								<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu1">포인트</a></li>
 							</ul>
 
 							<!-- Tab panes -->
