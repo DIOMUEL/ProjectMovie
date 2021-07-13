@@ -32,33 +32,33 @@
 								
 									<div class="col-12">
 										<div class="form-group">
-											<label for="user_id">아이디<span>*</span></label>
+											<label for="user_id">아이디:<span>*</span></label>
 											<input name="user_id" id="user_id" type="text" value="${mypageVo.user_id}" readonly>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group">
-											<label for="user_pw">패스워드<span>*</span></label>
+											<label for="user_pw">패스워드:<span>*</span></label>
 											<input name="user_pw" id="user_pw" type="text" readonly>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group">
-											<label for="user_name">이름<span>*</span></label>
+											<label for="user_name">이름:<span>*</span></label>
 											<input name="user_name" id="user_name" type="text" value="${mypageVo.user_name}" readonly>
 										</div>
 									</div>
 									
 									<div class="col-12">
 										<div class="form-group">
-											<label for="user_email">이메일<span>*</span></label>
+											<label for="user_email">이메일:<span>*</span></label>
 											<input name="user_email" id="user_email" type="email" value="${mypageVo.user_email}" readonly>
 										</div>
 									</div>
 									
 									<div class="col-12">
 										<div class="form-group">
-											<label for="user_point">포인트<span>*</span></label>
+											<label for="user_point">포인트:<span>*</span></label>
 											<input name="user_point" id="user_point" type="text" value="${mypageVo.user_point}" readonly>
 										</div>
 									</div>
