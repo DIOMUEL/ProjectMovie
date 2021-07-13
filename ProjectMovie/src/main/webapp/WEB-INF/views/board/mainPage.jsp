@@ -30,18 +30,18 @@ $(document).ready(function(){
 			<div class="row text-center">
 				<div class="col-md-4">
 						<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
-					<h4 class="my-3">영화1</h4>
-					<p class="text-muted">영화 소개1</p>
+					<h4 class="my-3">웬디</h4>
+					<p class="text-muted"><a href="/moiveintro/Movie1-1">영화 정보보기</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
-					<h4 class="my-3">영화2</h4>
-					<p class="text-muted">영화 소개2</p>
+					<h4 class="my-3">푸치니 투란도트</h4>
+					<p class="text-muted"><a href="/moiveintro/Movie1-2">영화 정보보기</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
-					<h4 class="my-3">영화3</h4>
-					<p class="text-muted">영화 소개</p>
+					<h4 class="my-3">메이드 인 루프탑</h4>
+					<p class="text-muted"><a href="/moiveintro/Movie1-3">영화 정보보기</a></p>
 				</div>
 			</div>
 		</div>
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">상영중인 영화</h2>
-				<h3 class="section-subheading text-muted">간략소개</h3>
+				<h3 class="section-subheading text-muted">신작</h3>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 col-sm-6 mb-4">
@@ -67,7 +67,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">분노의 질주</div>
-							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie1">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">미드나이트</div>
-							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie2">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -100,7 +100,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">컨저링3</div>
-							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie3">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -118,7 +118,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">블랙 위도우</div>
-							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie4">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -136,7 +136,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">시카다 3301</div>
-							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie5">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
@@ -154,7 +154,7 @@ $(document).ready(function(){
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">바르다가 사랑한 얼굴들</div>
-							<div class="portfolio-caption-subheading text-muted">영화 정보보기<i class="bi bi-arrow-right"></i></div>
+							<div class="portfolio-caption-subheading text-muted"><a href="/moiveintro/Movie6">영화 정보보기</a></div>
 						</div>
 					</div>
 				</div>
