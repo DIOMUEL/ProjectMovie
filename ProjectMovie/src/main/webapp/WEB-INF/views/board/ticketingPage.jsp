@@ -39,9 +39,7 @@
                         <h2 class="h4 fw-bolder">영화1</h2>
                         <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack1.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -49,9 +47,7 @@
                         <h2 class="h4 fw-bolder">영화2</h2>
                         <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack2.jpg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -59,9 +55,31 @@
                         <h2 class="h4 fw-bolder">영화3</h2>
                         <p>영화3</p>
                         <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
-                            	영화 정보보기
-                            	<i class="bi bi-arrow-right"></i>
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack3.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">영화1</h2>
+                        <p>영화1</p>
+                        <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">영화1</h2>
+                        <p>영화1</p>
+                        <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack5.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
+                        <h2 class="h4 fw-bolder">영화1</h2>
+                        <p>영화1</p>
+                        <a class="text-decoration-none" href="#!">
+                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movieBack6.jpg" alt="..." />
                         </a>
                     </div>
                 </div>
