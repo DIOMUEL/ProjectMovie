@@ -21,4 +21,28 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 		return list;
 	}
 
+	@Override
+	public NoticeBoardVo noticeBoardContentPage(int b_no) {
+		NoticeBoardVo noticeBoardVo = noticeBoardDao.selectByBno(b_no);
+		return noticeBoardVo;
+	}
+
+	@Override
+	public void noticeBoardWirteRun(NoticeBoardVo noticeBoardVo) {
+		int nextval = noticeBoardDao.getNextVal();
+		noticeBoardVo.setB_no(nextval);
+		noticeBoardDao.insertArticle(noticeBoardVo);
+	}
+
+	@Override
+	public void noticeBoardModifyRun(NoticeBoardVo noticeBoardVo) {
+		noticeBoardDao.updateArticle(noticeBoardVo);
+		
+	}
+
+	@Override
+	public void noticeBoardDeleteRun(int b_no) {
+		noticeBoardDao.deleteArticle(b_no);
+	}
+
 }
