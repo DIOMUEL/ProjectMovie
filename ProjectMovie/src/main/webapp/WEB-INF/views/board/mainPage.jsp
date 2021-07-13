@@ -124,7 +124,7 @@ $(document).ready(function(){
 							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption" style="background-color:#00ff0000">
-							<div class="portfolio-caption-subheading text-muted"><a href="/movieintro/Movie3">영화 정보보기</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/movieintro/Movie6">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
