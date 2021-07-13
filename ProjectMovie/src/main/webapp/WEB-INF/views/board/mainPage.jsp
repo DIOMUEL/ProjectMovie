@@ -244,7 +244,7 @@ $(document).ready(function(){
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/.jpg"
+						<img class="mx-auto rounded-circle" src=".././resources/mainPage/assets/img/team/sale.jpg"
 							alt="..." />
 						<h4>할인안내</h4>
 					</div>
