@@ -7,8 +7,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.vo.MemberVo;
 
@@ -27,6 +31,18 @@ public class mypageController {
 		model.addAttribute("memberVo",memberVo);
 	
 		return "mypage/Management";	
+	}
+	
+	@RequestMapping(value="/ChangePw",method=RequestMethod.POST)
+	@ResponseBody
+	public String ChangePw(HttpSession session, String user_pw) throws Exception{
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+//		System.out.println("user_id:" + user_id);
+//		System.out.println("user_pw:" + user_pw);
+		
+		memberService.changePw(user_id,user_pw);	
+		return "success";
 	}
 	
 	@RequestMapping(value="/Message",method=RequestMethod.GET)
