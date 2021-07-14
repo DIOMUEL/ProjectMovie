@@ -10,4 +10,5 @@ public interface MemberService {
 	public MemberVo myinfo(String user_id);
 	public void changePw(String user_id, String user_pw);
 	public void changeEmail(String user_id, String user_email);
+	
 }
