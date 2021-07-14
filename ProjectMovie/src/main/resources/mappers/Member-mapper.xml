@@ -29,4 +29,9 @@
 	 	user_pw = #{user_pw}
 		where user_id = #{user_id}
 	</update>
+	<update id="changeEmail">
+		update tbl_member set
+	 	user_email = #{user_email}
+		where user_id = #{user_id}
+	</update>
 </mapper>

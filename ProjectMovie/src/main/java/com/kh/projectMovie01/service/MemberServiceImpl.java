@@ -45,5 +45,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void changePw(String user_id, String user_pw) {
 		memberDao.changePw(user_id, user_pw);
+	}
+
+	@Override
+	public void changeEmail(String user_id, String user_email) {
+		memberDao.changePw(user_id, user_email);
 	}	
 }

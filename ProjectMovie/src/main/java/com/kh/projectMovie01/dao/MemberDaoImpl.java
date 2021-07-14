@@ -55,6 +55,14 @@ public class MemberDaoImpl implements MemberDao {
 		map.put("user_pw", user_pw);
 		sqlSession.update(NAMESPACE + "changePw", map);
 	}
+	@Override
+	public void changeEmail(String user_id, String user_email) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("user_id", user_id);
+		map.put("user_email", user_email);
+		sqlSession.update(NAMESPACE + "changeEmail", map);
+	}
+
 
 	
 
