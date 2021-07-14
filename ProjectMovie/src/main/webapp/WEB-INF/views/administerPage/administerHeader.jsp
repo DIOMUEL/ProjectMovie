@@ -18,7 +18,8 @@
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 <!-- Custom styles for this template-->
-<link href=".././resources/administerPage/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/resources/administerPage/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 <body id="page-top">
 	<!-- Page Wrapper -->
@@ -279,7 +280,7 @@
 									</div>
 								</a> <a class="dropdown-item d-flex align-items-center" href="#">
 									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_3.svg"
+										<img class="rounded-circle" src="/resources/administerPage/img/undraw_profile_3.svg"
 											alt="...">
 										<div class="status-indicator bg-warning"></div>
 									</div>

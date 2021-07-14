@@ -4,8 +4,14 @@
 <script type="text/javascript">
 
 </script>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
+<input type="hidden" id="label_rate20" value="${label_rate20}"/>
+<input type="hidden" id="label_rate30" value="${label_rate30}"/>
+<input type="hidden" id="label_rate40" value="${label_rate40}"/>
+<input type="hidden" id="label_rate50" value="${label_rate50}"/>
+<input type="hidden" id="label_rate60" value="${label_rate60}"/>
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">관리자 페이지</h1>
@@ -174,10 +180,16 @@
 							<i class="fas fa-circle text-primary"></i>20대이하
 						</span> 
 						<span class="mr-2"> 
-							<i class="fas fa-circle text-success"></i>30-40대
+							<i class="fas fa-circle text-success"></i>30대
 						</span> 
 						<span class="mr-2"> 
-							<i class="fas fa-circle text-info"></i>50대이상
+							<i class="fas fa-circle text-info"></i>40대이상
+						</span>
+						<span class="mr-2"> 
+							<i class="fas fa-circle text-warning"></i>50대이상
+						</span>
+						<span class="mr-2"> 
+							<i class="fas fa-circle text-danger"></i>60대이상
 						</span>
 					</div>
 				</div>

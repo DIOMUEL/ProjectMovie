@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kh.projectMovie01.chart">
+
+	<select id="chartPie20" resultType="chartPieVo">
+		select * from tbl_pieChart
+		where label_name = '20대'
+	</select>
+	<select id="chartPie30" resultType="chartPieVo">
+		select * from tbl_pieChart
+		where label_name = '30대'
+	</select>
+	<select id="chartPie40" resultType="chartPieVo">
+		select * from tbl_pieChart
+		where label_name = '40대'
+	</select>
+	<select id="chartPie50" resultType="chartPieVo">
+		select * from tbl_pieChart
+		where label_name = '50대'
+	</select>
+	<select id="chartPie60" resultType="chartPieVo">
+		select * from tbl_pieChart
+		where label_name = '60대'
+	</select>
+</mapper>
