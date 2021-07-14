@@ -8,4 +8,5 @@ public interface MemberDao {
 	public MemberVo loginMember(String user_id, String user_pw);
 	public boolean checkDupId(String user_id);
 	public MemberVo myinfo(String user_id);
+	public void changePw(String user_id, String user_pw);
 }
