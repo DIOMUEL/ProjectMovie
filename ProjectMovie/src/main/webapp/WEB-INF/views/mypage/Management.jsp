@@ -8,14 +8,12 @@
 		$("#alert-success").hide();
 		$("#alert-danger").hide();
 		$("#btnModalOk").click(function() {
-			// 비밀번호 입력란과 비밀번호 확인 입력란의 값이 같은지
-			
+			// 비밀번호 입력란과 비밀번호 확인 입력란의 값이 같은지			
 			var pw_chack1 = $("#pw_chack1").val();
 			var pw_chack2 = $("#pw_chack2").val();
 			
 			if (pw_chack1 == "" || pw_chack2 == "") {
-				$("#alert-danger").hide();
-				
+				$("#alert-danger").hide();				
 				return false;
 			} 
 			else {
@@ -27,8 +25,6 @@
 					return false; // 서버(컨트롤러)로 전송하지 않고 funtion()을 중단
 				} 
 			}
-			
-			
 			
 			$("#btnModalClose").trigger("click");
 			$("#btnManagement").trigger("click");
@@ -47,25 +43,7 @@
 				if (receivedData == "success") {
 					alert('비밀번호가 변경 되었습니다.');
 				}
-			});
-			
-// 			$.ajax({
-// 				"url" : url,
-// 				"headers" : {
-// 					"Content-Type" : "application/json"
-// 				},
-// 				"method" : "post",
-// 				"dataType" : "text",
-// 				"data" : JSON.stringify(sendData),
-// 				"success" : function(receivedData) {
-// 					console.log(receivedData);
-// 					if (receivedData == "success") {
-// 						alert('비밀번호가 변경 되었습니다.');
-// 					}
-// 				}			
-// 			});
-			
-			
+			});	
 		});
 		
 		$("#btn_pw_check").click(function() {
@@ -81,6 +59,8 @@
 				alert("비밀번호가 일치하지 안습니다.")
 			}
 		});
+	
+		var user_email = $("#user_email").val();
 
 	});
 </script>
@@ -216,8 +196,8 @@
 
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
-										<a href="#" class="btn btn-primary" style="color: blue;">회원
-											정보수정</a>
+										<input type="button" class="btn btn-primary" style="color: blue;" value="회원 정보 수정">
+											
 									</div>
 
 								</div>
