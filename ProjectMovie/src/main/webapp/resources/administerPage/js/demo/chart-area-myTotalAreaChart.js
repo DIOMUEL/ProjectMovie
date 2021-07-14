@@ -28,8 +28,8 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart 총수익
-var ctx1 = document.getElementById("myTotalAreaChart");
-var myLineChart1 = new Chart(ctx1, {
+var ctx = document.getElementById("myTotalAreaChart");
+var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],

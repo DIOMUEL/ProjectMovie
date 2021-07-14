@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
-<script type="text/javascript">
-
+<script>
+ $(document).ready(function(){
+	$("#myTotal").click(function(){
+		$(".chart-change").attr("id", "myTotalAreaChart");
+	});
+	$("#myGenre").click(function(){
+		$(".chart-change").attr("id", "myGenreAreaChart");
+	});
+ });
 </script>
 
 <!-- Begin Page Content -->
@@ -125,8 +132,8 @@
 						</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
 							<div class="dropdown-header">Dropdown Header:</div>
-							<a class="dropdown-item" href="#">총 수익</a> 
-							<a class="dropdown-item" href="#">장르별 수익</a>
+							<a class="dropdown-item" id="myTotal">총 수익</a> 
+							<a class="dropdown-item" id="myGenre">장르별 수익</a>
 							<a class="dropdown-item" href="#">영화별 수익</a>
 						</div>
 					</div>
@@ -134,7 +141,7 @@
 				<!-- Card Body -->
 				<div class="card-body">
 					<div class="chart-area">
-						<canvas id="myTotalAreaChart"></canvas>
+						<canvas class="chart-change" id="myTotalAreaChart"></canvas>
 					</div>
 				</div>
 			</div>
@@ -153,8 +160,7 @@
 							aria-haspopup="true" aria-expanded="false"> <i
 							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
 							aria-labelledby="dropdownMenuLink">
 							<div class="dropdown-header">Dropdown Header:</div>
 							<a class="dropdown-item" href="#">Action</a> <a

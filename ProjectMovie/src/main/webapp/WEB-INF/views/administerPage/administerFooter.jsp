@@ -9,7 +9,7 @@
 		<!-- Page level plugins -->
 		<script src="/resources/administerPage/vendor/chart.js/Chart.min.js"></script>
 		<!-- Page level custom scripts -->
-		<script src="/resources/administerPage/js/demo/chart-area-demo.js"></script>
+		<script src="/resources/administerPage/js/demo/chart-area-myTotalAreaChart.js"></script>
 		<script src="/resources/administerPage/js/demo/chart-pie-demo.js"> </script>
 		
 	</body>
