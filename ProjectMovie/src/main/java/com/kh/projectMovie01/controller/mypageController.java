@@ -23,7 +23,7 @@ public class mypageController {
 	@RequestMapping(value="/Management",method=RequestMethod.GET)
 	public String Management(Model model, HttpSession session) throws Exception{
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
-		System.out.println("memberVo:" + memberVo);
+//		System.out.println("memberVo:" + memberVo);
 		model.addAttribute("memberVo",memberVo);
 	
 		return "mypage/Management";	
