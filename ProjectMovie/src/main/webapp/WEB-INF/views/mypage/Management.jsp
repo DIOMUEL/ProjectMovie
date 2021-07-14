@@ -4,16 +4,7 @@
 <script>
 	$(document).ready(function() {
 
-		// 	$("#frmMyPage").submit(function() {
-		// 		var user_id = $("#user_id");
-		// 		console.log(user_id);
-		// 		return false; // 폼전송막기
-		// 	});
-// 		var msg = "${loginVo}";
-// 			if (msg == "success") {
-// 			alert("수정 완료");
-// 			}
-		
+		$("#modifyForm").hide();
 		$("#alert-success").hide();
 		$("#alert-danger").hide();
 		$("#btnModalOk").click(function() {
@@ -26,15 +17,6 @@
 				$("#alert-danger").hide();
 				
 				return false;
-//					if (pw_chack1 == pw_chack2) {
-//						$("#alert-success").show();
-//						$("#alert-danger").hide();
-//						$("#btnModalClose").trigger("click");
-//						$("#btnManagement").trigger("click");
-//					} else {
-//						$("#alert-success").hide();
-//						$("#alert-danger").show();
-//					}
 			} 
 			else {
 				// 두개의 비밀번호 값이 같지 않다면
@@ -84,6 +66,20 @@
 // 			});
 			
 			
+		});
+		
+		$("#btn_pw_check").click(function() {
+			var text_check = $("#text_pw_check").val();
+			var user_pw = "${memberVo.user_pw}";
+			if(text_check == user_pw ) {
+				alert("비밀번호가 일치 합니다")
+				$("#pw_check_from").hide();
+				$("#modifyForm").show();
+			}else if(text_check == ""){
+				alert("비밀 번호을 입력해 주세요")
+			}else{
+				alert("비밀번호가 일치하지 안습니다.")
+			}
 		});
 
 	});
@@ -138,7 +134,7 @@
 <br>
 <br>
 <section class="page-section bg-light">
-	<input type='hidden' name='memberVo' value="" />
+	<input type='hidden' name='memberVo' />
 
 	<div class="container">
 		<div class="contact-head">
@@ -157,10 +153,26 @@
 						</div>
 
 						<form class="form" method="post" id="frmMyPage">
-							<div class="row">
+					<!-- 비밀 번호 확인 창 -->
+						<div class="col-12" id="pw_check_from">
+						
+						<br>
+						<br>
+						<br>
+							<div class="form-group">
+							<p>
+							비밀번호를 입력해 주세요
+							</p>
+								<label for="user_pw_check">비밀번호:</label>
+								<input type="password" id="text_pw_check">
+								<input type="button" id="btn_pw_check"value="비밀번호 확인">
+							</div>
+						</div>
+					<!-- /비밀번호 확인 창 -->
+							<div class="row"  id="modifyForm">
 								<div class="form-group">
 
-									<label for="exampleInputFile"> 사진 </label>* <input type="file"
+									<label for="exampleInputFile"> 사진 </label> <input type="file"
 										class="form-control-file" id="file" name="file" />
 								</div>
 
@@ -173,7 +185,7 @@
 								</div>
 								<div class="col-12">
 									<div class="form-group">
-										<label for="user_pw">패스워드:<span></span></label> <a
+										<label for="user_pw">비밀번호:<span></span></label> <a
 											id="user_pw" href="#modal-container-284734" role="button"
 											class="btn btn-primary" data-toggle="modal">변경 하기</a>
 									</div>
