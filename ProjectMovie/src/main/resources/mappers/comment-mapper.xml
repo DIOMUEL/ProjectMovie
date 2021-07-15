@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.projectMovie01.comment">
+
+	<!-- 댓글 목록 -->
+	<select id="getCommentList" resultType="CommentVo">
+		select * from tbl_comment
+		where b_no = #{b_no}
+		order by c_no desc
+	</select>
+	
+	<!-- 댓글 쓰기 -->
+	<insert id="insertComment">
+		insert into tbl_comment(c_no, b_no, c_content, user_id)
+		values (seq_comment_cno.nextval, #{b_no}, #{c_content}, #{user_id})
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComment">
+		update tbl_comment set
+			c_content = #{c_content}
+		where c_no = #{c_no}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComment">
+		delete from tbl_comment
+		where c_no = #{c_no}
+	</delete>
+	
+
+</mapper>
