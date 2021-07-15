@@ -31,7 +31,7 @@
 					<i class="fas fa-laugh-wink"></i>
 				</div>
 				<div class="sidebar-brand-text mx-3">
-					관리자님 환영합니다. <sup></sup>
+					관리자님<br> 환영합니다.
 				</div>
 			</a>
 			<!-- Nav Item - Dashboard -->
