@@ -3,7 +3,7 @@
 <%@ include file="../include/header.jsp"%>
 <script>
 	$(document).ready(function() {
-
+		$("#btn_modifyOk").hide();
 		$("#modifyForm").hide();
 		$("#alert-success").hide();
 		$("#alert-danger").hide();
@@ -60,7 +60,33 @@
 			}
 		});
 	
-		var user_email = $("#user_email").val();
+		$("#btn_modify").click(function() {
+			
+			$("#user_email").attr("readonly",false);
+			$("#btn_modifyOk").show();			
+			
+		});
+		
+		$("#btn_modifyOk").click(function() {
+			
+			$("#btn_modifyOk").hide();
+			$("#user_email").attr("readonly",true);
+			var user_email = $("#user_email").val();
+			
+			var url = "/mypage/ChangeEmail";
+			var sendData = {
+					"user_email" : user_email
+			};
+			console.log(sendData);
+			
+			$.post(url, sendData, function(receivedData){
+				console.log(receivedData);
+				 if (receivedData == "success") {
+					alert('회원정보가 수정되었습니다.');
+				} 
+			});	 
+		})
+	
 
 	});
 </script>
@@ -182,7 +208,7 @@
 									<div class="form-group">
 										<label for="user_email">이메일:<span></span></label> <input
 											name="user_email" id="user_email" type="email"
-											value="${memberVo.user_email }" readonly>
+											value="${memberVo.user_email}" readonly>
 									</div>
 								</div>
 
@@ -196,10 +222,10 @@
 
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
-										<input type="button" class="btn btn-primary" style="color: blue;" value="회원 정보 수정">
-											
-									</div>
-
+										<input type="button" class="btn btn-primary" id="btn_modify" style="color: blue;" value="회원 정보 수정">				
+								</div>
+									<div class="form-group button">
+										<input type="button" class="btn btn-primary" id="btn_modifyOk"style="color: blue;" value="수정 완료">
 								</div>
 
 							</div>
