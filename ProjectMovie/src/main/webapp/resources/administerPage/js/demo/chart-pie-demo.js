@@ -4,14 +4,20 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
+var label_rate20 = (document.getElementById("label_rate20")).value;
+var label_rate30 = (document.getElementById("label_rate30")).value;
+var label_rate40 = (document.getElementById("label_rate40")).value;
+var label_rate50 = (document.getElementById("label_rate50")).value;
+var label_rate60 = (document.getElementById("label_rate60")).value;
+
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: [ "20대 이하", "30대", "40대", "50대", "60대 이상"],
     datasets: [{
-      data: [55, 30, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: [label_rate20, label_rate30, label_rate40, label_rate50, label_rate60],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#f6c23e', '#e74a3b'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#D7DF01', '#B40404'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },

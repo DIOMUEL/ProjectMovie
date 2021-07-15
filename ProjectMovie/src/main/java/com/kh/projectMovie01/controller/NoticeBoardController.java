@@ -24,19 +24,37 @@ public class NoticeBoardController {
 	
 	@Inject
 	private NoticeBoardService noticeBoardService;
-
-	
-	@RequestMapping(value = "/noticeBoardPage", method = RequestMethod.GET)
-	public String noticeBoardPage(Model model) { 
-		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage();
-		model.addAttribute("list", list);
-		return "board/noticeBoardPage"; 
-	}
 	
 	@RequestMapping(value = "/noticeBoardContentPage", method = RequestMethod.GET)
-	public String noticeBoardContentPage() { 
+	public String noticeBoardContentPage(Model model, int b_no) { 
+		NoticeBoardVo noticeBoardVo = noticeBoardService.noticeBoardContentPage(b_no);
+		model.addAttribute(noticeBoardVo);
 		return "noticeBoard/noticeBoardContentPage"; 
 	}
+	
+	@RequestMapping(value = "/noticeBoardWritePage", method = RequestMethod.GET)
+	public String noticeBoardWirtePage() { 
+		return "noticeBoard/noticeBoardWritePage"; 
+	}
+	
+	@RequestMapping(value = "/noticeBoardWriteRun", method = RequestMethod.POST)
+	public String noticeBoardWirteRun(NoticeBoardVo noticeBoardVo, HttpSession session) {
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		noticeBoardVo.setUser_id(memberVo.getUser_id());
+		noticeBoardService.noticeBoardWirteRun(noticeBoardVo);
+		return "redirect:/board/noticeBoardPage"; 
+	}
+	
+	@RequestMapping(value = "/noticeBoardModifyRun", method = RequestMethod.POST)
+	public String noticeBoardModifyRun(NoticeBoardVo noticeBoardVo) {
+		noticeBoardService.noticeBoardModifyRun(noticeBoardVo);
+		return "redirect:/board/noticeBoardPage?b_no=" + noticeBoardVo.getB_no();
+	}
 
+	@RequestMapping(value = "/noticeBoardDeleteRun", method = RequestMethod.GET)
+	public String noticeBoardDeleteRun(int b_no) {
+		noticeBoardService.noticeBoardDeleteRun(b_no);
+		return "redirect:/board/noticeBoardPage"; 
+	}
 	
 }

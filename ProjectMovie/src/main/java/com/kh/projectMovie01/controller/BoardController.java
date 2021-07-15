@@ -65,6 +65,7 @@ public class BoardController {
 	public String noticeBoardPage(Model model) {
 		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage();
 		model.addAttribute("list", list);
+		System.out.println(list);
 		return "board/noticeBoardPage"; 
 	}
 

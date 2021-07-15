@@ -1,28 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../include/header.jsp"%>
+<script>
+$(document).ready(function(){
+	
+	$("#btnWrite").click(function(e){
+		e.preventDefault();
+		if("${noticeBoardVo.user_id}" == ""){
+			alert("로그인을 확인해주세요");
+			location.href = "/board/loginPage";
+		}else{
+			location.href = "/noticeBoard/noticeBoardWritePage";
+		}
+		
+	});
+	
+});
+</script>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
+<section class="page-section bg-light">
 <title>고객게시판</title>
-
 <div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-3">
 				</div>
 				<div class="col-md-6">
-				
-				<!--검색창 -->
+<!--검색창 -->
 <div class="row">
 	<div class="col-md-12">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-
 								<div class="row">
 									<div class="col-md-12">
 										<div class="dropdown">
@@ -53,7 +67,6 @@
 	</div>
 </div>
 <!--//검색창 -->
-
 <!--테이블 -->
 <div class="container">
 	<div class="row">
@@ -69,13 +82,13 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="boardVo" items="${list}">
+			<c:forEach var="noticeBoardVo" items="${list}">
 				<tr>
-					<td>${boardVo.b_no}</td>
-					<td><a class="title" href="/noticeBoard/noticeBoardContentPage">${boardVo.b_title}</a></td>
-					<td>${boardVo.user_id}</td>
-					<td>${boardVo.b_regdate}</td>
-					<td>${boardVo.b_viewcnt}</td>
+					<td>${noticeBoardVo.b_no}</td>
+					<td><a class="title" href="/noticeBoard/noticeBoardContentPage?b_no=${noticeBoardVo.b_no}">${noticeBoardVo.b_title}</a></td>
+					<td>${noticeBoardVo.user_id}</td>
+					<td>${noticeBoardVo.b_regdate}</td>
+					<td>${noticeBoardVo.b_viewcnt}</td>
 				</tr>
 			</c:forEach>
 			</tbody>
@@ -83,7 +96,9 @@
 	</div>
 </div>
 <!--//테이블 -->
-
+<div>
+<a class="btn btn-primary" id="btnWrite" href="/noticeBoard/noticeBoardWritePage">글쓰기</a>
+</div>
 <!--페이징 -->
 <div class="row">
 	<div class="col-md-12">
@@ -102,13 +117,13 @@
 	</div>
 </div>
 <!--//페이징 -->
-				
 				</div>
 				<div class="col-md-3">
 				</div>
 			</div>
 		</div>
 	</div>
+</section>
 <br>
 <br>
 <br>

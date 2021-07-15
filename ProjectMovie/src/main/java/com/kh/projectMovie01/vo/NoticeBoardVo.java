@@ -83,12 +83,14 @@ public class NoticeBoardVo {
 	public void setRe_level(int re_level) {
 		this.re_level = re_level;
 	}
+	
 	@Override
 	public String toString() {
-		return "BoardVo [b_no=" + b_no + ", b_title=" + b_title + ", b_content=" + b_content + ", user_id=" + user_id
-				+ ", b_regdate=" + b_regdate + ", b_viewcnt=" + b_viewcnt + ", re_group=" + re_group + ", re_seq="
-				+ re_seq + ", re_level=" + re_level + "]";
+		return "NoticeBoardVo [b_no=" + b_no + ", b_title=" + b_title + ", b_content=" + b_content + ", user_id="
+				+ user_id + ", b_regdate=" + b_regdate + ", b_viewcnt=" + b_viewcnt + ", re_group=" + re_group
+				+ ", re_seq=" + re_seq + ", re_level=" + re_level + "]";
 	}
+	
 	
 	
 }
