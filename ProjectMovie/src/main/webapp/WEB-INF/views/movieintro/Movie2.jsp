@@ -29,14 +29,14 @@
 						src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." />
 				</div>
 				<div class="col-md-6">
-					<h1 class="display-5 fw-bolder">분노의 질주 (더 얼티메이트)</h1>
+					<h1 class="display-5 fw-bolder">미드나이트</h1>
 					<div class="fs-5 mb-5">
-						<span>액션</span> <span>미국</span>
+						<span>스릴러</span> <span>한국</span>
 					</div>
-					<p class="lead">도미닉(빈 디젤)은 자신과 가장 가까웠던 형제 제이콥(존 시나)이 사이퍼(샤를리즈 테론)와 
-					연합해 전 세계를 위기로 빠트릴 위험천만한 계획을 세운다는 사실을 알게 되고, 이를 막기 위해 다시 한 번 패밀리들을 소환한다. 
-					가장 가까운 자가 한순간, 가장 위험한 적이 된 상황 도미닉과 패밀리들은 이에 반격할 놀라운 컴백과 작전을 세우고 
-					지상도, 상공도, 국경도 경계가 없는 불가능한 대결이 시작되는데…</p>
+					<p class="lead">청각장애를 가진 '경미'는 귀가하던 길에 피를 흘리며 쓰러져 있는 '소정'을 목격하고, 
+					그녀를 도와주려다 연쇄살인마 '도식'의 새로운 타겟이 된다. 살고 싶다는 의지로 미친듯이 도망치는 '경미' 
+					하지만 살인마의 발소리조차 들을 수 없고, '도식'은 또 다른 얼굴로 나타나 경미를 위협하는데...
+					한밤중, 서울 한복판에서 펼쳐지는 연쇄살인마와 그의 타겟이 된 '경미'의 멈출 수 없는 추격전! 극강의 음소거 추격 스릴러가 온다!</p>
 					<div class="d-flex">
 						<button class="btn btn-outline-dark flex-shrink-0" type="button" >
 							<i class="bi-cart-fill me-1"></i>예매하기</button>

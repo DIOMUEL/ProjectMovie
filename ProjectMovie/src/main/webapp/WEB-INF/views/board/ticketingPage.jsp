@@ -37,7 +37,6 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">분노의 질주 (더 얼티메이트)</h2>
-                        <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
                         </a>
@@ -45,7 +44,6 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">미드나이트</h2>
-                        <p>영화2</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
                         </a>
@@ -53,7 +51,6 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">컨저링3</h2>
-                        <p>영화3</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
                         </a>
@@ -61,7 +58,6 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">블랙 위도우</h2>
-                        <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg" alt="..." />
                         </a>
@@ -69,7 +65,6 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">시카다 3301</h2>
-                        <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg" alt="..." />
                         </a>
@@ -77,7 +72,6 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
                         <h2 class="h4 fw-bolder">바르다가 사랑한 얼굴들</h2>
-                        <p>영화1</p>
                         <a class="text-decoration-none" href="#!">
                         <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg" alt="..." />
                         </a>
@@ -234,7 +228,6 @@
         <section class="bg-light py-5">
             <div class="container px-5 my-5 px-5">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bolder">예매자 개인 정보 입력</h2>
                     <p class="lead mb-0"></p>
                 </div>
                 <div class="row gx-5 justify-content-center">

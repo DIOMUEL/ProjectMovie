@@ -29,14 +29,15 @@
 						src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." />
 				</div>
 				<div class="col-md-6">
-					<h1 class="display-5 fw-bolder">분노의 질주 (더 얼티메이트)</h1>
+					<h1 class="display-5 fw-bolder">블랙 위도우</h1>
 					<div class="fs-5 mb-5">
-						<span>액션</span> <span>미국</span>
+						<span>액션, 모험, SF</span> <span>미국</span>
 					</div>
-					<p class="lead">도미닉(빈 디젤)은 자신과 가장 가까웠던 형제 제이콥(존 시나)이 사이퍼(샤를리즈 테론)와 
-					연합해 전 세계를 위기로 빠트릴 위험천만한 계획을 세운다는 사실을 알게 되고, 이를 막기 위해 다시 한 번 패밀리들을 소환한다. 
-					가장 가까운 자가 한순간, 가장 위험한 적이 된 상황 도미닉과 패밀리들은 이에 반격할 놀라운 컴백과 작전을 세우고 
-					지상도, 상공도, 국경도 경계가 없는 불가능한 대결이 시작되는데…</p>
+					<p class="lead">어벤져스의 히어로 블랙 위도우, ‘나타샤 로마노프’ (스칼렛 요한슨)는
+					 자신의 과거와 연결된 레드룸의 거대한 음모와 실체를 깨닫게 된다. 상대의 능력을 복제하는 빌런 ‘태스크마스터’와
+					 새로운 위도우들의 위협에 맞서 목숨을 건 반격을 시작하는 ‘나타샤’는 스파이로 활약했던 자신의 과거 뿐 아니라,
+					 어벤져스가 되기 전 함께했던 동료들을 마주해야만 하는데… 폭발하는 리얼 액션 카타르시스! 
+					 MCU의 새로운 시대를 시작할 첫 액션 블록버스터를 만끽하라!</p>
 					<div class="d-flex">
 						<button class="btn btn-outline-dark flex-shrink-0" type="button" >
 							<i class="bi-cart-fill me-1"></i>예매하기</button>
