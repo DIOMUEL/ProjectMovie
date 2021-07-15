@@ -1,15 +1,19 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-		pageEncoding="UTF-8"%>
-	<%@ include file="administerHeader.jsp" %>
-	<!-- Begin Page Content -->
-	<div class="container-fluid">
-		<!-- Page Heading -->
-	<div
-		class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-		<a href="#"
-			class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-			class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="administerHeader.jsp" %>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<input type="hidden" id="label_rate20" value="${label_rate20}"/>
+	<input type="hidden" id="label_rate30" value="${label_rate30}"/>
+	<input type="hidden" id="label_rate40" value="${label_rate40}"/>
+	<input type="hidden" id="label_rate50" value="${label_rate50}"/>
+	<input type="hidden" id="label_rate60" value="${label_rate60}"/>
+	<!-- Page Heading -->
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 class="h3 mb-0 text-gray-800">관리자 페이지</h1>
+		<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+			<i class="fas fa-download fa-sm text-white-50"></i> 리포트 생성하기
+		</a>
 	</div>
 	<!-- Content Row -->
 	<div class="row">
@@ -58,16 +62,16 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
 							<div
-								class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+								class="text-xs font-weight-bold text-info text-uppercase mb-1">오늘 할일
 							</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
-									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">70%</div>
 								</div>
 								<div class="col">
 									<div class="progress progress-sm mr-2">
 										<div class="progress-bar bg-info" role="progressbar"
-											style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+											style="width: 70%" aria-valuenow="70" aria-valuemin="0"
 											aria-valuemax="100"></div>
 									</div>
 								</div>
@@ -109,30 +113,32 @@
 		<div class="col-xl-8 col-lg-7">
 			<div class="card shadow mb-4">
 				<!-- Card Header - Dropdown -->
-				<div
-					class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 					<h6 class="m-0 font-weight-bold text-primary">영화 배급및 수요량</h6>
 					<div class="dropdown no-arrow">
-						<a class="dropdown-toggle" href="#" role="button"
-							id="dropdownMenuLink" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"> <i
-							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+						<a class="dropdown-toggle" href="#" role="button"id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-							aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">Dropdown Header:</div>
-							<a class="dropdown-item" href="#">Action</a> <a
-								class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+							<div class="dropdown-header">수익별 태그:</div>
+							<a class="dropdown-item" id="myTotal">총 수익</a> 
+							<a class="dropdown-item" id="myGenre">장르별 수익</a>
+							<a class="dropdown-item" id="myMovie">영화별 수익</a>
+							<a class="dropdown-item" id="myMonth">달별 수익</a>
+							<a class="dropdown-item" id="myWeek">주별 수익</a>
+							<a class="dropdown-item" id="myDays">일별 수익</a>
 						</div>
 					</div>
 				</div>
 				<!-- Card Body -->
 				<div class="card-body">
 					<div class="chart-area">
-						<canvas id="myAreaChart"></canvas>
+						<canvas class="chart-change" id="myTotalAreaChart"></canvas>
+						<canvas class="chart-change" id="myGenreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMovieAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMonthAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myWeekAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myDaysAreaChart" style="display:none;"></canvas>
 					</div>
 				</div>
 			</div>
@@ -151,8 +157,7 @@
 							aria-haspopup="true" aria-expanded="false"> <i
 							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
 							aria-labelledby="dropdownMenuLink">
 							<div class="dropdown-header">Dropdown Header:</div>
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -172,11 +177,50 @@
 							<i class="fas fa-circle text-primary"></i>20대이하
 						</span> 
 						<span class="mr-2"> 
-							<i class="fas fa-circle text-success"></i>30-40대
+							<i class="fas fa-circle text-success"></i>30대
 						</span> 
 						<span class="mr-2"> 
-							<i class="fas fa-circle text-info"></i>50대이상
+							<i class="fas fa-circle text-info"></i>40대
 						</span>
+						<span class="mr-2"> 
+							<i class="fas fa-circle text-warning"></i>50대
+						</span>
+						<span class="mr-2"> 
+							<i class="fas fa-circle text-danger"></i>60대이상
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-8 col-lg-7">
+			<div class="card shadow mb-4">
+				<!-- Card Header - Dropdown -->
+				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+					<h6 class="m-0 font-weight-bold text-primary">매점 배급 및 수요량</h6>
+					<div class="dropdown no-arrow">
+						<a class="dropdown-toggle" href="#" role="button"id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+							<div class="dropdown-header">수익별 태그:</div>
+							<a class="dropdown-item" id="myTotal_store">총 수익</a> 
+							<a class="dropdown-item" id="myDrink_store">음료별 수익</a>
+							<a class="dropdown-item" id="myFood_store">음식별 수익</a>
+							<a class="dropdown-item" id="myMonth_store">달별 수익</a>
+							<a class="dropdown-item" id="myWeek_store">주별 수익</a>
+							<a class="dropdown-item" id="myDays_store">일별 수익</a>
+						</div>
+					</div>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body">
+					<div class="chart-area">
+						<canvas class="chart-change" id="myTotalStoreAreaChart"></canvas>
+						<canvas class="chart-change" id="myDrinkStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myFoodStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMonthStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myWeekStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myDaysStoreAreaChart" style="display:none;"></canvas>
 					</div>
 				</div>
 			</div>
@@ -303,5 +347,6 @@
 				</div>
 			</div>
 		</div>
-	
-	<%@ include file="administerFooter.jsp" %>
+	</div>
+</div>
+<%@ include file="administerFooter.jsp" %>
