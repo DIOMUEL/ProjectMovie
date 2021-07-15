@@ -16,6 +16,7 @@ import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.NoticeBoardService;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.NoticeBoardVo;
+import com.kh.projectMovie01.vo.PagingDto;
 
 @Controller
 @RequestMapping(value="/board")
@@ -69,10 +70,13 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/noticeBoardPage", method = RequestMethod.GET)
-	public String noticeBoardPage(Model model) {
-		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage();
+	public String noticeBoardPage(Model model, PagingDto pagingDto) {
+		int count = noticeBoardService.getCount(pagingDto);
+		pagingDto.setCount(count);
+		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage(pagingDto);
 		model.addAttribute("list", list);
-		System.out.println(list);
+		model.addAttribute("pagingDto", pagingDto);
+		//System.out.println(list);
 		return "board/noticeBoardPage"; 
 	}
 

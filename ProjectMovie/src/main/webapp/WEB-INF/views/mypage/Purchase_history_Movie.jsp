@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+<script>
+
+</script>
 <br>
 <br>
 <br>
@@ -16,7 +19,7 @@
 
 							<div class="jumbotron"
 								style="background-color: rgba(0, 255, 255, 0.8)">
-
+		
 								<h2>영화예매 내역</h2>
 								<br>
 								<!-- Nav tabs -->
@@ -36,12 +39,12 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="messageVo" items="${list}">
+												<c:forEach var="BuyMovieVo" items="${list}">
 													<tr>
-														<td>${messageVo.msg_no}</td>
-														<td></td>
-														<td>${messageVo.msg_sender}</td>
-														<td>${messageVo.msg_senddate}</td>
+														<td>${BuyMovieVo.bm_no}</td>
+														<td>${BuyMovieVo.bm_no}</td>
+														<td>${BuyMovieVo.bm_no}</td>
+														<td>${BuyMovieVo.bm_no}</td>
 														<td></td>
 													</tr>
 												</c:forEach>
