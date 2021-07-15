@@ -28,25 +28,21 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart 영화장르별수익
-var ctx = document.getElementById("myMovieAreaChart");
+var ctx = document.getElementById("myDrinkStoreAreaChart");
 var myBarChart = new Chart(ctx, {
-	  type: 'bar',
-	  data: {
-	    labels: ["영화1", "영화2", "영화3", "영화4", "영화5", "영화6"],
-	    datasets: [{
-	      label: "수익",
-	      backgroundColor: "#4e73df",
-	      hoverBackgroundColor: "#2e59d9",
-	      borderColor: "#4e73df",
-	      maxBarThickness: 25,
-	      data: [6251, 14984, 4251, 7841, 9821, 8984],
-	    }],
-	  },
-	  options: {
-		  title: {
-		      display: true,
-		      text: '영화별 영화 수익'
-		  },
+  type: 'bar',
+  data: {
+    labels: ["드라마", "판타지", "로맨스", "미스터리", "SF", "액션", "애로", "다큐", "스릴러", "코미디", "애니", "컬트"],
+    datasets: [{
+      label: "수익",
+      backgroundColor: "#4e73df",
+      hoverBackgroundColor: "#2e59d9",
+      borderColor: "#4e73df",
+      maxBarThickness: 30,
+      data: [40000, 25000, 30000, 20000, 25000, 15000, 20000, 10000, 15000, 5000, 10000, 0],
+    }],
+  },
+  options: {
 	    maintainAspectRatio: false,
 	    layout: {
 	      padding: {
@@ -66,13 +62,11 @@ var myBarChart = new Chart(ctx, {
 	          drawBorder: false
 	        },
 	        ticks: {
-	          maxTicksLimit: 6
+	          maxTicksLimit: 12
 	        }
 	      }],
 	      yAxes: [{
 	        ticks: {
-	          min: 0,
-	          max: 15000,
 	          maxTicksLimit: 5,
 	          padding: 10,
 	          // Include a dollar sign in the ticks

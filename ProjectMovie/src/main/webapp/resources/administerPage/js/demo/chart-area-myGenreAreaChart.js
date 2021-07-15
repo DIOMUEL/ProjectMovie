@@ -38,10 +38,15 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
+      maxBarThickness: 30,
       data: [40000, 25000, 30000, 20000, 25000, 15000, 20000, 10000, 15000, 5000, 10000, 0],
     }],
   },
   options: {
+	  title: {
+	      display: true,
+	      text: '장르별 영화 수익'
+	  },
 	    maintainAspectRatio: false,
 	    layout: {
 	      padding: {
@@ -62,8 +67,7 @@ var myBarChart = new Chart(ctx, {
 	        },
 	        ticks: {
 	          maxTicksLimit: 12
-	        },
-	        maxBarThickness: 30,
+	        }
 	      }],
 	      yAxes: [{
 	        ticks: {

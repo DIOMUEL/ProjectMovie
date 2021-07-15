@@ -50,6 +50,10 @@ var myLineChart = new Chart(ctx, {
     }],
   },
   options: {
+	  title: {
+	      display: true,
+	      text: '월별 총 수익'
+	  },
     maintainAspectRatio: false,
     layout: {
       padding: {
@@ -70,6 +74,10 @@ var myLineChart = new Chart(ctx, {
         },
         ticks: {
           maxTicksLimit: 12
+        },
+        scaleLabel: {
+            display: true,
+            labelString: '월 (매점+영화)'
         }
       }],
       yAxes: [{
@@ -87,6 +95,10 @@ var myLineChart = new Chart(ctx, {
           drawBorder: false,
           borderDash: [2],
           zeroLineBorderDash: [2]
+        },
+        scaleLabel: {
+            display: true,
+            labelString: '수익'
         }
       }],
     },

@@ -28,7 +28,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart 영화장르별수익
-var ctx = document.getElementById("myMovieAreaChart");
+var ctx = document.getElementById("myFoodStoreAreaChart");
 var myBarChart = new Chart(ctx, {
 	  type: 'bar',
 	  data: {
@@ -43,10 +43,6 @@ var myBarChart = new Chart(ctx, {
 	    }],
 	  },
 	  options: {
-		  title: {
-		      display: true,
-		      text: '영화별 영화 수익'
-		  },
 	    maintainAspectRatio: false,
 	    layout: {
 	      padding: {

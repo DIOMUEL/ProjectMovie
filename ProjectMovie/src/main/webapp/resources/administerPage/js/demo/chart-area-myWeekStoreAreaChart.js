@@ -28,7 +28,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart 월별 각 영화별 수익
-var ctx = document.getElementById("myWeekAreaChart");
+var ctx = document.getElementById("myWeekStoreAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {

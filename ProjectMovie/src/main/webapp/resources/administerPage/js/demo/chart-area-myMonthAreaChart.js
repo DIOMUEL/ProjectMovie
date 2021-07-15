@@ -131,7 +131,7 @@ var myLineChart = new Chart(ctx, {
       }],
     },
     legend: {
-      display: false
+      display: true
     },
     tooltips: {
       backgroundColor: "rgb(255,255,255)",

@@ -15,9 +15,16 @@
 		<script src="/resources/administerPage/js/demo/chart-area-myMonthAreaChart.js"></script>
 		<script src="/resources/administerPage/js/demo/chart-area-myWeekAreaChart.js"></script>
 		<script src="/resources/administerPage/js/demo/chart-area-myDaysAreaChart.js"></script>
-		<script src="/resources/administerPage/js/demo/chart-pie-demo.js"> </script>	
+		<script src="/resources/administerPage/js/demo/chart-pie-demo.js"> </script>
+		<script src="/resources/administerPage/js/demo/chart-area-myTotalStoreAreaChart.js"></script>
+		<script src="/resources/administerPage/js/demo/chart-area-myDrinkStoreAreaChart.js"></script>
+		<script src="/resources/administerPage/js/demo/chart-area-myFoodStoreAreaChart.js"></script>
+		<script src="/resources/administerPage/js/demo/chart-area-myMonthStoreAreaChart.js"></script>
+		<script src="/resources/administerPage/js/demo/chart-area-myWeekStoreAreaChart.js"></script>
+		<script src="/resources/administerPage/js/demo/chart-area-myDaysStoreAreaChart.js"></script>	
 		<script>
 			$(document).ready(function(){
+				//영화관련 그래프
 				$("#myTotal").click(function(){
 					$("#myTotalAreaChart").attr("style", "");
 					$("#myGenreAreaChart").attr("style", "display:none");
@@ -65,6 +72,55 @@
 					$("#myMonthAreaChart").attr("style", "display:none");
 					$("#myWeekAreaChart").attr("style", "display:none");
 					$("#myDaysAreaChart").attr("style", "");
+				});
+				//매점관련 그래프
+				$("#myTotal_store").click(function(){
+					$("#myTotalStoreAreaChart").attr("style", "");
+					$("#myDrinkStoreAreaChart").attr("style", "display:none");
+					$("#myFoodStoreAreaChart").attr("style", "display:none");
+					$("#myMonthStoreAreaChart").attr("style", "display:none");
+					$("#myWeekStoreAreaChart").attr("style", "display:none");
+					$("#myDaysStoreAreaChart").attr("style", "display:none");
+				});
+				$("#myDrink_store").click(function(){
+					$("#myTotalStoreAreaChart").attr("style", "display:none");	
+					$("#myDrinkStoreAreaChart").attr("style", "");
+					$("#myFoodStoreAreaChart").attr("style", "display:none");
+					$("#myMonthStoreAreaChart").attr("style", "display:none");
+					$("#myWeekStoreAreaChart").attr("style", "display:none");
+					$("#myDaysStoreAreaChart").attr("style", "display:none");
+				});
+				$("#myFood_store").click(function(){
+					$("#myTotalStoreAreaChart").attr("style", "display:none");	
+					$("#myDrinkStoreAreaChart").attr("style", "display:none");
+					$("#myFoodStoreAreaChart").attr("style", "");
+					$("#myMonthStoreAreaChart").attr("style", "display:none");
+					$("#myWeekStoreAreaChart").attr("style", "display:none");
+					$("#myDaysStoreAreaChart").attr("style", "display:none");
+				});
+				$("#myMonth_store").click(function(){
+					$("#myTotalStoreAreaChart").attr("style", "display:none");	
+					$("#myDrinkStoreAreaChart").attr("style", "display:none");
+					$("#myFoodStoreAreaChart").attr("style", "display:none");
+					$("#myMonthStoreAreaChart").attr("style", "");
+					$("#myWeekStoreAreaChart").attr("style", "display:none");
+					$("#myDaysStoreAreaChart").attr("style", "display:none");
+				});
+				$("#myWeek_store").click(function(){
+					$("#myTotalStoreAreaChart").attr("style", "display:none");	
+					$("#myDrinkStoreAreaChart").attr("style", "display:none");
+					$("#myFoodStoreAreaChart").attr("style", "display:none");
+					$("#myMonthStoreAreaChart").attr("style", "display:none");
+					$("#myWeekStoreAreaChart").attr("style", "");
+					$("#myDaysStoreAreaChart").attr("style", "display:none");
+				});
+				$("#myDays_store").click(function(){
+					$("#myTotalStoreAreaChart").attr("style", "display:none");	
+					$("#myDrinkStoreAreaChart").attr("style", "display:none");
+					$("#myFoodStoreAreaChart").attr("style", "display:none");
+					$("#myMonthStoreAreaChart").attr("style", "display:none");
+					$("#myWeekStoreAreaChart").attr("style", "display:none");
+					$("#myDaysStoreAreaChart").attr("style", "");
 				});
 			});
 		</script>

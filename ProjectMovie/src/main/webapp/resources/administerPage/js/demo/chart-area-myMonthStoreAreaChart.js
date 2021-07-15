@@ -28,11 +28,11 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart 월별 각 영화별 수익
-var ctx = document.getElementById("myWeekAreaChart");
+var ctx = document.getElementById("myMonthStoreAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["1주", "2주", "3주", "4주", "5주"],
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [{
     	label: "영화1",
 	    lineTension: 0.3,
@@ -46,7 +46,7 @@ var myLineChart = new Chart(ctx, {
 	    pointHoverBorderColor: "rgba(78, 115, 223, 1)",
 	    pointHitRadius: 10,
 	    pointBorderWidth: 2,
-	    data: [40000, 25000, 30000, 20000, 25000],  
+	    data: [40000, 25000, 30000, 20000, 25000, 15000, 20000, 10000, 15000, 5000, 10000, 0],  
     },{
 	    label: "영화2",
 	    lineTension: 0.3,
@@ -60,7 +60,7 @@ var myLineChart = new Chart(ctx, {
 	    pointHoverBorderColor: "rgba(223, 115, 78, 1)",
 	    pointHitRadius: 10,
 	    pointBorderWidth: 2,
-	    data: [0, 15000, 25000, 10000, 30000],  
+	    data: [0, 15000, 25000, 10000, 30000, 40000, 20000, 35000, 30000, 15000, 5000, 20000],  
     },{
         label: "영화3",
         lineTension: 0.3,
@@ -74,13 +74,13 @@ var myLineChart = new Chart(ctx, {
         pointHoverBorderColor: "rgba(115, 115, 115, 1)",
         pointHitRadius: 10,
         pointBorderWidth: 2,
-        data: [40000, 25000, 25000, 20000, 0],  
+        data: [40000, 25000, 25000, 20000, 30000, 5000, 10000, 15000, 18000, 35000, 19000, 40000],  
     }],
   },
   options: {
 	  title: {
 	      display: true,
-	      text: '0월 주별 영화 수익'
+	      text: '월별 영화 수익'
 	  },
     maintainAspectRatio: false,
     layout: {
@@ -105,7 +105,7 @@ var myLineChart = new Chart(ctx, {
         },
         scaleLabel: {
             display: true,
-            labelString: '주'
+            labelString: '월'
         }
       }],
       yAxes: [{
