@@ -44,10 +44,17 @@ public class BoardController {
 		String page = null;
 		if(memberVo != null) {
 			String user_name = memberVo.getUser_name();
-			session.setAttribute("loginVo", memberVo);
-			rttr.addFlashAttribute("user_name", user_name);
-			msg = "success";
-			page = "redirect:/board/mainPage";
+			if(user_name.equals("admin")) {
+				session.setAttribute("loginVo", memberVo);
+				rttr.addFlashAttribute("user_name", user_name);
+				msg = "success";
+				page = "redirect:/administerPage/administerMainPage";
+			}else if(!user_name.equals("admin")) {
+				session.setAttribute("loginVo", memberVo);
+				rttr.addFlashAttribute("user_name", user_name);
+				msg = "success";
+				page = "redirect:/board/mainPage";
+			}
 		}else if (memberVo == null) {
 			msg = "fail";
 			page = "redirect:/board/loginPage";

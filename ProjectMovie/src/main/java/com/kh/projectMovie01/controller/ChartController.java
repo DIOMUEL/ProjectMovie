@@ -12,14 +12,15 @@ import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 
 @Controller
-@RequestMapping(value="/chart")
+@RequestMapping(value="/administerPage")
 public class ChartController {
 	
 	@Inject
 	private ChartService chartService;
-	@RequestMapping(value="/ChartPie", method=RequestMethod.GET)
-	public String ChartPie(HttpSession session, Model model) {
-		//20대 사용율 퍼센트/나이
+	
+	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
+	public String administerMainPage(HttpSession session, Model model) {
+		//원형 그래프 차트 원료
 		ChartPieVo chartPieVo = chartService.chartPie20();
 		int label_rate20 = chartPieVo.getLabel_rate();
 		ChartPieVo chartPieVo1 = chartService.chartPie30();
