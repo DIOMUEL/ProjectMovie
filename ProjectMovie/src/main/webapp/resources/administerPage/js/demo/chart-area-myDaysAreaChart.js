@@ -27,29 +27,61 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
-// Area Chart 총수익(음식+영화표)
-var ctx = document.getElementById("myTotalAreaChart");
+// Area Chart 일별 각 영화별 수익
+var ctx = document.getElementById("myDaysAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [{
-      label: "총 수익",
-      lineTension: 0.3,
-      backgroundColor: "rgba(78, 115, 223, 0.05)",
-      borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 3,
-      pointBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointBorderColor: "rgba(78, 115, 223, 1)",
-      pointHoverRadius: 3,
-      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-      pointHitRadius: 10,
-      pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+    	label: "영화1",
+	    lineTension: 0.3,
+	    backgroundColor: "rgba(78, 115, 223, 0.05)",
+	    borderColor: "rgba(78, 115, 223, 1)",
+	    pointRadius: 3,
+	    pointBackgroundColor: "rgba(78, 115, 223, 1)",
+	    pointBorderColor: "rgba(78, 115, 223, 1)",
+	    pointHoverRadius: 3,
+	    pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+	    pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+	    pointHitRadius: 10,
+	    pointBorderWidth: 2,
+	    data: [40000, 25000, 30000, 20000, 25000, 15000, 20000, 10000, 15000, 5000, 10000, 0],  
+    },{
+	    label: "영화2",
+	    lineTension: 0.3,
+	    backgroundColor: "rgba(223, 115, 78, 0.05)",
+	    borderColor: "rgba(223, 115, 78, 1)",
+	    pointRadius: 3,
+	    pointBackgroundColor: "rgba(223, 115, 78, 1)",
+	    pointBorderColor: "rgba(223, 115, 78, 1)",
+	    pointHoverRadius: 3,
+	    pointHoverBackgroundColor: "rgba(223, 115, 78, 1)",
+	    pointHoverBorderColor: "rgba(223, 115, 78, 1)",
+	    pointHitRadius: 10,
+	    pointBorderWidth: 2,
+	    data: [0, 15000, 25000, 10000, 30000, 40000, 20000, 35000, 30000, 15000, 5000, 20000],  
+    },{
+        label: "영화3",
+        lineTension: 0.3,
+        backgroundColor: "rgba(115, 115, 115, 0.05)",
+        borderColor: "rgba(115, 115, 115, 1)",
+        pointRadius: 3,
+        pointBackgroundColor: "rgba(115, 115, 115, 1)",
+        pointBorderColor: "rgba(115, 115, 115, 1)",
+        pointHoverRadius: 3,
+        pointHoverBackgroundColor: "rgba(115, 115, 115, 1)",
+        pointHoverBorderColor: "rgba(115, 115, 115, 1)",
+        pointHitRadius: 10,
+        pointBorderWidth: 2,
+        data: [40000, 25000, 25000, 20000, 30000, 5000, 10000, 15000, 18000, 35000, 19000, 40000],  
     }],
   },
   options: {
+	  title: {
+	      display: true,
+	      text: '월별 영화 수익'
+	  },
     maintainAspectRatio: false,
     layout: {
       padding: {
@@ -70,6 +102,10 @@ var myLineChart = new Chart(ctx, {
         },
         ticks: {
           maxTicksLimit: 12
+        },
+        scaleLabel: {
+            display: true,
+            labelString: '월'
         }
       }],
       yAxes: [{
@@ -87,6 +123,10 @@ var myLineChart = new Chart(ctx, {
           drawBorder: false,
           borderDash: [2],
           zeroLineBorderDash: [2]
+        },
+        scaleLabel: {
+            display: true,
+            labelString: '수익'
         }
       }],
     },

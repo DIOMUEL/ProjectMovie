@@ -1,24 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
-<script>
- $(document).ready(function(){
-	$("#myTotal").click(function(){
-		$(".chart-change").attr("id", "myTotalAreaChart");
-	});
-	$("#myGenre").click(function(){
-		$(".chart-change").attr("id", "myGenreAreaChart");
-	});
- });
-</script>
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<input type="hidden" id="label_rate20" value="${label_rate20}"/>
-<input type="hidden" id="label_rate30" value="${label_rate30}"/>
-<input type="hidden" id="label_rate40" value="${label_rate40}"/>
-<input type="hidden" id="label_rate50" value="${label_rate50}"/>
-<input type="hidden" id="label_rate60" value="${label_rate60}"/>
+	<input type="hidden" id="label_rate20" value="${label_rate20}"/>
+	<input type="hidden" id="label_rate30" value="${label_rate30}"/>
+	<input type="hidden" id="label_rate40" value="${label_rate40}"/>
+	<input type="hidden" id="label_rate50" value="${label_rate50}"/>
+	<input type="hidden" id="label_rate60" value="${label_rate60}"/>
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">관리자 페이지</h1>
@@ -131,10 +120,13 @@
 							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">Dropdown Header:</div>
+							<div class="dropdown-header">수익별 태그:</div>
 							<a class="dropdown-item" id="myTotal">총 수익</a> 
 							<a class="dropdown-item" id="myGenre">장르별 수익</a>
-							<a class="dropdown-item" href="#">영화별 수익</a>
+							<a class="dropdown-item" id="myMovie">영화별 수익</a>
+							<a class="dropdown-item" id="myMonth">달별 수익</a>
+							<a class="dropdown-item" id="myWeek">주별 수익</a>
+							<a class="dropdown-item" id="myDays">일별 수익</a>
 						</div>
 					</div>
 				</div>
@@ -142,6 +134,11 @@
 				<div class="card-body">
 					<div class="chart-area">
 						<canvas class="chart-change" id="myTotalAreaChart"></canvas>
+						<canvas class="chart-change" id="myGenreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMovieAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMonthAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myWeekAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myDaysAreaChart" style="display:none;"></canvas>
 					</div>
 				</div>
 			</div>
