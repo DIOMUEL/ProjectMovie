@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
-<script type="text/javascript">
-
-</script>
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<input type="hidden" id="label_rate20" value="${label_rate20}"/>
-<input type="hidden" id="label_rate30" value="${label_rate30}"/>
-<input type="hidden" id="label_rate40" value="${label_rate40}"/>
-<input type="hidden" id="label_rate50" value="${label_rate50}"/>
-<input type="hidden" id="label_rate60" value="${label_rate60}"/>
+	<input type="hidden" id="label_rate20" value="${label_rate20}"/>
+	<input type="hidden" id="label_rate30" value="${label_rate30}"/>
+	<input type="hidden" id="label_rate40" value="${label_rate40}"/>
+	<input type="hidden" id="label_rate50" value="${label_rate50}"/>
+	<input type="hidden" id="label_rate60" value="${label_rate60}"/>
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">관리자 페이지</h1>
@@ -124,17 +120,25 @@
 							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">Dropdown Header:</div>
-							<a class="dropdown-item" href="#">총 수익</a> 
-							<a class="dropdown-item" href="#">장르별 수익</a>
-							<a class="dropdown-item" href="#">영화별 수익</a>
+							<div class="dropdown-header">수익별 태그:</div>
+							<a class="dropdown-item" id="myTotal">총 수익</a> 
+							<a class="dropdown-item" id="myGenre">장르별 수익</a>
+							<a class="dropdown-item" id="myMovie">영화별 수익</a>
+							<a class="dropdown-item" id="myMonth">달별 수익</a>
+							<a class="dropdown-item" id="myWeek">주별 수익</a>
+							<a class="dropdown-item" id="myDays">일별 수익</a>
 						</div>
 					</div>
 				</div>
 				<!-- Card Body -->
 				<div class="card-body">
 					<div class="chart-area">
-						<canvas id="myTotalAreaChart"></canvas>
+						<canvas class="chart-change" id="myTotalAreaChart"></canvas>
+						<canvas class="chart-change" id="myGenreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMovieAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMonthAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myWeekAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myDaysAreaChart" style="display:none;"></canvas>
 					</div>
 				</div>
 			</div>
@@ -153,8 +157,7 @@
 							aria-haspopup="true" aria-expanded="false"> <i
 							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
 							aria-labelledby="dropdownMenuLink">
 							<div class="dropdown-header">Dropdown Header:</div>
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -185,6 +188,39 @@
 						<span class="mr-2"> 
 							<i class="fas fa-circle text-danger"></i>60대이상
 						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-8 col-lg-7">
+			<div class="card shadow mb-4">
+				<!-- Card Header - Dropdown -->
+				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+					<h6 class="m-0 font-weight-bold text-primary">매점 배급 및 수요량</h6>
+					<div class="dropdown no-arrow">
+						<a class="dropdown-toggle" href="#" role="button"id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+							<div class="dropdown-header">수익별 태그:</div>
+							<a class="dropdown-item" id="myTotal_store">총 수익</a> 
+							<a class="dropdown-item" id="myDrink_store">음료별 수익</a>
+							<a class="dropdown-item" id="myFood_store">음식별 수익</a>
+							<a class="dropdown-item" id="myMonth_store">달별 수익</a>
+							<a class="dropdown-item" id="myWeek_store">주별 수익</a>
+							<a class="dropdown-item" id="myDays_store">일별 수익</a>
+						</div>
+					</div>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body">
+					<div class="chart-area">
+						<canvas class="chart-change" id="myTotalStoreAreaChart"></canvas>
+						<canvas class="chart-change" id="myDrinkStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myFoodStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myMonthStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myWeekStoreAreaChart" style="display:none;"></canvas>
+						<canvas class="chart-change" id="myDaysStoreAreaChart" style="display:none;"></canvas>
 					</div>
 				</div>
 			</div>
@@ -311,5 +347,6 @@
 				</div>
 			</div>
 		</div>
-	
-	<%@ include file="administerFooter.jsp" %>
+	</div>
+</div>
+<%@ include file="administerFooter.jsp" %>

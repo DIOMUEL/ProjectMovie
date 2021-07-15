@@ -29,14 +29,13 @@
 						src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." />
 				</div>
 				<div class="col-md-6">
-					<h1 class="display-5 fw-bolder">분노의 질주 (더 얼티메이트)</h1>
+					<h1 class="display-5 fw-bolder">컨저링3</h1>
 					<div class="fs-5 mb-5">
-						<span>액션</span> <span>미국</span>
+						<span>공포</span> <span>미국</span>
 					</div>
-					<p class="lead">도미닉(빈 디젤)은 자신과 가장 가까웠던 형제 제이콥(존 시나)이 사이퍼(샤를리즈 테론)와 
-					연합해 전 세계를 위기로 빠트릴 위험천만한 계획을 세운다는 사실을 알게 되고, 이를 막기 위해 다시 한 번 패밀리들을 소환한다. 
-					가장 가까운 자가 한순간, 가장 위험한 적이 된 상황 도미닉과 패밀리들은 이에 반격할 놀라운 컴백과 작전을 세우고 
-					지상도, 상공도, 국경도 경계가 없는 불가능한 대결이 시작되는데…</p>
+					<p class="lead">1981년, 미국 역사상 최초로 잔혹한 살인사건의 용의자가 악마가 살해하도록 시켰다고 주장하는 초유의 사태가 일어난다!
+					그리고 사건의 배후에는 악마에게 빙의된 소년이 있었는데… 초자연 현상 연구가 워렌 부부의 사건 파일 중 여전히 미스터리로 남아있는 실화!
+					진실 혹은 거짓? 살인사건의 범인, 인간인가 악마인가...</p>
 					<div class="d-flex">
 						<button class="btn btn-outline-dark flex-shrink-0" type="button" >
 							<i class="bi-cart-fill me-1"></i>예매하기</button>
