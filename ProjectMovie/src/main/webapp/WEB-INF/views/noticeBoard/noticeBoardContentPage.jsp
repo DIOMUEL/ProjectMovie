@@ -13,25 +13,27 @@
 <script>
 $(document).ready(function(){
 	
-	$("#btnModify").click(function(e){
-		e.preventDefault();
-		if("${noticeBoardVo.user_id}" == ""){
-			alert("로그인을 확인해주세요");
-			location.href = "/board/loginPage";
-		}else{		
-			$("#btnModifyFinish").show(1000);
-			$("[name^=b_]").prop("readonly", false);
-		}
-
+	$("#btnModify").click(function(){
+// 		e.preventDefault();
+// 		if("${noticeBoardVo.user_id}" == ""){
+// 			alert("로그인을 확인해주세요");
+// 			location.href = "/board/loginPage";
+// 		}else{		
+			
+// 		}
+		$("#btnModifyFinish").show(1000);
+		$("[name^=b_]").prop("readonly", false);
 	});	
-	
 	
 	$("#btnDelete").click(function(){
 		alert("삭제하시겠습니까?");
-		location.href = "/noticeBoard/noticeBoardDeleteRun?b_no=${noticeBoardVo.b_no}"
-		
+		location.href = "/noticeBoard/noticeBoardDeleteRun?b_no=${noticeBoardVo.b_no}";
 	});
 	
+	// 목록
+	$("#btnList").click(function() {
+		location.href = "/board/noticeBoardPage?page=${pagingDto.page}&perPage=${pagingDto.perPage}&searchType=${pagingDto.searchType}&keyword=${pagingDto.keyword}";
+	});
 	
 });
 </script>
@@ -52,7 +54,7 @@ $(document).ready(function(){
 				<textarea class="form-control" id="b_content" name="b_content"
 					rows="3" readonly>${noticeBoardVo.b_content}</textarea>
 				<br>
-				<a type="button" class="btn btn-success" id="btnList" href="/board/noticeBoardPage">목록</a>
+				<a type="button" class="btn btn-success" id="btnList">목록</a>
 				<button type="button" class="btn btn-warning" id="btnModify">수정</button>
 				<button type="submit" class="btn btn-success" style="display:none" id="btnModifyFinish">수정완료</button>
 				<button type="button" class="btn btn-danger" id="btnDelete" >삭제</button>

@@ -1,6 +1,8 @@
 package com.kh.projectMovie01.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kh.projectMovie01.vo.NoticeBoardVo;
+import com.kh.projectMovie01.vo.PagingDto;
 
 @Repository
 public class NoticeBoardDaoImpl implements NoticeBoardDao {
@@ -18,8 +21,8 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<NoticeBoardVo> listAll() {
-		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "listAll");
+	public List<NoticeBoardVo> listAll(PagingDto pagingDto) {
+		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "listAll", pagingDto);
 		
 		return list;
 	}
@@ -50,6 +53,28 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 	@Override
 	public void deleteArticle(int b_no) {
 		sqlSession.delete(NAMESPACE + "deleteArticle", b_no);
+		
+	}
+
+	@Override
+	public int getCount(PagingDto pagingDto) {
+		int count = sqlSession.selectOne(NAMESPACE + "getCount", pagingDto);
+		return count;
+	}
+
+	@Override
+	public void updateViewCnt(int b_no) {
+		sqlSession.update(NAMESPACE + "updateViewCnt", b_no);
+		
+	}
+
+	@Override
+	public void updateCommentCnt(int b_no, int count) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("b_no", b_no);
+		map.put("count", count);
+		sqlSession.update(NAMESPACE + "updateCommentCnt", map);
+	
 		
 	}
 
