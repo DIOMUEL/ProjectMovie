@@ -6,8 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>관리자 페이지</title>
@@ -63,16 +62,16 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseUtilities"
 				aria-expanded="true" aria-controls="collapseUtilities"> <i
-					class="fas fa-fw fa-wrench"></i> <span>Utilities</span>
+					class="fas fa-fw fa-wrench"></i> <span>스케줄</span>
 			</a>
 				<div id="collapseUtilities" class="collapse"
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="utilities-color.html">Colors</a> <a
-							class="collapse-item" href="utilities-border.html">Borders</a> <a
-							class="collapse-item" href="utilities-animation.html">Animations</a>
-						<a class="collapse-item" href="utilities-other.html">Other</a>
+						<h6 class="collapse-header">스케줄 설정 및 유지:</h6>
+						<a class="collapse-item" href="utilities-color.html">스케줄 관리</a> <a
+							class="collapse-item" href="utilities-border.html">오늘 할일</a> <a
+							class="collapse-item" href="utilities-animation.html">메시지 관리</a>
+						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>
 					</div>
 				</div></li>
 
@@ -80,38 +79,45 @@
 			<hr class="sidebar-divider">
 
 			<!-- Heading -->
-			<div class="sidebar-heading">Addons</div>
+			<div class="sidebar-heading">차트 설정</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapsePages"
-				aria-expanded="true" aria-controls="collapsePages"> <i
-					class="fas fa-fw fa-folder"></i> <span>Pages</span>
-			</a>
-				<div id="collapsePages" class="collapse"
-					aria-labelledby="headingPages" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Login Screens:</h6>
-						<a class="collapse-item" href="login.html">Login</a> <a
-							class="collapse-item" href="register.html">Register</a> <a
-							class="collapse-item" href="forgot-password.html">Forgot
-							Password</a>
-						<div class="collapse-divider"></div>
-						<h6 class="collapse-header">Other Pages:</h6>
-						<a class="collapse-item" href="404.html">404 Page</a> <a
-							class="collapse-item" href="blank.html">Blank Page</a>
-					</div>
-				</div></li>
-
+			
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="charts.html">
-					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
-			</a></li>
-
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#"
+					data-toggle="collapse" data-target="#collapsePages"
+					aria-expanded="true" aria-controls="collapsePages"> 
+					<i class="fas fa-fw fa-chart-area"></i> 
+					<span>Charts</span>
+				</a>
+			<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">영화 관련:</h6>
+						<a class="collapse-item" href="/charts/totalMovieChart">총 수익</a> 
+						<a class="collapse-item" href="#">장르별 수익</a> 
+						<a class="collapse-item" href="#">영화별 수익</a>
+						<a class="collapse-item" href="#">월별 수익</a>
+						<a class="collapse-item" href="#">주별 수익</a>
+						<a class="collapse-item" href="#">일별 수익</a>
+					<div class="collapse-divider"></div>
+						<h6 class="collapse-header">매점 관련:</h6>
+						<a class="collapse-item" href="#">총 수익</a> 
+						<a class="collapse-item" href="#">음료별 수익</a> 
+						<a class="collapse-item" href="#">음식별 수익</a>
+						<a class="collapse-item" href="#">월별 수익</a>
+						<a class="collapse-item" href="#">주별 수익</a>
+						<a class="collapse-item" href="#">일별 수익</a>
+					</div>
+				</div>
+			</li>
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
-			</a></li>
+			<li class="nav-item">
+				<a class="nav-link" href="tables.html">
+					<i class="fas fa-fw fa-table"></i> 
+					<span>Tables</span>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
@@ -126,12 +132,10 @@
 				<img class="sidebar-card-illustration mb-2"
 					src=".././resources/administerPage/img/undraw_rocket.svg" alt="...">
 				<p class="text-center mb-2">
-					<strong>SB Admin Pro</strong> is packed with premium features,
-					components, and more!
+					<strong>광고</strong> 관리자용 광고
 				</p>
 				<a class="btn btn-success btn-sm"
-					href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-					Pro!</a>
+					href="https://startbootstrap.com/theme/sb-admin-pro">광고로 업글!</a>
 			</div>
 
 		</ul>
@@ -144,9 +148,9 @@
 				<!-- Topbar -->
 				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="/board/mainPage#services">서비스</a></li>
-						<li class="nav-item"><a class="nav-link" href="/board/noticeBoardPage">고객게시판</a></li>
-						<li class="nav-item"><a class="nav-link" href="/board/ticketingPage">예매하기</a></li>
+						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/mainPage#services">서비스</a></li>
+						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/noticeBoardPage">고객게시판</a></li>
+						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/ticketingPage">예매하기</a></li>
 						<li class="nav-item dropdown no-arrow">
 							<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
 								<span class="mr-2 d-none d-lg-inline text-gray-600 small">"${sessionScope.loginVo.user_name}"님</span> 

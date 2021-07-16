@@ -11,9 +11,12 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">관리자 페이지</h1>
-		<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+		<a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 			<i class="fas fa-download fa-sm text-white-50"></i> 리포트 생성하기
 		</a>
+		<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+			<i class="fas fa-sm text-white-50"></i> 야간모드
+		</button>
 	</div>
 	<!-- Content Row -->
 	<div class="row">

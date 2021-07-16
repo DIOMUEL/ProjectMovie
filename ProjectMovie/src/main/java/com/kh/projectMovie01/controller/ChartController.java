@@ -38,4 +38,8 @@ public class ChartController {
 		model.addAttribute("label_rate60", label_rate60);
 		return "/administerPage/administerMainPage";
 	}
+	@RequestMapping(value="charts/totalMovieChart", method=RequestMethod.GET)
+	public String totalMovieChart(HttpSession session, Model model) {
+		return "/charts/totalMovieChart";
+	}
 }
