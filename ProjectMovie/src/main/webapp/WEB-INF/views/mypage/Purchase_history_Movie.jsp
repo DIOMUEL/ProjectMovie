@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../include/header.jsp"%>
 <script>
 
@@ -39,15 +40,15 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="BuyMovieVo" items="${list}">
+											<c:forEach var="BuyMovieVo" items="${list}">
 													<tr>
 														<td>${BuyMovieVo.bm_no}</td>
-														<td>${BuyMovieVo.bm_no}</td>
-														<td>${BuyMovieVo.bm_no}</td>
-														<td>${BuyMovieVo.bm_no}</td>
+														<td>${BuyMovieVo.bm_Moviename}</td>
+														<td>${BuyMovieVo.bm_price}</td>
+														<td>${BuyMovieVo.bm_datepurch}</td>
 														<td></td>
 													</tr>
-												</c:forEach>
+											</c:forEach>	
 											</tbody>
 										</table>
 									</div>

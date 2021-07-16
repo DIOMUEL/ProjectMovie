@@ -24,9 +24,8 @@ private static final String NAMESPACE = "com.kh.projectMovie01.buyMovie.";
 	}
 
 	@Override
-	public BuyMovieVo selectByid(int bm_no) {
-		
-		return sqlSession.selectOne(NAMESPACE+"selectByid", bm_no);
+	public BuyMovieVo selectBybmno(int bm_no) {		
+		return sqlSession.selectOne(NAMESPACE+"selectBybmno", bm_no);
 	}
 
 	

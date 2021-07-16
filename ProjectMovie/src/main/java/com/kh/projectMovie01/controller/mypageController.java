@@ -73,10 +73,11 @@ public class mypageController {
 		
 	}
 	@RequestMapping(value="/Purchase_history_Movie",method=RequestMethod.GET)
-	public String Purchase_history_Movie(/*Model model,int bm_no*/) throws Exception{
-//		
-//		BuyMovieVo buyMovieVo = buyMovieService.selectByid(bm_no);
-//		model.addAttribute(buyMovieVo);
+	public String Purchase_history_Movie(Model model,int bm_no) throws Exception{
+		System.out.println("bm_no"+bm_no);
+		BuyMovieVo buyMovieVo = buyMovieService.selectBybmno(bm_no);
+		System.out.println("buyMovieVo:"+buyMovieVo);
+		model.addAttribute(buyMovieVo);
 		return "mypage/Purchase_history_Movie";
 		
 	}

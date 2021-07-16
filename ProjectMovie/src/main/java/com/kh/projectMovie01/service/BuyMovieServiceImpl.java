@@ -22,9 +22,8 @@ public class BuyMovieServiceImpl implements BuyMovieService {
 	}
 
 	@Override
-	public BuyMovieVo selectByid(int bm_no) {
-		
-		return buyMovieDao.selectByid(bm_no);
+	public BuyMovieVo selectBybmno(int bm_no) {		
+		return buyMovieDao.selectBybmno(bm_no);
 	}
 
 }

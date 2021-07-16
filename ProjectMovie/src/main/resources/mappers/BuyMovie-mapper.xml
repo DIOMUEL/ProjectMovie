@@ -10,9 +10,9 @@
 	order by bm_no
 	</select>
 
-	<!-- 글조회 -->
-	<!-- <select id="selectBybmno" resultType="BuyMovieVo">
+<!-- 	 글조회  -->
+	 <select id="selectBybmno" resultType="BuyMovieVo">
 		select * from tbl_buymovie
 		where bm_no = #{bm_no}
-	</select> -->
+	</select> 
 </mapper>
