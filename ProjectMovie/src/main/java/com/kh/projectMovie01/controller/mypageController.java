@@ -1,5 +1,6 @@
 package com.kh.projectMovie01.controller;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
+import com.kh.projectMovie01.vo.NoticeBoardVo;
 
 @Controller
 @RequestMapping(value="/mypage")
@@ -73,11 +75,11 @@ public class mypageController {
 		
 	}
 	@RequestMapping(value="/Purchase_history_Movie",method=RequestMethod.GET)
-	public String Purchase_history_Movie(Model model,int bm_no) throws Exception{
-		System.out.println("bm_no"+bm_no);
-		BuyMovieVo buyMovieVo = buyMovieService.selectBybmno(bm_no);
-		System.out.println("buyMovieVo:"+buyMovieVo);
-		model.addAttribute(buyMovieVo);
+	public String Purchase_history_Movie(Model model,HttpSession session) throws Exception{	
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<BuyMovieVo> list = buyMovieService.buyMovieList(user_id);
+		model.addAttribute("list", list);
 		return "mypage/Purchase_history_Movie";
 		
 	}

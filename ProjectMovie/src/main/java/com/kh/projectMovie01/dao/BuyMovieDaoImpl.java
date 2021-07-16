@@ -18,15 +18,15 @@ private static final String NAMESPACE = "com.kh.projectMovie01.buyMovie.";
 	SqlSession sqlSession;
 
 	@Override
-	public List<BuyMovieVo> buyMovieList() {
-		List<BuyMovieVo> list = sqlSession.selectList(NAMESPACE+"buyMovieList");
+	public List<BuyMovieVo> buyMovieList(String user_id) {
+		List<BuyMovieVo> list = sqlSession.selectList(NAMESPACE+"buyMovieList",user_id);
 		return list;
 	}
-
-	@Override
-	public BuyMovieVo selectBybmno(int bm_no) {		
-		return sqlSession.selectOne(NAMESPACE+"selectBybmno", bm_no);
-	}
+//
+//	@Override
+//	public BuyMovieVo selectBybmid(String user_id) {		
+//		return sqlSession.selectOne(NAMESPACE+"selectBybmid", user_id);
+//	}
 
 	
 }

@@ -5,9 +5,9 @@
   
 <mapper namespace="com.kh.projectMovie01.buyMovie">
 
-	<select id="buyMovieList">
+	<select id="buyMovieList" resultType="BuyMovieVo">
 	select * from tbl_buymovie
-	order by bm_no
+	where user_id = #{user_id}
 	</select>
 
 <!-- 	 글조회  -->

@@ -16,14 +16,17 @@ public class BuyMovieServiceImpl implements BuyMovieService {
 	private BuyMovieDao buyMovieDao;
 	
 	@Override
-	public List<BuyMovieVo> buyMovieList() {
-		List<BuyMovieVo> list =buyMovieDao.buyMovieList();
+	public List<BuyMovieVo> buyMovieList(String user_id) {
+		List<BuyMovieVo> list =buyMovieDao.buyMovieList(user_id);
 		return list;
 	}
 
-	@Override
-	public BuyMovieVo selectBybmno(int bm_no) {		
-		return buyMovieDao.selectBybmno(bm_no);
-	}
+//	@Override
+//	public BuyMovieVo selectBybmid(String user_id) {
+//		BuyMovieVo buyMovieVo = buyMovieDao.selectBybmid(user_id);
+//		return buyMovieVo;
+//	}
+
+
 
 }
