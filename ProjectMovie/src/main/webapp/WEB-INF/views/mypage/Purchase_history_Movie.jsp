@@ -45,8 +45,8 @@
 													<tr>
 														<td>${buyMovieVo.bm_no}</td>
 														<td>${buyMovieVo.bm_moviename}</td>
-														<td>${buyMovieVo.bm_price}</td>
-														<td>${buyMovieVo.bm_datepurch}</td>
+														<td>${buyMovieVo.bm_price}원</td>
+														<td class="buy_date">${buyMovieVo.bm_datepurch}</td>
 														<td></td>
 													</tr>
 											</c:forEach>	
