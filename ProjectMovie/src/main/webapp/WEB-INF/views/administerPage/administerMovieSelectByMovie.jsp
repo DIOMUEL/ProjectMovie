@@ -92,23 +92,42 @@
 									</div>
 									<div class="form-group">
 										<label for="movie_main_image" style="margin-right:10px;"><strong>영화 메인이미지 : </strong></label>
-										<div id="main_image_div" style="width:150px;height:auto;">
-											<img src="/upload/displayFile?fileName=${movieVo.movie_main_image}"/>
+										<input type="file" class="movie_main_image image" id="movie_main_image" onchange="loadImage(this);" accept="image/*" style="display:none;" disabled/>
+										<label for="movie_main_image" class="fileLabel" >파일 선택</label>
+										<span id="movie_main_image_text"></span>
+										<div id="main_image_div" style="width:300px;height:auto;">
+											<div data-fileName="${movieVo.movie_main_image}">
+												<img src="/upload/displayFile?fileName=${movieVo.movie_main_image}" width="150px;"/>
+												<a href="${movieVo.movie_main_image}" class="attach-main-del"><span class="pull-right" style="color:red;">[삭제]</span></a>
+											</div>
+											
 										</div>
 									</div>
 									<div class="form-group"> 
 										<label for="movie_sub_image" style="margin-right:10px;"><strong>영화 상세사진 : </strong></label>
+										<input type="file" class="movie_sub_image image" id="movie_sub_image" multiple onchange="loadSubImage(this);" style="display:none;" accept="image/*"/>
+										<label for="movie_sub_image" class="fileLabel" >파일 선택</label>
+										<span id="movie_sub_image_text"></span>
 										<div id="movie_sub_image_div" style="width:300px;height:auto;">
 										<c:forEach items="${movieImageVo}" var="imageVo">
-											<img src="/upload/displayFile?fileName=${imageVo.movie_sub_image}"/>
-										</c:forEach>
+											<div data-fileName="${imageVo.movie_sub_image}">
+												<img src="/upload/displayFile?fileName=${imageVo.movie_sub_image}" width="225px;"/>
+												<a href="${imageVo.movie_sub_image}" class="attach-sub-del"><span class="pull-right" style="color:red;">[삭제]</span></a>
+											</div>
+										</c:forEach>	
 										</div>
 									</div>
 									<br/>
 									<div class="form-group">
 										<label for="movie_preview" style="margin-right:10px;"><strong>영화 예고편 : </strong></label>
-										<div id="movie_preview_text" style="width:auto;height:auto;">
+										<input type="file" class="movie_preview image" id="movie_preview" accept="video/*" onchange="previewUpload(this);" style="display:none;" disabled/>
+										<label for="movie_preview" class="fileLabel" >파일 선택</label>
+										<span id="movie_preview_span"></span>
+										<div id="movie_preview_text" style="width:250px;height:auto;">
+											<div data-fileName="${movieVo.movie_preview}">
 <%-- 											<video src="/upload/displayFile?fileName=${movieVo.movie_preview}" width="300px;" controls></video> --%>
+											<a href="${movieVo.movie_preview}" class="attach-preview-del"><span class="pull-right" style="color:red;">[삭제]</span></a>
+											</div>
 										</div>
 									</div>
 									<button type="button" class="btn btn-primary" id="btnModify">수정</button>
@@ -133,6 +152,7 @@ $(function () {
 		$(".form-control").attr("readonly", false);
 		$(".movie_genre").attr("disabled", false);
 		$(".movie_grade").attr("disabled", false);
+		$(".image").attr("disabled", false);
 		$("#btnModify").attr("style", "display:none");
 		$("#btnModifyComplite").attr("style", "");
 	});
