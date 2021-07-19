@@ -18,6 +18,7 @@ import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
+import com.kh.projectMovie01.vo.AreaVo;
 
 @Controller
 @RequestMapping(value="/administerPage")
@@ -112,14 +113,23 @@ public class AdminController {
 	}
 	// --------------- 영화 등록및 조회 삭제 End-----------------------
 	// --------------- 영화관 지역 등록 및 조회 -----------------------
+	//지역등록페이지
 	@RequestMapping(value="/administerMovieAreaRegist", method = RequestMethod.GET)
 	public String administerMovieAreaRegist() throws Exception {
 		return "/administerPage/administerMovieAreaRegist";
 	}
+	//지역등록실행/ 후 리스트로 이동
 	@RequestMapping(value="/administerMovieAreaRegistRun", method = RequestMethod.GET)
 	public String administerMovieAreaRegist(String area_name, RedirectAttributes rttr) throws Exception {
 		admin_AreaService.movieAreaAdd(area_name);
 		rttr.addFlashAttribute("msgInsert", "success");
 		return "redirect:/administerPage/administerMovieAreaListPage";
+	}
+	//지역리스트페이지로 이동시 지역리스트호출
+	@RequestMapping(value="/administerMovieAreaList", method = RequestMethod.GET)
+	public String administerMovieAreaList(Model model) throws Exception {
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		return "/administerPage/administerMovieAreaListPage";
 	}
 }

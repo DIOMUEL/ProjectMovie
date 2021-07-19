@@ -36,17 +36,19 @@
 										<table class="table">
 											<thead>
 												<tr>
+													<th>#</th>
 													<th>지역</th>
 													<th>수정</th>
 													<th>삭제</th>
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${area_list}" var="AreaVo">
+												<c:forEach items="${areaVo}" var="areaVo">
 												<tr>
-													<td>${AreaVo.area_name}</td>
-													<td><a href="/sgh/admin/areaModfiyForm?area_no=${AreaVo.area_no}" class="btn-primary" style="color: white;">수정</a></td>
-													<td><a href="/sgh/admin/areaDeleteRun?area_no=${AreaVo.area_no}" class="btn-danger" style="color: white;">삭제</a></td>
+													<td>${areaVo.area_no}</td>
+													<td>${areaVo.area_name}</td>
+													<td><a href="/sgh/admin/areaModfiyForm?area_no=${areaVo.area_no}" class="btn-primary" style="color: white;">수정</a></td>
+													<td><a href="/sgh/admin/areaDeleteRun?area_no=${areaVo.area_no}" class="btn-danger" style="color: white;">삭제</a></td>
 												</tr>
 												</c:forEach>
 											</tbody>
