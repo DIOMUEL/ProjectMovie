@@ -61,7 +61,7 @@ $(document).ready(function(){
                             </video>
                         </div>
                         <div class="mp-video-item-label">
-                                                     </div>
+                        </div>
                     </div>
                 </div><div class="mp-video-slide slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 1903px;" tabindex="0" role="tabpanel" id="slick-slide11" aria-describedby="slick-slide-control11">
                     <div class="mp-video-item">
@@ -72,7 +72,7 @@ $(document).ready(function(){
                             </video>
                         </div>
                         <div class="mp-video-item-label">
-                                                     </div>
+                        </div>
                     </div>
                 </div><div class="mp-video-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide12" aria-describedby="slick-slide-control12">
                     <div class="mp-video-item">
@@ -125,8 +125,8 @@ $(document).ready(function(){
                             </video>
                         </div>
                         <div class="mp-video-item-label">
-                            «17 мгновений весны», 1973 г.</div>
-                    </div>
+                            «Movie HomePage»</div>
+                    	</div>
                 </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 1903px;" tabindex="-1">
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
@@ -139,7 +139,14 @@ $(document).ready(function(){
                         </div>
                     </div>
                 </div></div></div>
-        	<ul class="slick-dots" style="" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 4" tabindex="-1">1</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 4" tabindex="0" aria-selected="true">2</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control12" aria-controls="slick-slide12" aria-label="3 of 4" tabindex="-1">3</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control13" aria-controls="slick-slide13" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
+        	<ul class="slick-dots" style="" role="tablist"><li class="" role="presentation">
+        	<button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 4" tabindex="-1">1</button></li>
+        	<li role="presentation" class="slick-active">
+        	<button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 4" tabindex="0" aria-selected="true">2</button></li>
+        	<li role="presentation" class="">
+        	<button type="button" role="tab" id="slick-slide-control12" aria-controls="slick-slide12" aria-label="3 of 4" tabindex="-1">3</button></li>
+        	<li role="presentation" class="">
+        	<button type="button" role="tab" id="slick-slide-control13" aria-controls="slick-slide13" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
     	</div>
     	<div class="header-content">
         	<div class="container">
@@ -149,9 +156,8 @@ $(document).ready(function(){
                         	<h1 class="animated fadeInLeft" style="opacity: 1;">
                             	MOVIE<br>
                             	MAIN<br>
-                            	<span class="text-red">PAGE</span>
+                            	<span style="color:red">PAGE</span>
                         	</h1>
-                        	<a href="" class="arrow-link">Welcome</a>
                     	</div>
                 	</div>
             	</div>
