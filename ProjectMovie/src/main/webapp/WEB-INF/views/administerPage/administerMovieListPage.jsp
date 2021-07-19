@@ -62,15 +62,15 @@
 									</thead>
 									<tbody style="vertical-align:middle;table-layout:fixed;">
 									<!--  영화정보 조회 -->
-									<c:forEach items="${jmhMovieVo}" var="jmhMovieVo">
+									<c:forEach items="${movieVo}" var="movieVo">
 										<tr style="height:50px;">
-											<td style="height:100px;vertical-align:middle;">${jmhMovieVo.movie_num}</td>
-											<td><img src="/upload/displayFile?fileName=${jmhMovieVo.movie_main_image}"/></td>
-											<td style="vertical-align:middle;"><a href="/admin/admin_movie_selectByMovie?movie_code=${jmhMovieVo.movie_code}" class="movie_title">${jmhMovieVo.movie_name}</a></td>
-											<td style="vertical-align:middle;">${jmhMovieVo.movie_genre}</td>
+											<td style="height:100px;vertical-align:middle;">${movieVo.movie_num}</td>
+											<td><img src="/upload/displayFile?fileName=${movieVo.movie_main_image}"/></td>
+											<td style="vertical-align:middle;"><a href="/administerPage/administerMovieSelectByMovie?movie_code=${movieVo.movie_code}" class="movie_title">${movieVo.movie_name}</a></td>
+											<td style="vertical-align:middle;">${movieVo.movie_genre}</td>
 											<!--  등급 image 처리 -->
-											<td style="vertical-align:middle;"><img src="/resources/images/jmh/movie_grade_${jmhMovieVo.movie_grade}.png" style="width:40px;height:40px;"/></td>
-											<td style="vertical-align:middle;">${jmhMovieVo.movie_open_date}</td>
+											<td style="vertical-align:middle;">${movieVo.movie_grade}</td>
+											<td style="vertical-align:middle;">${movieVo.movie_open_date}</td>
 										</tr>
 									</c:forEach>
 									</tbody>
@@ -87,14 +87,14 @@
 							<div class="col-md-7">
 								<nav>
 			 						<ul class="pagination">
-									<!-- 이전 -->
-			 							<c:if test="${admin_movie_list_Dto.startPage != 1}">
-			 								<li class="page-item"><a class="page-link" href="${admin_movie_list_Dto.start_page - 1}">&laquo;</a></li>
+										<!-- 이전 -->
+			 							<c:if test="${admin_PageingDto.startPage != 1}">
+			 								<li class="page-item"><a class="page-link" href="${admin_PageingDto.startpage - 1}">&laquo;</a></li>
 			 							</c:if>
-									<!-- 페이지 넘버링 -->
-			 							<c:forEach begin="${admin_movie_list_Dto.startPage}" end="${admin_movie_list_Dto.endPage}" var="v">
+										<!-- 페이지 넘버링 -->
+			 							<c:forEach begin="${admin_PageingDto.startPage}" end="${admin_PageingDto.endPage}" var="v">
 											<li class="page-item
-			 									<c:if test="${admin_movie_list_Dto.page == v }">
+			 									<c:if test="${admin_PageingDto.page == v }">
 			 										active
 			 									</c:if>
 			 									"
@@ -102,15 +102,15 @@
 			 									<a class="page-link" href="${v}">${v}</a>
 			 								</li>
 			 							</c:forEach>
-									<!-- 다음 -->
-			 							<c:if test="${admin_movie_list_Dto.endPage < admin_movie_list_Dto.totalPage}">
-			 								<li class="page-item"><a class="page-link" href="${admin_movie_list_Dto.endPage + 1}">&raquo;</a></li>
+										<!-- 다음 -->
+			 							<c:if test="${admin_PageingDto.endPage < admin_PageingDto.totalPage}">
+			 								<li class="page-item"><a class="page-link" href="${admin_PageingDto.endPage + 1}">&raquo;</a></li>
 			 							</c:if>
 			 						</ul>
 			 					</nav>
 							</div>
 						</div>
-					<!--  페이징 끝 -->
+						<!--페이징end-->
 					</div>
 				</div>
 			</div>
@@ -144,7 +144,7 @@
 			
 			// 페이지 번호
 			$("a.page-link").click(function(e) {
-				e.preventDefault(); // 브라우저의 기본기능(a:링크) 막기
+				e.preventDefault(); //막기
 				var page = $(this).attr("href").trim();
 				$("#frmPage > input[name=page]").val(page);
 				$("#frmPage > input[name=perPage]").val("5");
@@ -153,7 +153,7 @@
 			
 			// 목록으로 이동
 			$("#btnList").click(function () {
-				location.href="/admin/admin_movie_list";
+				location.href="/administerPage/administerMovieListPage";
 			});
 			
 			// searchType이 mgrade 일 때 placeholeder 넣어주기
