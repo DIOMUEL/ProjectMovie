@@ -64,4 +64,10 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 		return sqlSession.selectList(NAMESPACE + "listAll", admin_PageingDto);
 	}
 
+	@Override
+	public void deleteMoivie(String movie_code) {
+		sqlSession.selectOne(NAMESPACE + "deleteMoivie", movie_code);
+		
+	}
+
 }

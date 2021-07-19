@@ -23,5 +23,6 @@ public interface Admin_MovieDao {
 	public int getCountMovie(Admin_PageingDto admin_PageingDto);
 	public List<MovieVo> listAll(Admin_PageingDto admin_PageingDto);
 	
+	public void deleteMoivie(String movie_code);
 
 }

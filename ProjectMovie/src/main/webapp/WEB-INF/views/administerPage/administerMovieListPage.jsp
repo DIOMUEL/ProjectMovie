@@ -126,6 +126,14 @@
 		<script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
 		<script>
 		$(function () {
+			var msgRegist = "${msgRegist}";
+			if(msgRegist == "success"){
+				alert("등록 성공");
+			}
+			var msgDelete = "${msgDelete}";
+			if(msgDelete == "success"){
+				alert("삭제 성공");
+			}
 			$("#btnSearch").click(function (e) {
 				e.preventDefault();
 				var searchType = $("select[name=searchType]").val();

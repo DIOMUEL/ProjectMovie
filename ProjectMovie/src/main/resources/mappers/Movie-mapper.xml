@@ -99,4 +99,9 @@
 			</choose>
 		</if>
 	</sql>
+	<!-- 영화 삭제 -->
+	<delete id="deleteMovie">
+		delete from tbl_movie
+		where movie_code = #{movie_code}
+	</delete>
 </mapper>

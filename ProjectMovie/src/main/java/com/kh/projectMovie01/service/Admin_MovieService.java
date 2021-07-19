@@ -15,5 +15,5 @@ public interface Admin_MovieService {
 	public String selectMovieCode();
 	public int getCountMovie(Admin_PageingDto admin_PageingDto);
 	public List<MovieVo> listAll(Admin_PageingDto admin_PageingDto);
-
+	public void deleteMovie(String movie_code);
 }

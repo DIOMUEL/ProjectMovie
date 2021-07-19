@@ -101,7 +101,7 @@
 										<div id="main_image_div" style="width:300px;height:auto;">
 											<div data-fileName="${movieVo.movie_main_image}">
 												<img src="/upload/displayFile?fileName=${movieVo.movie_main_image}" width="150px;"/>
-												<a href="${movieVo.movie_main_image}" class="attach-main-del"><span class="pull-right" style="color:red;">[삭제]</span></a>
+												<a href="${movieVo.movie_main_image}" style="display:none" class="attach-main-del display"><span class="pull-right" style="color:red;">[삭제]</span></a>
 											</div>
 											
 										</div>
@@ -115,7 +115,7 @@
 										<c:forEach items="${movieImageVo}" var="imageVo">
 											<div data-fileName="${imageVo.movie_sub_image}">
 												<img src="/upload/displayFile?fileName=${imageVo.movie_sub_image}" width="225px;"/>
-												<a href="${imageVo.movie_sub_image}" class="attach-sub-del"><span class="pull-right" style="color:red;">[삭제]</span></a>
+												<a href="${imageVo.movie_sub_image}" style="display:none" class="attach-sub-del display"><span class="pull-right" style="color:red;">[삭제]</span></a>
 											</div>
 										</c:forEach>	
 										</div>
@@ -129,7 +129,7 @@
 										<div id="movie_preview_text" style="width:250px;height:auto;">
 											<div data-fileName="${movieVo.movie_preview}">
 <%-- 											<video src="/upload/displayFile?fileName=${movieVo.movie_preview}" width="300px;" controls></video> --%>
-											<a href="${movieVo.movie_preview}" class="attach-preview-del"><span class="pull-right" style="color:red;">[삭제]</span></a>
+											<a href="${movieVo.movie_preview}" style="display:none" class="attach-preview-del display"><span class="pull-right" style="color:red;">[삭제]</span></a>
 											</div>
 										</div>
 									</div>
@@ -156,6 +156,7 @@ $(function () {
 		$(".movie_genre").attr("disabled", false);
 		$(".movie_grade").attr("disabled", false);
 		$(".image").attr("disabled", false);
+		$(".display").attr("style", "");
 		$("#btnModify").attr("style", "display:none");
 		$("#btnModifyComplite").attr("style", "");
 	});
@@ -164,9 +165,12 @@ $(function () {
 		alert("수정완료");
 	}
 	$("#btnDelete").click(function(){
+		if (confirm("삭제하시겠습니까?")) {
+			location.href = "/administerPage/administerMovieDeleteRun?movie_code=${movieVo.movie_code}";
+		}
 	});
 	$("#modifyForm").submit(function () {
-		// 개봉일 형식 확인(2020-07-07)
+		// 개봉일 형식 확인(yyyy-mm-ss)
 		var movie_open_date = $("#movie_open_date").val();
 		var date_pattern = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/; 
 		if(!date_pattern.test(movie_open_date)) {

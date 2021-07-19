@@ -75,7 +75,7 @@ public class AdminController {
 	public String administerMovieRegistRun(MovieVo movieVo, RedirectAttributes rttr)throws Exception {
 		//System.out.println("MovieVo"+ movieVo);
 		admin_MovieService.administerMovieRegistRun(movieVo);
-		rttr.addFlashAttribute("msg", "success");
+		rttr.addFlashAttribute("msgRegist", "success");
 		return "redirect:/administerPage/administerMovieListPage";
 	}
 	//영화상세보기
@@ -92,13 +92,20 @@ public class AdminController {
 	}
 	//영화 수정하기
 	@RequestMapping(value="/administerMovieModifyRun", method = RequestMethod.POST)
-	public String movie_modifyPost(MovieVo movieVo, RedirectAttributes rttr) throws Exception {
+	public String administerMovieModifyRun(MovieVo movieVo, RedirectAttributes rttr) throws Exception {
 		System.out.println("movieVo"+ movieVo);
 		String movie_code = movieVo.getMovie_code();
 		admin_MovieService.movieModify(movieVo);
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/administerPage/administerMovieSelectByMovie?movie_code=" + movie_code;
 	}
-	
+	//삭제하기
+	@RequestMapping(value="/administerMovieDeleteRun", method = RequestMethod.GET)
+	public String administerMovieDeleteRun(String movie_code, RedirectAttributes rttr) throws Exception {
+		System.out.println("movie_code"+ movie_code);
+//		admin_MovieService.deleteMovie(movie_code);
+		rttr.addFlashAttribute("msgDelete", "success");
+		return "redirect:/administerPage/administerMovieListPage";
+	}
 	// --------------- 영화 등록및 조회 삭제 End-----------------------
 }

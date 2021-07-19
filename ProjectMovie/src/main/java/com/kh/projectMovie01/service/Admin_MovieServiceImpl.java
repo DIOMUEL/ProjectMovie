@@ -54,7 +54,8 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 	}
 	@Override
 	public String selectMovieCode(){
-		return movieDao.selectMovieCode();
+		String movie_code = movieDao.selectMovieCode();
+		return movie_code;
 	}
 	@Override
 	public MovieVo selectByMovie(String movie_code){
@@ -69,11 +70,20 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 	}
 	@Override
 	public int getCountMovie(Admin_PageingDto admin_PageingDto){
-		return movieDao.getCountMovie(admin_PageingDto);
+		int count = movieDao.getCountMovie(admin_PageingDto);
+		return count;
 	}
 	@Override
 	public List<MovieVo> listAll(Admin_PageingDto admin_PageingDto){
-		return movieDao.listAll(admin_PageingDto);
+		List<MovieVo> list = movieDao.listAll(admin_PageingDto);
+		return list;
+	}
+
+	@Transactional
+	@Override
+	public void deleteMovie(String movie_code) {
+		movieDao.deleteMovieImage(movie_code);
+		movieDao.deleteMoivie(movie_code);
 	}
 
 }
