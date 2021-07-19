@@ -19,10 +19,6 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 	@Inject
 	private Admin_MovieDao movieDao;
 
-	@Override
-	public List<MovieVo> getMovieList(){
-		return movieDao.getMovieList();
-	}
 	@Transactional
 	@Override
 	public void administerMovieRegistRun(MovieVo movieVo){
@@ -76,8 +72,8 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 		return movieDao.getCountMovie(admin_PageingDto);
 	}
 	@Override
-	public List<MovieVo> moviePagingList(Admin_PageingDto admin_PageingDto){
-		return movieDao.moviePagingList(admin_PageingDto);
+	public List<MovieVo> listAll(Admin_PageingDto admin_PageingDto){
+		return movieDao.listAll(admin_PageingDto);
 	}
 
 }

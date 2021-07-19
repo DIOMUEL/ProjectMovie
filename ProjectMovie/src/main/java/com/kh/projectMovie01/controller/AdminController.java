@@ -56,11 +56,10 @@ public class AdminController {
 	//영화 등록리스트
 	@RequestMapping(value="/administerMovieListPage", method = RequestMethod.GET)
 	public String movie_list(Model model, Admin_PageingDto admin_PageingDto) throws Exception {
-		admin_PageingDto.setPerPage(5);
-		admin_PageingDto.setPageInfo();
 		int count = admin_MovieService.getCountMovie(admin_PageingDto);
+		//System.out.println("count :"+ count);
 		admin_PageingDto.setTotalCount(count);
-		List<MovieVo> movieVo = admin_MovieService.getMovieList();
+		List<MovieVo> movieVo = admin_MovieService.listAll(admin_PageingDto);
 		//System.out.println("movieVo"+ movieVo);
 		model.addAttribute("movieVo", movieVo);
 		model.addAttribute("admin_PageingDto", admin_PageingDto);
@@ -100,5 +99,6 @@ public class AdminController {
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/administerPage/administerMovieSelectByMovie?movie_code=" + movie_code;
 	}
+	
 	// --------------- 영화 등록및 조회 삭제 End-----------------------
 }

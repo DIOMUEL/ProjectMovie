@@ -20,9 +20,8 @@ public interface Admin_MovieDao {
 	
 	public void deleteMovieImage(String movie_code);
 	
-	public List<MovieVo> getMovieList();
 	public int getCountMovie(Admin_PageingDto admin_PageingDto);
-	public List<MovieVo> moviePagingList(Admin_PageingDto admin_PageingDto);
+	public List<MovieVo> listAll(Admin_PageingDto admin_PageingDto);
 	
 
 }

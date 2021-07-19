@@ -22,10 +22,6 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	private SqlSession sqlSession;	
 
 	@Override
-	public List<MovieVo> getMovieList(){
-		return sqlSession.selectList(NAMESPACE + "getMovieList");
-	}
-	@Override
 	public void administerMovieRegistRun(MovieVo MovieVo){
 		sqlSession.insert(NAMESPACE + "administerMovieRegistRun", MovieVo);
 	}
@@ -64,8 +60,8 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 		return count;
 	}
 	@Override
-	public List<MovieVo> moviePagingList(Admin_PageingDto admin_PageingDto){
-		return sqlSession.selectList(NAMESPACE + "movieListPaging", admin_PageingDto);
+	public List<MovieVo> listAll(Admin_PageingDto admin_PageingDto){
+		return sqlSession.selectList(NAMESPACE + "listAll", admin_PageingDto);
 	}
 
 }

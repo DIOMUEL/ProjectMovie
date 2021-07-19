@@ -39,8 +39,11 @@
 								<!--  페이지별 내용 -->
 								<form role="form" action="/administerPage/administerMovieModifyRun" method="post" id="modifyForm">
 									<div class="form-group">
+										<input type="hidden" class="form-control" id="movie_code" name="movie_code" value="${movieVo.movie_code}" readonly/>
+									</div>
+									<div class="form-group">
 										<label for="movie_name"><strong>영화제목</strong></label>
-										<input type=text class="form-control" id="movie_name" name="movie_name" readonly value="${movieVo.movie_name}"/>
+										<input type="text" class="form-control" id="movie_name" name="movie_name" value="${movieVo.movie_name}" readonly/>
 									</div>
 									<div class="form-group">
 										<label for="movie_genre"><strong>영화장르 :</strong></label>
@@ -133,7 +136,7 @@
 									<button type="button" class="btn btn-primary" id="btnModify">수정</button>
 									<button type="submit" class="btn btn-warning" style="display:none;" id="btnModifyComplite">수정완료</button>
 									<button type="button" class="btn btn-danger" id="btnDelete">삭제</button>
-									<a href="administerPage/administerMovieListPage" class="btn btn-primary" style="color:#fff;">목록</a>
+									<a href="/administerPage/administerMovieListPage" class="btn btn-primary" style="color:#fff;">목록</a>
 								</form>
 							</div>
 						</div>
@@ -163,7 +166,7 @@ $(function () {
 	$("#btnDelete").click(function(){
 	});
 	$("#modifyForm").submit(function () {
-		// 개봉일 형식 확인(ex 2021-01-01)
+		// 개봉일 형식 확인(2020-07-07)
 		var movie_open_date = $("#movie_open_date").val();
 		var date_pattern = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/; 
 		if(!date_pattern.test(movie_open_date)) {
@@ -176,7 +179,6 @@ $(function () {
 		
 		// 총시간(0~999)
 		var movie_total_time = $("#movie_total_time").val();
-		console.log(movie_total_time);
 		if (movie_total_time<0 || movie_total_time>999) {
 			$("#movie_total_time").parent().find("span").remove();
 			html = "<span style='color:red;'>총시간을 확인해주세요.</span>";
@@ -208,14 +210,65 @@ $(function () {
 			var hiddenInput = "<input type='hidden' name='movie_preview' value='"+filename+"'/>";
 			$("#modifyForm").prepend(hiddenInput);
 		});
-		
+// 		return false;
+	});
+	
+	// 기존 메인이미지 지우기
+	$(".attach-main-del").click(function (e) {
+		e.preventDefault();
+		$("#movie_main_image_text").text("선택된 파일 없음");
+		var removeDiv = $(this).parent();
+		var fileName = $(this).attr("href");
+		var url = "/upload/deleteFile";
+		var sendData = {"fileName" : fileName};
+		$.ajax({
+			"type" : "get",
+			"url" : url,
+			"data" : sendData,
+			"success" : function(rData) {
+				removeDiv.remove();
+			}
+		});
+	});
+	
+	// 기존 sub_이미지 지우기
+	$(".attach-sub-del").click(function (e) {
+		e.preventDefault();
+		var removeDiv = $(this).parent();
+		var fileName = $(this).attr("href");
+		var url = "/upload/deleteFile";
+		var sendData = {"fileName" : fileName};
+		$.ajax({
+			"type" : "get",
+			"url" : url,
+			"data" : sendData,
+			"success" : function(rData) {
+				removeDiv.remove();
+			}
+		});
+	});
+	
+	// 기존 동영상 지우기
+	$(".attach-preview-del").click(function (e) {
+		e.preventDefault();
+		var removeDiv = $(this).parent();
+		var fileName = $(this).attr("href");
+		var url = "/upload/deleteFile";
+		var sendData = {"fileName" : fileName};
+		$.ajax({
+			"type" : "get",
+			"url" : url,
+			"data" : sendData,
+			"success" : function(rData) {
+				removeDiv.remove();
+			}
+		});
 	});
 	
 });
-var tempLength = 0;
-var rearLength = 0;
 // 파일 데이터 미리보기 - 1개
 function loadImage(value) {
+	$("#main_image_div > div").remove();
 	$("#movie_main_image").prop("disabled","true");
  	// 파일 추가하기
 	var file = value.files[0];
@@ -229,7 +282,6 @@ function loadImage(value) {
 		"url" : url,
 		"data" : formData,
 		"success" : function(rData) {
-			console.log(rData);
 			var slashIndex = rData.lastIndexOf("/");
 			var front = rData.substring(0, slashIndex + 1);
 			var rear = rData.substring(slashIndex + 1);
@@ -265,16 +317,12 @@ function loadImage(value) {
 	});
 }
 
-
 //파일 데이터 미리보기 - 여러개
 function loadSubImage(value) {
-	console.log("subImage");
 	$("#movie_sub_image_div > img").remove();
 	var files = value.files;
 	var filesArr = Array.prototype.slice.call(files);
 	var fileIndex = 0;
-	var length = filesArr.length;
-	rearLength += length;
 	
 	filesArr.forEach(function(f) { 
 		
@@ -303,14 +351,10 @@ function loadSubImage(value) {
 				html += "</div>";
 				$("#movie_sub_image_div").append(html);
 			}
-		});	
-		
-		$("#movie_sub_image_text").text("파일 " + (rearLength+tempLength) + "개");
-		
+		});		
 	});
 	// 이미지 지우기
 	$("#modifyForm").on("click", ".attach-del1", function(e) {
-		tempLength = -1;
 		e.preventDefault();
 		var removeDiv = $(this).parent();
 		var fileName = $(this).attr("href");
@@ -321,75 +365,10 @@ function loadSubImage(value) {
 			"url" : url,
 			"data" : sendData,
 			"success" : function(rData) {
-				var check = rearLength+tempLength;
-				rearLength = check;
-				tempLength = 0;
-				$("#movie_sub_image_text").text("파일 " + check + "개");
 				removeDiv.remove();
 			}
 		});
 	});
-}
-
-// 예고편 동영상 올리기
-function previewUpload(value) {
-	$("#movie_preview").prop("disabled","true");
-	$("#tempDiv").remove();
-	var file = value.files[0];
-	var fileSize = Math.floor(file.size/(1024*1024));
-	console.log("fileSize:" + fileSize + "MB");
-	
-	if(fileSize > 10) {
-		console.log("사이즈오류");
-		
-		var html = "<div id='tempDiv'>";
-		html += "<span style='color:red;'>파일사이즈가 맞지않습니다.</span>";
-		html += "</div>";
-		$("#movie_preview_text").append(html);
-		$("#movie_preview").removeAttr("disabled");
-		return false;
-	}
-	var formData = new FormData(); // <form> 작성
-	formData.append("file", file); // <input type="file"> : 파일 선택
-	var url = "/upload/previewUploadAjax";
-	$.ajax({
-		"processData" : false,  // text 파일
-		"contentType" : false,	// text 파일
-		"type" : "post",
-		"url" : url,
-		"data" : formData,
-		"success" : function(rData) {
-			var originalFilename = rData.substring(rData.lastIndexOf("-")+1);
-			var text = "파일명: "+ originalFilename + " Size:" + fileSize;
-			var html = "<div data-fileName='" + rData + "'>";
-			html += "<span style='margin-left:100px;width:100px;'>파일사이즈: "+fileSize+"MB</span>";
-			html += "<a href='"+rData+"' class='attach-del2'><span class='pull-right' style='color:red;'>[삭제]</span></a>";
-			html += "</div>";
-			
-			$("#movie_preview_text").append(html);
-			$("#movie_preview_span").text(originalFilename);
-		}
-	});
-	
-	// 이미지 지우기
-	$("#modifyForm").on("click", ".attach-del2", function(e) {
-		e.preventDefault();
-		$("#movie_preview_span").text("선택된 파일 없음");
-		var removeDiv = $(this).parent();
-		var fileName = $(this).attr("href");
-		var url = "/upload/deleteFile";
-		var sendData = {"fileName" : fileName};
-		$.ajax({
-			"type" : "get",
-			"url" : url,
-			"data" : sendData,
-			"success" : function(rData) {
-				removeDiv.remove();
-				$("#movie_preview").removeAttr("disabled");
-			}
-		});
-	});
-	
 }
 </script>
 	</body>

@@ -17,8 +17,8 @@
 		<include refid="search"></include>
 	</select>
 	
-	<!--  영화 페이징 -->
-	<select id="movieListPaging" resultType="MovieVo">
+	<!--  영화 목록 조회-->
+	<select id="listAll" resultType="MovieVo">
 		select * from (
 			select rownum rnum, a.* from (
 				select * from tbl_movie 
@@ -55,7 +55,7 @@
 	</select>
 	
 	<!-- 영화코드 조회 -->
-	<select id="selectMovieCode" resultType="string">
+	<select id="selectMovieCode" resultType="String">
 		select * from(select a.*, rownum rnum from(select movie_code  
                 from tbl_movie
                 order by movie_regist_date desc) a)
@@ -87,13 +87,13 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<choose>
-				<when test="searchType == 'mname'">
+				<when test="searchType == 'movie_name'">
 				where movie_name like '%' || #{keyword} || '%'
 				</when>
-				<when test="searchType == 'mgenre'">
+				<when test="searchType == 'movie_genre'">
 				where movie_genre like '%' || #{keyword} || '%'
 				</when>
-				<when test="searchType == 'mgrade'">
+				<when test="searchType == 'movie_grade'">
 				where movie_grade like '%' || #{keyword} || '%'
 				</when>
 			</choose>
