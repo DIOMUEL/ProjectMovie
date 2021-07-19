@@ -38,7 +38,7 @@
 					 쌍둥이 형제 ‘더글라스’, ‘제임스’를 이끌고 여정을 떠나게 된다. 
 					 그리고 자신의 의지로 어른이 되지 않고 영원히 어린이로 살 수 있는 신비로운 섬에 도착하게 되는데…</p>
 					<div class="d-flex">
-					<button></button>
+					<a class="btn btn-primary" href="/board/mainPage">메인으로</a>
 					</div>
 				</div>
 			</div>

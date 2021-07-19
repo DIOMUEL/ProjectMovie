@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/kh/projectMovie01/controller/AdminController.java=UTF-8
+encoding//src/main/java/com/kh/projectMovie01/vo/PagingDto.java=UTF-8
+encoding//src/main/java/com/kh/projectMovie01/vo/admin_movie_list_Dto.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/board/startPage.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/include/header.jsp=UTF-8

@@ -37,6 +37,7 @@
 					이 영화는 그런 대작을 대중들에게 널리 알리기 위함이다. 푸치니는 이 오페라에서  중국적인 장대한 선율을 바탕으로
 					영웅적이고 드라마틱한 스토리를 이어 나갔는데...</p>
 					<div class="d-flex">
+					<a class="btn btn-primary" href="/board/mainPage">메인으로</a>
 					</div>
 				</div>
 			</div>

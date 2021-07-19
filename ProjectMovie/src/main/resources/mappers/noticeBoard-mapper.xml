@@ -2,47 +2,91 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.kh.projectMovie01.noticeBoard">
 
 	<!-- 글목록 -->
 	<select id="listAll" resultType="NoticeBoardVo">
-		select * from tbl_noticeboard
-		order by b_no
+			select * from
+			(select rownum rnum, a.* from
+			(select * from tbl_noticeboard
+			<include refid="search"></include>
+			order by re_group desc, re_seq asc) a)
+			where rnum between #{startRow} and #{endRow}
 	</select>
-	
+
+	<!-- 글갯수 -->
+	<select id="getCount" resultType="int">
+		select count(*) from tbl_noticeboard
+		<include refid="search"></include>
+	</select>
+
+	<sql id="search">
+		<if test="searchType != null">
+			<choose>
+				<when test='searchType == "t"'>
+					where b_title like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "c"'>
+					where b_content like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "tc"'>
+					where b_title like '%' || #{keyword} || '%'
+					or b_content like '%' || #{keyword} || '%'
+				</when>
+			</choose>
+		</if>
+	</sql>
+
 	<!-- 글조회 -->
 	<select id="selectByBno" resultType="NoticeBoardVo">
-		select * from tbl_noticeboard
+		select * from
+		tbl_noticeboard
 		where b_no = #{b_no}
 	</select>
-	
+
 	<!-- 글번호 -->
 	<select id="getNextVal" resultType="int">
 		select seq_board_bno.nextval
 		from dual
 	</select>
-	
+
 	<!-- 글쓰기 -->
 	<insert id="insertArticle">
-		insert into tbl_noticeboard 
-			(b_no, b_title, b_content, user_id, re_group)
-		values 
-			(#{b_no}, #{b_title}, #{b_content, jdbcType=VARCHAR}, 
-			 #{user_id}, #{b_no})
+		insert into tbl_noticeboard
+		(b_no, b_title, b_content, user_id, re_group)
+		values
+		(#{b_no}, #{b_title}, #{b_content, jdbcType=VARCHAR},
+		#{user_id}, #{b_no})
 	</insert>
 
 	<!-- 글수정 -->
 	<update id="updateArticle">
-	 update tbl_noticeboard set
-	 	b_title = #{b_title},
+		update tbl_noticeboard set
+		b_title = #{b_title},
 		b_content = #{b_content, jdbcType=VARCHAR}
-		where b_no = #{b_no}
+		where b_no =
+		#{b_no}
 	</update>
-	
+
 	<!-- 글삭제 -->
 	<delete id="deleteArticle">
 		delete from tbl_noticeboard
 		where b_no = #{b_no}
 	</delete>
+
+	<!-- 조회수 증가 -->
+	<update id="updateViewCnt">
+		update tbl_noticeboard set
+			b_viewcnt = b_viewcnt + 1
+		where b_no = #{b_no}
+	</update>
+
+	<!-- 해당 게시글의 댓글 갯수 변경 -->
+	<update id="updateCommentCnt">
+		update tbl_noticeboard set
+			comment_cnt = comment_cnt + #{count}
+		where b_no = #{b_no}
+	</update>
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.kh.projectMovie01.controller;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
+import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
+import com.kh.projectMovie01.vo.NoticeBoardVo;
 
 @Controller
 @RequestMapping(value="/mypage")
@@ -23,6 +27,8 @@ public class mypageController {
 	@Inject
 	private MemberService memberService;
 	
+	@Inject
+	private BuyMovieService buyMovieService;
 
 	@RequestMapping(value="/Management",method=RequestMethod.GET)
 	public String Management(Model model, HttpSession session) throws Exception{
@@ -45,6 +51,16 @@ public class mypageController {
 		return "success";
 	}
 	
+	@RequestMapping(value="/ChangeEmail",method=RequestMethod.POST)
+	@ResponseBody
+	public String ChangeEmail(HttpSession session,String user_email) throws Exception{
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		System.out.println("user_email:"+user_email);
+		memberService.changeEmail(user_id, user_email);
+		return "success";
+	}
+	
 	@RequestMapping(value="/Message",method=RequestMethod.GET)
 	public String Message() throws Exception{
 		return "mypage/Message";
@@ -59,7 +75,11 @@ public class mypageController {
 		
 	}
 	@RequestMapping(value="/Purchase_history_Movie",method=RequestMethod.GET)
-	public String Purchase_history_Movie() throws Exception{
+	public String Purchase_history_Movie(Model model,HttpSession session) throws Exception{	
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<BuyMovieVo> list = buyMovieService.buyMovieList(user_id);
+		model.addAttribute("list", list);
 		return "mypage/Purchase_history_Movie";
 		
 	}

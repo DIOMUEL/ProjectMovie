@@ -66,8 +66,7 @@
 									</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/board/logout"> 
-										<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-											로그아웃
+										<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>로그아웃
 									</a>
 								</div>
 							</li>

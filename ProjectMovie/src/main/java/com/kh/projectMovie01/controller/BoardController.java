@@ -16,6 +16,7 @@ import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.NoticeBoardService;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.NoticeBoardVo;
+import com.kh.projectMovie01.vo.PagingDto;
 
 @Controller
 @RequestMapping(value="/board")
@@ -44,10 +45,17 @@ public class BoardController {
 		String page = null;
 		if(memberVo != null) {
 			String user_name = memberVo.getUser_name();
-			session.setAttribute("loginVo", memberVo);
-			rttr.addFlashAttribute("user_name", user_name);
-			msg = "success";
-			page = "redirect:/board/mainPage";
+			if(user_name.equals("admin")) {
+				session.setAttribute("loginVo", memberVo);
+				rttr.addFlashAttribute("user_name", user_name);
+				msg = "success";
+				page = "redirect:/administerPage/administerMainPage";
+			}else if(!user_name.equals("admin")) {
+				session.setAttribute("loginVo", memberVo);
+				rttr.addFlashAttribute("user_name", user_name);
+				msg = "success";
+				page = "redirect:/board/mainPage";
+			}
 		}else if (memberVo == null) {
 			msg = "fail";
 			page = "redirect:/board/loginPage";
@@ -62,10 +70,13 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/noticeBoardPage", method = RequestMethod.GET)
-	public String noticeBoardPage(Model model) {
-		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage();
+	public String noticeBoardPage(Model model, PagingDto pagingDto) {
+		int count = noticeBoardService.getCount(pagingDto);
+		pagingDto.setCount(count);
+		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage(pagingDto);
 		model.addAttribute("list", list);
-		System.out.println(list);
+		model.addAttribute("pagingDto", pagingDto);
+		//System.out.println(list);
 		return "board/noticeBoardPage"; 
 	}
 

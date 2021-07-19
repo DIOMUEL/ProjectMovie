@@ -4,19 +4,70 @@
 <script>
 $(document).ready(function(){
 	
-	$("#btnWrite").click(function(e){
-		e.preventDefault();
-		if("${noticeBoardVo.user_id}" == ""){
-			alert("로그인을 확인해주세요");
-			location.href = "/board/loginPage";
-		}else{
-			location.href = "/noticeBoard/noticeBoardWritePage";
-		}
+// 	$("#btnWrite").click(function(e){
+// 		e.preventDefault();
+// 		if("${noticeBoardVo.user_id}" == ""){
+// 			alert("로그인을 확인해주세요");
+// 			location.href = "/board/loginPage";
+// 		}else{
+// 			location.href = "/noticeBoard/noticeBoardWritePage";
+// 		}
 		
+// 	});
+	
+	// 검색 옵션 
+	$(".searchType").click(function(e) {
+		e.preventDefault();
+		var searchType = $(this).attr("href");
+		$("#frmPaging > input[name=searchType]").val(searchType);
+		$("#dropdownMenuButton").text($(this).text());
 	});
 	
+	// 검색
+	$("#btnSearch").click(function() {
+		var searchType = 
+			$("#frmPaging > input[name=searchType]").val();
+		if (searchType == "") {
+			alert("검색 옵션을 선택해 주세요");
+			return;
+		}
+		var keyword = $("#txtSearch").val().trim();
+		if (keyword == "") {
+			alert("검색어를 입력해 주세요");
+			return;
+		}
+		$("#frmPaging > input[name=keyword]").val(keyword);
+		$("#frmPaging > input[name=page]").val("1");
+		$("#frmPaging").submit();
+	});
+	
+	// 글제목 
+	$(".a_title").click(function(e) {
+		e.preventDefault();
+		var b_no = $(this).attr("data-bno");
+		$("#frmPaging > input[name=b_no]").val(b_no);
+		$("#frmPaging").attr("action", "/noticeBoard/noticeBoardContentPage");
+		$("#frmPaging").submit();
+	});
+	
+	// 페이지 
+	$(".pagination > li > a").click(function(e) {
+		e.preventDefault(); 
+		var page = $(this).attr("href");
+		var frmPaging = $("#frmPaging");
+		frmPaging.find("[name=page]").val(page);
+		frmPaging.submit();
+	});
 });
 </script>
+<form id="frmPaging" action="/board/noticeBoardPage" method="get">
+	<input type="hidden" name="page" value="${pagingDto.page}"/>
+	<input type="hidden" name="perPage" value="${pagingDto.perPage}"/>
+	<input type="hidden" name="searchType" value="${pagingDto.searchType}"/>
+	<input type="hidden" name="keyword" value="${pagingDto.keyword}"/>
+	<input type="hidden" name="b_no"/>
+</form>
+
 <br>
 <br>
 <br>
@@ -40,15 +91,14 @@ $(document).ready(function(){
 								<div class="row">
 									<div class="col-md-12">
 										<div class="dropdown">
-
 											<button class="btn btn-default dropdown-toggle" type="button"
 												id="dropdownMenuButton" data-toggle="dropdown">
-												선택</button>
+												검색옵션</button>
 											<div class="dropdown-menu"
 												aria-labelledby="dropdownMenuButton">
-												<a class="dropdown-item disabled" href="#">제목</a> 
-												<a class="dropdown-item" href="#">내용</a> 
-												<a class="dropdown-item" href="#">제목+내용</a>
+												<a class="dropdown-item searchType" href="t">제목</a> 
+												<a class="dropdown-item searchType" href="c">내용</a> 
+												<a class="dropdown-item searchType" href="tc">제목+내용</a>
 											</div>
 										</div>
 									</div>
@@ -56,9 +106,9 @@ $(document).ready(function(){
 				<nav class="navbar navbar-light bg-light">
 					<div class="container-fluid">
 						<form class="d-flex">
-							<input class="form-control me-2" type="search"
-								placeholder="Search" aria-label="Search">
-							<button class="btn btn-outline-success" type="submit">Search</button>
+							<input class="form-control me-2" type="text"
+								placeholder="검색어를 입력하세요." aria-label="Search" value="${pagingDto.keyword}" id="txtSearch">
+							<button class="btn btn-outline-success" type="button" id="btnSearch">Search</button>
 						</form>
 					</div>
 				</nav>
@@ -67,6 +117,9 @@ $(document).ready(function(){
 	</div>
 </div>
 <!--//검색창 -->
+<div>
+[전체 ${pagingDto.count}건]
+</div>
 <!--테이블 -->
 <div class="container">
 	<div class="row">
@@ -85,7 +138,7 @@ $(document).ready(function(){
 			<c:forEach var="noticeBoardVo" items="${list}">
 				<tr>
 					<td>${noticeBoardVo.b_no}</td>
-					<td><a class="title" href="/noticeBoard/noticeBoardContentPage?b_no=${noticeBoardVo.b_no}">${noticeBoardVo.b_title}</a></td>
+					<td><a class="a_title" href="#" data-bno="${noticeBoardVo.b_no}">${noticeBoardVo.b_title}</a></td>
 					<td>${noticeBoardVo.user_id}</td>
 					<td>${noticeBoardVo.b_regdate}</td>
 					<td>${noticeBoardVo.b_viewcnt}</td>
@@ -104,14 +157,34 @@ $(document).ready(function(){
 	<div class="col-md-12">
 		<nav>
 			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link" href="#">Previous</a>
+				<li class="page-item"><a class="page-link" href="${pagingDto.startPage}">&laquo;</a></li>
+				<c:if test="${pagingDto.startPage != 1}">
+					<li class="page-item">
+						<a class="page-link" 
+							href="${pagingDto.startPage - 1}">이전</a>
+					</li>
+				</c:if>
+				<c:forEach var="v" begin="${pagingDto.startPage}" end="${pagingDto.endPage}">
+				<li
+				<c:choose>
+					<c:when test="${pagingDto.page == v}">
+						class="page-item active"
+					</c:when>
+					<c:otherwise>
+						class="page-item"
+					</c:otherwise>
+				</c:choose>
+				>
+				<a class="page-link" href="${v}">${v}</a>
 				</li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">5</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</c:forEach>
+				<c:if test="${pagingDto.endPage < pagingDto.totalPage}">	
+					<li class="page-item">
+						<a class="page-link" 
+							href="${pagingDto.endPage + 1}">다음</a>
+					</li>
+				</c:if>
+				<li class="page-item"><a class="page-link" href="${pagingDto.endPage}">&raquo;</a></li>
 			</ul>
 		</nav>
 	</div>

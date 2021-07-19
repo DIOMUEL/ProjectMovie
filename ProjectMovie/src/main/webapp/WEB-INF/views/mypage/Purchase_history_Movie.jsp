@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ include file="../include/header.jsp"%>
+<script>
+
+</script>
 <br>
 <br>
 <br>
@@ -16,7 +20,7 @@
 
 							<div class="jumbotron"
 								style="background-color: rgba(0, 255, 255, 0.8)">
-
+		
 								<h2>영화예매 내역</h2>
 								<br>
 								<!-- Nav tabs -->
@@ -26,6 +30,7 @@
 								<div class="row">
 									<div class="col-md-12">
 										<table class="table">
+										
 											<thead>
 												<tr>
 													<th>구분</th>
@@ -36,15 +41,15 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="messageVo" items="${list}">
+											<c:forEach var="buyMovieVo" items="${list}">
 													<tr>
-														<td>${messageVo.msg_no}</td>
-														<td></td>
-														<td>${messageVo.msg_sender}</td>
-														<td>${messageVo.msg_senddate}</td>
+														<td>${buyMovieVo.bm_no}</td>
+														<td>${buyMovieVo.bm_moviename}</td>
+														<td>${buyMovieVo.bm_price}</td>
+														<td>${buyMovieVo.bm_datepurch}</td>
 														<td></td>
 													</tr>
-												</c:forEach>
+											</c:forEach>	
 											</tbody>
 										</table>
 									</div>

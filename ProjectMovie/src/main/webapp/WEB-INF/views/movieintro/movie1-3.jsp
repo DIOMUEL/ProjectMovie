@@ -40,6 +40,7 @@
 					오늘만 사는 자유영혼 힙스터 ‘봉식’. 썸 1일차, 연애 따윈 필요 없다고 다짐 또 다짐했건만 적극적으로 대시하는 썸남에게 자꾸만 눈이 가는데… 
 					쿨하고 힙한 청춘들의 하이텐션 썸머 로맨스가 시작된다!</p>
 					<div class="d-flex">
+					<a class="btn btn-primary" href="/board/mainPage">메인으로</a>
 					</div>
 				</div>
 			</div>

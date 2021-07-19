@@ -40,11 +40,123 @@ $(document).ready(function(){
 });
 </script>
 	<!-- 메인 화면-->
-	<header class="masthead">
-		<div class="container">
-			<div class="masthead-subheading">영화 광고</div>
-			<div class="masthead-heading text-uppercase">영화 간략 소개</div>
-		</div>
+	<header>
+    <div class="mp-video-slider-wrapper">
+        <div class="mp-video-slider slick-initialized slick-slider slick-dotted">
+                            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 17127px; transform: translate3d(-3806px, 0px, 0px);"><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 1903px;" tabindex="-1">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                        </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide" data-slick-index="0" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide10" aria-describedby="slick-slide-control10">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                                                     </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 1903px;" tabindex="0" role="tabpanel" id="slick-slide11" aria-describedby="slick-slide-control11">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                                                     </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide12" aria-describedby="slick-slide-control12">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                        </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide" data-slick-index="3" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide13" aria-describedby="slick-slide-control13">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                        </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 1903px;" tabindex="-1">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                        </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 1903px;" tabindex="-1">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                        </div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 1903px;" tabindex="-1">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                            «17 мгновений весны», 1973 г.</div>
+                    </div>
+                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 1903px;" tabindex="-1">
+                    <div class="mp-video-item">
+                        <div class="mp-video-item-video">
+
+                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
+                                <source src="" type="">
+                            </video>
+                        </div>
+                        <div class="mp-video-item-label">
+                        </div>
+                    </div>
+                </div></div></div>
+        	<ul class="slick-dots" style="" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 4" tabindex="-1">1</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 4" tabindex="0" aria-selected="true">2</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control12" aria-controls="slick-slide12" aria-label="3 of 4" tabindex="-1">3</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control13" aria-controls="slick-slide13" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
+    	</div>
+    	<div class="header-content">
+        	<div class="container">
+            	<div class="row">
+               		<div class="col-12 col-sm-10 col-lg-10 col-xl-11 col-xxl-9 offset-0 offset-lg-1 offset-xl-0">
+                    	<div class="header-content-left">
+                        	<h1 class="animated fadeInLeft" style="opacity: 1;">
+                            	MOVIE<br>
+                            	MAIN<br>
+                            	<span class="text-red">PAGE</span>
+                        	</h1>
+                        	<a href="" class="arrow-link">Welcome</a>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
 	</header>
 	<!-- 금주 영화 포스터 및 소개-->
 	<section class="page-section">
@@ -136,7 +248,7 @@ $(document).ready(function(){
 								<div class="portfolio-hover-content">
 									<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movieBack4.jpg" alt="..." />
 								</div>
-							</div> 
+							</div>
 							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption" style="background-color:#00ff0000">
