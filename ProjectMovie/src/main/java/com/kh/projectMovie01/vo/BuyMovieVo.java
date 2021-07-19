@@ -9,6 +9,10 @@ public class BuyMovieVo {
 	private int bm_price;
 	private Timestamp bm_datepurch;
 	
+	public BuyMovieVo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	public int getBm_no() {
 		return bm_no;
@@ -50,10 +54,7 @@ public class BuyMovieVo {
 		this.bm_datepurch = bm_datepurch;
 	}
 
-	public BuyMovieVo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public BuyMovieVo(int bm_no, String user_id, String bm_moviename, int bm_price, Timestamp bm_datepurch) {
 		super();

@@ -6,7 +6,7 @@ import com.kh.projectMovie01.vo.BuyMovieVo;
 
 
 public interface BuyMovieDao {
-	public List<BuyMovieVo> buyMovieList();
-	public BuyMovieVo selectByid(int bm_no);
+	public List<BuyMovieVo> buyMovieList(String user_id);
+//	public BuyMovieVo selectBybmid();
 	
 }
