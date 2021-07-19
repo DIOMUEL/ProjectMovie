@@ -20,8 +20,20 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
 	<context:component-scan base-package="com.kh.projectMovie01" />
+	
+	<!-- Multipart Resolver (파일 업로드)-->
+	<!-- 주의: id="multipartResolver" 필수 - DispatcherServlet에서 사용하는 이름임 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="15728640"></beans:property>
+	</beans:bean>
+	
+	<!-- 업로드 경로 -->
+	<!-- String uploadPath = new String("D:/upload") -->
+	<beans:bean
+		id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="D:\upload"/>
+	</beans:bean>
 	
 	<!-- 인터셉터 -->
 

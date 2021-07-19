@@ -34,7 +34,7 @@
 									<h4 class="title" >영화관리_영화등록</h4>
 								</div>	
 								<!--  페이지별 내용 -->
-								<form role="form" action="/admin/admin_movie_register" method="post" id="registForm">
+								<form role="form" action="/administerPage/administerMovieRegistRun" method="post" id="registForm">
 									<div class="form-group">
 										<label for="movie_name"><strong>영화이름</strong></label>
 										<input type=text class="form-control" id="movie_name" name="movie_name" required/>
@@ -79,7 +79,7 @@
 									</div>
 									<div class="form-group">
 										<label for="movie_content"><strong>영화정보</strong></label>
-										<textarea class="form-control" rows="5" id="movie_content" name="movie_content"></textarea>
+										<textarea class="form-control" rows="3" id="movie_content" name="movie_content"></textarea>
 									</div>
 									<div> 
 										<span style="color:blue;">* 이미지 & 동영상 파일 크기는 10MB 미만만 가능합니다.</span>
@@ -87,21 +87,21 @@
 									</div>
 									<div class="form-group">
 										<label for="movie_main_image" style="margin-right:10px;"><strong>영화 메인이미지 : </strong></label>
-										<input type="file" class="movie_main_image" id="movie_main_image" onchange="loadImage(this);" accept="image/*" required style="display:none;"/>
+										<input type="file" class="movie_main_image" id="movie_main_image" onchange="loadImage(this);" accept="image/*" style="display:none;"/>
 										<label for="movie_main_image" class="fileLabel btn_orange" >파일 선택</label>
 										<span id="movie_main_image_text">선택된 파일 없음</span>
 										<div id="main_image_div" style="width:300px;height:auto;"></div>
 									</div>
 									<div class="form-group"> 
 										<label for="movie_sub_image" style="margin-right:10px;"><strong>영화 상세사진 : </strong></label>
-										<input type="file" class="movie_sub_image" id="movie_sub_image" multiple onchange="loadSubImage(this);" required style="display:none;" accept="image/*" required/>
+										<input type="file" class="movie_sub_image" id="movie_sub_image" multiple onchange="loadSubImage(this);" style="display:none;" accept="image/*"/>
 										<label for="movie_sub_image" class="fileLabel" >파일 선택</label>
 										<span id="movie_sub_image_text">선택된 파일 없음</span>
 										<div id="movie_sub_image_div" style="width:300px;height:auto;"></div>
 									</div>
 									<div class="form-group">
 										<label for="movie_preview" style="margin-right:10px;"><strong>영화 예고편 : </strong></label>
-										<input type="file" class="movie_preview" id="movie_preview" accept="video/*" onchange="previewUpload(this);" required style="display:none;"/>
+										<input type="file" class="movie_preview" id="movie_preview" accept="video/*" onchange="previewUpload(this);" style="display:none;"/>
 										<label for="movie_preview" class="fileLabel" >파일 선택</label>
 										<span id="movie_preview_span">선택된 파일 없음</span>
 										<div id="movie_preview_text" style="width:250px;height:auto;"></div>
@@ -125,7 +125,7 @@
 			$("#movie_manage > dt").css("color","red");
 			$("#movie_manage > dd").eq(1).css("color","blue");
 			$("#registForm").submit(function () {
-				// 개봉일 형식 확인(2020-07-07)
+				// 개봉일 형식 확인(ex 2021-01-01)
 				var movie_open_date = $("#movie_open_date").val();
 				var date_pattern = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/; 
 				if(!date_pattern.test(movie_open_date)) {
@@ -139,7 +139,7 @@
 				// 총시간(0~999)
 				var movie_total_time = $("#movie_total_time").val();
 				console.log(movie_total_time);
-				if (movie_total_time < 0 || movie_total_time > 999) {
+				if (movie_total_time<0 || movie_total_time>999) {
 					$("#movie_total_time").parent().find("span").remove();
 					html = "<span style='color:red;'>총시간을 확인해주세요.</span>";
 					$("#movie_total_time").parent().append(html);

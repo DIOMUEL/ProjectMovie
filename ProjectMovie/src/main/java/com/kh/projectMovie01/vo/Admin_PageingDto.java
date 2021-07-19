@@ -1,6 +1,6 @@
 package com.kh.projectMovie01.vo;
 
-public class admin_movie_list_Dto {
+public class Admin_PageingDto {
 		private int page = 1;
 		private int perPage = 6;
 		private int startRow = 1;
