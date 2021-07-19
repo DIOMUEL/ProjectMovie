@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/kh/projectMovie01/controller/AdminController.java=UTF-8
+encoding//src/main/java/com/kh/projectMovie01/dao/Admin_AreaDao.java=UTF-8
 encoding//src/main/java/com/kh/projectMovie01/dao/Admin_MovieDao.java=UTF-8
 encoding//src/main/java/com/kh/projectMovie01/dao/Admin_MovieDaoImpl.java=UTF-8
 encoding//src/main/java/com/kh/projectMovie01/service/Admin_MovieService.java=UTF-8

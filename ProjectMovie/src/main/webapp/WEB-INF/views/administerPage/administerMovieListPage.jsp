@@ -21,9 +21,8 @@
 	<input type="hidden" name="keyword" value="${admin_PageingDto.keyword}"/>
 	<input type="hidden" name="movie_num"/>
 </form>
-		<!-- admin_category -->
-		<section class="product-area shop-sidebar shop section" style="padding-top:10px;">
-			<div class="container" style="padding:0px;">
+		<section>
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 col-md-8 col-12">
 						<div class="row">

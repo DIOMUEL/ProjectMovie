@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.projectMovie01.service.Admin_AreaService;
 import com.kh.projectMovie01.service.Admin_MovieService;
 import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
@@ -26,6 +27,8 @@ public class AdminController {
 	private ChartService chartService;
 	@Inject
 	private Admin_MovieService admin_MovieService;
+	@Inject
+	private Admin_AreaService admin_AreaService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -103,9 +106,20 @@ public class AdminController {
 	@RequestMapping(value="/administerMovieDeleteRun", method = RequestMethod.GET)
 	public String administerMovieDeleteRun(String movie_code, RedirectAttributes rttr) throws Exception {
 		System.out.println("movie_code"+ movie_code);
-//		admin_MovieService.deleteMovie(movie_code);
+		admin_MovieService.deleteMovie(movie_code);
 		rttr.addFlashAttribute("msgDelete", "success");
 		return "redirect:/administerPage/administerMovieListPage";
 	}
 	// --------------- 영화 등록및 조회 삭제 End-----------------------
+	// --------------- 영화관 지역 등록 및 조회 -----------------------
+	@RequestMapping(value="/administerMovieAreaRegist", method = RequestMethod.GET)
+	public String administerMovieAreaRegist() throws Exception {
+		return "/administerPage/administerMovieAreaRegist";
+	}
+	@RequestMapping(value="/administerMovieAreaRegistRun", method = RequestMethod.GET)
+	public String administerMovieAreaRegist(String area_name, RedirectAttributes rttr) throws Exception {
+		admin_AreaService.movieAreaAdd(area_name);
+		rttr.addFlashAttribute("msgInsert", "success");
+		return "redirect:/administerPage/administerMovieAreaListPage";
+	}
 }

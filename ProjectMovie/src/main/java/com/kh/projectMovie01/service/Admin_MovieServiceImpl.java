@@ -83,7 +83,8 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 	@Override
 	public void deleteMovie(String movie_code) {
 		movieDao.deleteMovieImage(movie_code);
-		movieDao.deleteMoivie(movie_code);
+		movieDao.deleteMovie(movie_code);
+		//System.out.println("잘실행됨");
 	}
 
 }

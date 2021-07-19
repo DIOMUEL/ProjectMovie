@@ -21,6 +21,7 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	@Inject
 	private SqlSession sqlSession;	
 
+	// MoviePoster 관련 ______________________________________________
 	@Override
 	public void administerMovieRegistRun(MovieVo MovieVo){
 		sqlSession.insert(NAMESPACE + "administerMovieRegistRun", MovieVo);
@@ -65,9 +66,8 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	}
 
 	@Override
-	public void deleteMoivie(String movie_code) {
-		sqlSession.selectOne(NAMESPACE + "deleteMoivie", movie_code);
+	public void deleteMovie(String movie_code) {
+		sqlSession.selectOne(NAMESPACE + "deleteMovie", movie_code);
 		
 	}
-
 }
