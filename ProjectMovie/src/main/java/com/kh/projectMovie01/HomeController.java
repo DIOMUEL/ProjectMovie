@@ -14,4 +14,5 @@ public class HomeController {
 	public String startPage(Locale locale, Model model) {
 		return "/board/startPage";
 	}
+	
 }
