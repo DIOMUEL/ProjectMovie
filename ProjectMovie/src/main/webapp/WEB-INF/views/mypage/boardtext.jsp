@@ -48,7 +48,7 @@
 														<td>${member.msg_no}</td>
 														<td></td>
 														<td>${messageVo.msg_sender}</td>
-														<td>${messageVo.msg_senddate}</td>
+														<td>${messageVo.msg_senddate}</td >
 														<td></td>
 													</tr>
 												</c:forEach>
