@@ -73,7 +73,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr id="addTheaterList" style="display:none;" id="false">
+												<tr id="addTheaterList" style="display:none;">
 													<td></td>
 													<td></td>
 													<td></td>
@@ -181,6 +181,8 @@
 			};
 			$.get(url, sendData, function(rData) {
 				//console.log("rData: "+rData);
+				var clone_tr;
+				$("#addTheaterList").clone().find("td").remove();
 					$.each(rData, function() {
 						var tr = that.parent().parent();
 						//console.log(tr)
