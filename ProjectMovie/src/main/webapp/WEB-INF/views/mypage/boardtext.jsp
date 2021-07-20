@@ -24,7 +24,7 @@
 								<br>
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs">
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
+									<li class="nav-item"><a class="nav-link active" data-toggle="tab"
 										href="#home">내가쓴글</a></li>
 
 								</ul>

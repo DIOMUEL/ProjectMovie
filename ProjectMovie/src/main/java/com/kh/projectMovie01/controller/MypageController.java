@@ -86,7 +86,12 @@ public class MypageController {
 		return "mypage/purchase_history_movie";
 		
 	}	
-		
+	
+	@RequestMapping(value="/message_content",method=RequestMethod.GET)
+	public String message_content() throws Exception{
+		return "mypage/message_content";
+	}
+	
 	@RequestMapping(value="/message" , method=RequestMethod.GET)
 	public String message(Model model, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
