@@ -61,14 +61,14 @@
 		});
 	
 		$("#btn_modify").click(function() {
-			
+			$("#btn_modify").hide();
 			$("#user_email").attr("readonly",false);
 			$("#btn_modifyOk").show();			
 			
 		});
 		
 		$("#btn_modifyOk").click(function() {
-			
+			$("#btn_modify").show();
 			$("#btn_modifyOk").hide();
 			$("#user_email").attr("readonly",true);
 			var user_email = $("#user_email").val();
@@ -170,8 +170,9 @@
 							비밀번호를 입력해 주세요
 							</p>
 								<label for="user_pw_check">비밀번호:</label>
-								<input type="password" id="text_pw_check">
-								<input type="button" id="btn_pw_check"value="비밀번호 확인">
+								<input type="password" id="text_pw_check" class="form-control">
+								<br>
+								<input type="button" id="btn_pw_check"value="비밀번호 확인" >
 							</div>
 						</div>
 					<!-- /비밀번호 확인 창 -->
@@ -186,21 +187,23 @@
 									<div class="form-group">
 										<label for="user_id">아이디:<span></span></label> <input
 											name="user_id" id="user_id" type="text"
-											value="${memberVo.user_id }" readonly>
+											value="${memberVo.user_id }" class="form-control" readonly>
 									</div>
 								</div>
 								<div class="col-12">
 									<div class="form-group">
-										<label for="user_pw">비밀번호:<span></span></label> <a
+										<label for="user_pw">비밀번호:<span></span></label>
+										<br>
+										 <a
 											id="user_pw" href="#modal-container-284734" role="button"
-											class="btn btn-primary" data-toggle="modal">변경 하기</a>
+											class="btn btn-primary" data-toggle="modal" >변경 하기</a>
 									</div>
 								</div>
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_name">이름:<span></span></label> <input
 											name="user_name" id="user_name" type="text"
-											value="${memberVo.user_name }" readonly>
+											value="${memberVo.user_name }" class="form-control" readonly>
 									</div>
 								</div>
 
@@ -208,14 +211,14 @@
 									<div class="form-group">
 										<label for="user_email">이메일:<span></span></label> <input
 											name="user_email" id="user_email" type="email"
-											value="${memberVo.user_email}" readonly>
+											value="${memberVo.user_email}" class="form-control" readonly>
 									</div>
 								</div>
 
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_point">포인트:<span></span></label> <input
-											name="user_point" id="user_point" type="text" value="">
+											name="user_point" id="user_point" type="text" class="form-control" value="" class="form-control" readonly>
 									</div>
 								</div>
 
@@ -223,7 +226,7 @@
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
 										<input type="button" class="btn btn-primary" id="btn_modify" style="color: blue;" value="회원 정보 수정">				
-								</div>
+								
 									<div class="form-group button">
 										<input type="button" class="btn btn-primary" id="btn_modifyOk"style="color: blue;" value="수정 완료">
 								</div>
