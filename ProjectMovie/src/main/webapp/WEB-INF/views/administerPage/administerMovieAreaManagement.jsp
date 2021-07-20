@@ -73,24 +73,29 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${areaVo}" var="areaVo">
-												<tr>
-													<td>${areaVo.area_no}</td>
-													<td>${areaVo.area_name}</td>
-													<td><a class="btn-primary area_no" style="color: white;" data-area_no="${areaVo.area_no}" id="btnShowTheaterList">더보기▼</a></td>
-													<td><a href="/administerPage/administerMovieAreaModifyRun" class="btn-primary" style="color:white">수정</a></td>
-													<td><a href="/administerPage/administerMovieAreaDeleteRun" class="btn-danger" style="color:white">삭제</a></td>
-													<td><a href="#modal-container-107905" class="btn-warning addTheater" data-area_no="${areaVo.area_no}" data-toggle="modal" style="color:white" id="btnAddTheater">영화관추가</a></td>
-												</tr>
-												<tbody class="addList">
-												<tr class="addTheaterList" style="display:none" id="false">
+												<tr id="addTheaterList" style="display:none;" id="false">
 													<td></td>
 													<td></td>
 													<td></td>
 													<td><a href="#" class="btn-primary" style="color: white;">수정</a></td>
 													<td><a href="#" class="btn-danger" style="color: white;">삭제</a></td>
 												</tr>
-												</tbody>
+												<c:forEach items="${areaVo}" var="areaVo">
+												<tr>
+													<td>${areaVo.area_no}</td>
+													<td>${areaVo.area_name}</td>
+													<td><a class="btn-primary area_no btnShowTheaterList" style="color: white;" data-area_no="${areaVo.area_no}">더보기▼</a></td>
+													<td><a href="/administerPage/administerMovieAreaModifyRun" class="btn-primary" style="color:white">수정</a></td>
+													<td><a href="/administerPage/administerMovieAreaDeleteRun" class="btn-danger" style="color:white">삭제</a></td>
+													<td><a href="#modal-container-107905" class="btn-warning addTheater" data-area_no="${areaVo.area_no}" data-toggle="modal" style="color:white" id="btnAddTheater">영화관추가</a></td>
+												</tr>
+												
+												
+												
+													
+												
+												
+												
 												</c:forEach>
 											</tbody>
 										</table>
@@ -160,49 +165,38 @@
 				if (rData == "success") {
 					alert("영화관등록완료.");
 					$("#btnCancle").trigger("click");
-					$("#btnShowTheaterList").trigger("click");
+					$(".btnShowTheaterList").trigger("click");
 				}
 			});
 		});
 
 		//더보기 버튼스위치 및 리스트 생성
-		$(document).on("click","#btnShowTheaterList",function(){
-			var booleanSwitch = $(".addTheaterList").attr("id");
-			var btnUpDown = document.getElementById("btnShowTheaterList");
-			//console.log("booleanSwitch : " + booleanSwitch);
-			if(booleanSwitch == "false"){
-				var area_no = $(this).attr("data-area_no");
-				var url = "/administerPage/administerMovieAreaTheaterList";
-				var sendData = {
-						"area_no" : area_no
-				};
-				$.get(url, sendData, function(rData) {
-					console.log("rData: "+rData);
-					var cloneTr;
-					$(".addList > tr:gt(0)").remove();
-					// -> 기존에 달려 있던 댓글들 모두 삭제
+		$(document).on("click",".btnShowTheaterList",function(){
+			var that = $(this);
+			
+			var area_no = $(this).attr("data-area_no");
+			var url = "/administerPage/administerMovieAreaTheaterList";
+			var sendData = {
+					"area_no" : area_no
+			};
+			$.get(url, sendData, function(rData) {
+				//console.log("rData: "+rData);
 					$.each(rData, function() {
-						var cloneTr = $(".addList > tr:first").clone();
-						var td = cloneTr.find("td");
+						var tr = that.parent().parent();
+						//console.log(tr)
+						var clone_tr = $("#addTheaterList").clone();
+						clone_tr.removeAttr("id");
+						//console.log(clone_tr);
+						var td = clone_tr.find("td");
 						td.eq(0).text();
 						td.eq(1).text(this.area_theater_no);
 						td.eq(2).text(this.area_theater_name);
-						$(".addList").append(cloneTr);
-						cloneTr.show("slow");
+						clone_tr.insertAfter(tr);
+						clone_tr.show();
 					});
 				});
-				
-				$(".addTheaterList").attr("id", "true");
-				$(".addTheaterList").attr("style", "");
-				btnUpDown.innerText = "넣기▲";
-			}else if(booleanSwitch == "true"){
-				$(".addTheaterList").attr("id", "false");
-				$(".addTheaterList").attr("style", "display:none");
-				btnUpDown.innerText = "더보기▼";
-			}
-			
+			});
 		});
-	});
 	</script>
 </body>
 </html>

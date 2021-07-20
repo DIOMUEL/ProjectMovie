@@ -33,7 +33,6 @@ public class EmailController {
 	@ResponseBody
 	public String sendMail(EmailDto emailDto, HttpSession session) throws Exception {
 		//System.out.println("emailDto:" + emailDto);
-		//ÄÚµå 6ÀÚ¸® ·£´ýÀ¸·Î »ý¼º
 		Random rnd =new Random();
 		StringBuffer buf =new StringBuffer();
 		for(int i=0;i<6;i++){
@@ -53,12 +52,10 @@ public class EmailController {
 				helper.setFrom(emailDto.getFrom());
 				helper.setTo(emailDto.getTo());
 				helper.setSubject(emailDto.getSubject());
-				//»ý¼ºµÈÄÚµå text¶õ¿¡ Áý¾î³Ö±â
-				helper.setText("ÀÎÁõÄÚµå´Â [" + code + "] ÀÔ´Ï´Ù.");
+				helper.setText("ì¸ì¦ì½”ë“œ ë²ˆí˜¸ëŠ” [" + code + "] ìž…ë‹ˆë‹¤.");
 			}
 		};
 		mailSender.send(preparator);
-		//ÄÚµå°ª ¸®ÅÏ
 		return code;
 	}
 }
