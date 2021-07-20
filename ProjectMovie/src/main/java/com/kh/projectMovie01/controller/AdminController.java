@@ -1,5 +1,7 @@
 package com.kh.projectMovie01.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -7,10 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.projectMovie01.service.Admin_AreaService;
+import com.kh.projectMovie01.service.Admin_MovieService;
 import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
-import com.kh.projectMovie01.vo.admin_movie_list_Dto;
+import com.kh.projectMovie01.vo.MovieImageVo;
+import com.kh.projectMovie01.vo.MovieVo;
+import com.kh.projectMovie01.vo.Admin_PageingDto;
+import com.kh.projectMovie01.vo.AreaVo;
 
 @Controller
 @RequestMapping(value="/administerPage")
@@ -18,6 +26,10 @@ public class AdminController {
 	
 	@Inject
 	private ChartService chartService;
+	@Inject
+	private Admin_MovieService admin_MovieService;
+	@Inject
+	private Admin_AreaService admin_AreaService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -45,55 +57,79 @@ public class AdminController {
 		return "/administerPage/totalMovieChart";
 	}
 	// --------------- 영화 등록및 조회 삭제 -----------------------
+	//영화 등록리스트
 	@RequestMapping(value="/administerMovieListPage", method = RequestMethod.GET)
-	public String movie_list(Model model, admin_movie_list_Dto admin_movie_list_Dto) throws Exception {
-		admin_movie_list_Dto.setPerPage(5);
-		admin_movie_list_Dto.setPageInfo();
-//		int count = jmhMovieService.getCountMovie(admin_movie_list_Dto);
-//		jmhPagingDto.setTotalCount(count);
-//		List<JmhMovieVo> jmhMovieVo = jmhMovieService.moviePagingList(jmhPagingDto);
-//		model.addAttribute("jmhMovieVo", jmhMovieVo);
-		model.addAttribute("admin_movie_list_Dto", admin_movie_list_Dto);
+	public String movie_list(Model model, Admin_PageingDto admin_PageingDto) throws Exception {
+		int count = admin_MovieService.getCountMovie(admin_PageingDto);
+		//System.out.println("count :"+ count);
+		admin_PageingDto.setTotalCount(count);
+		List<MovieVo> movieVo = admin_MovieService.listAll(admin_PageingDto);
+		//System.out.println("movieVo"+ movieVo);
+		model.addAttribute("movieVo", movieVo);
+		model.addAttribute("admin_PageingDto", admin_PageingDto);
 		return "/administerPage/administerMovieListPage";
 	}
-	
+	//영화 등록페이지
 	@RequestMapping(value="/administerMovieRegistPage", method = RequestMethod.GET)
 	public String administerMovieRegistPage() throws Exception {
 		return "/administerPage/administerMovieRegistPage";
 	}
-//	
-//	@RequestMapping(value="/admin_movie_register", method = RequestMethod.POST)
-//	public String movie_registerPost(JmhMovieVo jmhMovieVo,RedirectAttributes rttr )throws Exception {
-//		jmhMovieService.movieRegister(jmhMovieVo);
-//		
-//		rttr.addFlashAttribute("msg", "success");
-//		return "redirect:/admin/admin_movie_list";
-//	}
-//	
-//	@RequestMapping(value="/admin_movie_selectByMovie", method = RequestMethod.GET)
-//	public String selectByMovie(String movie_code, Model model) throws Exception {
-//		JmhMovieVo jmhMovieVo = jmhMovieService.selectByMovie(movie_code);
-//		List<JmhMovieImageVo> jmhMovieImageVo = jmhMovieService.selectByMovieSubImage(movie_code);
-//		model.addAttribute("jmhMovieImageVo", jmhMovieImageVo);
-//		model.addAttribute("jmhMovieVo", jmhMovieVo);
-//		return "/admin/admin_movie_selectByMovie";
-//	}
-//	
-//	// �쁺�솕 �닔�젙
-//	@RequestMapping(value="/admin_movie_modify", method = RequestMethod.GET)
-//	public String movie_modify(String movie_code, Model model) throws Exception {
-//		JmhMovieVo jmhMovieVo = jmhMovieService.selectByMovie(movie_code);
-//		List<JmhMovieImageVo> jmhMovieImageVo = jmhMovieService.selectByMovieSubImage(movie_code);
-//		model.addAttribute("jmhMovieImageVo", jmhMovieImageVo);
-//		model.addAttribute("jmhMovieVo", jmhMovieVo);
-//		return "/admin/admin_movie_modify";
-//	}
-//	
-//	@RequestMapping(value="/admin_movie_modify", method = RequestMethod.POST)
-//	public String movie_modifyPost(JmhMovieVo jmhMovieVo) throws Exception {
-//		String movie_code = jmhMovieVo.getMovie_code();
-//		jmhMovieService.movieModify(jmhMovieVo);
-//		return "redirect:/admin/admin_movie_selectByMovie?movie_code=" + movie_code;
-//	}
+	//영화등록실행
+	@RequestMapping(value="/administerMovieRegistRun", method = RequestMethod.POST)
+	public String administerMovieRegistRun(MovieVo movieVo, RedirectAttributes rttr)throws Exception {
+		//System.out.println("MovieVo"+ movieVo);
+		admin_MovieService.administerMovieRegistRun(movieVo);
+		rttr.addFlashAttribute("msgRegist", "success");
+		return "redirect:/administerPage/administerMovieListPage";
+	}
+	//영화상세보기
+	@RequestMapping(value="/administerMovieSelectByMovie", method = RequestMethod.GET)
+	public String selectByMovie(String movie_code, Model model) throws Exception {
+		//영화 정보(부사진 제외)
+		MovieVo movieVo = admin_MovieService.selectByMovie(movie_code);
+		//System.out.println("MovieVo"+ movieVo);
+		//부사진 정보
+		List<MovieImageVo> movieImageVo = admin_MovieService.selectByMovieSubImage(movie_code);
+		model.addAttribute("movieImageVo", movieImageVo);
+		model.addAttribute("movieVo", movieVo);
+		return "/administerPage/administerMovieSelectByMovie";
+	}
+	//영화 수정하기
+	@RequestMapping(value="/administerMovieModifyRun", method = RequestMethod.POST)
+	public String administerMovieModifyRun(MovieVo movieVo, RedirectAttributes rttr) throws Exception {
+		System.out.println("movieVo"+ movieVo);
+		String movie_code = movieVo.getMovie_code();
+		admin_MovieService.movieModify(movieVo);
+		rttr.addFlashAttribute("msg", "success");
+		return "redirect:/administerPage/administerMovieSelectByMovie?movie_code=" + movie_code;
+	}
+	//삭제하기
+	@RequestMapping(value="/administerMovieDeleteRun", method = RequestMethod.GET)
+	public String administerMovieDeleteRun(String movie_code, RedirectAttributes rttr) throws Exception {
+		System.out.println("movie_code"+ movie_code);
+		admin_MovieService.deleteMovie(movie_code);
+		rttr.addFlashAttribute("msgDelete", "success");
+		return "redirect:/administerPage/administerMovieListPage";
+	}
 	// --------------- 영화 등록및 조회 삭제 End-----------------------
+	// --------------- 영화관 지역 등록 및 조회 -----------------------
+	//지역등록페이지
+	@RequestMapping(value="/administerMovieAreaRegist", method = RequestMethod.GET)
+	public String administerMovieAreaRegist() throws Exception {
+		return "/administerPage/administerMovieAreaRegist";
+	}
+	//지역등록실행/ 후 리스트로 이동
+	@RequestMapping(value="/administerMovieAreaRegistRun", method = RequestMethod.GET)
+	public String administerMovieAreaRegist(String area_name, RedirectAttributes rttr) throws Exception {
+		admin_AreaService.movieAreaAdd(area_name);
+		rttr.addFlashAttribute("msgInsert", "success");
+		return "redirect:/administerPage/administerMovieAreaListPage";
+	}
+	//지역리스트페이지로 이동시 지역리스트호출
+	@RequestMapping(value="/administerMovieAreaList", method = RequestMethod.GET)
+	public String administerMovieAreaList(Model model) throws Exception {
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		return "/administerPage/administerMovieAreaListPage";
+	}
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mappers.area-mapper">
+
+	<!-- 전체 지역 조회 -->
+	<select id="getAllAreaList" resultType="AreaVo">
+		select * from tbl_area
+	</select>
+	<!-- 지역추가 -->
+	<insert id="moiveAreaAdd">
+		insert into tbl_area(area_no, area_name)
+		values(seq_area_no.nextval, #{area_name})
+	</insert>
+
+</mapper>
