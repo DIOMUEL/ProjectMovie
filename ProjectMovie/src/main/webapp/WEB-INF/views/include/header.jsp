@@ -55,13 +55,13 @@
 										<img class="img-profile rounded-circle" width="35" src=".././resources/images/undraw_profile.svg"/>
 								</a> <!-- Dropdown - User Information -->
 								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="/mypage/management"> 
+									<a class="dropdown-item" href="/mypage/Management"> 
 										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My페이지
 									</a> 
-									<a class="dropdown-item" href="/mypage/message"> 
+									<a class="dropdown-item" href="/mypage/Message"> 
 										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
 									</a> 
-									<a class="dropdown-item" href="/mypage/purchase_History_Movie"> 
+									<a class="dropdown-item" href="/mypage/Purchase_history_Movie"> 
 										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>구매내역
 									</a>
 									<div class="dropdown-divider"></div>

@@ -36,13 +36,13 @@ public class mypageController {
 	@Inject
 	private MessageService messageService;
 	
-	@RequestMapping(value="/management",method=RequestMethod.GET)
-	public String management(Model model, HttpSession session) throws Exception{
+	@RequestMapping(value="/Management",method=RequestMethod.GET)
+	public String Management(Model model, HttpSession session) throws Exception{
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 //		System.out.println("memberVo:" + memberVo);
 		model.addAttribute("memberVo",memberVo);
 	
-		return "mypage/management";	
+		return "mypage/Management";	
 	}
 	
 	@RequestMapping(value="/ChangePw",method=RequestMethod.POST)
@@ -68,27 +68,27 @@ public class mypageController {
 	}
 	
 	
-	@RequestMapping(value="/boardtext",method=RequestMethod.GET)
+	@RequestMapping(value="/Boardtext",method=RequestMethod.GET)
 	public String Boardtext() throws Exception{
-		return "mypage/boardtext";
+		return "mypage/Boardtext";
 	}
-	@RequestMapping(value="/point",method=RequestMethod.GET)
+	@RequestMapping(value="/Point",method=RequestMethod.GET)
 	public String Point() throws Exception{
-		return "mypage/point";
+		return "mypage/Point";
 		
 	}
-	@RequestMapping(value="/purchase_History_Movie",method=RequestMethod.GET)
-	public String purchase_History_Movie(Model model,HttpSession session) throws Exception{	
+	@RequestMapping(value="/Purchase_history_Movie",method=RequestMethod.GET)
+	public String Purchase_history_Movie(Model model,HttpSession session) throws Exception{	
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		List<BuyMovieVo> list = buyMovieService.buyMovieList(user_id);
 		model.addAttribute("list", list);
-		return "mypage/purchase_History_Movie";
+		return "mypage/Purchase_history_Movie";
 		
 	}	
 		
-	@RequestMapping(value="/message" , method=RequestMethod.GET)
-	public String message(Model model, HttpSession session) throws Exception {
+	@RequestMapping(value="/Message" , method=RequestMethod.GET)
+	public String Message(Model model, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		System.out.println("user_id : " + user_id);
@@ -102,12 +102,12 @@ public class mypageController {
 		model.addAttribute("send_MessageList" , send_MessageList);
 		
 	
-		return "mypage/message";
+		return "mypage/Message";
 	}
 	
-	@RequestMapping(value="/purchase_History_Food",method=RequestMethod.GET)
+	@RequestMapping(value="/Purchase_history_Food",method=RequestMethod.GET)
 	public String purchase_History_Food() {
-		return "mypage/purchase_History_Food";
+		return "mypage/Purchase_history_Food";
 		
 	}
 }
