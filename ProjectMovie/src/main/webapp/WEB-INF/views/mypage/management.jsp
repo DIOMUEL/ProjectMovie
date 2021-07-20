@@ -92,7 +92,7 @@
 </script>
 <%-- ${memberVo} --%>
 <!-- 모달창 -->
-<a href="/mypage/Management" style="display: none" id="btnManagement"></a>
+<a href="/mypage/management" style="display: none" id="btnManagement"></a>
 <div class="row">
 	<div class="col-md-12">
 

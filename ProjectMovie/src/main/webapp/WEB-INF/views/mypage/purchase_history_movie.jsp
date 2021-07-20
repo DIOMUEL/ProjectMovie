@@ -19,7 +19,7 @@
 						<div class="title">
 
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)">
+								style="background-color: rgba(0, 255, 255, 0.8)" >
 		
 								<h2>영화예매 내역</h2>
 								<br>
