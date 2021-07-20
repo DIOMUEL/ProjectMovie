@@ -230,7 +230,8 @@
 									<div class="form-group button">
 										<input type="button" class="btn btn-primary" id="btn_modifyOk"style="color: blue;" value="수정 완료">
 								</div>
-
+						>
+	
 							</div>
 						</form>
 					</div>
