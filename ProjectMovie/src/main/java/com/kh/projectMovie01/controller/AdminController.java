@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.projectMovie01.service.Admin_AreaService;
@@ -18,6 +20,7 @@ import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
+import com.kh.projectMovie01.vo.AreaTheaterVo;
 import com.kh.projectMovie01.vo.AreaVo;
 
 @Controller
@@ -112,24 +115,36 @@ public class AdminController {
 		return "redirect:/administerPage/administerMovieListPage";
 	}
 	// --------------- 영화 등록및 조회 삭제 End-----------------------
-	// --------------- 영화관 지역 등록 및 조회 -----------------------
-	//지역등록페이지
-	@RequestMapping(value="/administerMovieAreaRegist", method = RequestMethod.GET)
-	public String administerMovieAreaRegist() throws Exception {
-		return "/administerPage/administerMovieAreaRegist";
+	// --------------- 영화관 지역 관리 -----------------------
+	//지역관리페이지
+	@RequestMapping(value="/administerMovieAreaManagement", method = RequestMethod.GET)
+	public String administerMovieAreaManagement(Model model) throws Exception {
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		return "/administerPage/administerMovieAreaManagement";
 	}
-	//지역등록실행/ 후 리스트로 이동
+	//지역등록실행/ 후 리스트로 생성 및 활성화
 	@RequestMapping(value="/administerMovieAreaRegistRun", method = RequestMethod.GET)
 	public String administerMovieAreaRegist(String area_name, RedirectAttributes rttr) throws Exception {
 		admin_AreaService.movieAreaAdd(area_name);
-		rttr.addFlashAttribute("msgInsert", "success");
-		return "redirect:/administerPage/administerMovieAreaListPage";
+		rttr.addFlashAttribute("msgAreaInsert", "success");
+		return "redirect:/administerPage/administerMovieAreaManagement";
 	}
-	//지역리스트페이지로 이동시 지역리스트호출
-	@RequestMapping(value="/administerMovieAreaList", method = RequestMethod.GET)
-	public String administerMovieAreaList(Model model) throws Exception {
-		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
-		model.addAttribute("areaVo", areaVo);
-		return "/administerPage/administerMovieAreaListPage";
+	//지역수정실행/ 후 리스트로 생성 및 활성화
+	//지역삭제실행/ 후 리스트로 생성 및 활성화
+	
+	//지역영화관리스트 활성화
+	@RequestMapping(value="/administerMovieAreaTheaterList", method = RequestMethod.GET)
+	@ResponseBody
+	public List<AreaTheaterVo> administerMovieAreaTheaterList(int area_no) throws Exception {
+		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+		return areaTheaterVo;
+	}
+	//지역영화관등록실행/ 후 리스트로 생성 및 활성화
+	@RequestMapping(value="/administerMovieAreaTheaterRegistRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerMovieAreaTheaterRegist(int area_no, String area_theater_name) throws Exception {
+		admin_AreaService.areaTheaterAdd(area_no, area_theater_name);
+		return "success";
 	}
 }

@@ -8,11 +8,26 @@
 	<!-- 전체 지역 조회 -->
 	<select id="getAllAreaList" resultType="AreaVo">
 		select * from tbl_area
+		order by area_no asc
 	</select>
 	<!-- 지역추가 -->
-	<insert id="moiveAreaAdd">
+	<insert id="movieAreaAdd">
 		insert into tbl_area(area_no, area_name)
 		values(seq_area_no.nextval, #{area_name})
 	</insert>
-
+	<!-- 지역수정 -->
+	<!-- 지역삭제 -->
+	<!-- 각지역 영화관 전체 조회 -->
+	<select id="getAllAreaTheaterList" resultType="AreaTheaterVo">
+		select * from tbl_area_theater
+		where area_no = #{area_no}
+		order by area_theater_no asc
+	</select>
+	<!-- 각지역의 영화관 추가 -->
+	<insert id="areaTheaterAdd">
+		insert into tbl_area_theater(area_no, area_theater_no, area_theater_name)
+		values(#{area_no}, seq_area_theater_no.nextval, #{area_theater_name})
+	</insert>
+	<!-- 각지역의 영화관 수정 -->
+	<!-- 각지역의 영화관 삭제 -->
 </mapper>
