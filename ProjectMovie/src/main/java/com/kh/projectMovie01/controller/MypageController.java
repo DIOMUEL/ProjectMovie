@@ -25,7 +25,7 @@ import com.kh.projectMovie01.vo.NoticeBoardVo;
 
 @Controller
 @RequestMapping(value="/mypage")
-public class mypageController {
+public class MypageController {
 	
 	@Inject
 	private MemberService memberService;
@@ -93,11 +93,11 @@ public class mypageController {
 		String user_id = memberVo.getUser_id();
 		System.out.println("user_id : " + user_id);
 
-		// ¹ÞÀº ¸Þ½ÃÁöÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<MessageVo> receive_MessageList = messageService.receive_MessageList(user_id);
 		model.addAttribute("receive_MessageList" , receive_MessageList);
 		System.out.println(receive_MessageList);
-		// º¸³½ ¸Þ½ÃÁöÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<MessageVo> send_MessageList = messageService.send_MessageList(user_id);
 		model.addAttribute("send_MessageList" , send_MessageList);
 		
