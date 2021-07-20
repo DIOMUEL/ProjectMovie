@@ -57,10 +57,7 @@
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">영화관:</h6>
-						<a class="collapse-item" href="#">지역조회</a> 
-						<a class="collapse-item" href="/administerPage/administerMovieAreaRegist">지역등록</a> 
-						<a class="collapse-item" href="#">영화관조회</a> 
-						<a class="collapse-item" href="#">영화관등록</a>
+						<a class="collapse-item" href="/administerPage/administerMovieAreaManagement">지역 관리</a> 
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">상영일정:</h6>

@@ -1,0 +1,208 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="administerHeader.jsp" %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+<!-- 		<a id="modal-107905" href="#modal-container-107905" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
+			<div class="modal fade" id="modal-container-107905" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">추가할 영화관 이름</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input type="text" class="form-control" id="theaterName"/>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="btnAddTheater">등록</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancle">취소</button>
+						</div>
+					</div>					
+				</div>				
+			</div>			
+		</div>
+	</div>
+</div>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 col-md-8 col-12">
+				<div class="row">
+					<div class="col-12">
+						<div style="background-color: #f6f7fb; padding: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px;">
+							<h4 class="title">영화관 관리_지역 등록</h4>
+						</div>
+						<form id="frmArea" role="form" action="/administerPage/administerMovieAreaRegistRun" method="get">
+							<div class="form-group" style="vertical-align:middle;">
+								<label for="area_name"><strong>지역 이름</strong></label>
+								<input type="text" class="form-control" id="area_name" name="area_name" placeholder="지역 이름 도+시 ex)경기 화성"/>
+							</div>
+							<button type="submit" class="btn btn-primary">등록하기</button>
+							<button type="button" class="btn btn-primary" id="btnShowAreaList">목록보기</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+		<div class="container" style="display:none" id="listDisplay">
+			<div class="row">
+				<div class="col-lg-9 col-md-8 col-12">
+					<div class="row">
+						<div class="col-12">
+							<div style="background-color: #f6f7fb; padding: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px;">
+								<h4 class="title">영화관 관리_지역 조회</h4>
+							</div>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>지역</th>
+													<td>영화관명</td>
+													<th>수정</th>
+													<th>삭제</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${areaVo}" var="areaVo">
+												<tr>
+													<td>${areaVo.area_no}</td>
+													<td>${areaVo.area_name}</td>
+													<td><a class="btn-primary area_no" style="color: white;" data-area_no="${areaVo.area_no}" id="btnShowTheaterList">더보기▼</a></td>
+													<td><a href="/administerPage/administerMovieAreaModifyRun" class="btn-primary" style="color:white">수정</a></td>
+													<td><a href="/administerPage/administerMovieAreaDeleteRun" class="btn-danger" style="color:white">삭제</a></td>
+													<td><a href="#modal-container-107905" class="btn-warning addTheater" data-area_no="${areaVo.area_no}" data-toggle="modal" style="color:white" id="btnAddTheater">영화관추가</a></td>
+												</tr>
+												<tbody class="addList">
+												<tr class="addTheaterList" style="display:none" id="false">
+													<td></td>
+													<td></td>
+													<td></td>
+													<td><a href="#" class="btn-primary" style="color: white;">수정</a></td>
+													<td><a href="#" class="btn-danger" style="color: white;">삭제</a></td>
+												</tr>
+												</tbody>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>	
+	</section>
+	<!-- Bootstrap core JavaScript-->
+	<script src="/resources/administerPage/vendor/jquery/jquery.min.js"></script>
+	<script src="/resources/administerPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script>
+	$(function() {
+		// 지역등록
+		var result = "${result}";
+		if(result == "success") {
+			alert("등록성공.");
+		}		
+		// 지역등록 할 때
+		$("#frmArea").submit(function() {
+			var area_name = $("#area_name").val().trim();
+			if(area_name == null) {
+				alert("비어있는 정보가 있습니다. 다시 확인해주세요.");
+				return false;
+			}
+		});
+		//지역리스트 활성화
+		$("#btnShowAreaList").click(function(){
+			$("#listDisplay").attr("style", "");
+		});
+		
+		// 영화관 추가 모달 링크로 데이터 넘기기
+		$(".addTheater").click(function() {
+	 		var area_no = $(this).attr("data-area_no");
+			$("#btnAddTheater").attr("data-area_no", area_no); 
+		});
+		// 영화관 이름 보내기 버튼
+		$("#btnAddTheater").click(function() {
+			var area_theater_name = $("#theaterName").val();
+			var area_no = $(this).attr("data-area_no");
+			var sendData = {
+					"area_no" : area_no,
+					"area_theater_name" : area_theater_name
+			};
+			var url = "/administerPage/administerMovieAreaTheaterRegistRun";
+			//console.log("sendData: "+ sendData);
+			$.get(url, sendData, function(rData){
+				//console.log("rData: "+rData);
+				if (rData == "success") {
+					alert("영화관등록완료.");
+					$("#btnCancle").trigger("click");
+					$("#btnShowTheaterList").trigger("click");
+				}
+			});
+		});
+
+		//더보기 버튼스위치 및 리스트 생성
+		$(document).on("click","#btnShowTheaterList",function(){
+			var booleanSwitch = $(".addTheaterList").attr("id");
+			var btnUpDown = document.getElementById("btnShowTheaterList");
+			//console.log("booleanSwitch : " + booleanSwitch);
+			if(booleanSwitch == "false"){
+				var area_no = $(this).attr("data-area_no");
+				var url = "/administerPage/administerMovieAreaTheaterList";
+				var sendData = {
+						"area_no" : area_no
+				};
+				$.get(url, sendData, function(rData) {
+					console.log("rData: "+rData);
+					var cloneTr;
+					$(".addList > tr:gt(0)").remove();
+					// -> 기존에 달려 있던 댓글들 모두 삭제
+					$.each(rData, function() {
+						var cloneTr = $(".addList > tr:first").clone();
+						var td = cloneTr.find("td");
+						td.eq(0).text();
+						td.eq(1).text(this.area_theater_no);
+						td.eq(2).text(this.area_theater_name);
+						$(".addList").append(cloneTr);
+						cloneTr.show("slow");
+					});
+				});
+				
+				$(".addTheaterList").attr("id", "true");
+				$(".addTheaterList").attr("style", "");
+				btnUpDown.innerText = "넣기▲";
+			}else if(booleanSwitch == "true"){
+				$(".addTheaterList").attr("id", "false");
+				$(".addTheaterList").attr("style", "display:none");
+				btnUpDown.innerText = "더보기▼";
+			}
+			
+		});
+	});
+	</script>
+</body>
+</html>
