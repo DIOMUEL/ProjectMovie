@@ -89,13 +89,6 @@
 													<td><a href="/administerPage/administerMovieAreaDeleteRun" class="btn-danger" style="color:white">삭제</a></td>
 													<td><a href="#modal-container-107905" class="btn-warning addTheater" data-area_no="${areaVo.area_no}" data-toggle="modal" style="color:white" id="btnAddTheater">영화관추가</a></td>
 												</tr>
-												
-												
-												
-													
-												
-												
-												
 												</c:forEach>
 											</tbody>
 										</table>
