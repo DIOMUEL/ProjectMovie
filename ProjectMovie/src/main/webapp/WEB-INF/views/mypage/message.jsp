@@ -67,7 +67,7 @@ $(document).ready(function() {
 													<tr>
 														<td>${messageVo.msg_no}</td>
 														<td>${messageVo.msg_content}</td>
-														<td>${messageVo.msg_sender}</td>
+														<td>${messageVo.msg_receiver}</td>
 														<td>${messageVo.msg_senddate}</td>
 														<td></td>
 													</tr>
@@ -92,8 +92,8 @@ $(document).ready(function() {
 												<c:forEach var="messageVo" items="${receive_MessageList}">
 													<tr>
 														<td>${messageVo.msg_no}</td>
-														<td>${messageVo.msg_content}</td>
-														<td>${messageVo.msg_receiver}</td>
+														<td><a href="/mypage/message_content">${messageVo.msg_content}</a> </td>
+														<td>${messageVo.msg_sender}</td>
 														<td>${messageVo.msg_senddate}</td>
 														<td></td>
 													</tr>
