@@ -6,10 +6,14 @@ import com.kh.projectMovie01.vo.AreaTheaterVo;
 import com.kh.projectMovie01.vo.AreaVo;
 
 public interface Admin_AreaService {
-	//Áö¿ª
+	//ì§€ì—­ëª…
 	public List<AreaVo> getAllAreaList();
 	public void movieAreaAdd(String area_name);
-	//¿µÈ­°ü
+	public void movieAreaModify(int area_no, String area_name);
+	public void movieAreaDelete(int area_no);
+	//ì˜í™”ê´€ 
 	public List<AreaTheaterVo> getAllAreaTheaterList(int area_no);
 	public void areaTheaterAdd(int area_no, String area_theater_name);
+	public void areaTheaterModify(int area_theater_no, String area_theater_name);
+	public void areaTheaterDelete(int area_theater_no);
 }

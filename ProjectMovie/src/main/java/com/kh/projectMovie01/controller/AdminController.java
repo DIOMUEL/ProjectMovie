@@ -123,6 +123,7 @@ public class AdminController {
 		model.addAttribute("areaVo", areaVo);
 		return "/administerPage/administerMovieAreaManagement";
 	}
+//지역명 	
 	//지역등록실행/ 후 리스트로 생성 및 활성화
 	@RequestMapping(value="/administerMovieAreaRegistRun", method = RequestMethod.GET)
 	public String administerMovieAreaRegist(String area_name, RedirectAttributes rttr) throws Exception {
@@ -131,8 +132,24 @@ public class AdminController {
 		return "redirect:/administerPage/administerMovieAreaManagement";
 	}
 	//지역수정실행/ 후 리스트로 생성 및 활성화
+	@RequestMapping(value="/administerMovieAreaModifyRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerMovieAreaModify(int area_no, String area_name) throws Exception {
+		admin_AreaService.movieAreaModify(area_no, area_name);
+		return "success";
+	}
 	//지역삭제실행/ 후 리스트로 생성 및 활성화
-	
+	@RequestMapping(value="/administerMovieAreaDeleteRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerMovieAreaDelete(int area_no){
+		try {
+			admin_AreaService.movieAreaDelete(area_no);
+		} catch (Exception e) {
+			return "false";
+		}
+		return "success";
+	}
+//지역 영화관	
 	//지역영화관리스트 활성화
 	@RequestMapping(value="/administerMovieAreaTheaterList", method = RequestMethod.GET)
 	@ResponseBody
@@ -147,4 +164,18 @@ public class AdminController {
 		admin_AreaService.areaTheaterAdd(area_no, area_theater_name);
 		return "success";
 	}
+//	//지역영화관수정실행/ 후 리스트로 생성 및 활성화
+//	@RequestMapping(value="/administerMovieAreaTheaterModifyRun", method = RequestMethod.GET)
+//	@ResponseBody
+//	public String administerMovieAreaTheaterModify(int area_theater_no, String area_theater_name) throws Exception {
+//
+//		return "success";
+//	}
+//	//지역삭제실행/ 후 리스트로 생성 및 활성화
+//	@RequestMapping(value="/administerMovieAreaTheaterDeleteRun", method = RequestMethod.GET)
+//	@ResponseBody
+//	public String administerMovieAreaTheaterDelete(int area_theater_no) throws Exception {
+//		
+//		return "success";
+//	}
 }
