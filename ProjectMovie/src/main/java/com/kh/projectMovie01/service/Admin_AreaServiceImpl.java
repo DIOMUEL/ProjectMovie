@@ -39,4 +39,24 @@ public class Admin_AreaServiceImpl implements Admin_AreaService {
 		admin_AreaDao.areaTheaterAdd(area_no, area_theater_name);
 	}
 
+	@Override
+	public void movieAreaModify(int area_no, String area_name) {
+		admin_AreaDao.movieAreaModify(area_no, area_name);
+	}
+
+	@Override
+	public void movieAreaDelete(int area_no) {
+		admin_AreaDao.movieAreaDelete(area_no);	
+	}
+
+	@Override
+	public void areaTheaterModify(int area_theater_no, String area_theater_name) {
+		admin_AreaDao.areaTheaterModify(area_theater_no, area_theater_name);
+	}
+
+	@Override
+	public void areaTheaterDelete(int area_theater_no) {
+		admin_AreaDao.areaTheaterDelete(area_theater_no);	
+	}
+
 }

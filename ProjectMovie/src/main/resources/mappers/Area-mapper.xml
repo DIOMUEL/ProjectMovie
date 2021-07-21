@@ -16,7 +16,16 @@
 		values(seq_area_no.nextval, #{area_name})
 	</insert>
 	<!-- 지역수정 -->
+	<update id="movieAreaModify">
+		update tbl_area set
+	 	area_name = #{area_name}
+		where area_no = #{area_no}
+	</update>
 	<!-- 지역삭제 -->
+	<delete id="movieAreaDelete">
+		delete from tbl_area
+		where area_no = #{area_no}
+	</delete>
 	<!-- 각지역 영화관 전체 조회 -->
 	<select id="getAllAreaTheaterList" resultType="AreaTheaterVo">
 		select * from tbl_area_theater
@@ -29,5 +38,14 @@
 		values(#{area_no}, seq_area_theater_no.nextval, #{area_theater_name})
 	</insert>
 	<!-- 각지역의 영화관 수정 -->
-	<!-- 각지역의 영화관 삭제 -->
+	<update id="areaTheaterModify">
+		update tbl_area_theater set
+	 	area_theater_name = #{area_theater_name}
+		where area_theater_no = #{area_theater_no}
+	</update>
+	<!--각지역의 영화관 삭제 -->
+	<delete id="areaTheaterDelete">
+		delete from tbl_area_theater
+		where area_theater_no = #{area_theater_no}
+	</delete>
 </mapper>
