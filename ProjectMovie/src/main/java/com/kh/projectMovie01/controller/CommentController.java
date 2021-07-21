@@ -17,7 +17,7 @@ import com.kh.projectMovie01.vo.MemberVo;
 
 @RestController
 @RequestMapping(value = "/commentBoard")
-public class CmmentController {
+public class CommentController {
 
 	@Inject
 	private CommentService commentService;
@@ -47,8 +47,7 @@ public class CmmentController {
 	}
 	
 	@RequestMapping(value="/deleteComment/{c_no}/{b_no}", method=RequestMethod.GET)
-	public String deleteComment(@PathVariable("c_no") int c_no,
-							    @PathVariable("b_no") int b_no) throws Exception {
+	public String deleteComment(@PathVariable("c_no") int c_no, @PathVariable("b_no") int b_no) throws Exception {
 		//System.out.println("c_no:" + c_no);
 		commentService.deleteComment(c_no, b_no);
 		return "success";

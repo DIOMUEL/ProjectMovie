@@ -380,30 +380,30 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" style="border-color:black" src=".././resources/mainPage/assets/img/team/point.png"
-							alt="..." />
-						<h4 style="color:white">포인트</h4>
+						<a href = "/membership/membershipPage#point"><img class="mx-auto rounded-circle" style="border-color:black; cursor:pointer" src=".././resources/mainPage/assets/img/team/point.png"
+							alt="..." /></a>
+						<h4 style="color:white; cursor:pointer"><a href = "/membership/membershipPage#point">포인트</a></h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" style="border-color:black" src=".././resources/mainPage/assets/img/team/sale.jpg"
-							alt="..." />
-						<h4 style="color:white">할인안내</h4>
+						<a href = "/membership/membershipPage#discount"><img class="mx-auto rounded-circle" style="border-color:black; cursor:pointer" src=".././resources/mainPage/assets/img/team/sale.jpg"
+							alt="..." /></a>
+						<h4 style="color:white; cursor:pointer"><a href = "/membership/membershipPage#discount">할인안내</a></h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" style="border-color:black" src=".././resources/mainPage/assets/img/team/membership.jpg"
-							alt="..." />
-						<h4 style="color:white">멤버쉽</h4>
+						<a href = "/membership/membershipPage#membership"><img class="mx-auto rounded-circle" style="border-color:black; cursor:pointer" src=".././resources/mainPage/assets/img/team/membership.jpg"
+							alt="..." /></a>
+						<h4 style="color:white; cursor:pointer"><a href = "/membership/membershipPage#membership">멤버쉽</a></h4>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" style="border-color:gray" src=".././resources/mainPage/assets/img/team/VIP.jpg"
-							alt="..." />
-						<h4 style="color:white">Vip</h4>
+						<a href = "/membership/membershipPage#vip"><img class="mx-auto rounded-circle" style="border-color:gray; cursor:pointer" src=".././resources/mainPage/assets/img/team/VIP.jpg"
+							alt="..." /></a>
+						<h4 style="color:white; cursor:pointer"><a href = "/membership/membershipPage#vip">Vip</a></h4>
 					</div>
 				</div>
 			</div>

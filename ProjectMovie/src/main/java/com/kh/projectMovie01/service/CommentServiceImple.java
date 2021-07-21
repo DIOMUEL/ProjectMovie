@@ -34,7 +34,7 @@ public class CommentServiceImple implements CommentService {
 
 	@Override
 	public void updateComment(CommentVo commentVo) {
-		commentDao.updateCommet(commentVo);
+		commentDao.updateComment(commentVo);
 		
 	}
 	
