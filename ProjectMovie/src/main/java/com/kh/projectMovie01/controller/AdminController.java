@@ -19,6 +19,7 @@ import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieVo;
+import com.kh.projectMovie01.vo.TheaterSeatVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.AreaTheaterVo;
 import com.kh.projectMovie01.vo.AreaVo;
@@ -189,11 +190,18 @@ public class AdminController {
 	}
 	// 지역세팅시 필요 자원 호출(지역 > 영화관)
 	@RequestMapping(value="/SeatSetting_callingTheater", method = RequestMethod.GET)
-	public void callingTheater(int area_no, Model model) throws Exception {
-		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
-		System.out.println("areaTheaterVo : "+ areaTheaterVo);
-//		model.addAttribute("areaTheaterVo", areaTheaterVo);
-//		return "success";
+	@ResponseBody
+	public List<AreaTheaterVo> callingTheater(int area_no, Model model) throws Exception {
+		List<AreaTheaterVo> areaTheaterVo = null;
+		if(area_no != 0) {
+			areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+			//System.out.println("areaTheaterVo : "+ areaTheaterVo);
+		}
+		return areaTheaterVo;
+	}
+	// 조회 버튼 누를시 그 영화관안에 들어있는 관 리스트 호출
+	public List<TheaterSeatVo> callingTheaterRoomList(int area_theater_no, Model model) throws Exception {
+		return null;
 	}
 	// 영화관 좌석 등록하기
 	@RequestMapping(value="/SeatSettingInsert", method = RequestMethod.GET)
