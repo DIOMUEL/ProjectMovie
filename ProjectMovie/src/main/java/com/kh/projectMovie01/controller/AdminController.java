@@ -164,18 +164,18 @@ public class AdminController {
 		admin_AreaService.areaTheaterAdd(area_no, area_theater_name);
 		return "success";
 	}
-//	//지역영화관수정실행/ 후 리스트로 생성 및 활성화
-//	@RequestMapping(value="/administerMovieAreaTheaterModifyRun", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String administerMovieAreaTheaterModify(int area_theater_no, String area_theater_name) throws Exception {
-//
-//		return "success";
-//	}
-//	//지역삭제실행/ 후 리스트로 생성 및 활성화
-//	@RequestMapping(value="/administerMovieAreaTheaterDeleteRun", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String administerMovieAreaTheaterDelete(int area_theater_no) throws Exception {
-//		
-//		return "success";
-//	}
+	//지역영화관수정실행/ 후 리스트로 생성 및 활성화
+	@RequestMapping(value="/administerMovieAreaTheaterModifyRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerMovieAreaTheaterModify(int area_theater_no, String area_theater_name) throws Exception {
+		admin_AreaService.areaTheaterModify(area_theater_no, area_theater_name);
+		return "success";
+	}
+	//지역삭제실행/ 후 리스트로 생성 및 활성화
+	@RequestMapping(value="/administerMovieAreaTheaterDeleteRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerMovieAreaTheaterDelete(int area_theater_no) throws Exception {
+		admin_AreaService.areaTheaterDelete(area_theater_no);
+		return "success";
+	}
 }

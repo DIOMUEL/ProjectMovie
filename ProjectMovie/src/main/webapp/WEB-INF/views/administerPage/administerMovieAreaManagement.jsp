@@ -1,8 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
-<!-- 영화관 추가 모랄 -->
+
 <div class="container-fluid">
+	<!-- 지역명 수정 모랄 -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="modal fade" id="modal-container-112288" role="dialog" aria-labelledby="myMoidfyAreaName" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myMoidfyAreaName">수정할 지역명</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input type="text" class="form-control" id="areaModifyName" placeholder="수정할 지역명을 입력해 주세요"/>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary"  id="btnModifyArea">수정</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnModifyCancle">취소</button>
+						</div>
+					</div>	
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!-- 영화관 추가 모랄 -->
 	<div class="row">
 		<div class="col-md-12">
 			<div class="modal fade" id="modal-container-107905" role="dialog" aria-labelledby="myAddTheaterName" aria-hidden="true">
@@ -29,24 +54,24 @@
 	<!-- 영화관 수정 모랄 -->
 	<div class="row">
 		<div class="col-md-12">
-			<div class="modal fade" id="modal-container-112288" role="dialog" aria-labelledby="myMoidfyAreaName" aria-hidden="true">
+			<div class="modal fade" id="modal-container-975549" role="dialog" aria-labelledby="mytheaterModifyName" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="myMoidfyAreaName">수정할 지역명</h5> 
+							<h5 class="modal-title" id="myTheaterModifyName">수정할 영화관</h5> 
 							<button type="button" class="close" data-dismiss="modal">
 								<span aria-hidden="true">×</span>
 							</button>
 						</div>
 						<div class="modal-body">
-							<input type="text" class="form-control" id="areaModifyName" placeholder="수정할 지역명을 입력해 주세요"/>
+							<input type="text" class="form-control" id="theaterModifyName" placeholder="수정할 영화관 이름을 입력해 주세요"/>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary"  id="btnModifyArea">수정</button> 
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnModifyCancle">취소</button>
+							<button type="button" class="btn btn-primary" id="btnModifyTheater">Save changes</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancleTheater">Close</button>
 						</div>
-					</div>	
-				</div>	
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -101,8 +126,8 @@
 													<td></td>
 													<td></td>
 													<td></td>
-													<td><a href="#" class="btn-primary" style="color: white;">수정</a></td>
-													<td><a href="#" class="btn-danger" style="color: white;">삭제</a></td>
+													<td><a class="btn-primary testM" style="color: white;">수정</a></td>
+													<td><a class="btn-danger testD" style="color: white;">삭제</a></td>
 												</tr>
 												<c:forEach items="${areaVo}" var="areaVo">
 													<tr>
@@ -110,7 +135,7 @@
 														<td>${areaVo.area_name}</td>
 														<td><a class="btn-primary area_no btnShowTheaterList" style="color: white;" data-area_no="${areaVo.area_no}">더보기▼</a></td>
 														<td><a href="#modal-container-112288" class="btn-primary modifyArea" data-area_no="${areaVo.area_no}" data-toggle="modal" style="color:white">수정</a></td>
-														<td><button class="btn-danger btnDeleteArea" style="color:white" data-area_no="${areaVo.area_no}">삭제</button></td>
+														<td><a class="btn-danger btnDeleteArea" style="color:white" data-area_no="${areaVo.area_no}">삭제</a></td>
 														<td><a href="#modal-container-107905" class="btn-warning addTheater" data-area_no="${areaVo.area_no}" data-toggle="modal" style="color:white">영화관추가</a></td>
 													</tr>
 												</c:forEach>
@@ -195,14 +220,14 @@
 				var sendData = {
 					"area_no" : area_no
 			};
-			console.log("area_no: "+area_no);
+			//console.log("area_no: "+area_no);
 			$.get(url, sendData, function(rData){
- 				console.log("rData: "+rData);
+ 				//console.log("rData: "+rData);
 				if (rData == "success") {
 					alert("지역명삭제완료.");
-					$(".btnShowTheaterList").trigger("click");
+					location.href ="/administerPage/administerMovieAreaManagement"
 				}else if(rData == "false"){
-					alert("해당 지역 안에 영화관이 남아있습니다. 해당지역 안의 모든 영화관을 삭제 후 실행해주세요");
+					alert("해당 지역 안에 영화관이 남아있습니다. \n해당지역 안의 모든 영화관을 삭제 후 실행해주세요");
 				}
  			});
 		});
@@ -233,8 +258,48 @@
 			});
 		});
 		//영화관 이름 수정
+		$(document).on("click",".testM",function(){
+			var area_theater_no = $(this).attr("data-area_theater_no");
+			$("#btnModifyTheater").attr("data-area_theater_no", area_theater_no); 
+			
+			$("#btnModifyTheater").click(function() {
+				var area_theater_no = $(this).attr("data-area_theater_no");
+				//console.log("클릭됨 : " + area_theater_no);
+				var area_theater_name = $("#theaterModifyName").val();
+				var sendData = {
+						"area_theater_no" : area_theater_no,
+						"area_theater_name" : area_theater_name
+				};
+				var url = "/administerPage/administerMovieAreaTheaterModifyRun";
+				//console.log("sendData: "+ sendData);
+				console.log("area_theater_no: "+ area_theater_no);
+				console.log("area_theater_name: "+ area_theater_name);
+	 			$.get(url, sendData, function(rData){
+	 				//console.log("rData: "+rData);
+					if (rData == "success") {
+						alert("영화관이름수정완료.");
+						$("#btnCancleTheater").trigger("click");
+						location.href ="/administerPage/administerMovieAreaManagement"
+					}
+	 			});
+			});
+		});
 		//영화관 삭제
-
+		$(document).on("click",".testD",function(){
+			var area_theater_no = $(this).attr("data-area_theater_no");
+			var url = "/administerPage/administerMovieAreaTheaterDeleteRun"
+				var sendData = {
+					"area_theater_no" : area_theater_no
+			};
+			//console.log("area_theater_no: "+area_theater_no);
+			$.get(url, sendData, function(rData){
+ 				//console.log("rData: "+rData);
+				if (rData == "success") {
+					alert("영화관삭제완료.");
+					location.href ="/administerPage/administerMovieAreaManagement"
+				}
+ 			});
+		});
 		//더보기 버튼스위치 및 리스트 생성
 		$(document).on("click",".btnShowTheaterList",function(){
 			var that = $(this);
@@ -258,6 +323,10 @@
 					td.eq(0).text();
 					td.eq(1).text(this.area_theater_no);
 					td.eq(2).text(this.area_theater_name);
+					td.eq(3).children().attr("data-area_theater_no", this.area_theater_no);
+					td.eq(3).children().attr("href", "#modal-container-975549");
+					td.eq(3).children().attr("data-toggle", "modal");
+					td.eq(4).children().attr("data-area_theater_no", this.area_theater_no);
 					clone_tr.insertAfter(tr);
 					clone_tr.show();
 				});

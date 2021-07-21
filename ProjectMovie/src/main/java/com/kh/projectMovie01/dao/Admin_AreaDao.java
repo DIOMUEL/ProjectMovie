@@ -15,5 +15,5 @@ public interface Admin_AreaDao {
 	public List<AreaTheaterVo> getAllAreaTheaterList(int area_no);
 	public void areaTheaterAdd(int area_no, String area_theater_name);
 	public void areaTheaterModify(int area_theater_no, String area_theater_name);
-	public void areaTheaterDelte(int area_theater_no);
+	public void areaTheaterDelete(int area_theater_no);
 }

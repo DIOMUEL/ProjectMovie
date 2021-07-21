@@ -56,7 +56,7 @@ public class Admin_AreaServiceImpl implements Admin_AreaService {
 
 	@Override
 	public void areaTheaterDelete(int area_theater_no) {
-		admin_AreaDao.areaTheaterDelte(area_theater_no);	
+		admin_AreaDao.areaTheaterDelete(area_theater_no);	
 	}
 
 }

@@ -63,7 +63,7 @@ public class Admin_AreaDaoImpl implements Admin_AreaDao {
 	}
 
 	@Override
-	public void areaTheaterDelte(int area_theater_no) {
-		sqlSession.delete(NAMESPACE + "areaTheaterDelte", area_theater_no);
+	public void areaTheaterDelete(int area_theater_no) {
+		sqlSession.delete(NAMESPACE + "areaTheaterDelete", area_theater_no);
 	}
 }
