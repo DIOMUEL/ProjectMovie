@@ -149,18 +149,8 @@
 				</div>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>	
+		<br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br>	
 	</section>
 	<!-- Bootstrap core JavaScript-->
 	<script src="/resources/administerPage/vendor/jquery/jquery.min.js"></script>
@@ -272,8 +262,8 @@
 				};
 				var url = "/administerPage/administerMovieAreaTheaterModifyRun";
 				//console.log("sendData: "+ sendData);
-				console.log("area_theater_no: "+ area_theater_no);
-				console.log("area_theater_name: "+ area_theater_name);
+				//console.log("area_theater_no: "+ area_theater_no);
+				//console.log("area_theater_name: "+ area_theater_name);
 	 			$.get(url, sendData, function(rData){
 	 				//console.log("rData: "+rData);
 					if (rData == "success") {

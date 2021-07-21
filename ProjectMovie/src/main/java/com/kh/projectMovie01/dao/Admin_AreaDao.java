@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kh.projectMovie01.vo.AreaTheaterVo;
 import com.kh.projectMovie01.vo.AreaVo;
+import com.kh.projectMovie01.vo.TheaterSeatVo;
 
 public interface Admin_AreaDao {
 	//지역
@@ -16,4 +17,7 @@ public interface Admin_AreaDao {
 	public void areaTheaterAdd(int area_no, String area_theater_name);
 	public void areaTheaterModify(int area_theater_no, String area_theater_name);
 	public void areaTheaterDelete(int area_theater_no);
+	//영화관 좌석
+	public List<TheaterSeatVo> getAllTheaterSeatList(int area_theater_no);
+	public void areaTheaterSeatAdd(int area_theater_no, String theater_name, int theater_seatNum);
 }

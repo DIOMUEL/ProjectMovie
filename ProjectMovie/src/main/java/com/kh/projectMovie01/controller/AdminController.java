@@ -178,4 +178,29 @@ public class AdminController {
 		admin_AreaService.areaTheaterDelete(area_theater_no);
 		return "success";
 	}
+	// --------------- 영화관 지역 관리  END-----------------------
+	// --------------- 영화관 좌석 및 영화관 관 관리 -----------------------
+	// 싯팅페이지 입장시 필요 자원 호출(지역)
+	@RequestMapping(value="/administerMovieTheaterSeatSetting", method = RequestMethod.GET)
+	public String administerMovieTheaterSeatSetting(Model model) throws Exception {
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		return "/administerPage/administerMovieTheaterSeatSetting";
+	}
+	// 지역세팅시 필요 자원 호출(지역 > 영화관)
+	@RequestMapping(value="/SeatSetting_callingTheater", method = RequestMethod.GET)
+	public void callingTheater(int area_no, Model model) throws Exception {
+		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+		System.out.println("areaTheaterVo : "+ areaTheaterVo);
+//		model.addAttribute("areaTheaterVo", areaTheaterVo);
+//		return "success";
+	}
+	// 영화관 좌석 등록하기
+	@RequestMapping(value="/SeatSettingInsert", method = RequestMethod.GET)
+	@ResponseBody
+	public String SeatSettingInsert(int area_theater_no, String theater_name, int theater_seatNum) throws Exception {
+		admin_AreaService.areaTheaterSeatAdd(area_theater_no, theater_name, theater_seatNum);
+		return "success";
+	}
+	
 }

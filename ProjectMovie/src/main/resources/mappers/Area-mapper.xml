@@ -4,8 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="mappers.area-mapper">
-
+<!-- 영화관 지역 관련 -->
 	<!-- 전체 지역 조회 -->
+	<!-- & 영화좌석 페이지 입장시 지역들 원소 호출 -->
 	<select id="getAllAreaList" resultType="AreaVo">
 		select * from tbl_area
 		order by area_no asc
@@ -26,6 +27,8 @@
 		delete from tbl_area
 		where area_no = #{area_no}
 	</delete>
+	
+<!-- 영화관명  관련 -->
 	<!-- 각지역 영화관 전체 조회 -->
 	<select id="getAllAreaTheaterList" resultType="AreaTheaterVo">
 		select * from tbl_area_theater
@@ -48,4 +51,15 @@
 		delete from tbl_area_theater
 		where area_theater_no = #{area_theater_no}
 	</delete>
+<!-- 영화좌석페이지관련 -->
+	<!-- 각지역 영화관 영화관좌석 조회 -->
+	<select id="getAllTheaterSeatList" resultType="TheaterSeatVo">
+		select * from tbl_theater_seat
+		order by area_theater_no asc
+	</select>
+	<!-- 각지역 영화관 영화관좌석 등록 -->
+	<insert id="areaTheaterSeatAdd">
+		insert into tbl_area_theater(area_theater_no, theater_name, theater_seatNum)
+		values(#{area_theater_no}, #{theater_name}, #{theater_seatNum})
+	</insert>
 </mapper>
