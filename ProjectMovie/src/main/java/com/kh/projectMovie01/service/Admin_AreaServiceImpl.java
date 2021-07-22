@@ -62,13 +62,18 @@ public class Admin_AreaServiceImpl implements Admin_AreaService {
 	}
 	//영화관 좌석 - 리스트
 	@Override
-	public List<TheaterSeatVo> getAllTheaterSeatList(int area_theater_no) {
-		List<TheaterSeatVo> list = admin_AreaDao.getAllTheaterSeatList(area_theater_no);
+	public List<TheaterSeatVo> getSeveralTheaterSeatList(int area_theater_no) {
+		List<TheaterSeatVo> list = admin_AreaDao.getSeveralTheaterSeatList(area_theater_no);
 		return list;
 	}
+	//영화관 좌석 등록
 	@Override
-	public void areaTheaterSeatAdd(int area_theater_no, String theater_name, int theater_seatNum) {
-		admin_AreaDao.areaTheaterSeatAdd(area_theater_no, theater_name, theater_seatNum);	
+	public void seatSettingRegist(int area_theater_no, String theater_name, int theater_seatNum) {
+		admin_AreaDao.seatSettingRegist(area_theater_no, theater_name, theater_seatNum);	
+	}
+	@Override
+	public void seatSettingModify(int theater_no, int theater_seatNum) {
+		admin_AreaDao.seatSettingModify(theater_no, theater_seatNum);
 	}
 
 }

@@ -189,7 +189,7 @@ public class AdminController {
 		return "/administerPage/administerMovieTheaterSeatSetting";
 	}
 	// 지역세팅시 필요 자원 호출(지역 > 영화관)
-	@RequestMapping(value="/SeatSetting_callingTheater", method = RequestMethod.GET)
+	@RequestMapping(value="/seatSetting_callingTheater", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AreaTheaterVo> callingTheater(int area_no, Model model) throws Exception {
 		List<AreaTheaterVo> areaTheaterVo = null;
@@ -200,14 +200,24 @@ public class AdminController {
 		return areaTheaterVo;
 	}
 	// 조회 버튼 누를시 그 영화관안에 들어있는 관 리스트 호출
+	@RequestMapping(value="/callingTheaterRoomList", method = RequestMethod.GET)
+	@ResponseBody
 	public List<TheaterSeatVo> callingTheaterRoomList(int area_theater_no, Model model) throws Exception {
-		return null;
+		List<TheaterSeatVo> areaTheaterVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
+		return areaTheaterVo;
 	}
 	// 영화관 좌석 등록하기
-	@RequestMapping(value="/SeatSettingInsert", method = RequestMethod.GET)
+	@RequestMapping(value="/seatSettingRegist", method = RequestMethod.GET)
+	public String seatSettingRegist(int area_theater_no, String theater_name, int theater_seatNum, RedirectAttributes rttr) throws Exception {
+		admin_AreaService.seatSettingRegist(area_theater_no, theater_name, theater_seatNum);
+		rttr.addFlashAttribute("msgSittingRegist", "success");
+		return "redirect:/administerPage/administerMovieTheaterSeatSetting";
+	}
+	//영화관 좌석 수정하기
+	@RequestMapping(value="/seatSettingModify", method = RequestMethod.GET)
 	@ResponseBody
-	public String SeatSettingInsert(int area_theater_no, String theater_name, int theater_seatNum) throws Exception {
-		admin_AreaService.areaTheaterSeatAdd(area_theater_no, theater_name, theater_seatNum);
+	public String seatSettingModify(int theater_no, int theater_seatNum) throws Exception {
+		admin_AreaService.seatSettingModify(theater_no, theater_seatNum);
 		return "success";
 	}
 	
