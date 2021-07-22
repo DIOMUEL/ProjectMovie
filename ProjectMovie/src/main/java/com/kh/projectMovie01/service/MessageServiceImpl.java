@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.projectMovie01.dao.MessageDao;
 import com.kh.projectMovie01.vo.MessageVo;
@@ -21,11 +22,20 @@ public class MessageServiceImpl implements MessageService {
 		return list;
 	}
 
-	// º¸³½ ¸Þ½ÃÁöÇÔ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public List<MessageVo> send_MessageList(String user_id) {
 		List<MessageVo> list = messageDao.send_MessageList(user_id);
 		return list;
 	}
-
+	@Override
+	public MessageVo messageRead(int msg_no, String user_id) {
+		MessageVo messageVo = messageDao.readMessage(msg_no);
+		return messageVo;
+	}
+	@Transactional
+	@Override
+	public void sendMessage(MessageVo messageVo) {
+		messageDao.insertMessage(messageVo);				
+	}	
 }

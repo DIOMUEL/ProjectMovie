@@ -23,10 +23,19 @@ public class MessageDaoImpl implements MessageDao {
 		return list;
 	}
 
-	// º¸³½ ¸Þ½ÃÁöÇÔ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public List<MessageVo> send_MessageList(String user_id)  {
 		List<MessageVo> list = sqlSession.selectList(NAMESPACE + "send_MessageList" , user_id);
 		return list;
+	}
+	@Override
+	public MessageVo readMessage(int msg_no) {
+		MessageVo messageVo = sqlSession.selectOne(NAMESPACE+"readMessage",msg_no);
+		return messageVo;
+	}
+	@Override
+	public void insertMessage(MessageVo messageVo) {
+		sqlSession.insert(NAMESPACE + "insertMessage", messageVo);
 	}
 }

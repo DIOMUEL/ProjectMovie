@@ -15,4 +15,17 @@
 		select * from tbl_Message
 		where msg_sender = #{msg_sender}
 	</select>
+	<insert id="insertMessage">
+		insert into tbl_message (msg_no, msg_content, msg_sender, msg_receiver)
+		values (seq_message_no.nextval, #{msg_content}, #{msg_sender}, #{msg_receiver})
+	</insert>
+	<select id="readMessage" resultType="MessageVo">
+		select * from tbl_message
+		where msg_no = #{msg_no}
+	</select>
+	<delete id="deleteMessage">
+		delete from tbl_message
+		where msg_no = #{msg_no}
+		and msg_receiver = #{user_id}
+	</delete>
 </mapper>
