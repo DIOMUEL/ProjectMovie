@@ -75,5 +75,9 @@ public class Admin_AreaServiceImpl implements Admin_AreaService {
 	public void seatSettingModify(int theater_no, int theater_seatNum) {
 		admin_AreaDao.seatSettingModify(theater_no, theater_seatNum);
 	}
+	@Override
+	public void seatSettingDelete(int theater_no) {
+		admin_AreaDao.seatSettingDelete(theater_no);
+	}
 
 }

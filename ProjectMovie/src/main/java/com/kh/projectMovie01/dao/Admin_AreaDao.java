@@ -21,4 +21,5 @@ public interface Admin_AreaDao {
 	public List<TheaterSeatVo> getSeveralTheaterSeatList(int area_theater_no);
 	public void seatSettingRegist(int area_theater_no, String theater_name, int theater_seatNum);
 	public void seatSettingModify(int theater_no, int theater_seatNum);
+	public void seatSettingDelete(int theater_no);
 }

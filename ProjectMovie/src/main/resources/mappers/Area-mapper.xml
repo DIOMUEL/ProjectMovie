@@ -69,4 +69,9 @@
 		theater_seatNum = #{theater_seatNum}
 		where theater_no = #{theater_no}
 	</update>
+	<!--각지역의 영화관 좌석수 삭제 -->
+	<delete id="seatSettingDelete">
+		delete from tbl_theater_seat
+		where theater_no = #{theater_no}
+	</delete>
 </mapper>

@@ -93,4 +93,8 @@ public class Admin_AreaDaoImpl implements Admin_AreaDao {
 		map.put("theater_seatNum", theater_seatNum);
 		sqlSession.update(NAMESPACE + "seatSettingModify", map);
 	}
+	@Override
+	public void seatSettingDelete(int theater_no) {
+		sqlSession.delete(NAMESPACE + "seatSettingDelete", theater_no);
+	}
 }

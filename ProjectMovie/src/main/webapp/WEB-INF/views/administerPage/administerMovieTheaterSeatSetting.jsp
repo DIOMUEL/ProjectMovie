@@ -207,6 +207,25 @@
 					});
 				});
 			});
+			//영화관 삭제
+			$(document).on("click",".btnSeatingDelete",function(){
+				var choose = confirm("삭제하시겠습니까?");
+				if(choose == "ture"){
+					var theater_no = $(this).attr("data-theater_no");
+					var url = "/administerPage/seatSettingDelete"
+						var sendData = {
+							"theater_no" : theater_no
+					};
+					console.log("theater_no: "+theater_no);
+					$.get(url, sendData, function(rData){
+		 				console.log("rData: "+rData);
+						if (rData == "success") {
+							alert("영화관삭제완료.");
+							$("#theaterRoomList").trigger("click");	
+						}
+		 			});
+				}
+			});
 		});
 	</script>	
 </body>

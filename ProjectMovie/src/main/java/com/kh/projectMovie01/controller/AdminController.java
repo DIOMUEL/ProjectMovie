@@ -220,5 +220,11 @@ public class AdminController {
 		admin_AreaService.seatSettingModify(theater_no, theater_seatNum);
 		return "success";
 	}
-	
+	//영화관 좌석 삭제하기
+	@RequestMapping(value="/seatSettingDelete", method = RequestMethod.GET)
+	@ResponseBody
+	public String seatSettingDelete(int theater_no) throws Exception {
+		admin_AreaService.seatSettingDelete(theater_no);
+		return "success";
+	}
 }
