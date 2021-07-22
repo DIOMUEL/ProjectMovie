@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mappers.store-mapper">
+	
+	<!-- 매점 각음식 조회 -->
+	<!-- 매점관리 들어갔을때 처음 호출하는 리스트 -->
+	<select id="getStoreFoodList" resultType="FoodVo">
+		select * from tbl_food
+		where food_code = 1001
+		order by food_num asc
+	</select>
+	<select id="getStoreDrinkList" resultType="FoodVo">
+		select * from tbl_food
+		where food_code = 1002
+		order by food_num asc
+	</select>
+	<select id="getStoreSetMenuList" resultType="FoodVo">
+		select * from tbl_food
+		where food_code = 1003
+		order by food_num asc
+	</select>
+			
+	<!--  매점 음식 등록 -->
+	<insert id="administerStoreRegistRun">
+		insert into tbl_food
+		(food_num, food_code, food_name, food_price, food_count, food_image, food_regist_date)
+		values
+		(seq_food_num.nextval, #{food_code}, #{food_name}, #{food_price}, #{food_count}, #{food_image, jdbcType=VARCHAR}, sysdate)
+	</insert>	
+
+	<!--  영화 수정 -->
+<!-- 	<update id="updateMovie"> -->
+<!-- 		update tbl_movie set  -->
+<!-- 		    movie_name = #{movie_name}, -->
+<!-- 		    movie_genre = #{movie_genre}, -->
+<!-- 		    movie_director = #{movie_director}, -->
+<!-- 		    movie_actor = #{movie_actor}, -->
+<!-- 		    movie_open_date = #{movie_open_date}, -->
+<!-- 		    movie_total_time = #{movie_total_time}, -->
+<!-- 		    movie_main_image = #{movie_main_image}, -->
+<!-- 		    movie_grade = #{movie_grade}, -->
+ <!-- 		    movie_preview = #{movie_preview}, --> 
+<!-- 		    movie_content = #{movie_content} -->
+<!-- 		where movie_code = #{movie_code} -->
+<!-- 	</update> -->
+
+	<!-- 영화 삭제 -->
+<!-- 	<delete id="deleteMovie"> -->
+<!-- 		delete from tbl_movie -->
+<!-- 		where movie_code = #{movie_code} -->
+<!-- 	</delete> -->
+</mapper>

@@ -15,8 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.projectMovie01.service.Admin_AreaService;
 import com.kh.projectMovie01.service.Admin_MovieService;
+import com.kh.projectMovie01.service.Admin_StoreService;
 import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
+import com.kh.projectMovie01.vo.FoodVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
@@ -34,6 +36,8 @@ public class AdminController {
 	private Admin_MovieService admin_MovieService;
 	@Inject
 	private Admin_AreaService admin_AreaService;
+	@Inject
+	private Admin_StoreService admin_StoreService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -227,4 +231,35 @@ public class AdminController {
 		admin_AreaService.seatSettingDelete(theater_no);
 		return "success";
 	}
+	// --------------- 영화관 좌석 및 영화관 관 관리 END-----------------------
+	// --------------- 영화관 상품 스케줄 관리-----------------------
+	// --------------- 영화관 상품 스케줄 관리 END-----------------------
+	// --------------- 영화 매점 관리-----------------------
+	//매점관리페이지
+	@RequestMapping(value="/administerStoreManagement", method=RequestMethod.GET)
+	public String administerStoreManagement(Model model) {
+		//처음 매점 관리 들어갔을떄 호출할 음식리스트
+		List<FoodVo> foodList = admin_StoreService.getStoreFoodList();
+		List<FoodVo> drinkList = admin_StoreService.getStoreDrinkList();
+		List<FoodVo> setMenuList = admin_StoreService.getStoreSetMenuList();
+		model.addAttribute("foodList", foodList);
+		model.addAttribute("drinkList", drinkList);
+		model.addAttribute("setMenuList", setMenuList);
+		//System.out.println("foodlist : "+foodlist);
+		return "/administerPage/administerStoreManagement";
+	}
+	//매점등록페이지
+	@RequestMapping(value="/administerStoreRegist", method=RequestMethod.GET)
+	public String administerStoreRegist() {
+		return "/administerPage/administerStoreRegist";
+	}
+	//매점음식등록 실행
+	@RequestMapping(value="/administerStoreRegistRun", method = RequestMethod.POST)
+	public String administerStoreRegistRun(FoodVo foodVo, RedirectAttributes rttr)throws Exception {
+		//System.out.println("FoodVo : "+ foodVo);
+		admin_StoreService.administerStoreRegistRun(foodVo);
+		rttr.addFlashAttribute("msgFoodRegist", "success");
+		return "redirect:/administerPage/administerStoreManagement";
+	}
+	// --------------- 영화 매점 관리 END-----------------------
 }

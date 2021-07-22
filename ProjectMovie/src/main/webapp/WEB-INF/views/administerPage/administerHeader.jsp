@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="/resources/administerPage/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 <body id="page-top">
 	<!-- Page Wrapper -->
@@ -73,18 +74,19 @@
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">매점 상품:</h6>
-						<a class="collapse-item" href="#">상품 조회</a> 
-						<a class="collapse-item" href="#">상품 등록</a> 
+						<a class="collapse-item" href="/administerPage/administerStoreManagement">상품 관리</a> 
+						<a class="collapse-item" href="/administerPage/administerStoreRegist">상품 등록</a> 
 					</div>
 				</div>
 			</li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapseUtilities"
-				aria-expanded="true" aria-controls="collapseUtilities"> <i
-					class="fas fa-fw fa-wrench"></i> <span>스케줄</span>
-			</a>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+				aria-expanded="true" aria-controls="collapseUtilities"> 
+				<i class="fas fa-fw fa-wrench"></i> 
+				<span>스케줄</span>
+				</a>
 				<div id="collapseUtilities" class="collapse"
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -94,7 +96,8 @@
 							class="collapse-item" href="utilities-animation.html">메시지 관리</a>
 						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>
 					</div>
-				</div></li>
+				</div>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
