@@ -19,17 +19,17 @@
 						<div class="title">
 
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)" >
+								style="background-color:black;" >
 		
-								<h2>영화예매 내역</h2>
+								<h2 style="color: white;">영화예매 내역</h2>
 								<br>
 								<!-- Nav tabs -->
 
 
 								<!-- Tab panes -->
 								<div class="row">
-									<div class="col-md-12">
-										<table class="table">
+									<div class="col-md-12" >
+										<table class="table" style="color: white;">
 										
 											<thead>
 												<tr>
@@ -53,6 +53,7 @@
 											</tbody>
 										</table>
 									</div>
+								
 								</div>
 								<br>
 							</div>

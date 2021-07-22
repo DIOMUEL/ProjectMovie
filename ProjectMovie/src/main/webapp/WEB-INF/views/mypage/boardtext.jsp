@@ -18,9 +18,9 @@
 						<div class="title">
 
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)">
+								style="background-color:black;">
 
-								<h2>게시글 확인</h2>
+								<h2 style="color: white;">게시글 확인</h2>
 								<br>
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs">
@@ -32,12 +32,11 @@
 								<!-- Tab panes -->
 								<div class="row">
 									<div class="col-md-12">
-										<table class="table">
+										<table class="table" style="color: white;">
 											<thead>
 												<tr>
 													<th>구분</th>
-													<th>제목</th>
-													<th>글쓴이</th>
+													<th>제목</th>													
 													<th>내용</th>
 													<th>글쓴날짜</th>
 												</tr>

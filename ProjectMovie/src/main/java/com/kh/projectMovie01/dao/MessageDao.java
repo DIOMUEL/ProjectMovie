@@ -6,6 +6,8 @@ import com.kh.projectMovie01.vo.MessageVo;
 
 public interface MessageDao {
 	
+	public void insertMessage(MessageVo messageVo);
 	public List<MessageVo> receive_MessageList(String user_id);	
 	public List<MessageVo> send_MessageList(String user_id);
+	public MessageVo readMessage(int msg_no);
 }

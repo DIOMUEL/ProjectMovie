@@ -151,9 +151,9 @@
 					<div class="form-main">
 						<div class="title">
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)">
-								<h4>My 정보관리</h4>
-								<h3>회원 정보 관리</h3>
+								style="background-color:black;)">
+								<h4 style="color: white;">My 정보관리</h4>
+								<h3 style="color: white;">회원 정보 관리</h3>
 
 							</div>
 						</div>

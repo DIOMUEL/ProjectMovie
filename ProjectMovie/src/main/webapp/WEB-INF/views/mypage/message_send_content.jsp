@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+<script>
+$(document).ready(function() {
+	$("#btn_main").click(function() {
+		location.href = "/mypage/message";
+	})
+})
+</script>
 <br>
 <br>
 <br>
@@ -16,9 +23,9 @@
 					<div class="form-main">
 						<div class="title">
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)">
-								<h4>My 정보관리</h4>
-								<h3>회원 정보 관리</h3>
+								style="background-color:black;">
+								<h4 style="color: white;">My 정보관리</h4>
+								<h3 style="color: white;">쪽지 관리</h3>
 
 							</div>
 						</div>
@@ -31,7 +38,7 @@
 									<div class="form-group">
 										<label for="user_id">아이디:<span></span></label> <input
 											name="user_id" id="user_id" type="text"
-											value="${memberVo.user_id }" class="form-control" readonly>
+											value="${messageVo.msg_receiver}" class="form-control" readonly>
 									</div>
 								</div>
 							
@@ -40,7 +47,7 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_email">내용:<span></span></label> 
-										<textarea class="form-control"></textarea>
+										<textarea class="form-control" readonly>${messageVo.msg_content}</textarea>
 											
 									</div>
 								</div>
@@ -50,8 +57,9 @@
 
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
-										<input type="button" class="btn btn-primary" id="btn_modify"  value="목록">				
-								
+										<input type="button" class="btn btn-primary" id="btn_main"  value="목록">				
+										<input type="button" class="btn btn-danger" id="btn_delet"  value="삭제">				
+										
 									
 								</div>
 						

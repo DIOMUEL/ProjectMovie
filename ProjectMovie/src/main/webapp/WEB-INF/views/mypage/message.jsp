@@ -16,6 +16,9 @@ $(document).ready(function() {
 		$("#send").show();
 		$("#reciver").hide();
 	})
+	$("#btnSendMessage").click(function() {
+		location.href = "/mypage/message_send";
+	})
 	
 })
 
@@ -37,9 +40,9 @@ $(document).ready(function() {
 						<div class="title">
 
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)">
+								style="background-color:black;">
 
-								<h2>쪽지 함</h2>
+								<h2 style="color: white;">쪽지 함</h2>
 								<br>
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs">
@@ -52,7 +55,7 @@ $(document).ready(function() {
 								<!-- Tab panes -->
 								<div class="row" id="send">
 									<div class="col-md-12">
-										<table class="table">
+										<table class="table" style="color: white;">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -66,7 +69,7 @@ $(document).ready(function() {
 												<c:forEach var="messageVo" items="${send_MessageList}">
 													<tr>
 														<td>${messageVo.msg_no}</td>
-														<td>${messageVo.msg_content}</td>
+														<td><a href="/mypage/message_send_content?msg_no=${messageVo.msg_no}">${messageVo.msg_content}</a></td>
 														<td>${messageVo.msg_receiver}</td>
 														<td>${messageVo.msg_senddate}</td>
 														<td></td>
@@ -78,7 +81,7 @@ $(document).ready(function() {
 								</div>
 								<div class="row" id="reciver">
 									<div class="col-md-12">
-										<table class="table">
+										<table class="table"  style="color: white;">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -92,7 +95,7 @@ $(document).ready(function() {
 												<c:forEach var="messageVo" items="${receive_MessageList}">
 													<tr>
 														<td>${messageVo.msg_no}</td>
-														<td><a href="/mypage/message_content">${messageVo.msg_content}</a> </td>
+														<td><a href="/mypage/message_receiver_content?msg_no=${messageVo.msg_no}">${messageVo.msg_content}</a> </td>
 														<td>${messageVo.msg_sender}</td>
 														<td>${messageVo.msg_senddate}</td>
 														<td></td>
@@ -100,9 +103,12 @@ $(document).ready(function() {
 												</c:forEach>
 											</tbody>
 										</table>
+										
 									</div>
+							
 								</div>
 								<br>
+								<input type="button" id="btnSendMessage" class="btn btn-outline-success"value="쪽지 보내기">
 							</div>
 							<div class="col-lg-3"></div>
 						</div>
