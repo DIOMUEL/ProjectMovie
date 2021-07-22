@@ -1,246 +1,212 @@
+<!-- 영화 예약 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%
+	System.out.print(request.getParameter("num"));
+%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>예매 페이지</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <!-- 몸통 부분 -->
-        <header class="bg-dark py-5">
-            <div class="container px-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">영화 예매</h1>
-                            <p class="lead text-white-50 mb-4">예매하실 상품 정보들을 정확히 입력해 주세요.</p>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-info btn-lg px-4 me-sm-3" href="/board/mainPage">메인으로</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- 영화 선택 -->
-        <section class="py-5 border-bottom" id="features">
-            <div class="container px-5 my-5">
-                <div class="row gx-5">
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
-                        <h2 class="h4 fw-bolder">분노의 질주 (더 얼티메이트)</h2>
-                        <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie1.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
-                        <h2 class="h4 fw-bolder">미드나이트</h2>
-                        <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie2.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
-                        <h2 class="h4 fw-bolder">컨저링3</h2>
-                        <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
-                        <h2 class="h4 fw-bolder">블랙 위도우</h2>
-                        <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie4.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
-                        <h2 class="h4 fw-bolder">시카다 3301</h2>
-                        <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie5.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"></div>
-                        <h2 class="h4 fw-bolder">바르다가 사랑한 얼굴들</h2>
-                        <a class="text-decoration-none" href="#!">
-                        <img class="img-fluid" style="width:100%" src=".././resources/mainPage/assets/img/portfolio/movie6.jpg" alt="..." />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- 지역, 좌석, 음식 선택 -->
-        <section class="bg-light py-5 border-bottom">
-            <div class="container px-5 my-5">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bolder">지역 / 좌석 선택</h2>
-                    <p class="lead mb-0">상영하실 지역과 좌석을 올바르게 입력해주세요.</p>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <div class="mb-3">
-                                    <span class="display-3 fw-bold">지역 설정</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>1 users</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        5GB storage
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited public projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Community access
-                                    </li>
-                                    <li class="mb-2 text-muted">
-                                        <i class="bi bi-x"></i>
-                                        Unlimited private projects
-                                    </li>
-                                    <li class="mb-2 text-muted">
-                                        <i class="bi bi-x"></i>
-                                        Dedicated support
-                                    </li>
-                                    <li class="mb-2 text-muted">
-                                        <i class="bi bi-x"></i>
-                                        Free linked domain
-                                    </li>
-                                    <li class="text-muted">
-                                        <i class="bi bi-x"></i>
-                                        Monthly status reports
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-dark" href="#!">확인</a></div>
-                            </div>
-                        </div>
-                    </div>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Movie Reserve Page</title>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900'"
+	rel="stylesheet">
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#btnReserve').click(function() {
+			var result = confirm('정말 예약하시겠습니까?');
+			if (result) {
+				//$('input[name=count]').attr('value', count);
+				$("form:first").submit();
+				//alert($('input[name=maxT]').val());
+			} else {
+				location.replace("movieinfo");
+			}
+		});
+	});
+	function gogo(start, end, time, m_name, grade) {
+		$('input[name=start]').attr('value', start);
+		$('input[name=end]').attr('value', end);
+		$('input[name=time]').attr('value', time);
+		$('input[name=a_name]').attr('value', m_name);
+		$('input[name=grade]').attr('value', grade);
+		//alert($('input[name=a_name]').val());
+		aa();
+	}
 
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <div class="mb-3">
-                                    <span class="display-3 fw-bold">좌석 선택</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>5 users</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        5GB storage
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited public projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Community access
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited private projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Dedicated support
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Free linked domain
-                                    </li>
-                                    <li class="text-muted">
-                                        <i class="bi bi-x"></i>
-                                        Monthly status reports
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-dark" href="#!">확인</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card">
-                            <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted"></div>
-                                <div class="mb-3">
-                                    <span class="display-3 fw-bold">음식 예약</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>Unlimited users</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        5GB storage
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited public projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Community access
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited private projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Dedicated support
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>Unlimited</strong>
-                                        linked domains
-                                    </li>
-                                    <li class="text-muted">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Monthly status reports
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-dark" href="#!">확인</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="bg-light py-5">
-            <div class="container px-5 my-5 px-5">
-                <div class="text-center mb-5">
-                    <p class="lead mb-0"></p>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <div class="d-grid"><a href="/board/mainPage"><button class="btn btn-info btn-lg" id="submitButton" type="submit">
-                            	확인</button></a></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+	function aa() {
+		var movie_price = $(":input:radio[name=radioTxt]:checked").val() * $
+		{
+			moviebean.people
+		}
+		;
+		//alert(numberWithCommas(movie_price));
+		var movie_price1 = numberWithCommas(movie_price) + " KRW"
+		//alert(movie_price);
+		$('#mp').text(movie_price1);
+
+		var gong = $
+		{
+			moviebean.people * 15000
+		}
+		;
+		var gong1 = numberWithCommas(gong) + " KRW";
+		$('#gong').text(gong1);
+
+		var you = $
+		{
+			moviebean.people * 12000
+		}
+		var you1 = numberWithCommas(you) + " KRW";
+		$('#you').text(you1);
+
+		var tot = movie_price + gong + you;
+		var tot1 = numberWithCommas(tot) + " KRW";
+		$('#tot').text(tot1);
+
+		$('input[name=pay]').attr('value', tot);
+	}
+	function numberWithCommas(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+</script>
+</head>
+<body
+	style="text-align: center; font-family: 'Noto Sans KR', sans-serif;">
+	<br>
+	<br>
+	<div align="center">
+		<img class="brand-logo-light" src="resources/images/bomair_logo.png" style="width: 510px; height: 100px">
+		<table rules="none" style="background-color: #7cc67c">
+			<tr>
+				<td>&nbsp;&nbsp;영화 예매&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</td>
+				<td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;지역 선택 ▶ <c:choose>
+						<c:when test="${moviebean.l_code eq 'Seoul' }">서울</c:when>
+						<c:when test="${moviebean.l_code eq 'Busan' }">부산</c:when>
+						<c:when test="${moviebean.l_code eq 'Daegu' }">대구</c:when>
+						<c:when test="${moviebean.l_code eq 'Incheon' }">인천</c:when>
+						<c:when test="${moviebean.l_code eq 'Daejeon' }">대전</c:when>
+						<c:when test="${moviebean.l_code eq 'Gwangju' }">광주</c:when>
+						<c:when test="${moviebean.l_code eq 'Ulsan' }">울산</c:when>
+						<c:when test="${moviebean.l_code eq 'Sejong' }">세종</c:when>
+						<c:when test="${moviebean.l_code eq 'Jeju' }">제주</c:when>
+						<c:otherwise> ... </c:otherwise>
+					</c:choose> (${moviebean.l_code })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				<td>${moviebean.o_sdate}</td>
+			</tr>
+		</table>
+		<br> &nbsp;
+		<table>
+		<tr>
+			<th>영화이름</th>
+			<th>지역</th>
+			<th>상영관</th>
+			<th>좌석</th>
+			<th>시간</th>
+			<th>식사류</th>
+			<th>결제금액</th>
+		</tr>
+
+			<!-- 영화예약 -->
+			<c:forEach var="a" items="${movieinfo }">
+				<c:set var="dr">${fn:substring(m.movie_name,4,5) % 2}</c:set>
+				<c:if test="${dr eq 1 }">
+					<tr>
+						<fmt:parseDate var="date_d" value="${m.o_stime }" pattern="HH:mm" />
+						<fmt:parseNumber var="date_n" value="${date_d.time + 32400000}"
+							integerOnly="true" />
+						<fmt:parseNumber var="date_s" value="${m.o_soyo * 60000}"
+							integerOnly="true" />
+						<fmt:parseNumber var="format_hh"
+							value="${(date_n + date_s)/3600000 }" integerOnly="true" />
+						<fmt:parseNumber var="format_mm"
+							value="${(date_n + date_s)%3600000/60000 }" integerOnly="true" />
+						<c:choose>
+							<c:when test="${format_hh >= 24}">
+								<fmt:parseNumber var="soyo_hh" value="${m.o_soyo / 60}"
+									integerOnly="true" />
+								<c:set var="alive"
+									value="${m.o_stime } ~ ${format_hh - 24}:${format_mm } (+1일) <br> (소요시간 : ${soyo_hh }시간 ${m.o_soyo % 60}분)" />
+								<c:set var="alive_time"
+									value="${format_hh - 24}:${format_mm } (+1일)"></c:set>
+							</c:when>
+							<c:otherwise>
+								<fmt:parseNumber var="soyo_hh" value="${m.o_soyo / 60}"
+									integerOnly="true" />
+								<c:set var="alive"
+									value="${m.o_stime } ~ ${format_hh}:${format_mm } <br> (소요시간 : ${soyo_hh }시간 ${m.o_soyo % 60}분)" />
+								<c:set var="alive_time" value="${format_hh }:${format_mm }"></c:set>
+							</c:otherwise>
+						</c:choose>
+						<c:set var="soyo_time" value="${soyo_hh }시간 ${m.o_soyo % 60}분"></c:set>
+						<td><input type="radio" name="radioTxt" value="${m.o_price }"
+							onclick="javascript:gogo('${m.o_stime }','${alive_time }','${soyo_time }','${m.air_name }','E')">
+						<fmt:formatNumber value="${m.o_price }" pattern="#,###" /> KRW</td>
+						<td><input type="radio" name="radioTxt"
+							value="${m.o_price + m.o_price * 0.2 }"
+							onclick="javascript:gogo('${m.o_stime }','${alive_time }','${soyo_time }','${m.movie_name }','B')">
+						<fmt:formatNumber value="${m.o_price + m.o_price * 0.2 }"
+								pattern="#,###" /> KRW</td>
+						<td><input type="radio" name="radioTxt"
+							value="${m.o_price + m.o_price * 0.9 }"
+							onclick="javascript:gogo('${m.o_stime }','${alive_time }','${soyo_time }','${m.movie_name }','F')">
+						<fmt:formatNumber value="${m.o_price + m.o_price * 0.9 }"
+								pattern="#,###" /> KRW</td>
+						<td>${alive }</td>
+						<td>${m.movie_name }</td>
+					</tr>
+				</c:if>
+			</c:forEach>
+		</table>
+		<br>
+		<div>
+			<br>
+			<table>
+				<tr>
+					<td colspan="4" style="text-align: left">성인</td>
+					<td style="text-align: right">${moviebean.people }명</td>
+				</tr>
+				<tr>
+					<td colspan="4" style="text-align: left">영화 가격</td>
+					<td style="text-align: right" id="mp"></td>
+				</tr>
+				<tr>
+					<td>예상 결제 금액 :</td>
+					<td colspan="4" style="text-align: right; color: blue" id="tot"></td>
+				</tr>
+			</table>
+		</div>
+		<br> <br> <b style="color: red">▷예매 표를 불법적으로 유통 시 법적인 처벌을 받을 수 있습니다.</b><br>
+		<div>
+			<br>
+			<pre>
+			▣ 유의사항
+			☞ 상품 주문시 다시 한 번 확인 해주시기 바랍니다.
+			☞ 주문한  상품을 하루 전까지 환불이 가능합니다.
+			☞ 극장 선택시 장소 확인 후에 예매 바랍니다.
+			</pre>
+		</div>
+	</div>
+	<form action="complete" method="post">
+		<input type="hidden" name="l_code" value="${moviebean.l_code }">
+		<input type="hidden" name="o_sdate" value="${moviebean.o_sdate }">
+		<input type="hidden" name="people" value="${moviebean.people }">
+		<input type="hidden" name="pay"> <input type="hidden" name="start">
+		<input type="hidden" name="end"> <input type="hidden" name="time"> <input type="hidden" name="a_name">
+		<input type="hidden" name="grade"> <input type="hidden" name="maxT" value="${num+1}"> 
+		<input type="hidden" name="g_id" value="${id}">
+	</form>
+	<input type="button" id="btnReserve" value="예약하기">
+	<a href="goindex"><input type="button" id="redirect:/index.jsp" value="취소"></a>
+</body>
 </html>
-
-<%@ include file="../include/footer.jsp"%>
