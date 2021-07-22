@@ -124,8 +124,7 @@ $(document).ready(function(){
                                 <source src="" type="">
                             </video>
                         </div>
-                        <div class="mp-video-item-label">
-                            «Movie HomePage»</div>
+                        <div class="mp-video-item-label">«Movie HomePage»</div>
                     	</div>
                 </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 1903px;" tabindex="-1">
                     <div class="mp-video-item">

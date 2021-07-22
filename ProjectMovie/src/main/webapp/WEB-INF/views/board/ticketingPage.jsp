@@ -181,16 +181,6 @@
 					<td style="text-align: right" id="mp"></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="text-align: left">공항사용료</td>
-					<td style="text-align: right" id="gong"></td>
-				</tr>
-				<tr>
-					<td colspan="4" style="text-align: left">유류할증료</td>
-					<td style="text-align: right" id="you"></td>
-				</tr>
-				<tr>
-				</tr>
-				<tr>
 					<td>예상 결제 금액 :</td>
 					<td colspan="4" style="text-align: right; color: blue" id="tot"></td>
 				</tr>
@@ -200,11 +190,11 @@
 		<div>
 			<br>
 			<pre>
-▣ 유의사항
-☞ 상품 주문시 다시 한 번 확인 해주시기 바랍니다.
-☞ 주문한  상품을 하루 전까지 환불이 가능합니다.
-☞ 극장 선택시 장소 확인 후에 예매 바랍니다.
-</pre>
+			▣ 유의사항
+			☞ 상품 주문시 다시 한 번 확인 해주시기 바랍니다.
+			☞ 주문한  상품을 하루 전까지 환불이 가능합니다.
+			☞ 극장 선택시 장소 확인 후에 예매 바랍니다.
+			</pre>
 		</div>
 	</div>
 	<form action="complete" method="post">

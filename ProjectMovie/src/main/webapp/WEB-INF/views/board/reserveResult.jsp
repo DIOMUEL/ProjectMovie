@@ -34,7 +34,7 @@
 			<th>결제금액</th>
 		</tr>
 		<tr>
-			<td>인천 (ICN)</td>
+			<td>영화관</td>
 			<td><c:choose>
 					<c:when test="${complete.l_code eq 'Seoul' }">서울</c:when>
 					<c:when test="${complete.l_code eq 'Busan' }">부산</c:when>
@@ -48,8 +48,7 @@
 					<c:otherwise> ... </c:otherwise>
 				</c:choose>(${complete.l_code })</td>
 			<td>${complete.o_sdate }</td>
-			<td>${complete.start }~${complete.end }<br>(${complete.time })
-			</td>
+			<td>${complete.start }~${complete.end }<br>(${complete.time })</td>
 			<td>${complete.m_name }</td>
 			<td><c:choose>
 					<c:when test="${complete.grade eq 'B' }">Bed(침대석)</c:when>
