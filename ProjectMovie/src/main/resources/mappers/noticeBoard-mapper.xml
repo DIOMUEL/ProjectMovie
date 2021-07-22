@@ -30,6 +30,9 @@
 				<when test='searchType == "c"'>
 					where b_content like '%' || #{keyword} || '%'
 				</when>
+				<when test='searchType == "u"'>
+					where b_content like '%' || #{keyword} || '%'
+				</when>
 				<when test='searchType == "tc"'>
 					where b_title like '%' || #{keyword} || '%'
 					or b_content like '%' || #{keyword} || '%'

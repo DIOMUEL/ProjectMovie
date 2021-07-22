@@ -1,27 +1,21 @@
 package com.kh.projectMovie01.controller;
 
 import java.util.List;
-import java.util.logging.Logger;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.MessageService;
 import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.MessageVo;
-import com.kh.projectMovie01.vo.NoticeBoardVo;
 
 @Controller
 @RequestMapping(value="/mypage")
@@ -62,7 +56,7 @@ public class MypageController {
 	public String ChangeEmail(HttpSession session,String user_email) throws Exception{
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		System.out.println("user_email:"+user_email);
+		//System.out.println("user_email:"+user_email);
 		memberService.changeEmail(user_id, user_email);
 		return "success";
 	}
@@ -87,16 +81,37 @@ public class MypageController {
 		
 	}	
 	
-	@RequestMapping(value="/message_content",method=RequestMethod.GET)
-	public String message_content() throws Exception{
-		return "mypage/message_content";
+	@RequestMapping(value="/message_receiver_content",method=RequestMethod.GET)
+	public String message_receiver_content(Model model, HttpSession session,int msg_no) throws Exception{
+		MemberVo memberVo = (MemberVo)session.getAttribute(
+				"loginVo");
+		String user_id = memberVo.getUser_id();
+		MessageVo messageVo = messageService.messageRead(
+				msg_no, user_id);
+		model.addAttribute("messageVo", messageVo);
+		
+		
+		return "mypage/message_receiver_content";
 	}
+	
+	@RequestMapping(value="/message_send_content",method=RequestMethod.GET)
+	public String message_send_content(Model model, HttpSession session,int msg_no) throws Exception{
+		MemberVo memberVo = (MemberVo)session.getAttribute(
+				"loginVo");
+		String user_id = memberVo.getUser_id();
+		MessageVo messageVo = messageService.messageRead(
+				msg_no, user_id);
+		model.addAttribute("messageVo", messageVo);
+		
+		return "mypage/message_send_content";
+	}
+	
 	
 	@RequestMapping(value="/message" , method=RequestMethod.GET)
 	public String message(Model model, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		System.out.println("user_id : " + user_id);
+		//System.out.println("user_id : " + user_id);
 
 		
 		List<MessageVo> receive_MessageList = messageService.receive_MessageList(user_id);
@@ -108,6 +123,22 @@ public class MypageController {
 		
 	
 		return "mypage/message";
+	}
+	
+	@RequestMapping(value="/sendMessage", method=RequestMethod.POST)
+	@ResponseBody
+	public String sendMessage(@RequestBody MessageVo messageVo,
+			HttpSession session) throws Exception {
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		messageVo.setMsg_sender(memberVo.getUser_id());
+		System.out.println("messageVo:" + messageVo);
+		messageService.sendMessage(messageVo);
+		return "success";
+	}
+	
+	@RequestMapping(value="/message_send",method=RequestMethod.GET)
+	public String message_send() {
+		return "mypage/message_send";
 	}
 	
 	@RequestMapping(value="/purchase_history_food",method=RequestMethod.GET)

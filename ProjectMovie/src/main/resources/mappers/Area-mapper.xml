@@ -4,8 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="mappers.area-mapper">
-
+<!-- 영화관 지역 관련 -->
 	<!-- 전체 지역 조회 -->
+	<!-- & 영화좌석 페이지 입장시 지역들 원소 호출 -->
 	<select id="getAllAreaList" resultType="AreaVo">
 		select * from tbl_area
 		order by area_no asc
@@ -16,7 +17,18 @@
 		values(seq_area_no.nextval, #{area_name})
 	</insert>
 	<!-- 지역수정 -->
+	<update id="movieAreaModify">
+		update tbl_area set
+	 	area_name = #{area_name}
+		where area_no = #{area_no}
+	</update>
 	<!-- 지역삭제 -->
+	<delete id="movieAreaDelete">
+		delete from tbl_area
+		where area_no = #{area_no}
+	</delete>
+	
+<!-- 영화관명  관련 -->
 	<!-- 각지역 영화관 전체 조회 -->
 	<select id="getAllAreaTheaterList" resultType="AreaTheaterVo">
 		select * from tbl_area_theater
@@ -29,5 +41,37 @@
 		values(#{area_no}, seq_area_theater_no.nextval, #{area_theater_name})
 	</insert>
 	<!-- 각지역의 영화관 수정 -->
-	<!-- 각지역의 영화관 삭제 -->
+	<update id="areaTheaterModify">
+		update tbl_area_theater set
+	 	area_theater_name = #{area_theater_name}
+		where area_theater_no = #{area_theater_no}
+	</update>
+	<!--각지역의 영화관 삭제 -->
+	<delete id="areaTheaterDelete">
+		delete from tbl_area_theater
+		where area_theater_no = #{area_theater_no}
+	</delete>
+<!-- 영화좌석페이지관련 -->
+	<!-- 각지역 영화관 영화관좌석 조회 -->
+	<select id="getSeveralTheaterSeatList" resultType="TheaterSeatVo">
+		select * from tbl_theater_seat
+		where area_theater_no = #{area_theater_no}
+		order by theater_no asc
+	</select>
+	<!-- 각지역 영화관 영화관좌석 등록 -->
+	<insert id="seatSettingRegist">
+		insert into tbl_theater_seat(area_theater_no, theater_no, theater_name, theater_seatNum)
+		values(#{area_theater_no}, seq_theater_no.nextval, #{theater_name}, #{theater_seatNum})
+	</insert>
+	<!-- 각지역 영화관 영화관좌석수 수정 -->
+	<update id="seatSettingModify">
+		update tbl_theater_seat set
+		theater_seatNum = #{theater_seatNum}
+		where theater_no = #{theater_no}
+	</update>
+	<!--각지역의 영화관 좌석수 삭제 -->
+	<delete id="seatSettingDelete">
+		delete from tbl_theater_seat
+		where theater_no = #{theater_no}
+	</delete>
 </mapper>

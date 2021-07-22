@@ -12,7 +12,7 @@ import com.kh.projectMovie01.vo.CommentVo;
 @Repository
 public class CommentDaoImple implements CommentDao {
 	
-	private static final String NAMESPACE = "com.kh.projectMovie.comment.";
+	private static final String NAMESPACE = "com.kh.projectMovie01.comment.";
 
 	@Inject
 	SqlSession sqlsession;
@@ -25,19 +25,19 @@ public class CommentDaoImple implements CommentDao {
 
 	@Override
 	public void insertComment(CommentVo commentVo) {
-		sqlsession.insert(NAMESPACE + "insertCommentList", commentVo);
+		sqlsession.insert(NAMESPACE + "insertComment", commentVo);
 		
 	}
 
 	@Override
-	public void updateCommet(CommentVo commentVo) {
-		sqlsession.update(NAMESPACE + "updateCommetList", commentVo);
+	public void updateComment(CommentVo commentVo) {
+		sqlsession.update(NAMESPACE + "updateComment", commentVo);
 		
 	}
 
 	@Override
 	public void deleteComment(int c_no) {
-		sqlsession.delete(NAMESPACE + "deleteCommentList", c_no);
+		sqlsession.delete(NAMESPACE + "deleteComment", c_no);
 		
 	}
 

@@ -23,9 +23,9 @@ $(document).ready(function() {
 					<div class="form-main">
 						<div class="title">
 							<div class="jumbotron"
-								style="background-color: rgba(0, 255, 255, 0.8)">
-								<h4>My 정보관리</h4>
-								<h3>회원 정보 관리</h3>
+								style="background-color:black;">
+								<h4 style="color: white;">My 정보관리</h4>
+								<h3 style="color: white;">쪽지 관리</h3>
 
 							</div>
 						</div>
@@ -38,7 +38,7 @@ $(document).ready(function() {
 									<div class="form-group">
 										<label for="user_id">아이디:<span></span></label> <input
 											name="user_id" id="user_id" type="text"
-											value="${memberVo.user_id }" class="form-control" readonly>
+											value="${messageVo.msg_sender}" class="form-control" readonly>
 									</div>
 								</div>
 							
@@ -47,7 +47,7 @@ $(document).ready(function() {
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_email">내용:<span></span></label> 
-										<textarea class="form-control"></textarea>
+										<textarea class="form-control" readonly>${messageVo.msg_content}</textarea>
 											
 									</div>
 								</div>

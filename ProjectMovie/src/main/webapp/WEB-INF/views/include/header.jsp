@@ -56,16 +56,16 @@
 								</a> <!-- Dropdown - User Information -->
 								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 									<c:choose>
-									<c:when test="${sessionScope.loginVo.user_name != 'admin'}">
-									<a class="dropdown-item" href="/mypage/management"> 
-										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My페이지
-									</a> 
-									</c:when>
-									<c:otherwise>
-									<a class="dropdown-item" href="/administerPage/administerMainPage"> 
-										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>관리페이지
-									</a> 
-									</c:otherwise>
+										<c:when test="${sessionScope.loginVo.user_name != 'admin'}">
+										<a class="dropdown-item" href="/mypage/management"> 
+											<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My페이지
+										</a> 
+										</c:when>
+										<c:otherwise>
+										<a class="dropdown-item" href="/administerPage/administerMainPage"> 
+											<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>관리페이지
+										</a> 
+										</c:otherwise>
 									</c:choose>
 									<a class="dropdown-item" href="/mypage/message"> 
 										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
