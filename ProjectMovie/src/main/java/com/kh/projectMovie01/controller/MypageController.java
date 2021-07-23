@@ -72,6 +72,8 @@ public class MypageController {
 	@RequestMapping(value = "/boardtext", method = RequestMethod.GET)
 	public String boardtext(@ModelAttribute("pagingDto") PagingDto pagingDto,
 			NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
+		int count = noticeBoardService.getCount(pagingDto);
+		pagingDto.setCount(count);
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
