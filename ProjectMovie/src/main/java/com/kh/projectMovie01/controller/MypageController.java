@@ -76,7 +76,7 @@ public class MypageController {
 		pagingDto.setCount(count);
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
+		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id, pagingDto);
 		model.addAttribute("list", list);
 		return "mypage/boardtext";
 	}
