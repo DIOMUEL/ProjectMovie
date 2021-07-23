@@ -99,7 +99,7 @@
 <!-- 		where user_id = #{user_id} -->
 <!-- 	</select> -->
 
-	<select id="listAll" resultType="NoticeBoardVo">
+	<select id="myNoticeBoard" resultType="NoticeBoardVo">
 			select * from
 			(select rownum rnum, a.* from
 			(select * from tbl_noticeboard
