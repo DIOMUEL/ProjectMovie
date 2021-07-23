@@ -210,7 +210,7 @@
 			//영화관 삭제
 			$(document).on("click",".btnSeatingDelete",function(){
 				var choose = confirm("삭제하시겠습니까?");
-				if(choose == "ture"){
+				if(choose == true){
 					var theater_no = $(this).attr("data-theater_no");
 					var url = "/administerPage/seatSettingDelete"
 						var sendData = {

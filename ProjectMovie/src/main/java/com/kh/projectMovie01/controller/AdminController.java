@@ -287,5 +287,33 @@ public class AdminController {
 		rttr.addFlashAttribute("msgFoodRegist", "success");
 		return "redirect:/administerPage/administerStoreManagement";
 	}
+	//매점 제품명 수정 실행
+	@RequestMapping(value="/administerFoodNameModifyRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerFoodNameModifyRun(int food_num, String food_name) throws Exception {
+		admin_StoreService.updateFoodName(food_num, food_name);
+		return "success";
+	}
+	//매점 단가 수정 실행
+	@RequestMapping(value="/administerFoodPriceModifyRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerFoodPriceModifyRun(int food_num, int food_price) throws Exception {
+		admin_StoreService.updateFoodPrice(food_num, food_price);
+		return "success";
+	}
+	//매점 수량 수정 실행
+	@RequestMapping(value="/administerFoodCountModifyRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerFoodCountModifyRun(int food_num, int food_count) throws Exception {
+		admin_StoreService.updateFoodCount(food_num, food_count);
+		return "success";
+	}
+	//매점 제품 삭제하기
+	@RequestMapping(value="/administerFoodDeleteRun", method = RequestMethod.GET)
+	@ResponseBody
+	public String administerFoodDeleteRun(int food_num) throws Exception {
+		admin_StoreService.deleteFood(food_num);
+		return "success";
+	}
 	// --------------- 영화 매점 관리 END-----------------------
 }
