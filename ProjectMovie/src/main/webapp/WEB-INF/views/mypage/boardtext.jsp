@@ -42,12 +42,12 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="messageVo" items="${list}">
+												<c:forEach var="noticeBoardVo" items="${list}">
 													<tr>
-														<td>${member.msg_no}</td>
-														<td></td>
-														<td>${messageVo.msg_sender}</td>
-														<td>${messageVo.msg_senddate}</td >
+														<td>${noticeBoardVo.b_no}</td>
+														<td>${noticeBoardVo.b_title}</td>
+														<td>${noticeBoardVo.b_content}</td>
+														<td>${noticeBoardVo.b_regdate}</td >
 														<td></td>
 													</tr>
 												</c:forEach>

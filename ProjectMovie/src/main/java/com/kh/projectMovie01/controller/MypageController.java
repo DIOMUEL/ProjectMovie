@@ -16,9 +16,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.MessageService;
+import com.kh.projectMovie01.service.NoticeBoardService;
 import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.MessageVo;
+import com.kh.projectMovie01.vo.NoticeBoardVo;
 import com.kh.projectMovie01.vo.PagingDto;
 
 @Controller
@@ -33,6 +35,9 @@ public class MypageController {
 
 	@Inject
 	private MessageService messageService;
+	
+	@Inject
+	private NoticeBoardService noticeBoardService;
 	
 	@RequestMapping(value="/management",method=RequestMethod.GET)
 	public String management(Model model, HttpSession session) throws Exception{
@@ -64,12 +69,16 @@ public class MypageController {
 		memberService.changeEmail(user_id, user_email);
 		return "success";
 	}
-	
-	
-	@RequestMapping(value="/boardtext",method=RequestMethod.GET)
-	public String boardtext() throws Exception{
+	@RequestMapping(value = "/boardtext", method = RequestMethod.GET)
+	public String boardtext(NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
+		model.addAttribute("list", list);
 		return "mypage/boardtext";
 	}
+	
+
 	@RequestMapping(value="/point",method=RequestMethod.GET)
 	public String point() throws Exception{
 		return "mypage/point";
