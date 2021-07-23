@@ -6,16 +6,22 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.MessageService;
+import com.kh.projectMovie01.service.NoticeBoardService;
 import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.MessageVo;
+import com.kh.projectMovie01.vo.NoticeBoardVo;
+import com.kh.projectMovie01.vo.PagingDto;
 
 @Controller
 @RequestMapping(value="/mypage")
@@ -29,6 +35,9 @@ public class MypageController {
 
 	@Inject
 	private MessageService messageService;
+	
+	@Inject
+	private NoticeBoardService noticeBoardService;
 	
 	@RequestMapping(value="/management",method=RequestMethod.GET)
 	public String management(Model model, HttpSession session) throws Exception{
@@ -60,12 +69,16 @@ public class MypageController {
 		memberService.changeEmail(user_id, user_email);
 		return "success";
 	}
-	
-	
-	@RequestMapping(value="/boardtext",method=RequestMethod.GET)
-	public String boardtext() throws Exception{
+	@RequestMapping(value = "/boardtext", method = RequestMethod.GET)
+	public String boardtext(NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
+		model.addAttribute("list", list);
 		return "mypage/boardtext";
 	}
+	
+
 	@RequestMapping(value="/point",method=RequestMethod.GET)
 	public String point() throws Exception{
 		return "mypage/point";
@@ -108,7 +121,7 @@ public class MypageController {
 	
 	
 	@RequestMapping(value="/message" , method=RequestMethod.GET)
-	public String message(Model model, HttpSession session) throws Exception {
+	public String message(@ModelAttribute("pagingDto") PagingDto pagingDto,Model model, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		//System.out.println("user_id : " + user_id);
@@ -130,12 +143,21 @@ public class MypageController {
 	public String sendMessage(@RequestBody MessageVo messageVo,
 			HttpSession session) throws Exception {
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
-		messageVo.setMsg_sender(memberVo.getUser_id());
+		messageVo.setMsg_receiver(memberVo.getUser_id());
 		System.out.println("messageVo:" + messageVo);
 		messageService.sendMessage(messageVo);
 		return "success";
 	}
-	
+	@RequestMapping(value = "/deleteMessage", method=RequestMethod.GET)
+	public String deleteMessage(int msg_no, HttpSession session,
+			RedirectAttributes rttr) throws Exception {
+		MemberVo memberVo = 
+				(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		boolean result = messageService.deleteMessage(msg_no, user_id);
+		rttr.addFlashAttribute("msg_delete", String.valueOf(result));
+		return "redirect:/mypage/message";
+	}
 	@RequestMapping(value="/message_send",method=RequestMethod.GET)
 	public String message_send() {
 		return "mypage/message_send";

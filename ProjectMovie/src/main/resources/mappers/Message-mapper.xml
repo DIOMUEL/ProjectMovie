@@ -28,4 +28,9 @@
 		where msg_no = #{msg_no}
 		and msg_receiver = #{user_id}
 	</delete>
+	<update id="updateOpenDate">
+	update tbl_message set
+	msg_opendate = sysdate
+	where msg_no = #{msg_no}
+	</update>
 </mapper>

@@ -8,14 +8,17 @@ $(document).ready(function() {
 	});
 	$("#btn_send").click(function() {
 		var that = $(this);
-// 		var msg_sender = "hong";
+
 		var msg_content = $("#msg_content").val();
-		var msg_receiver = $("#msg_receiver").val();
+		var msg_sender = $("#msg_sender").val();
 		var sendData = {
-				"msg_receiver" : msg_receiver,
+				"msg_sender" : msg_sender,
 				"msg_content" : msg_content
 		};
 		console.log(sendData);
+		if(msg_sender == ""){
+			alert("아이디을 입력해주세요");
+		};
 		var url = "/mypage/sendMessage";
 		$.ajax({
 			"url" : url,
@@ -28,10 +31,14 @@ $(document).ready(function() {
 			"success" : function(receivedData) {
 				console.log(receivedData);
 				if (receivedData == "success") {
-					$("btn_main").click();
+					$("#btn_main").click();
+				}else{
+					alert("아이디가 존재하지 안습니다.")
 				}
 			}
+			
 		});
+		
 	});
 });
 </script>
@@ -51,8 +58,8 @@ $(document).ready(function() {
 						<div class="title">
 							<div class="jumbotron"
 								style="background-color:black; font:lighter;">
-								<h4 style="color: white;">My 정보관리</h4>
-								<h3 style="color: white;">회원 정보 관리</h3>
+								<h2 style="color: white;">쪽지 관리</h2>
+								
 
 							</div>
 						</div>
@@ -63,8 +70,8 @@ $(document).ready(function() {
 								
 								<div class="col-12">
 									<div class="form-group">
-										<label for="msg_receiver">아이디:<span></span></label> <input
-											name="msg_receiver" id="msg_receiver" type="text"
+										<label for="msg_sender">아이디:<span></span></label> <input
+											name="msg_sender" id="msg_sender" type="text"
 											value="" class="form-control" >
 									</div>
 								</div>

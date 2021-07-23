@@ -53,4 +53,10 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 		return count;
 	}
 
+	@Override
+	public List<NoticeBoardVo> myNoticeBoard(String user_id) {
+		List<NoticeBoardVo> list = noticeBoardDao.myNoticeBoard(user_id);
+		return list;
+	}
+
 }
