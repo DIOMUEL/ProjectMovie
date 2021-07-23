@@ -74,5 +74,6 @@ public class NoticeBoardController {
 //		return "/mypage";
 //	}
 	
+
 	
 }

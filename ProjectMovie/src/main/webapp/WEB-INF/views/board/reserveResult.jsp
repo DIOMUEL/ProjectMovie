@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예매 확인 페이지</title>
+<title>Reserve Check Page</title>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
 <link rel="stylesheet" href="resources/css/detail.css">
@@ -16,13 +16,13 @@
 			location.href = "mybook?g_id=${id}";
 		});
 		$('#btnhome').click(function() {
-			location.href = "movieinfo";
+			location.href = "/board/mainPage";
 		});
 	});
 </script>
 </head>
 <body>
-	<h1>${id}님예약이완료되었습니다.</h1>
+	<h1>${id}님의 상품 예매가 완료되었습니다.</h1>
 	<table>
 		<tr>
 			<th>영화이름</th>
