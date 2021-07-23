@@ -73,6 +73,7 @@ public class NoticeBoardController {
 //		model.addAttribute("list", list);
 //		return "/mypage";
 //	}
+	
 	@RequestMapping(value = "/myNoticeBoard/{user_id}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<NoticeBoardVo> myNoticeBoard(@PathVariable("user_id") String user_id) {
