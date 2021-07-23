@@ -200,14 +200,14 @@ $(document).ready(function(){
 					rows="3" readonly>${noticeBoardVo.b_content}</textarea>
 				<a type="button" class="btn btn-success" id="btnList">목록</a>
 				<button type="button" class="btn btn-warning" id="btnModify">수정</button>
-				<button type="submit" class="btn btn-success" style="display:none" id="btnModifyFinish">수정완료</button>
+				<button type="submit" class="btn btn-primary" style="display:none" id="btnModifyFinish">수정완료</button>
 				<button type="button" class="btn btn-danger" id="btnDelete" >삭제</button>
 			</form>
 			<br>
 			<div>
 				<textarea class="form-control" id="c_content" name="c_content" rows="3" >${commentVo.c_content}</textarea>
-				<button type="button" class="btn btn-success" id="btnCommentInsert" >등록</button>	
-				<button type="button" class="btn btn-warning" id="btnCommentList" >댓글보기</button>	
+				<button type="button" class="btn btn-primary" id="btnCommentInsert" >등록</button>	
+				<button type="button" class="btn btn-info" id="btnCommentList" >댓글보기</button>	
 			<br>
 			</div>
 <!--댓글목록 -->

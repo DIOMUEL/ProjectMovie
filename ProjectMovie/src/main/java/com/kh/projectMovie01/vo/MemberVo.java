@@ -9,6 +9,7 @@ public class MemberVo {
 	private int user_rrn;
 	private String user_email;
 	private Timestamp user_reg_date;
+	private int notReadCount;
 	public MemberVo() {
 		super();
 	}
@@ -58,11 +59,20 @@ public class MemberVo {
 	public void setUser_reg_date(Timestamp user_reg_date) {
 		this.user_reg_date = user_reg_date;
 	}
+	
+	public int getNotReadCount() {
+		return notReadCount;
+	}
+	public void setNotReadCount(int notReadCount) {
+		this.notReadCount = notReadCount;
+	}
 	@Override
 	public String toString() {
 		return "MemberVo [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_rrn="
-				+ user_rrn + ", user_email=" + user_email + ", user_reg_date=" + user_reg_date + "]";
+				+ user_rrn + ", user_email=" + user_email + ", user_reg_date=" + user_reg_date + ", notReadCount="
+				+ notReadCount + "]";
 	}
+	
 	
 	
 }
