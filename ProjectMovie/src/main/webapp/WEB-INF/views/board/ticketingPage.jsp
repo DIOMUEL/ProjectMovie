@@ -1,12 +1,10 @@
 <!-- 영화 예약 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%
-	System.out.print(request.getParameter("num"));
-%>
+<% System.out.print(request.getParameter("num")); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +24,11 @@
 				$("form:first").submit();
 				//alert($('input[name=maxT]').val());
 			} else {
-				location.replace("movieinfo");
+				location.replace("/board/mainPage");
 			}
 		});
 	});
+
 	function gogo(start, end, time, m_name, grade) {
 		$('input[name=start]').attr('value', start);
 		$('input[name=end]').attr('value', end);
@@ -44,8 +43,7 @@
 		var movie_price = $(":input:radio[name=radioTxt]:checked").val() * $
 		{
 			moviebean.people
-		}
-		;
+		};
 		//alert(numberWithCommas(movie_price));
 		var movie_price1 = numberWithCommas(movie_price) + " KRW"
 		//alert(movie_price);
@@ -54,8 +52,7 @@
 		var gong = $
 		{
 			moviebean.people * 15000
-		}
-		;
+		};
 		var gong1 = numberWithCommas(gong) + " KRW";
 		$('#gong').text(gong1);
 
@@ -107,7 +104,7 @@
 		</table>
 		<br> &nbsp;
 		<table>
-		<tr>
+		<tr> 
 			<th>영화이름</th>
 			<th>지역</th>
 			<th>상영관</th>
@@ -116,7 +113,6 @@
 			<th>식사류</th>
 			<th>결제금액</th>
 		</tr>
-
 			<!-- 영화예약 -->
 			<c:forEach var="a" items="${movieinfo }">
 				<c:set var="dr">${fn:substring(m.movie_name,4,5) % 2}</c:set>
@@ -128,9 +124,9 @@
 						<fmt:parseNumber var="date_s" value="${m.o_soyo * 60000}"
 							integerOnly="true" />
 						<fmt:parseNumber var="format_hh"
-							value="${(date_n + date_s)/3600000 }" integerOnly="true" />
+							value="${(date_n + date_s)/3600000}" integerOnly="true" />
 						<fmt:parseNumber var="format_mm"
-							value="${(date_n + date_s)%3600000/60000 }" integerOnly="true" />
+							value="${(date_n + date_s)%3600000/60000}" integerOnly="true" />
 						<c:choose>
 							<c:when test="${format_hh >= 24}">
 								<fmt:parseNumber var="soyo_hh" value="${m.o_soyo / 60}"
@@ -150,7 +146,7 @@
 						</c:choose>
 						<c:set var="soyo_time" value="${soyo_hh }시간 ${m.o_soyo % 60}분"></c:set>
 						<td><input type="radio" name="radioTxt" value="${m.o_price }"
-							onclick="javascript:gogo('${m.o_stime }','${alive_time }','${soyo_time }','${m.air_name }','E')">
+							onclick="javascript:gogo('${m.o_stime }','${alive_time }','${soyo_time }','${m.movie_name }','E')">
 						<fmt:formatNumber value="${m.o_price }" pattern="#,###" /> KRW</td>
 						<td><input type="radio" name="radioTxt"
 							value="${m.o_price + m.o_price * 0.2 }"
@@ -163,7 +159,7 @@
 						<fmt:formatNumber value="${m.o_price + m.o_price * 0.9 }"
 								pattern="#,###" /> KRW</td>
 						<td>${alive }</td>
-						<td>${m.movie_name }</td>
+						<td>${m.movie_name}</td>
 					</tr>
 				</c:if>
 			</c:forEach>
@@ -174,7 +170,7 @@
 			<table>
 				<tr>
 					<td colspan="4" style="text-align: left">성인</td>
-					<td style="text-align: right">${moviebean.people }명</td>
+					<td style="text-align: right">${moviebean.people}명</td>
 				</tr>
 				<tr>
 					<td colspan="4" style="text-align: left">영화 가격</td>

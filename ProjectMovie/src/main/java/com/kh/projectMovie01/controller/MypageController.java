@@ -70,7 +70,8 @@ public class MypageController {
 		return "success";
 	}
 	@RequestMapping(value = "/boardtext", method = RequestMethod.GET)
-	public String boardtext(NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
+	public String boardtext(@ModelAttribute("pagingDto") PagingDto pagingDto,
+			NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
@@ -162,6 +163,11 @@ public class MypageController {
 	public String message_send() {
 		return "mypage/message_send";
 	}
+	@RequestMapping(value="/inquiry_list",method=RequestMethod.GET)
+	public String inquiry_list() {
+		return "mypage/inquiry_list";
+	}
+	
 	
 	@RequestMapping(value="/purchase_history_food",method=RequestMethod.GET)
 	public String purchase_history_food() {
