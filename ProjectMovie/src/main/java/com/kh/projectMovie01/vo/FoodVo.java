@@ -5,6 +5,7 @@ import java.security.Timestamp;
 public class FoodVo {
 	private int food_num;
 	private int food_code;
+	private int food_subCode;
 	private String food_name;
 	private int food_price;
 	private int food_count;
@@ -15,11 +16,12 @@ public class FoodVo {
 		super();
 	}
 
-	public FoodVo(int food_num, int food_code, String food_name, int food_price, int food_count, String food_image,
-			Timestamp food_regist_date) {
+	public FoodVo(int food_num, int food_code, int food_subCode, String food_name, int food_price, int food_count,
+			String food_image, Timestamp food_regist_date) {
 		super();
 		this.food_num = food_num;
 		this.food_code = food_code;
+		this.food_subCode = food_subCode;
 		this.food_name = food_name;
 		this.food_price = food_price;
 		this.food_count = food_count;
@@ -41,6 +43,14 @@ public class FoodVo {
 
 	public void setFood_code(int food_code) {
 		this.food_code = food_code;
+	}
+
+	public int getFood_subCode() {
+		return food_subCode;
+	}
+
+	public void setFood_subCode(int food_subCode) {
+		this.food_subCode = food_subCode;
 	}
 
 	public String getFood_name() {
@@ -85,8 +95,9 @@ public class FoodVo {
 
 	@Override
 	public String toString() {
-		return "FoodVo [food_num=" + food_num + ", food_code=" + food_code + ", food_name=" + food_name
-				+ ", food_price=" + food_price + ", food_count=" + food_count + ", food_image=" + food_image
-				+ ", food_regist_date=" + food_regist_date + "]";
-	}	
+		return "FoodVo [food_num=" + food_num + ", food_code=" + food_code + ", food_subCode=" + food_subCode
+				+ ", food_name=" + food_name + ", food_price=" + food_price + ", food_count=" + food_count
+				+ ", food_image=" + food_image + ", food_regist_date=" + food_regist_date + "]";
+	}
+
 }
