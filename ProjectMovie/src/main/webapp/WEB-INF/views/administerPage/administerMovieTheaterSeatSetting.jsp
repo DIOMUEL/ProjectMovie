@@ -119,7 +119,7 @@
 					$(".selectTheaterName").children('option:not(:first)').remove();
 // 					console.log("rData : "+ rData);
 // 					console.log("rData[0] : "+ rData[0].area_theater_name);
-					var arrName = new Array();
+					var arrName = new Array();//[.......]
 					var arrNo = new Array();
 					for(i=0; i<rData.length; i++){
 						arrName[i] = rData[i].area_theater_name;		
@@ -210,7 +210,7 @@
 			//영화관 삭제
 			$(document).on("click",".btnSeatingDelete",function(){
 				var choose = confirm("삭제하시겠습니까?");
-				if(choose == "ture"){
+				if(choose == true){
 					var theater_no = $(this).attr("data-theater_no");
 					var url = "/administerPage/seatSettingDelete"
 						var sendData = {

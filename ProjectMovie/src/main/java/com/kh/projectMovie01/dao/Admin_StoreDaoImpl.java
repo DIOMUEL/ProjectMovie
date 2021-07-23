@@ -1,6 +1,8 @@
 package com.kh.projectMovie01.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -23,18 +25,48 @@ public class Admin_StoreDaoImpl implements Admin_StoreDao {
 	}
 	
 	@Override
-	public List<FoodVo> getStoreFoodList() {
-		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreFoodList");
+	public List<FoodVo> getStoreFoodList(int food_subCode) {
+		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreFoodList", food_subCode);
 		return list;
 	}
 	@Override
-	public List<FoodVo> getStoreDrinkList() {
-		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreDrinkList");
+	public List<FoodVo> getStoreDrinkList(int food_subCode) {
+		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreDrinkList", food_subCode);
 		return list;
 	}
 	@Override
-	public List<FoodVo> getStoreSetMenuList() {
-		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreSetMenuList");
+	public List<FoodVo> getStoreSetMenuList(int food_subCode) {
+		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreSetMenuList", food_subCode);
 		return list;
+	}
+
+	@Override
+	public void updateFoodName(int food_num, String food_name) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("food_num", food_num);
+		map.put("food_name", food_name);
+		sqlSession.update(NAMESPACE + "updateFoodName", map);
+		
+	}
+
+	@Override
+	public void updateFoodPrice(int food_num, int food_price) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("food_num", food_num);
+		map.put("food_price", food_price);
+		sqlSession.update(NAMESPACE + "updateFoodPrice", map);
+	}
+
+	@Override
+	public void updateFoodCount(int food_num, int food_count) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("food_num", food_num);
+		map.put("food_count", food_count);
+		sqlSession.update(NAMESPACE + "updateFoodCount", map);
+	}
+
+	@Override
+	public void deleteFood(int food_num) {
+		sqlSession.delete(NAMESPACE + "deleteFood", food_num);
 	}
 }

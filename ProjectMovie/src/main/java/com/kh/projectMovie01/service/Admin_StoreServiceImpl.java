@@ -21,21 +21,41 @@ public class Admin_StoreServiceImpl implements Admin_StoreService {
 	}
 
 	@Override
-	public List<FoodVo> getStoreFoodList() {
-		List<FoodVo> list = admin_StoreDao.getStoreFoodList();
+	public List<FoodVo> getStoreFoodList(int food_subCode) {
+		List<FoodVo> list = admin_StoreDao.getStoreFoodList(food_subCode);
 		return list;
 	}
 
 	@Override
-	public List<FoodVo> getStoreDrinkList() {
-		List<FoodVo> list = admin_StoreDao.getStoreDrinkList();
+	public List<FoodVo> getStoreDrinkList(int food_subCode) {
+		List<FoodVo> list = admin_StoreDao.getStoreDrinkList(food_subCode);
 		return list;
 	}
 
 	@Override
-	public List<FoodVo> getStoreSetMenuList() {
-		List<FoodVo> list = admin_StoreDao.getStoreSetMenuList();
+	public List<FoodVo> getStoreSetMenuList(int food_subCode) {
+		List<FoodVo> list = admin_StoreDao.getStoreSetMenuList(food_subCode);
 		return list;
+	}
+
+	@Override
+	public void updateFoodName(int food_num, String food_name) {
+		admin_StoreDao.updateFoodName(food_num, food_name);
+	}
+
+	@Override
+	public void updateFoodPrice(int food_num, int food_price) {
+		admin_StoreDao.updateFoodPrice(food_num, food_price);
+	}
+
+	@Override
+	public void updateFoodCount(int food_num, int food_count) {
+		admin_StoreDao.updateFoodCount(food_num, food_count);
+	}
+
+	@Override
+	public void deleteFood(int food_num) {
+		admin_StoreDao.deleteFood(food_num);
 	}
 
 

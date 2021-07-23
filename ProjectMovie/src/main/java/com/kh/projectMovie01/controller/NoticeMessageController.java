@@ -76,4 +76,5 @@ public class NoticeMessageController {
 			rttr.addFlashAttribute("msg_delete", String.valueOf(result));
 			return "redirect:/message/messageListReceive";
 		}
+		
 }

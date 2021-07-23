@@ -67,8 +67,8 @@
 							<input type="text" class="form-control" id="theaterModifyName" placeholder="수정할 영화관 이름을 입력해 주세요"/>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" id="btnModifyTheater">Save changes</button> 
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancleTheater">Close</button>
+							<button type="button" class="btn btn-primary" id="btnModifyTheater">수정</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancleTheater">취소</button>
 						</div>
 					</div>
 				</div>
