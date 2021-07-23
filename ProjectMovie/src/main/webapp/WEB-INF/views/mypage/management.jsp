@@ -151,7 +151,7 @@
 					<div class="form-main">
 						<div class="title">
 							<div class="jumbotron"
-								style="background-color:black;)">
+								style="background-color:black;">
 								<h4 style="color: white;">My 정보관리</h4>
 								<h3 style="color: white;">회원 정보 관리</h3>
 
