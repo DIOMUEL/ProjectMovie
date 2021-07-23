@@ -74,7 +74,7 @@ public class MypageController {
 			NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
+		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id, pagingDto);
 		model.addAttribute("list", list);
 		return "mypage/boardtext";
 	}
