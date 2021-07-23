@@ -58,6 +58,40 @@ $(document).ready(function(){
 		frmPaging.find("[name=page]").val(page);
 		frmPaging.submit();
 	});
+	
+	// 쪽지보내기 링크
+	$(".sendMessage").click(function() {
+		var user_id = $(this).attr("data-user_id");
+		$("#btnSendMessage").attr("data-msg_receiver", user_id);
+	});
+	// 쪽지 모달 보내기 버튼
+	$("#btnSendMessage").click(function() {
+		var that = $(this);
+		var msg_content = $("#msg_content").val();
+		var msg_receiver = $(this).attr("data-msg_receiver");
+		var sendData = {
+				"msg_receiver" : msg_receiver,
+				"msg_content" : msg_content
+		};
+		console.log(sendData);
+		var url = "/noticeMessage/sendMessage";
+
+		$.ajax({
+			"url" : url,
+			"method" : "post",
+			"dataType" : "text",
+			"headers" : {
+				"Content-Type" : "application/json"
+			},
+			"data" : JSON.stringify(sendData),
+			"success" : function(receivedData) {
+				console.log(receivedData);
+				if (receivedData == "success") {
+					that.next().trigger("click");
+				}
+			}
+		});
+	});
 });
 </script>
 <form id="frmPaging" action="/board/noticeBoardPage" method="get">
@@ -67,7 +101,38 @@ $(document).ready(function(){
 	<input type="hidden" name="keyword" value="${pagingDto.keyword}"/>
 	<input type="hidden" name="b_no"/>
 </form>
+<!-- 쪽지 보내기 모달창 -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="modal fade" id="modal-container-105698" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">쪽지 보내기</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<input type="text" class="form-control" id="msg_content"/>
+					</div>
+					<div class="modal-footer">
 
+						<button type="button" class="btn btn-primary"
+							id="btnSendMessage">보내기</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<!-- // 쪽지 보내기 모달창 -->
 <br>
 <br>
 <br>
@@ -147,6 +212,7 @@ $(document).ready(function(){
 					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 					<th style="background-color: #eeeeee; text-align: center;">등록일</th>
 					<th style="background-color: #eeeeee; text-align: center;">조회수</th>
+					<th style="background-color: #eeeeee; text-align: center;">&vellip;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -158,6 +224,24 @@ $(document).ready(function(){
 					<td>${noticeBoardVo.user_id}</td>
 					<td>${noticeBoardVo.b_regdate}</td>
 					<td>${noticeBoardVo.b_viewcnt}</td>
+					<td>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="dropdown">
+											<button class="btn btn-Info dropdown" type="button"
+												id="dropdownMenuButton" data-toggle="dropdown">
+												&vellip;</button>
+											<div class="dropdown-menu"
+												aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item searchType sendMessage"
+												data-toggle="modal"
+												href="#modal-container-105698"
+												data-user_id="${noticeBoardVo.user_id}">쪽지보내기</a> 
+											</div>
+										</div>
+									</div>
+								</div>
+								</td>
 				</tr>
 			</c:forEach>
 			</tbody>

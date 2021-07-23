@@ -68,7 +68,7 @@
 										</c:otherwise>
 									</c:choose>
 									<a class="dropdown-item" href="/mypage/message"> 
-										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
+										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"><span class="badge badge-danger badge-counter">${sessionScope.loginVo.notReadCount}</span></i>메세지
 									</a> 
 									<a class="dropdown-item" href="/mypage/purchase_history_movie"> 
 										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>구매내역

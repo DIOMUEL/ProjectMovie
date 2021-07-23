@@ -1,6 +1,8 @@
 package com.kh.projectMovie01.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -38,4 +40,17 @@ public class MessageDaoImpl implements MessageDao {
 	public void insertMessage(MessageVo messageVo) {
 		sqlSession.insert(NAMESPACE + "insertMessage", messageVo);
 	}
+	@Override
+	public boolean deleteMessage(int msg_no, String user_id) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("msg_no", msg_no);
+		map.put("user_id", user_id);
+		int count = sqlSession.delete(
+				NAMESPACE + "deleteMessage", map);
+		if (count > 0) {
+			return true;
+		}
+		return false;
+	}
+
 }

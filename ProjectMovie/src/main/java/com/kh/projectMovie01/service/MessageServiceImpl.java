@@ -38,4 +38,9 @@ public class MessageServiceImpl implements MessageService {
 	public void sendMessage(MessageVo messageVo) {
 		messageDao.insertMessage(messageVo);				
 	}	
+	@Override
+	public boolean deleteMessage(int msg_no, String user_id) {
+		boolean result = messageDao.deleteMessage(msg_no, user_id);
+		return result;
+	}
 }

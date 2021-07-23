@@ -78,4 +78,10 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 		
 	}
 
+	@Override
+	public List<NoticeBoardVo> myNoticeBoard(String user_id) {
+		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "myNoticeBoard", user_id);
+		return list;
+	}
+
 }

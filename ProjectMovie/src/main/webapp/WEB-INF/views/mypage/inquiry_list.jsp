@@ -1,47 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<script>
-$(document).ready(function() {
-	$("#btn_main").click(function() {
-		location.href = "/mypage/message";
-	});
-	$("#btn_send").click(function() {
-		var that = $(this);
-
-		var msg_content = $("#msg_content").val();
-		var msg_sender = $("#msg_sender").val();
-		var sendData = {
-				"msg_sender" : msg_sender,
-				"msg_content" : msg_content
-		};
-		console.log(sendData);
-		if(msg_sender == ""){
-			alert("아이디을 입력해주세요");
-		};
-		var url = "/mypage/sendMessage";
-		$.ajax({
-			"url" : url,
-			"method" : "post",
-			"dataType" : "text",
-			"headers" : {
-				"Content-Type" : "application/json"
-			},
-			"data" : JSON.stringify(sendData),
-			"success" : function(receivedData) {
-				console.log(receivedData);
-				if (receivedData == "success") {
-					$("#btn_main").click();
-				}else{
-					alert("아이디가 존재하지 안습니다.")
-				}
-			}
-			
-		});
-		
-	});
-});
-</script>
 <br>
 <br>
 <br>
@@ -70,7 +29,7 @@ $(document).ready(function() {
 								
 								<div class="col-12">
 									<div class="form-group">
-										<label for="msg_sender">아이디:<span></span></label> <input
+										<label for="msg_sender">제목:<span></span></label> <input
 											name="msg_sender" id="msg_sender" type="text"
 											value="" class="form-control" >
 									</div>
