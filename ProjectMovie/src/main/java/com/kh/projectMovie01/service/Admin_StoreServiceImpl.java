@@ -21,20 +21,20 @@ public class Admin_StoreServiceImpl implements Admin_StoreService {
 	}
 
 	@Override
-	public List<FoodVo> getStoreFoodList() {
-		List<FoodVo> list = admin_StoreDao.getStoreFoodList();
+	public List<FoodVo> getStoreFoodList(int food_subCode) {
+		List<FoodVo> list = admin_StoreDao.getStoreFoodList(food_subCode);
 		return list;
 	}
 
 	@Override
-	public List<FoodVo> getStoreDrinkList() {
-		List<FoodVo> list = admin_StoreDao.getStoreDrinkList();
+	public List<FoodVo> getStoreDrinkList(int food_subCode) {
+		List<FoodVo> list = admin_StoreDao.getStoreDrinkList(food_subCode);
 		return list;
 	}
 
 	@Override
-	public List<FoodVo> getStoreSetMenuList() {
-		List<FoodVo> list = admin_StoreDao.getStoreSetMenuList();
+	public List<FoodVo> getStoreSetMenuList(int food_subCode) {
+		List<FoodVo> list = admin_StoreDao.getStoreSetMenuList(food_subCode);
 		return list;
 	}
 

@@ -239,13 +239,39 @@ public class AdminController {
 	@RequestMapping(value="/administerStoreManagement", method=RequestMethod.GET)
 	public String administerStoreManagement(Model model) {
 		//처음 매점 관리 들어갔을떄 호출할 음식리스트
-		List<FoodVo> foodList = admin_StoreService.getStoreFoodList();
-		List<FoodVo> drinkList = admin_StoreService.getStoreDrinkList();
-		List<FoodVo> setMenuList = admin_StoreService.getStoreSetMenuList();
-		model.addAttribute("foodList", foodList);
-		model.addAttribute("drinkList", drinkList);
-		model.addAttribute("setMenuList", setMenuList);
-		//System.out.println("foodlist : "+foodlist);
+		//음식 서브코드에 따른 값들
+		//대분류:음식 중분류:팝콘,핫도그,건어물,치킨,튀김,기타
+		List<FoodVo> foodList101 = admin_StoreService.getStoreFoodList(101);
+		List<FoodVo> foodList102 = admin_StoreService.getStoreFoodList(102);
+		List<FoodVo> foodList103 = admin_StoreService.getStoreFoodList(103);
+		List<FoodVo> foodList104 = admin_StoreService.getStoreFoodList(104);
+		List<FoodVo> foodList105 = admin_StoreService.getStoreFoodList(105);
+		List<FoodVo> foodList106 = admin_StoreService.getStoreFoodList(106);
+		//System.out.println("foodList104 : "+foodList104);
+		//대분류:음료 중분류:탄산,생과일,커피,기타
+		List<FoodVo> drinkList201 = admin_StoreService.getStoreDrinkList(201);
+		List<FoodVo> drinkList202 = admin_StoreService.getStoreDrinkList(202);
+		List<FoodVo> drinkList203 = admin_StoreService.getStoreDrinkList(203);
+		List<FoodVo> drinkList204 = admin_StoreService.getStoreDrinkList(204);
+
+		//대분류:세트 중분류:세트,기타
+		List<FoodVo> setMenuList301 = admin_StoreService.getStoreSetMenuList(301);
+		List<FoodVo> setMenuList302 = admin_StoreService.getStoreSetMenuList(302);
+		
+		model.addAttribute("foodList101", foodList101);
+		model.addAttribute("foodList102", foodList102);
+		model.addAttribute("foodList103", foodList103);
+		model.addAttribute("foodList104", foodList104);
+		model.addAttribute("foodList105", foodList105);
+		model.addAttribute("foodList106", foodList106);
+		
+		model.addAttribute("drinkList201", drinkList201);
+		model.addAttribute("drinkList202", drinkList202);
+		model.addAttribute("drinkList203", drinkList203);
+		model.addAttribute("drinkList204", drinkList204);
+		
+		model.addAttribute("setMenuList301", setMenuList301);
+		model.addAttribute("setMenuList302", setMenuList302);
 		return "/administerPage/administerStoreManagement";
 	}
 	//매점등록페이지

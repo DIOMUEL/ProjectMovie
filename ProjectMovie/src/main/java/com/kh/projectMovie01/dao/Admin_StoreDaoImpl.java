@@ -23,18 +23,18 @@ public class Admin_StoreDaoImpl implements Admin_StoreDao {
 	}
 	
 	@Override
-	public List<FoodVo> getStoreFoodList() {
-		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreFoodList");
+	public List<FoodVo> getStoreFoodList(int food_subCode) {
+		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreFoodList", food_subCode);
 		return list;
 	}
 	@Override
-	public List<FoodVo> getStoreDrinkList() {
-		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreDrinkList");
+	public List<FoodVo> getStoreDrinkList(int food_subCode) {
+		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreDrinkList", food_subCode);
 		return list;
 	}
 	@Override
-	public List<FoodVo> getStoreSetMenuList() {
-		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreSetMenuList");
+	public List<FoodVo> getStoreSetMenuList(int food_subCode) {
+		List<FoodVo> list = sqlSession.selectList(NAMESPACE + "getStoreSetMenuList", food_subCode);
 		return list;
 	}
 }

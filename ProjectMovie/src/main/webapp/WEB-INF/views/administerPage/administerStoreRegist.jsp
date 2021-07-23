@@ -27,12 +27,16 @@
 				<div class="form-group">
 				<label for="food_code">상품 종류</label>
 					<select class="food_code" id="food_code" name="food_code" required>
-						<option value="0" selected>--상품 분류--</option>
+						<option value="0" selected>--상품대분류--</option>
 					   	<option value="1001">음식</option>	   
 					   	<option value="1002">음료</option>	   
 					   	<option value="1003">세트메뉴</option>	   
 					</select>
+					<select class="food_subCode" id="food_subCode" name="food_subCode" required>
+					   	<option value="0" selected>--상품소분류--</option>
+					</select>
 				</div>
+				
 				<div class="form-group">
 					<label for="food_name">상품명</label>
 					<input type="text" class="form-control" id="food_name" name="food_name" placeholder="음식명을 적어주세요" required/>
@@ -68,6 +72,31 @@
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script>
 	$(function(){
+		//대분류에따른 소분류 정리
+		$("#food_code").change(function(){
+			var food_code = $("#food_code").val();
+			//console.log("food_code: "+food_code);
+			if(food_code == "1001"){
+				$(".food_subCode").children('option:not(:first)').remove();
+				$(".food_subCode").append($("<option></option>").attr("value", 101).text("팝콘"));
+				$(".food_subCode").append($("<option></option>").attr("value", 102).text("핫도그"));
+				$(".food_subCode").append($("<option></option>").attr("value", 103).text("건어물"));
+				$(".food_subCode").append($("<option></option>").attr("value", 104).text("치킨"));
+				$(".food_subCode").append($("<option></option>").attr("value", 105).text("튀김류"));
+				$(".food_subCode").append($("<option></option>").attr("value", 106).text("기타"));
+			}else if(food_code == "1002"){
+				$(".food_subCode").children('option:not(:first)').remove();
+				$(".food_subCode").append($("<option></option>").attr("value", 201).text("탄산"));
+				$(".food_subCode").append($("<option></option>").attr("value", 202).text("생과일"));
+				$(".food_subCode").append($("<option></option>").attr("value", 203).text("커피"));
+				$(".food_subCode").append($("<option></option>").attr("value", 204).text("기타"));
+			}else if(food_code == "1003"){
+				$(".food_subCode").children('option:not(:first)').remove();
+				$(".food_subCode").append($("<option></option>").attr("value", 301).text("세트"));
+				$(".food_subCode").append($("<option></option>").attr("value", 302).text("기타"));
+			}
+			 	
+		});
 		//이미지 저장
 		$("#foodRegistForm").submit(function () {
 			var upDiv = $("#food_image_div > div");

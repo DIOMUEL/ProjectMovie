@@ -7,28 +7,36 @@
 	
 	<!-- 매점 각음식 조회 -->
 	<!-- 매점관리 들어갔을때 처음 호출하는 리스트 -->
+	<!-- 음식 -->
+	<!-- 팝콘류 -->
 	<select id="getStoreFoodList" resultType="FoodVo">
 		select * from tbl_food
 		where food_code = 1001
+		and food_subCode = #{food_subCode}
 		order by food_num asc
 	</select>
+
+	<!-- 음료 -->
 	<select id="getStoreDrinkList" resultType="FoodVo">
 		select * from tbl_food
 		where food_code = 1002
+		and food_subCode = #{food_subCode}
 		order by food_num asc
 	</select>
+	<!-- 세트 -->
 	<select id="getStoreSetMenuList" resultType="FoodVo">
 		select * from tbl_food
 		where food_code = 1003
+		and food_subCode = #{food_subCode}
 		order by food_num asc
 	</select>
 			
 	<!--  매점 음식 등록 -->
 	<insert id="administerStoreRegistRun">
 		insert into tbl_food
-		(food_num, food_code, food_name, food_price, food_count, food_image, food_regist_date)
+		(food_num, food_code, food_subCode, food_name, food_price, food_count, food_image, food_regist_date)
 		values
-		(seq_food_num.nextval, #{food_code}, #{food_name}, #{food_price}, #{food_count}, #{food_image, jdbcType=VARCHAR}, sysdate)
+		(seq_food_num.nextval, #{food_code}, #{food_subCode}, #{food_name}, #{food_price}, #{food_count}, #{food_image, jdbcType=VARCHAR}, sysdate)
 	</insert>	
 
 	<!--  영화 수정 -->
