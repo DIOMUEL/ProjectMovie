@@ -6,7 +6,14 @@
 $(document).ready(function() {
 	$("#send").hide();
 	$("#reciver").show();
+	$(".pagination > li > a").click(function(e) {
+		e.preventDefault(); // 페이지 이동 막기
+		var page = $(this).attr("href");
+		var frmPaging = $("#frmPaging");
+		frmPaging.find("[name=page]").val(page);
+		frmPaging.submit();
 	
+	});
 	$(".send").click(function() {
 		$("#send").hide();
 		$("#reciver").show();
@@ -19,7 +26,15 @@ $(document).ready(function() {
 	$("#btnSendMessage").click(function() {
 		location.href = "/mypage/message_send";
 	})
-	
+	$(".a_title").click(function(e) {
+		e.preventDefault(); // prevent:막다, 방지하다, default: 기본
+		
+		var msg_no = $(this).attr("data-msg_no"); // 489
+		$("#frmPaging > input[name=msg_no]").val(msg_no);
+		$("#frmPaging").attr("action", "/mypage/message_send");
+		$("#frmPaging").submit();
+	});
+
 })
 
 </script>
@@ -105,7 +120,48 @@ $(document).ready(function() {
 										</table>
 										
 									</div>
-							
+							<!-- 페이징 -->
+	
+	<div class="row">
+		<div class="col-md-12">
+			<nav>
+				<ul class="pagination justify-content-center">
+				<c:if test="${pagingDto.startPage != 1}">
+					<li class="page-item">
+						<a class="page-link" 
+							href="${pagingDto.startPage - 1}">&laquo;</a>
+					</li>
+				</c:if>
+				<c:forEach var="v" begin="${pagingDto.startPage}" 
+								   end="${pagingDto.endPage}">
+					<li 
+					
+						<c:choose>
+							<c:when test="${pagingDto.page == v}">
+								class="page-item active"
+							</c:when>
+							<c:otherwise>
+								class="page-item"
+							</c:otherwise>
+						</c:choose>
+						
+					>
+						<a class="page-link" href="${v}">${v}</a>
+					</li>
+				</c:forEach>
+				<c:if test="${pagingDto.endPage < pagingDto.totalPage}">	
+					<li class="page-item">
+						<a class="page-link" 
+							href="${pagingDto.endPage + 1}">&raquo;</a>
+					</li>
+				</c:if>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	
+	
+	<!-- // 페이징 -->
 								</div>
 								<br>
 								<input type="button" id="btnSendMessage" class="btn btn-outline-success"value="쪽지 보내기">

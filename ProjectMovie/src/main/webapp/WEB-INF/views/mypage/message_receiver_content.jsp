@@ -24,8 +24,8 @@ $(document).ready(function() {
 						<div class="title">
 							<div class="jumbotron"
 								style="background-color:black;">
-								<h4 style="color: white;">My 정보관리</h4>
-								<h3 style="color: white;">쪽지 관리</h3>
+								
+								<h2 style="color: white;">쪽지 관리</h2>
 
 							</div>
 						</div>
@@ -58,7 +58,7 @@ $(document).ready(function() {
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
 										<input type="button" class="btn btn-primary" id="btn_main"  value="목록">				
-								
+										<a class="btn btn-danger" href="/mypage/deleteMessage?msg_no=${messageVo.msg_no}">삭제</a>
 									
 								</div>
 						
