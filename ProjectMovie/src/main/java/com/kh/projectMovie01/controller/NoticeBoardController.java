@@ -63,16 +63,7 @@ public class NoticeBoardController {
 		return "redirect:/board/noticeBoardPage"; 
 	}
 	
-//	//내가쓴게시물
-//	@RequestMapping(value = "/myNoticeBoard", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String myNoticeBoard(@RequestBody NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
-//		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
-//		noticeBoardVo.setUser_id(memberVo.getUser_id());
-//		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(noticeBoardVo);
-//		model.addAttribute("list", list);
-//		return "/mypage";
-//	}
+
 	
 
 	
