@@ -2,12 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
 <style>
-	.movie_grade {
-		margin-left:20px;
-	}
-	.movie_grade_span {
-		margin-left:10px;
-	}
 	.fileLabel {
 		width:80px;
 		height:30px;
@@ -29,11 +23,9 @@
 					<div class="col-lg-9 col-md-8 col-12">
 						<div class="row">
 							<div class="col-12">
-						<!-- -------- 페이지별 바뀌는 부분  코딩 필요-->
 								<div style="background-color:#f6f7fb; padding:20px; border-bottom:1px solid #ddd;margin-bottom:20px;">
 									<h4 class="title" >영화관리_영화등록</h4>
 								</div>	
-								<!--  페이지별 내용 -->
 								<form role="form" action="/administerPage/administerMovieRegistRun" method="post" id="registForm">
 									<div class="form-group">
 										<label for="movie_name"><strong>영화이름</strong></label>
@@ -172,7 +164,6 @@
 				});
 				
 			});
-			
 		});
 		var tempLength = 0;
 		var rearLength = 0;

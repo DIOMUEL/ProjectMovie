@@ -18,6 +18,8 @@ public interface Admin_AreaDao {
 	public void areaTheaterModify(int area_theater_no, String area_theater_name);
 	public void areaTheaterDelete(int area_theater_no);
 	//영화관 좌석
-	public List<TheaterSeatVo> getAllTheaterSeatList(int area_theater_no);
-	public void areaTheaterSeatAdd(int area_theater_no, String theater_name, int theater_seatNum);
+	public List<TheaterSeatVo> getSeveralTheaterSeatList(int area_theater_no);
+	public void seatSettingRegist(int area_theater_no, String theater_name, int theater_seatNum);
+	public void seatSettingModify(int theater_no, int theater_seatNum);
+	public void seatSettingDelete(int theater_no);
 }

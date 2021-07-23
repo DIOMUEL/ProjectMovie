@@ -74,16 +74,27 @@ public class Admin_AreaDaoImpl implements Admin_AreaDao {
 	
 	// 영화관좌석 - 리스트
 	@Override
-	public List<TheaterSeatVo> getAllTheaterSeatList(int area_theater_no) {
-		List<TheaterSeatVo> list = sqlSession.selectList(NAMESPACE + "getAllTheaterSeatList", area_theater_no);
+	public List<TheaterSeatVo> getSeveralTheaterSeatList(int area_theater_no) {
+		List<TheaterSeatVo> list = sqlSession.selectList(NAMESPACE + "getSeveralTheaterSeatList", area_theater_no);
 		return list;
 	}
 	@Override
-	public void areaTheaterSeatAdd(int area_theater_no, String theater_name, int theater_seatNum) {
+	public void seatSettingRegist(int area_theater_no, String theater_name, int theater_seatNum) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("area_theater_no", area_theater_no);
 		map.put("theater_name", theater_name);
 		map.put("theater_seatNum", theater_seatNum);
-		sqlSession.insert(NAMESPACE + "areaTheaterSeatAdd", map);		
+		sqlSession.insert(NAMESPACE + "seatSettingRegist", map);		
+	}
+	@Override
+	public void seatSettingModify(int theater_no, int theater_seatNum) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("theater_no", theater_no);
+		map.put("theater_seatNum", theater_seatNum);
+		sqlSession.update(NAMESPACE + "seatSettingModify", map);
+	}
+	@Override
+	public void seatSettingDelete(int theater_no) {
+		sqlSession.delete(NAMESPACE + "seatSettingDelete", theater_no);
 	}
 }

@@ -53,13 +53,25 @@
 	</delete>
 <!-- 영화좌석페이지관련 -->
 	<!-- 각지역 영화관 영화관좌석 조회 -->
-	<select id="getAllTheaterSeatList" resultType="TheaterSeatVo">
+	<select id="getSeveralTheaterSeatList" resultType="TheaterSeatVo">
 		select * from tbl_theater_seat
-		order by area_theater_no asc
+		where area_theater_no = #{area_theater_no}
+		order by theater_no asc
 	</select>
 	<!-- 각지역 영화관 영화관좌석 등록 -->
-	<insert id="areaTheaterSeatAdd">
-		insert into tbl_area_theater(area_theater_no, theater_name, theater_seatNum)
-		values(#{area_theater_no}, #{theater_name}, #{theater_seatNum})
+	<insert id="seatSettingRegist">
+		insert into tbl_theater_seat(area_theater_no, theater_no, theater_name, theater_seatNum)
+		values(#{area_theater_no}, seq_theater_no.nextval, #{theater_name}, #{theater_seatNum})
 	</insert>
+	<!-- 각지역 영화관 영화관좌석수 수정 -->
+	<update id="seatSettingModify">
+		update tbl_theater_seat set
+		theater_seatNum = #{theater_seatNum}
+		where theater_no = #{theater_no}
+	</update>
+	<!--각지역의 영화관 좌석수 삭제 -->
+	<delete id="seatSettingDelete">
+		delete from tbl_theater_seat
+		where theater_no = #{theater_no}
+	</delete>
 </mapper>
