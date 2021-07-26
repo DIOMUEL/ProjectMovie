@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-group">
 					<label for="lastTime">현재 마지막 상영시간</label>
-					<input type="text" class="form-control" id="lastTime" name="lastTime" readOnly/>
+					<input type="text" class="form-control" id="lastTime" name="lastTime"  value="${movieScheduleVo.lastTime}" readOnly/>
 				</div>
 				<div class="form-group">
 					<label for="movieSchedule_playTime">상영시간</label>

@@ -90,13 +90,13 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	}
 
 	@Override
-	public MovieScheduleVo selectMoviSchedule(int area_theater_no) {
-		// TODO Auto-generated method stub
-		return null;
+	public void countUp() {
+		sqlSession.update(NAMESPACE + "countUp");
 	}
 
 	@Override
-	public void countUp() {
-		sqlSession.update(NAMESPACE + "countUp");
+	public MovieScheduleVo lastMovieSchedule(int area_theater_no) {
+		MovieScheduleVo movieScheduleVo = sqlSession.selectOne(NAMESPACE + "lastMovieSchedule", area_theater_no);
+		return movieScheduleVo;
 	}
 }

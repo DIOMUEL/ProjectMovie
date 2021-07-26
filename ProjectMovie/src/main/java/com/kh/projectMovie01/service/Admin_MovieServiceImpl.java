@@ -107,9 +107,9 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 		movieDao.countUp();
 	}
 	@Override
-	public MovieScheduleVo selectMoviSchedule(int area_theater_no) {
-		// TODO Auto-generated method stub
-		return null;
+	public MovieScheduleVo lastMovieSchedule(int area_theater_no) {
+		MovieScheduleVo movieScheduleVo = movieDao.lastMovieSchedule(area_theater_no);
+		return movieScheduleVo;
 	}
 
 }
