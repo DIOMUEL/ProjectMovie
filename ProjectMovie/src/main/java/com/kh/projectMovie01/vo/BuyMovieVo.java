@@ -1,6 +1,6 @@
 package com.kh.projectMovie01.vo;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class BuyMovieVo {
 	private int bm_no; 

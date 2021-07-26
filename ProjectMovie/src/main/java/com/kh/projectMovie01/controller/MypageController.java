@@ -96,6 +96,7 @@ public class MypageController {
 		String user_id = memberVo.getUser_id();
 		List<BuyMovieVo> list = buyMovieService.buyMovieList(user_id);
 		model.addAttribute("list", list);
+		System.out.println(list);
 		return "mypage/purchase_history_movie";
 		
 	}	
