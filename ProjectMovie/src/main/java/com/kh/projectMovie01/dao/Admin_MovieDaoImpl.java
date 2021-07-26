@@ -70,4 +70,16 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 		sqlSession.selectOne(NAMESPACE + "deleteMovie", movie_code);
 		
 	}
+
+	@Override
+	public List<MovieVo> nameListAll() {
+		List<MovieVo> list = sqlSession.selectList(NAMESPACE + "nameListAll");
+		return list;
+	}
+
+	@Override
+	public MovieVo getMovieInfo(String movie_name) {
+		MovieVo movieVo = sqlSession.selectOne(NAMESPACE + "getMovieInfo", movie_name);
+		return movieVo;
+	}
 }

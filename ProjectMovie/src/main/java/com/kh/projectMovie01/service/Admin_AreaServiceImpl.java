@@ -79,5 +79,10 @@ public class Admin_AreaServiceImpl implements Admin_AreaService {
 	public void seatSettingDelete(int theater_no) {
 		admin_AreaDao.seatSettingDelete(theater_no);
 	}
+	@Override
+	public List<AreaTheaterVo> getFirstAreaTheaterList() {
+		List<AreaTheaterVo> list = admin_AreaDao.getFirstAreaTheaterList();
+		return list;
+	}
 
 }

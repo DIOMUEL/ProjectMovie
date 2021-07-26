@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -317,9 +316,41 @@ public class AdminController {
 	}
 	// --------------- 영화 매점 관리 END-----------------------
 	// --------------- 영화 스케줄 관리 -----------------------
-	@RequestMapping(value="/adminiserMovieScheduleManagementPage", method=RequestMethod.GET)
-	public String adminiserMovieScheduleManagementPage() {
-		return "/administerPage/adminiserMovieScheduleManagementPage";
+	//영화 스케줄 관리자 페이지
+	@RequestMapping(value="/administerMovieScheduleManagementPage", method=RequestMethod.GET)
+	public String administerMovieScheduleManagementPage(Model model) throws Exception {
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		return "/administerPage/administerMovieScheduleManagementPage";
+	}
+	//영화지역 선택시 영화관리스트 가지고오기
+	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
+		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+		return areaTheaterVo;
+	}
+	//영화관리스트 선택시 각영화관 이름 과 좌석 가지고오기
+	@RequestMapping(value="/administerGetTheaterNameList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<TheaterSeatVo> administerGetTheaterNameList(int area_theater_no) throws Exception {
+		List<TheaterSeatVo> areaSeatVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
+		return areaSeatVo;
+	}
+	//영화 스케줄 등록 페이지
+	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
+	public String administerMovieScheduleRegistPage(Model model) throws Exception {
+		List<MovieVo> movieVo = admin_MovieService.nameListAll();
+		model.addAttribute("movieVo", movieVo);
+		return "/administerPage/administerMovieScheduleRegistPage";
+	}
+	//등록페이지 영화 선택시 정보 얻기
+	@RequestMapping(value="/administerGetMovieInfo", method=RequestMethod.GET)
+	@ResponseBody
+	public MovieVo administerGetMovieInfo(String movie_name) throws Exception {
+		MovieVo movieVo = admin_MovieService.getMovieInfo(movie_name);
+		//System.out.println("movieVo: "+movieVo);
+		return movieVo;
 	}
 	// --------------- 영화 스케줄 관리 END-----------------------
 }

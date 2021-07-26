@@ -50,6 +50,12 @@ public class Admin_AreaDaoImpl implements Admin_AreaDao {
 		List<AreaTheaterVo> list = sqlSession.selectList(NAMESPACE + "getAllAreaTheaterList", area_no);
 		return list;
 	}
+	//첫번째 지역 영화관 리스트
+	@Override
+	public List<AreaTheaterVo> getFirstAreaTheaterList() {
+		List<AreaTheaterVo> list = sqlSession.selectList(NAMESPACE + "getFirstAreaTheaterList");
+		return list;
+	}
 	// 영화관 - 추가
 	@Override
 	public void areaTheaterAdd(int area_no, String area_theater_name) {
@@ -97,4 +103,5 @@ public class Admin_AreaDaoImpl implements Admin_AreaDao {
 	public void seatSettingDelete(int theater_no) {
 		sqlSession.delete(NAMESPACE + "seatSettingDelete", theater_no);
 	}
+
 }

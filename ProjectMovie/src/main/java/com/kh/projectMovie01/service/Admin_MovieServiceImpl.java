@@ -87,4 +87,16 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 		//System.out.println("잘실행됨");
 	}
 
+	@Override
+	public List<MovieVo> nameListAll() {
+		List<MovieVo>list = movieDao.nameListAll();
+		return list;
+	}
+
+	@Override
+	public MovieVo getMovieInfo(String movie_name) {
+		MovieVo movieVo = movieDao.getMovieInfo(movie_name);
+		return movieVo;
+	}
+
 }

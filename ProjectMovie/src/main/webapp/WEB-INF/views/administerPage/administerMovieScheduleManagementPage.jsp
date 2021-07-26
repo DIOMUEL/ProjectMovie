@@ -24,34 +24,26 @@
 				<div class="reserve theater-list-box">
 					<div class="tab-block tab-layer mb30">
 						<ul>
-							<li class="on">
-								<a href="#" class="btn">서울</a>
-							</li>
-							<li>
-								<a href="#" class="btn">경기</a>
-							</li>
-							<li>
-								<a href="#" class="btn">인천</a>
-							</li>
-							<li>
-								<a href="#" class="btn">대전/충청/세종</a>
-							</li>
-							<li>
-								<a href="#" class="btn">부산/대구/경상</a>
-							</li>
+							<c:forEach items="${areaVo}" var="areaVo">
+								<li>
+									<button class="btn btnAreaVo" value="${areaVo.area_no}">${areaVo.area_name}</button>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
-					<div class="theater-list">
-						<div class="theater-area-click">
-							<a href="#" title="강남 상세보기">강남</a>
+					<div class="theater-list" style="display:none">
+						<div class="theater-area-click list" id="list">
+							<br>
+							<div class="btn btn-outline-primary thn">영화관명</div>
 						</div>
+					</div>
+					<div class="theater-list NameList" id="NameList" style="display:none">
 						<div class="theater-type-box">
 							<div class="theater-type">
-								<p class="theater-name">2관</p>
-								<p class="totalChair">총 103석</p>
+								<p class="theater-name">제0관</p>
+								<p class="totalChair">총 좌석</p>
 							</div>
 							<div class="theater-time">
-								<div class="theater-type-area">2D(자막)</div>
 								<div class="theater-time-box">
 									<table class="time-list-table">
 										<colgroup>
@@ -73,11 +65,11 @@
 																<div class="ico-box">
 																	<i class="iconset ico-off"></i>
 																</div>
-																<p class="playTime">16:45</p>
-																<p class="remainChair">65석</p>
+																<p class="playTime">시작시간</p>
+																<p class="remainChair">남은 좌석</p>
 																<div class="play-time">
-																	<p>16:45~18:42</p>
-																	<p>4회차</p>
+																	<p>언제부터 언제까지</p>
+																	<p>몇회차</p>
 																</div>
 															</a>
 														</div>
@@ -86,24 +78,7 @@
 												<td>
 													<div class="td-ab">
 														<div class="txt-center">
-															<a href="#">
-																<div class="ico-box">
-																	<i class="iconset ico-off"></i>
-																</div>
-																<p class="playTime">19:00</p>
-																<p class="remainChair">65석</p>
-																<div class="play-time">
-																	<p>19:00~20:57</p>
-																	<p>5회차</p>
-																</div>
-															</a>
-														</div>
-													</div>
-												</td>
-												<td>
-													<div class="td-ab">
-														<div class="txt-center">
-															<button class="btn">일정 추가</button>
+															<a href="/administerPage/administerMovieScheduleRegistPage" class="btn btnAddSchedule" id="btnAddSchedule">일정 추가</a>
 														</div>
 													</div>
 												</td>
@@ -127,7 +102,67 @@
 <script src="/resources/administerPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+<script>
+	$(document).ready(function(){
+		//영화관 리스트
+		$(".btnAreaVo").click(function(){
+			var that = $(this);
+			var area_no = $(this).val();
+			var url = "/administerPage/administerGetAreaTheaterList";
+			var sendData = {
+					"area_no" : area_no
+			};
+			//console.log("area_no : "+ area_no);
+			$.get(url, sendData, function(rData){
+// 				console.log("rData : "+ rData);
+				var clone_list;
+				var div;
+				$.each(rData, function() {
+					div = that.parent().parent().parent();
+					//console.log("div : "+div)
+					clone_list = $("#list").clone();
+					$("#list").remove("id");
+// 					console.log("clone_list : "+ clone_list);
+					var thn = clone_list.find(".thn");
+					thn.text(this.area_theater_name);
+					thn.attr("data-area_theater_no", this.area_theater_no);
+					div.append(clone_list);
+					clone_list.show();
+				});
+			});
+		});	
+		//영화관 관 및 좌석 리스트
+		$(document).on("click",".thn",function(){
+			var that = $(this);
+			var area_theater_no = $(this).attr("data-area_theater_no");
+			var url = "/administerPage/administerGetTheaterNameList";
+			var sendData = {
+					"area_theater_no" : area_theater_no
+			};
+			console.log("area_theater_no : "+ area_theater_no);
+			$.get(url, sendData, function(rData){
+ 				console.log("rData : "+ rData);
+ 				var clone_Namelist;
+ 				var div;
+ 				$.each(rData, function() {
+					div = that.parent();
+					//console.log("div : "+div)
+					clone_nameList = $("#NameList").clone();
+					$("#NameList").remove("id");
+// 					console.log("clone_list : "+ clone_list);
+					var theaterName = clone_nameList.find(".theater-name");
+					theaterName.text(this.theater_name);
+					var totalChair = clone_nameList.find(".totalChair");
+					totalChair.text("총 좌석 : " + this.theater_seatNum);
+					var btnAddSchedule = clone_nameList.find(".btnAddSchedule");
+					btnAddSchedule.attr("href", "/administerPage/administerMovieScheduleRegistPage?theater_seatNum=" + this.theater_seatNum);
+					div.append(clone_nameList);
+					clone_nameList.show();
+				});
+ 			});
+		});
+	});
+</script>
 
 </body>
 </html>
