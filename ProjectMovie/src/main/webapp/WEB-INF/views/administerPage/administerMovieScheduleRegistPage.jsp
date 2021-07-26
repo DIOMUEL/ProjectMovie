@@ -25,8 +25,8 @@
 			</div>
 			<form role="form" action="/administerPage/administerMovieScheduleRegistRun" method="post">
 				<div class="form-group">
-				<label for="movieType">영화 타입</label>
-					<select class="movieType" id="movieType" name="movieType" required>
+				<label for="movieSchedule_type">영화 타입</label>
+					<select class="movieType" id="movieSchedule_type" name="movieSchedule_type" required>
 						<option value="0" selected>--영화 타입--</option>
 					   	<option value="2D">2D</option>	   
 					   	<option value="2D(자막)">2D(자막)</option>	   
@@ -39,8 +39,8 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="movie">상영할 영화</label>
-					<select class="movie" id="movie" name="movie" required>
+					<label for="movie_name">상영할 영화</label>
+					<select class="movie_name" id="movie_name" name="movie_name" required>
 						<option value="0" selected>--영화 선택--</option>	 
 						<c:forEach items="${movieVo}" var="movieVo">
 							<option>${movieVo.movie_name}</option>
@@ -48,16 +48,23 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="playTime">상영시간</label>
-					<input type="text" class="form-control" id="playTime" name="playTime" placeholder="시작시간 ~끝나는 시간 예)시작시간 =전편 끝난시간 +청소시간(15분)"/>
+					<input type="hidden" class="form-control" id="area_theater_no" name="area_theater_no" value="${area_theater_no}"/>
 				</div>
 				<div class="form-group">
-					<label for="totalPlayTime">상영시간</label>
-					<input type="text" class="form-control" id="totalPlayTime" name="totalPlayTime" readOnly/>
+					<label for="lastTime">현재 마지막 상영시간</label>
+					<input type="text" class="form-control" id="lastTime" name="lastTime" readOnly/>
 				</div>
 				<div class="form-group">
-					<label for="seat">총 좌석</label>
-					<input type="number" class="form-control" id="seat" name="seat" readOnly/>
+					<label for="movieSchedule_playTime">상영시간</label>
+					<input type="text" class="form-control" id="movieSchedule_playTime" name="movieSchedule_playTime" placeholder="시작시간 ~끝나는 시간 예)시작시간 =전편 끝난시간 +청소시간(15분)"/>
+				</div>
+				<div class="form-group">
+					<label for="movieSchedule_totalPlayTime">상영시간</label>
+					<input type="text" class="form-control" id="movieSchedule_totalPlayTime" name="movieSchedule_totalPlayTime" readOnly/>
+				</div>
+				<div class="form-group">
+					<label for="movieSchedule_seat">총 좌석</label>
+					<input type="number" class="form-control" id="movieSchedule_seat" name="movieSchedule_seat" value="${seat}" readOnly/>
 				</div>
 				<button type="submit" class="btn btn-primary">등록</button>
 			</form>
@@ -74,8 +81,8 @@
 $(function () {
 	var theater_seatNum = "${theater_seatNum}";
 	console.log("theater_seatNum: "+ theater_seatNum);
-	$("#movie").change(function(){
-		var movie_name = $("#movie").val();
+	$("#movie_name").change(function(){
+		var movie_name = $("#movie_name").val();
 		//console.log("movie_name : " + movie_name);
 		var url = "/administerPage/administerGetMovieInfo";
 		var sendData = {
@@ -84,10 +91,10 @@ $(function () {
 		$.get(url, sendData, function(rData){
 			//console.log("rData: "+ rData);
 			var movie_name = rData.movie_name;
-			var movie_total_time = rData.movie_total_time;
+			var movieSchedule_totalPlayTime = rData.movie_total_time;
 			//console.log("movie_name: "+ movie_name);
 			//console.log("movie_total_time: "+ movie_total_time);
-			$("#totalPlayTime").val(movie_total_time);
+			$("#movieSchedule_totalPlayTime").val(movieSchedule_totalPlayTime);
 		});
 	});
 });

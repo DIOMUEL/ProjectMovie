@@ -19,6 +19,7 @@ import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.FoodVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
+import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
@@ -339,9 +340,12 @@ public class AdminController {
 	}
 	//영화 스케줄 등록 페이지
 	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
-	public String administerMovieScheduleRegistPage(Model model) throws Exception {
+	public String administerMovieScheduleRegistPage(Model model, int seat, int area_theater_no) throws Exception {
 		List<MovieVo> movieVo = admin_MovieService.nameListAll();
 		model.addAttribute("movieVo", movieVo);
+		//System.out.println("seat : "+seat);
+		model.addAttribute("seat", seat);
+		model.addAttribute("area_theater_no", area_theater_no);
 		return "/administerPage/administerMovieScheduleRegistPage";
 	}
 	//등록페이지 영화 선택시 정보 얻기
@@ -351,6 +355,14 @@ public class AdminController {
 		MovieVo movieVo = admin_MovieService.getMovieInfo(movie_name);
 		//System.out.println("movieVo: "+movieVo);
 		return movieVo;
+	}
+	//영화 스케줄 등록페이지 등록하기
+	@RequestMapping(value="/administerMovieScheduleRegistRun", method=RequestMethod.POST)
+	public String administerMovieScheduleRegistRun(MovieScheduleVo movieScheduleVo, RedirectAttributes rttr) throws Exception {
+	System.out.println("movieScheduleVo : "+ movieScheduleVo);
+		//admin_MovieService.insertMoviSchedule(movieScheduleVo);
+		rttr.addFlashAttribute("msgRegist", "success");
+		return "redirect:/administerPage/administerMovieScheduleManagementPage";
 	}
 	// --------------- 영화 스케줄 관리 END-----------------------
 }

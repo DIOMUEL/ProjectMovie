@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.MovieImageVo;
+import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
 
 @Repository
@@ -81,5 +82,21 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	public MovieVo getMovieInfo(String movie_name) {
 		MovieVo movieVo = sqlSession.selectOne(NAMESPACE + "getMovieInfo", movie_name);
 		return movieVo;
+	}
+
+	@Override
+	public void insertMoviSchedule(MovieScheduleVo movieScheduleVo) {
+		sqlSession.insert(NAMESPACE + "insertMoviSchedule", movieScheduleVo);
+	}
+
+	@Override
+	public MovieScheduleVo selectMoviSchedule(int area_theater_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void countUp() {
+		sqlSession.update(NAMESPACE + "countUp");
 	}
 }

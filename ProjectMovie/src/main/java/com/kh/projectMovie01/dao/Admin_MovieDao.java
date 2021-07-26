@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.MovieImageVo;
+import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
 
 public interface Admin_MovieDao {
@@ -21,4 +22,9 @@ public interface Admin_MovieDao {
 	public List<MovieVo> nameListAll();
 	public void deleteMovie(String movie_code);
 	public MovieVo getMovieInfo(String movie_name);
+	
+	//영화 스케줄 등록 관련
+	public void insertMoviSchedule(MovieScheduleVo movieScheduleVo);
+	public MovieScheduleVo selectMoviSchedule(int area_theater_no);
+	public void countUp();
 }

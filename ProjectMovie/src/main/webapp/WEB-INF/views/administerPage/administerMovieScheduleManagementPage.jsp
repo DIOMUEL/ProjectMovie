@@ -78,7 +78,15 @@
 												<td>
 													<div class="td-ab">
 														<div class="txt-center">
-															<a href="/administerPage/administerMovieScheduleRegistPage" class="btn btnAddSchedule" id="btnAddSchedule">일정 추가</a>
+															<form role="form" action="/administerPage/administerMovieScheduleRegistPage" method="get">
+																<div class="form-group">
+																	<input type="hidden" class="form-control seat" id="seat" name="seat"/>
+																</div>
+																<div class="form-group">
+																	<input type="hidden" class="form-control area_theater_no" id="area_theater_no" name="area_theater_no"/>
+																</div>
+																<button class="submit btnAddSchedule" id="btnAddSchedule">일정 추가</button>
+															</form>
 														</div>
 													</div>
 												</td>
@@ -104,6 +112,11 @@
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script>
 	$(document).ready(function(){
+		//등록 성공했을때
+		var msgRegist = "${msgRegist}";
+		if(msgRegist == "success"){
+			alert("등록성공");
+		}
 		//영화관 리스트
 		$(".btnAreaVo").click(function(){
 			var that = $(this);
@@ -154,8 +167,10 @@
 					theaterName.text(this.theater_name);
 					var totalChair = clone_nameList.find(".totalChair");
 					totalChair.text("총 좌석 : " + this.theater_seatNum);
-					var btnAddSchedule = clone_nameList.find(".btnAddSchedule");
-					btnAddSchedule.attr("href", "/administerPage/administerMovieScheduleRegistPage?theater_seatNum=" + this.theater_seatNum);
+					var seat = clone_nameList.find(".seat");
+					seat.val(this.theater_seatNum);
+					var area_theater_no = clone_nameList.find(".area_theater_no");
+					area_theater_no.val(this.area_theater_no);
 					div.append(clone_nameList);
 					clone_nameList.show();
 				});
