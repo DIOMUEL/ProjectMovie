@@ -316,4 +316,10 @@ public class AdminController {
 		return "success";
 	}
 	// --------------- 영화 매점 관리 END-----------------------
+	// --------------- 영화 스케줄 관리 -----------------------
+	@RequestMapping(value="/adminiserMovieScheduleManagementPage", method=RequestMethod.GET)
+	public String adminiserMovieScheduleManagementPage() {
+		return "/administerPage/adminiserMovieScheduleManagementPage";
+	}
+	// --------------- 영화 스케줄 관리 END-----------------------
 }
