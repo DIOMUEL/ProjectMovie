@@ -79,8 +79,11 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 	}
 
 	@Override
-	public List<NoticeBoardVo> myNoticeBoard(String user_id) {
-		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "myNoticeBoard", user_id);
+	public List<NoticeBoardVo> myNoticeBoard(String user_id, PagingDto pagingDto) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("pagingDto", pagingDto);
+		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "myNoticeBoard", map);
 		return list;
 	}
 

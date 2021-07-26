@@ -31,7 +31,7 @@ public class NoticeMessageController {
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		noticeMessageVo.setMsg_sender(memberVo.getUser_id());
 		noticeMessageService.sendMessage(noticeMessageVo);
-		return "success";
+		return "success";//
 	}
 	
 	// 읽지 않은 메시지 목록
@@ -41,7 +41,7 @@ public class NoticeMessageController {
 			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 			List<NoticeMessageVo> list = noticeMessageService.messageListNotRead(memberVo.getUser_id());
 			return list;
-		}
+		}//
 	
 		// 받은 메시지 목록
 		@RequestMapping(value="/messageListReceive", method=RequestMethod.GET)
@@ -51,18 +51,29 @@ public class NoticeMessageController {
 			List<NoticeMessageVo> list = noticeMessageService.messageListReceive(msg_receiver);
 			model.addAttribute("list", list);
 			return "message/message_receive_list";
-		}
+		}//
+		
+		// 보낸 메시지 목록
+		@RequestMapping(value="/messageListSend", method=RequestMethod.GET)
+		public String messageListSend(HttpSession session, Model model) throws Exception {
+			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+			String msg_sender= memberVo.getUser_id();
+			List<NoticeMessageVo> list = noticeMessageService.messageListSend(msg_sender);
+			model.addAttribute("list", list);
+			return "message/message_receive_list";
+		}//
+	
 		
 		// 쪽지 읽기
 		@RequestMapping(value= "/messageRead", method=RequestMethod.GET)
 		public String messageRead(int msg_no, HttpSession session, Model model) throws Exception {
 			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 			String user_id = memberVo.getUser_id();
-			NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);
+			NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);//
 			model.addAttribute("noticeMessageVo", noticeMessageVo);
-			int notReadCount = noticeMessageService.notReadCount(user_id);
+			int notReadCount = noticeMessageService.notReadCount(user_id);//
 			//int user_point = memberService.getUserPoint(user_id);
-			memberVo.setNotReadCount(notReadCount);
+			memberVo.setNotReadCount(notReadCount);//
 			//memberVo.setUser_point(user_point);
 			return "message/message_read";
 		}
