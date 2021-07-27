@@ -85,10 +85,12 @@ $(document).ready(function(){
 			},
 			"data" : JSON.stringify(sendData),
 			"success" : function(receivedData) {
-				console.log(receivedData);
+//				console.log(receivedData);
 				if (receivedData == "success") {
 					that.next().trigger("click");
+					
 				}
+				
 			}
 		});
 	});
