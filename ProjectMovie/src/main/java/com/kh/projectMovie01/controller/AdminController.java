@@ -338,11 +338,20 @@ public class AdminController {
 		List<TheaterSeatVo> areaSeatVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
 		return areaSeatVo;
 	}
+	//영화관리스트 선택시 각영화관 스케줄 리스트 가지고오기
+	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<MovieScheduleVo> administerGetMovieScheduleList(int area_theater_no) throws Exception {
+		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(area_theater_no);
+		//System.out.println("list : "+list);
+		return list;
+	}
 	//영화 스케줄 등록 페이지
 	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
 	public String administerMovieScheduleRegistPage(Model model, int seat, int area_theater_no) throws Exception {
 		List<MovieVo> movieVo = admin_MovieService.nameListAll();
 		MovieScheduleVo movieScheduleVo = admin_MovieService.lastMovieSchedule(area_theater_no);
+		System.out.println("movieScheduleVo : "+movieScheduleVo);
 		model.addAttribute("movieVo", movieVo);
 		model.addAttribute("movieScheduleVo", movieScheduleVo);
 		//System.out.println("seat : "+seat);
@@ -361,7 +370,7 @@ public class AdminController {
 	//영화 스케줄 등록페이지 등록하기
 	@RequestMapping(value="/administerMovieScheduleRegistRun", method=RequestMethod.POST)
 	public String administerMovieScheduleRegistRun(MovieScheduleVo movieScheduleVo, RedirectAttributes rttr) throws Exception {
-		//System.out.println("movieScheduleVo : "+ movieScheduleVo);
+//		System.out.println("movieScheduleVo : "+ movieScheduleVo);
 		admin_MovieService.insertMoviSchedule(movieScheduleVo);
 		rttr.addFlashAttribute("msgRegist", "success");
 		return "redirect:/administerPage/administerMovieScheduleManagementPage";
