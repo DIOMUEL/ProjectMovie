@@ -5,53 +5,62 @@
   
 <mapper namespace="com.kh.projectMovie01.noticeMessage">
 
-<insert id="insertMessage"> 확인
+<insert id="insertMessage">
 		insert into tbl_noticeMessage 
 			(msg_no, msg_content, msg_sender, msg_receiver)
 		values 
 			(seq_noticeMessage_no.nextval, #{msg_content}, #{msg_sender}, #{msg_receiver})
-	</insert><!-- // -->
+	</insert>
 
 	<select id="notReadCount" resultType="int">
 		select count(*) from tbl_noticeMessage
 		where msg_receiver = #{msg_receiver}
 		and msg_opendate is null
-	</select><!-- // -->
+	</select>
 	
 	<select id="messageListNotRead" resultType="NoticeMessageVo">
 		select * from tbl_noticeMessage
 		where msg_receiver = #{msg_receiver}
 		and msg_opendate is null
 		order by msg_no desc
-	</select><!-- // -->
+	</select>
 
 	<select id="messageListReceive" resultType="NoticeMessageVo">
 		select * from tbl_noticeMessage
 		where msg_receiver = #{msg_receiver}
+		and msg_sender != #{msg_receiver}
 		order by msg_no desc
-	</select><!-- // -->
+	</select>
 	
 	<select id="messageListSend" resultType="NoticeMessageVo">
 		select * from tbl_noticeMessage
 		where msg_sender = #{msg_sender}
+		and msg_receiver != #{msg_sender}
 		order by msg_no desc
-	</select><!-- // -->
+	</select>
+	
+	<select id="messageListSelf" resultType="NoticeMessageVo">
+		select * from tbl_noticeMessage
+		where msg_sender = #{msg_sender}
+		and msg_receiver = #{msg_receiver}
+		order by msg_no desc
+	</select>
 	
 	<update id="updateOpenDate">
 		update tbl_noticeMessage set
 			msg_opendate = sysdate
 		where msg_no = #{msg_no}
-	</update><!-- // -->
+	</update>
 	
 	<select id="messageRead" resultType="NoticeMessageVo">
 		select * from tbl_noticeMessage
 		where msg_no = #{msg_no}
-	</select><!-- // -->
+	</select>
 	
 	<select id="getOpendate" resultType="java.sql.Timestamp">
 		select msg_opendate from tbl_noticeMessage
 		where msg_no = #{msg_no}
-	</select><!-- // -->
+	</select>
 	
 	<!-- 쪽지 삭제 -->
 	<delete id="deleteMessage">

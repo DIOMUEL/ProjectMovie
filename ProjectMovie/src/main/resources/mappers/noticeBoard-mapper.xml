@@ -103,7 +103,6 @@
 			select * from
 			(select rownum rnum, a.* from
 			(select * from tbl_noticeboard
-			<include refid="search"></include>
 			where user_id = #{user_id} order by re_group desc, re_seq asc) a)
 			where rnum between #{startRow} and #{endRow}
 	</select>

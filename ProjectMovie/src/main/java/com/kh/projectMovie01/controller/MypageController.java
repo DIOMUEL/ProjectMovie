@@ -71,14 +71,16 @@ public class MypageController {
 	}
 	//내가쓴게시글 관리
 	@RequestMapping(value = "/boardtext", method = RequestMethod.GET)
-	public String boardtext(PagingDto pagingDto,
-			 HttpSession session, Model model){
+
+	public String boardtext(Model model, PagingDto pagingDto, HttpSession session){
+
+	
 		int count = noticeBoardService.getCount(pagingDto);
 		pagingDto.setCount(count);
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id, pagingDto);
-		model.addAttribute("list", list);		
+		model.addAttribute("list", list);
 		model.addAttribute("pagingDto", pagingDto);
 		return "mypage/boardtext";
 	}
