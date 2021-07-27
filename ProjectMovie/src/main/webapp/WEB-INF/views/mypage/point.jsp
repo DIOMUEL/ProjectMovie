@@ -2,6 +2,29 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header.jsp"%>
+<script>
+$(document).ready(function() {
+	var value = 10;
+	$("#rankimg").change(function() {
+		
+		
+		if(value > 0 ){
+				$("#rankimg").attr("src","/resources/Rankimg/bronze.png");
+			}else if(value > 1000){
+				$("#rankimg").attr("src","/resources/Rankimg/silver.png");
+			}else if(value > 2000){
+				$("#rankimg").attr("src","/resources/Rankimg/gold.png");
+			}else if(value > 3000){
+				$("#rankimg").attr("src","/resources/Rankimg/platinum.png");
+			}else if(vlaue > 4000){
+				$("#rankimg").attr("src","/resources/Rankimg/diamond.png");
+		}		
+				
+	})			
+})
+
+
+</script>
 <br>
 <br>
 <br>
@@ -24,8 +47,8 @@
 										</div>
 									</div>
 									<div class="col-md-6">
-										<img alt="Bootstrap Image Preview"
-											src="/resources/Rankimg/diamond.png" />
+										<img alt="..."
+											src="/resources/Rankimg/diamond.png" id="rankimg" />
 									</div>
 								</div>
 							</div>
