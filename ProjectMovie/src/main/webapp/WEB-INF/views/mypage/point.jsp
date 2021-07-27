@@ -4,24 +4,26 @@
 <%@ include file="../include/header.jsp"%>
 <script>
 $(document).ready(function() {
-	var value = 10;
-	$("#rankimg").change(function() {
-		
-		
+	var value = "4500";
 		if(value > 0 ){
-				$("#rankimg").attr("src","/resources/Rankimg/bronze.png");
-			}else if(value > 1000){
-				$("#rankimg").attr("src","/resources/Rankimg/silver.png");
-			}else if(value > 2000){
-				$("#rankimg").attr("src","/resources/Rankimg/gold.png");
-			}else if(value > 3000){
-				$("#rankimg").attr("src","/resources/Rankimg/platinum.png");
-			}else if(vlaue > 4000){
-				$("#rankimg").attr("src","/resources/Rankimg/diamond.png");
-		}		
-				
-	})			
-})
+			$("#rankimg").attr("src","/resources/Rankimg/bronze.png");
+		}
+		if(value > 10000){
+			$("#rankimg").attr("src","/resources/Rankimg/silver.png");
+		}
+		if(value > 50000){
+			$("#rankimg").attr("src","/resources/Rankimg/gold.png");
+		}
+		if(value > 100000){
+			$("#rankimg").attr("src","/resources/Rankimg/platinum.png");
+		}
+		if(value > 500000){
+			$("#rankimg").attr("src","/resources/Rankimg/diamond.png");
+		};
+		
+		console.log(value);
+})		
+	
 
 
 </script>

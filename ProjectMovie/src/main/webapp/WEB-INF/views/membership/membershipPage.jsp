@@ -197,31 +197,36 @@
 						<!-- block -->
 						<div class="block">
 							<div class="box vip">
-								<p class="tit">VIP</p>
+								<p class="tit">silver</p>
 
 								<p class="txt">
-									VIP 회원 중 연 1편 이상 유료 관람<br/>
-									또는<br/>
-									일반 회원 중 3개월간 6편 이상 유료 관람
+									bronze 회원 이 포인트가 10000이상일때<br/>																	
 								</p>
 							</div>
 
 							<div class="box vip-p">
-								<p class="tit">VIP PREMIUM</p>
+								<p class="tit">gold</p>
 
 								<p class="txt vip-p">
 									누적 승급포인트<br/>
-									1.1만 포인트 이상
+									5만포인트 이상
 								</p>
 							</div>
 
 							<div class="box vvip">
-								<p class="tit">VVIP</p>
+								<p class="tit">platinum</p>
 
 								<p class="txt vip-p">
 									누적 승급포인트<br/>
-									2.7만 포인트 이상<br/>
-									또는 서로 다른 영화 50편 이상
+									10만 포인트 이상<br/>									
+								</p>
+							</div>
+							<div class="box vvip">
+								<p class="tit">diamond</p>
+
+								<p class="txt vip-p">
+									누적 승급포인트<br/>
+									50만 포인트 이상<br/>									
 								</p>
 							</div>
 						</div>
