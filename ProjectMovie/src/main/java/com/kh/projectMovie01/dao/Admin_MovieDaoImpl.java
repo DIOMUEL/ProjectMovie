@@ -99,4 +99,10 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 		MovieScheduleVo movieScheduleVo = sqlSession.selectOne(NAMESPACE + "lastMovieSchedule", theater_no);
 		return movieScheduleVo;
 	}
+
+	@Override
+	public List<MovieScheduleVo> getMovieScheduleList(int theater_no) {
+		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleList", theater_no);
+		return list;
+	}
 }

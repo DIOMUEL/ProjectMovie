@@ -335,8 +335,8 @@ public class AdminController {
 	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
 	@ResponseBody
 	public List<MovieScheduleVo> administerGetMovieScheduleList(int theater_no) throws Exception {
-		
-		return null;
+		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(theater_no);
+		return list;
 	}
 	//영화 스케줄 등록 페이지
 	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
@@ -346,7 +346,7 @@ public class AdminController {
 //		System.out.println("area_theater_no : "+area_theater_no);
 		List<MovieVo> movieVo = admin_MovieService.nameListAll();
 		MovieScheduleVo movieScheduleVo = admin_MovieService.lastMovieSchedule(theater_no);
-		System.out.println("movieScheduleVo : "+movieScheduleVo);
+		//System.out.println("movieScheduleVo : "+movieScheduleVo);
 		model.addAttribute("movieVo", movieVo);
 		model.addAttribute("movieScheduleVo", movieScheduleVo);
 		//System.out.println("seat : "+seat);

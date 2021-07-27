@@ -205,6 +205,17 @@
 			var sendData = {
 					"theater_no" : theater_no
 			};
+// 			console.log("theater_no : " + theater_no);
+			$.get(url, sendData, function(rData){
+// 				console.log("rData : ", rData);
+				var tr = $("#movieScheduleTable > tbody > tr");
+				$.each(rData, function() {
+					var td = tr.clone();
+					
+					td.insertAfter(tr);
+ 					td.show();
+				});
+			});
 		});
 // 		//각영화관마다의 영화스케줄 얻어오기
 // 		$(document).on("click",".btnTrigger",function(){
