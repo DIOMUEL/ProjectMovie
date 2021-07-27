@@ -309,12 +309,12 @@ $(document).ready(function(){
 			<ul class="timeline">
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/4D.jpg"
-							alt="..." />
+						<a href="/introduce/introduce1"><img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/4D.jpg"
+							alt="..." /></a>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h3 style="font-weight:bolder">4D</h3>
+							<h3 style="font-weight:bolder">4DX</h3>
 							<h4 class="subheading" style="font-family:'Monoton';">GET INTO THE ACTION.</h4> 
 							<h5>영화속의 생동감을 온몸으로 느끼다.</h5>
 							<!-- 사진 누르면 소개페이지로 이동 -->
@@ -323,8 +323,8 @@ $(document).ready(function(){
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/IMAX.jpg"
-							alt="..." />
+						<a href="/introduce/introduce2"><img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/IMAX.jpg"
+							alt="..." /></a>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -336,8 +336,8 @@ $(document).ready(function(){
 				</li>
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/PremiumSeat.jpg"
-							alt="..." />
+						<a href="/introduce/introduce3"><img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/PremiumSeat.jpg"
+							alt="..." /></a>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -349,8 +349,8 @@ $(document).ready(function(){
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/SoundX.jpg"
-							alt="..." />
+						<a href="/introduce/introduce4"><img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/SoundX.jpg"
+							alt="..." /></a>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">

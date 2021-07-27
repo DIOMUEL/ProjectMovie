@@ -14,6 +14,7 @@ public interface Admin_AreaService {
 	public void movieAreaDelete(int area_no);
 	//영화관 
 	public List<AreaTheaterVo> getAllAreaTheaterList(int area_no);
+	public List<AreaTheaterVo> getFirstAreaTheaterList();
 	public void areaTheaterAdd(int area_no, String area_theater_name);
 	public void areaTheaterModify(int area_theater_no, String area_theater_name);
 	public void areaTheaterDelete(int area_theater_no);

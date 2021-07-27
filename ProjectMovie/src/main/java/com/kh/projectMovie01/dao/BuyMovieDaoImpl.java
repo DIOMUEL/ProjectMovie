@@ -20,6 +20,8 @@ private static final String NAMESPACE = "com.kh.projectMovie01.buyMovie.";
 	@Override
 	public List<BuyMovieVo> buyMovieList(String user_id) {
 		List<BuyMovieVo> list = sqlSession.selectList(NAMESPACE+"buyMovieList",user_id);
+		System.out.println("BuyMovieDaoImpl, user_id:" + user_id);
+		System.out.println("BuyMovieDaoImpl, list:" + list);
 		return list;
 	}
 //

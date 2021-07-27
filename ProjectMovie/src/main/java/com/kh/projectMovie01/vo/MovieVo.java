@@ -18,8 +18,30 @@ public class MovieVo {
 	private int movie_num;
 	private String[] movie_sub_image;
 	private String movie_content;
+	private int movie_count;
 	public MovieVo() {
 		super();
+	}
+	public MovieVo(String movie_code, String movie_name, String movie_genre, String movie_director, String movie_actor,
+			Date movie_open_date, int movie_total_time, String movie_main_image, Date movie_regist_date,
+			String movie_grade, String movie_preview, int movie_num, String[] movie_sub_image, String movie_content,
+			int movie_count) {
+		super();
+		this.movie_code = movie_code;
+		this.movie_name = movie_name;
+		this.movie_genre = movie_genre;
+		this.movie_director = movie_director;
+		this.movie_actor = movie_actor;
+		this.movie_open_date = movie_open_date;
+		this.movie_total_time = movie_total_time;
+		this.movie_main_image = movie_main_image;
+		this.movie_regist_date = movie_regist_date;
+		this.movie_grade = movie_grade;
+		this.movie_preview = movie_preview;
+		this.movie_num = movie_num;
+		this.movie_sub_image = movie_sub_image;
+		this.movie_content = movie_content;
+		this.movie_count = movie_count;
 	}
 	public String getMovie_code() {
 		return movie_code;
@@ -93,22 +115,23 @@ public class MovieVo {
 	public void setMovie_num(int movie_num) {
 		this.movie_num = movie_num;
 	}
-	
-	
 	public String[] getMovie_sub_image() {
 		return movie_sub_image;
 	}
-
 	public void setMovie_sub_image(String[] movie_sub_image) {
 		this.movie_sub_image = movie_sub_image;
 	}
-
 	public String getMovie_content() {
 		return movie_content;
 	}
-
 	public void setMovie_content(String movie_content) {
 		this.movie_content = movie_content;
+	}
+	public int getMovie_count() {
+		return movie_count;
+	}
+	public void setMovie_count(int movie_count) {
+		this.movie_count = movie_count;
 	}
 	@Override
 	public String toString() {
@@ -117,8 +140,7 @@ public class MovieVo {
 				+ movie_open_date + ", movie_total_time=" + movie_total_time + ", movie_main_image=" + movie_main_image
 				+ ", movie_regist_date=" + movie_regist_date + ", movie_grade=" + movie_grade + ", movie_preview="
 				+ movie_preview + ", movie_num=" + movie_num + ", movie_sub_image=" + Arrays.toString(movie_sub_image)
-				+ ", movie_content=" + movie_content + "]";
+				+ ", movie_content=" + movie_content + ", movie_count=" + movie_count + "]";
 	}
-	
 }
 

@@ -88,7 +88,7 @@
 															<c:when test="${pagingDto.page == v}">
 																class="page-item active"
 															</c:when>
-														<c:otherwise>	
+															<c:otherwise>	
 																class="page-item"
 															</c:otherwise>
 														</c:choose>>
