@@ -51,6 +51,9 @@
 					<input type="hidden" class="form-control" id="area_theater_no" name="area_theater_no" value="${area_theater_no}"/>
 				</div>
 				<div class="form-group">
+					<input type="hidden" class="form-control" id="theater_no" name="theater_no" value="${theater_no}"/>
+				</div>
+				<div class="form-group">
 					<label for="lastTime">바로 이전 영화 상영시간</label>
 					<input type="text" class="form-control" id="lastTime" name="lastTime"  value="${movieScheduleVo.movieSchedule_playTime}" readOnly/>
 				</div>
@@ -80,7 +83,7 @@
 <script>
 $(function () {
 	var theater_seatNum = "${theater_seatNum}";
-	console.log("theater_seatNum: "+ theater_seatNum);
+// 	console.log("theater_seatNum: "+ theater_seatNum);
 	$("#movie_name").change(function(){
 		var movie_name = $("#movie_name").val();
 		//console.log("movie_name : " + movie_name);

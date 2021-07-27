@@ -195,18 +195,18 @@ public class AdminController {
 	// 지역세팅시 필요 자원 호출(지역 > 영화관)
 	@RequestMapping(value="/seatSetting_callingTheater", method = RequestMethod.GET)
 	@ResponseBody
-	public List<AreaTheaterVo> callingTheater(int area_no, Model model) throws Exception {
+	public List<AreaTheaterVo> callingTheater(int area_no) throws Exception {
 		List<AreaTheaterVo> areaTheaterVo = null;
 		if(area_no != 0) {
 			areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
-			//System.out.println("areaTheaterVo : "+ areaTheaterVo);
+			System.out.println("areaTheaterVo : "+ areaTheaterVo);
 		}
 		return areaTheaterVo;
 	}
 	// 조회 버튼 누를시 그 영화관안에 들어있는 관 리스트 호출
 	@RequestMapping(value="/callingTheaterRoomList", method = RequestMethod.GET)
 	@ResponseBody
-	public List<TheaterSeatVo> callingTheaterRoomList(int area_theater_no, Model model) throws Exception {
+	public List<TheaterSeatVo> callingTheaterRoomList(int area_theater_no) throws Exception {
 		List<TheaterSeatVo> areaTheaterVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
 		return areaTheaterVo;
 	}
@@ -331,31 +331,27 @@ public class AdminController {
 		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
 		return areaTheaterVo;
 	}
-	//영화관리스트 선택시 각영화관 이름 과 좌석 가지고오기
-	@RequestMapping(value="/administerGetTheaterNameList", method=RequestMethod.GET)
+	//영화지역 선택시 영화관리스트 가지고오기
+	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
 	@ResponseBody
-	public List<TheaterSeatVo> administerGetTheaterNameList(int area_theater_no) throws Exception {
-		List<TheaterSeatVo> areaSeatVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
-		return areaSeatVo;
-	}
-	//영화관리스트 선택시 각영화관 스케줄 리스트 가지고오기
-	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
-	@ResponseBody
-	public List<MovieScheduleVo> administerGetMovieScheduleList(int area_theater_no) throws Exception {
-		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(area_theater_no);
-		//System.out.println("list : "+list);
-		return list;
+	public List<MovieScheduleVo> administerGetMovieScheduleList(int theater_no) throws Exception {
+		
+		return null;
 	}
 	//영화 스케줄 등록 페이지
 	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
-	public String administerMovieScheduleRegistPage(Model model, int seat, int area_theater_no) throws Exception {
+	public String administerMovieScheduleRegistPage(Model model, int theater_seatNum, int theater_no, int area_theater_no) throws Exception {
+//		System.out.println("theater_seatNum : "+theater_seatNum);
+//		System.out.println("theater_no : "+theater_no);
+//		System.out.println("area_theater_no : "+area_theater_no);
 		List<MovieVo> movieVo = admin_MovieService.nameListAll();
-		MovieScheduleVo movieScheduleVo = admin_MovieService.lastMovieSchedule(area_theater_no);
+		MovieScheduleVo movieScheduleVo = admin_MovieService.lastMovieSchedule(theater_no);
 		System.out.println("movieScheduleVo : "+movieScheduleVo);
 		model.addAttribute("movieVo", movieVo);
 		model.addAttribute("movieScheduleVo", movieScheduleVo);
 		//System.out.println("seat : "+seat);
-		model.addAttribute("seat", seat);
+		model.addAttribute("seat", theater_seatNum);
+		model.addAttribute("theater_no", theater_no);
 		model.addAttribute("area_theater_no", area_theater_no);
 		return "/administerPage/administerMovieScheduleRegistPage";
 	}

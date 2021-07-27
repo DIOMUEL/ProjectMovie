@@ -22,6 +22,5 @@ public interface Admin_MovieService {
 	
 	//영화 스케줄 등록 관련
 	public void insertMoviSchedule(MovieScheduleVo movieScheduleVo);
-	public MovieScheduleVo lastMovieSchedule(int area_theater_no);
-	public List<MovieScheduleVo> getMovieScheduleList(int area_theater_no);
+	public MovieScheduleVo lastMovieSchedule(int theater_no);
 }

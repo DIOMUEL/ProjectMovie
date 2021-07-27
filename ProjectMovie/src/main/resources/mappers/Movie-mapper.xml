@@ -118,16 +118,16 @@
 	<!-- 등록된 마지막 영화 상영시간 -->
 	<select id="lastMovieSchedule" resultType="MovieScheduleVo">
 		select * from (select * from tbl_MovieSchedule
-		where area_theater_no = #{area_theater_no}
+		where theater_no = #{theater_no}
 		order by movieSchedule_registTime desc)
 		where rowNum  = 1
 	</select>
 	<!-- 영화 상영시간 스케줄 등록 -->
 	<insert id="insertMoviSchedule">
 		insert into tbl_MovieSchedule
-		(movieSchedule_recoding, area_theater_no, movieSchedule_type, movie_name, movieSchedule_playTime, movieSchedule_totalPlayTime, movieSchedule_seat, movieSchedule_registTime)
+		(movieSchedule_recoding, area_theater_no, theater_no, movieSchedule_type, movie_name, movieSchedule_playTime, movieSchedule_totalPlayTime, movieSchedule_seat, movieSchedule_registTime)
 		values
-		(seq_movieSchedule_recoding.nextval, #{area_theater_no}, #{movieSchedule_type}, #{movie_name}, #{movieSchedule_playTime}, #{movieSchedule_totalPlayTime}, #{movieSchedule_seat}, sysdate)
+		(seq_movieSchedule_recoding.nextval, #{area_theater_no}, #{theater_no}, #{movieSchedule_type}, #{movie_name}, #{movieSchedule_playTime}, #{movieSchedule_totalPlayTime}, #{movieSchedule_seat}, sysdate)
 	</insert>
 	<!-- 등록할때 마다 해당 영화 회차 카운트업 -->
 	<update id="countUp">
@@ -135,10 +135,9 @@
 		movie_count = movie_count + 1
 		where movie_name = #{movie_name}
 	</update>
-	<!-- 영화스케줄 페이지 각 영화관 영화스케줄 리스트 얻기 -->
 	<select id="getMovieScheduleList" resultType="MovieScheduleVo">
 		select * from tbl_MovieSchedule
-		where area_theater_no = #{area_theater_no}
-		order by movieSchedule_recoding asc
+		where theater_no = #{theater_no}
+		order by movieSchedule_registTime asc
 	</select>
 </mapper>
