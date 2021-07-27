@@ -338,6 +338,14 @@ public class AdminController {
 		List<TheaterSeatVo> areaSeatVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
 		return areaSeatVo;
 	}
+	//영화관리스트 선택시 각영화관 스케줄 리스트 가지고오기
+	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<MovieScheduleVo> administerGetMovieScheduleList(int area_theater_no) throws Exception {
+		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(area_theater_no);
+		//System.out.println("list : "+list);
+		return list;
+	}
 	//영화 스케줄 등록 페이지
 	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
 	public String administerMovieScheduleRegistPage(Model model, int seat, int area_theater_no) throws Exception {

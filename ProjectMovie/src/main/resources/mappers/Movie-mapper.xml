@@ -129,9 +129,16 @@
 		values
 		(seq_movieSchedule_recoding.nextval, #{area_theater_no}, #{movieSchedule_type}, #{movie_name}, #{movieSchedule_playTime}, #{movieSchedule_totalPlayTime}, #{movieSchedule_seat}, sysdate)
 	</insert>
+	<!-- 등록할때 마다 해당 영화 회차 카운트업 -->
 	<update id="countUp">
 		update tbl_movie set
 		movie_count = movie_count + 1
 		where movie_name = #{movie_name}
 	</update>
+	<!-- 영화스케줄 페이지 각 영화관 영화스케줄 리스트 얻기 -->
+	<select id="getMovieScheduleList" resultType="MovieScheduleVo">
+		select * from tbl_MovieSchedule
+		where area_theater_no = #{area_theater_no}
+		order by movieSchedule_recoding asc
+	</select>
 </mapper>

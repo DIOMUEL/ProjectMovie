@@ -56,7 +56,7 @@
 											<col style="width: 99px;">
 											<col style="width: 99px;">
 										</colgroup>
-										<tbody>
+										<tbody id="movieSchedule">
 											<tr>
 												<td>
 													<div class="td-ab">
@@ -149,12 +149,14 @@
 			var that = $(this);
 			var area_theater_no = $(this).attr("data-area_theater_no");
 			var url = "/administerPage/administerGetTheaterNameList";
+			var url2 = "/administerPage/administerGetMovieScheduleList";
 			var sendData = {
 					"area_theater_no" : area_theater_no
 			};
-			console.log("area_theater_no : "+ area_theater_no);
+			//console.log("area_theater_no : "+ area_theater_no);
+			//영화관 관 및 좌석 리스트
 			$.get(url, sendData, function(rData){
- 				console.log("rData : "+ rData);
+ 				//console.log("rData : "+ rData);
  				var clone_Namelist;
  				var div;
  				//$(".NameList").remove();
@@ -176,6 +178,27 @@
 					clone_nameList.show();
 				});
  			});
+			//각영화관마다의 영화스케줄 얻어오기
+			$.get(url2, sendData, function(rData2){
+				//console.log("rData2 : "+ rData2);
+				var clone_ScheduleList;
+				var div;
+				$.each(rData2, function() {
+					div = that.parent().children().children().children().children().children().children("td:eq(0)");
+					//$(".thn").parent().children().children().children().children().children().children().children("td");
+					clone_ScheduleList = $("#movieSchedule > tr").clone();
+					$("#movieSchedule").remove("id");
+					var playTime = clone_ScheduleList.find(".playTime");
+					playTime.text(this.movieSchedule_totalPlayTime);
+					var remainChair = clone_ScheduleList.find(".remainChair");
+					remainChair.text(this.movieSchedule_seat);
+					var play_time = clone_ScheduleList.find(".play-time");
+					play_time.text(this.movieSchedule_playTime);
+					div.append(clone_ScheduleList);
+					//clone_ScheduleList.insertAfter(div);
+					clone_ScheduleList.show();
+				});
+			});
 		});
 	});
 </script>
