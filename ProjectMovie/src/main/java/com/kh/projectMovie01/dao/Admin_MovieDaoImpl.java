@@ -90,8 +90,8 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	}
 
 	@Override
-	public void countUp() {
-		sqlSession.update(NAMESPACE + "countUp");
+	public void countUp(String movie_name) {
+		sqlSession.update(NAMESPACE + "countUp", movie_name);
 	}
 
 	@Override

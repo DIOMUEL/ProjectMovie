@@ -51,15 +51,15 @@
 					<input type="hidden" class="form-control" id="area_theater_no" name="area_theater_no" value="${area_theater_no}"/>
 				</div>
 				<div class="form-group">
-					<label for="lastTime">현재 마지막 상영시간</label>
-					<input type="text" class="form-control" id="lastTime" name="lastTime"  value="${movieScheduleVo.lastTime}" readOnly/>
+					<label for="lastTime">바로 이전 영화 상영시간</label>
+					<input type="text" class="form-control" id="lastTime" name="lastTime"  value="${movieScheduleVo.movieSchedule_playTime}" readOnly/>
 				</div>
 				<div class="form-group">
 					<label for="movieSchedule_playTime">상영시간</label>
 					<input type="text" class="form-control" id="movieSchedule_playTime" name="movieSchedule_playTime" placeholder="시작시간 ~끝나는 시간 예)시작시간 =전편 끝난시간 +청소시간(15분)"/>
 				</div>
 				<div class="form-group">
-					<label for="movieSchedule_totalPlayTime">상영시간</label>
+					<label for="movieSchedule_totalPlayTime">총상영시간(분)</label>
 					<input type="text" class="form-control" id="movieSchedule_totalPlayTime" name="movieSchedule_totalPlayTime" readOnly/>
 				</div>
 				<div class="form-group">

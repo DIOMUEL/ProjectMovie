@@ -104,7 +104,8 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 	@Override
 	public void insertMoviSchedule(MovieScheduleVo movieScheduleVo) {
 		movieDao.insertMoviSchedule(movieScheduleVo);
-		movieDao.countUp();
+		String movie_name = movieScheduleVo.getMovie_name();
+		movieDao.countUp(movie_name);
 	}
 	@Override
 	public MovieScheduleVo lastMovieSchedule(int area_theater_no) {

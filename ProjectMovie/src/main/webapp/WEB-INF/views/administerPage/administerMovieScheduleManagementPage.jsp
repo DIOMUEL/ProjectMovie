@@ -76,8 +76,8 @@
 													</div>
 												</td>
 												<td>
-													<div class="td-ab">
-														<div class="txt-center">
+													<div class="td-ab" style="vertical-align:middle;">
+														<div class="txt-center" >
 															<form role="form" action="/administerPage/administerMovieScheduleRegistPage" method="get">
 																<div class="form-group">
 																	<input type="hidden" class="form-control seat" id="seat" name="seat"/>
@@ -85,7 +85,7 @@
 																<div class="form-group">
 																	<input type="hidden" class="form-control area_theater_no" id="area_theater_no" name="area_theater_no"/>
 																</div>
-																<button class="submit btnAddSchedule" id="btnAddSchedule">일정 추가</button>
+																<button class="submit btn btn-outline-primary btnAddSchedule" id="btnAddSchedule">일정 추가</button>
 															</form>
 														</div>
 													</div>
@@ -157,6 +157,7 @@
  				console.log("rData : "+ rData);
  				var clone_Namelist;
  				var div;
+ 				//$(".NameList").remove();
  				$.each(rData, function() {
 					div = that.parent();
 					//console.log("div : "+div)
@@ -178,6 +179,5 @@
 		});
 	});
 </script>
-
 </body>
 </html>

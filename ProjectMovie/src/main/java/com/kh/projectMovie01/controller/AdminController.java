@@ -343,6 +343,7 @@ public class AdminController {
 	public String administerMovieScheduleRegistPage(Model model, int seat, int area_theater_no) throws Exception {
 		List<MovieVo> movieVo = admin_MovieService.nameListAll();
 		MovieScheduleVo movieScheduleVo = admin_MovieService.lastMovieSchedule(area_theater_no);
+		System.out.println("movieScheduleVo : "+movieScheduleVo);
 		model.addAttribute("movieVo", movieVo);
 		model.addAttribute("movieScheduleVo", movieScheduleVo);
 		//System.out.println("seat : "+seat);
@@ -361,7 +362,7 @@ public class AdminController {
 	//영화 스케줄 등록페이지 등록하기
 	@RequestMapping(value="/administerMovieScheduleRegistRun", method=RequestMethod.POST)
 	public String administerMovieScheduleRegistRun(MovieScheduleVo movieScheduleVo, RedirectAttributes rttr) throws Exception {
-		//System.out.println("movieScheduleVo : "+ movieScheduleVo);
+//		System.out.println("movieScheduleVo : "+ movieScheduleVo);
 		admin_MovieService.insertMoviSchedule(movieScheduleVo);
 		rttr.addFlashAttribute("msgRegist", "success");
 		return "redirect:/administerPage/administerMovieScheduleManagementPage";
