@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +19,7 @@ import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.FoodVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
+import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
@@ -317,9 +317,54 @@ public class AdminController {
 	}
 	// --------------- 영화 매점 관리 END-----------------------
 	// --------------- 영화 스케줄 관리 -----------------------
-	@RequestMapping(value="/adminiserMovieScheduleManagementPage", method=RequestMethod.GET)
-	public String adminiserMovieScheduleManagementPage() {
-		return "/administerPage/adminiserMovieScheduleManagementPage";
+	//영화 스케줄 관리자 페이지
+	@RequestMapping(value="/administerMovieScheduleManagementPage", method=RequestMethod.GET)
+	public String administerMovieScheduleManagementPage(Model model) throws Exception {
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		return "/administerPage/administerMovieScheduleManagementPage";
+	}
+	//영화지역 선택시 영화관리스트 가지고오기
+	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
+		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+		return areaTheaterVo;
+	}
+	//영화관리스트 선택시 각영화관 이름 과 좌석 가지고오기
+	@RequestMapping(value="/administerGetTheaterNameList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<TheaterSeatVo> administerGetTheaterNameList(int area_theater_no) throws Exception {
+		List<TheaterSeatVo> areaSeatVo = admin_AreaService.getSeveralTheaterSeatList(area_theater_no);
+		return areaSeatVo;
+	}
+	//영화 스케줄 등록 페이지
+	@RequestMapping(value="/administerMovieScheduleRegistPage", method=RequestMethod.GET)
+	public String administerMovieScheduleRegistPage(Model model, int seat, int area_theater_no) throws Exception {
+		List<MovieVo> movieVo = admin_MovieService.nameListAll();
+		MovieScheduleVo movieScheduleVo = admin_MovieService.lastMovieSchedule(area_theater_no);
+		model.addAttribute("movieVo", movieVo);
+		model.addAttribute("movieScheduleVo", movieScheduleVo);
+		//System.out.println("seat : "+seat);
+		model.addAttribute("seat", seat);
+		model.addAttribute("area_theater_no", area_theater_no);
+		return "/administerPage/administerMovieScheduleRegistPage";
+	}
+	//등록페이지 영화 선택시 정보 얻기
+	@RequestMapping(value="/administerGetMovieInfo", method=RequestMethod.GET)
+	@ResponseBody
+	public MovieVo administerGetMovieInfo(String movie_name) throws Exception {
+		MovieVo movieVo = admin_MovieService.getMovieInfo(movie_name);
+		//System.out.println("movieVo: "+movieVo);
+		return movieVo;
+	}
+	//영화 스케줄 등록페이지 등록하기
+	@RequestMapping(value="/administerMovieScheduleRegistRun", method=RequestMethod.POST)
+	public String administerMovieScheduleRegistRun(MovieScheduleVo movieScheduleVo, RedirectAttributes rttr) throws Exception {
+		//System.out.println("movieScheduleVo : "+ movieScheduleVo);
+		admin_MovieService.insertMoviSchedule(movieScheduleVo);
+		rttr.addFlashAttribute("msgRegist", "success");
+		return "redirect:/administerPage/administerMovieScheduleManagementPage";
 	}
 	// --------------- 영화 스케줄 관리 END-----------------------
 }

@@ -11,6 +11,7 @@ import com.kh.projectMovie01.dao.Admin_MovieDao;
 import com.kh.projectMovie01.utill.MovieFileUploadUtil;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.MovieImageVo;
+import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
 
 @Service
@@ -85,6 +86,30 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 		movieDao.deleteMovieImage(movie_code);
 		movieDao.deleteMovie(movie_code);
 		//System.out.println("잘실행됨");
+	}
+
+	@Override
+	public List<MovieVo> nameListAll() {
+		List<MovieVo>list = movieDao.nameListAll();
+		return list;
+	}
+
+	@Override
+	public MovieVo getMovieInfo(String movie_name) {
+		MovieVo movieVo = movieDao.getMovieInfo(movie_name);
+		return movieVo;
+	}
+
+	@Transactional
+	@Override
+	public void insertMoviSchedule(MovieScheduleVo movieScheduleVo) {
+		movieDao.insertMoviSchedule(movieScheduleVo);
+		movieDao.countUp();
+	}
+	@Override
+	public MovieScheduleVo lastMovieSchedule(int area_theater_no) {
+		MovieScheduleVo movieScheduleVo = movieDao.lastMovieSchedule(area_theater_no);
+		return movieScheduleVo;
 	}
 
 }
