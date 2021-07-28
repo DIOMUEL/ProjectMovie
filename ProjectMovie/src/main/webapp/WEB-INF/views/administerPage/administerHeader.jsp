@@ -66,10 +66,6 @@
 						<a class="collapse-item" href="/administerPage/administerMovieScheduleManagementPage">상영 일정 관리</a> 
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">영화 상품:</h6>
-						<a class="collapse-item" href="#">영화 상품 조회</a> 
-					</div>
-					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">매점 상품:</h6>
 						<a class="collapse-item" href="/administerPage/administerStoreManagement">상품 관리</a> 
 						<a class="collapse-item" href="/administerPage/administerStoreRegist">상품 등록</a> 
