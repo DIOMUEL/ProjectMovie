@@ -335,7 +335,7 @@ $(document).ready(function(){
 						<a href="/introduce/introduce3"><img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/PremiumSeat.jpg"
 							alt="..." /></a>
 					</div>
-					<div class="timeline-panel">
+					<div class="timeline-panel">66666666tttt
 						<div class="timeline-heading">
 							<h3 style="font-weight:bolder">PremiumSeat</h3>
 							<h4 class="subheading" style="font-family:'GravitasOne';">MORE COMFORTERABLE, MORE LUXURIOUSLY</h4>
