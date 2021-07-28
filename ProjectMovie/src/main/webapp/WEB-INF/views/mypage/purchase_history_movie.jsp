@@ -37,7 +37,7 @@
 													<th>영화제목</th>
 													<th>가격</th>
 													<th>구매일자</th>
-													<th>비고</th>
+										
 												</tr>
 											</thead>
 											<tbody>
@@ -47,7 +47,7 @@
 														<td>${buyMovieVo.bm_moviename}</td>
 														<td>${buyMovieVo.bm_price}원</td>
 														<td>${buyMovieVo.bm_datepurch}</td>
-														<td></td>
+														
 													</tr>
 											</c:forEach>	
 											</tbody>

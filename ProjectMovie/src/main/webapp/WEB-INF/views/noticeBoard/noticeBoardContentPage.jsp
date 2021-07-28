@@ -144,6 +144,47 @@ $(document).ready(function(){
 		
 	});
 	
+	var isLike = "${likeMap.isLike}";
+	if (isLike == "true") {
+		$("#likeHeart").css("color", "red");
+	}
+	
+	$("#likeHeart").click(function() {
+		var that = $(this);
+		console.log("click");
+		var b_no = "${noticeBoardVo.b_no}";
+		console.log(b_no);
+		var sendData = {
+				"b_no" : b_no
+		}
+		console.log(sendData);
+		var url = "";
+		if (isLike == "true") {
+			url = "/like/sendLikeCancel";
+		} else {
+			url = "/like/sendLike";
+		}
+		
+		$.get(url, sendData, function(rData) {
+			console.log(rData);
+			
+			if (isLike == "true") {
+				console.log("true");
+				that.css("color", "gray");
+				isLike = "false";
+			} else {
+				console.log("false");
+				that.css("color", "red");
+				isLike = "true";
+			}
+			
+			$("#likeCount").text("[" + rData + "]");
+				
+			
+		});
+		
+	});
+	
 });
 </script>
 <!-- 모달창 -->
@@ -202,6 +243,12 @@ $(document).ready(function(){
 				<button type="button" class="btn btn-warning" id="btnModify">수정</button>
 				<button type="submit" class="btn btn-primary" style="display:none" id="btnModifyFinish">수정완료</button>
 				<button type="button" class="btn btn-danger" id="btnDelete" >삭제</button>
+				<div style="float:right">
+				<i class="far fa-thumbs-up" style="color:gray; cursor:pointer" id="likeHeart"></i>
+				<span id="likeCount">[${likeMap.likeCount}]</span>
+<!-- 				<i class="far fa-thumbs-down"></i> -->
+<%-- 				<span id="likeCount">[${likeMap.likeCount}]</span> --%>
+				</div>
 			</form>
 			<br>
 			<div>

@@ -35,6 +35,12 @@ public class NoticeMessageServiceImple implements NoticeMessageService {
 	}
 
 	@Override
+	public List<NoticeMessageVo> messageListSend(String msg_sender) {
+		List<NoticeMessageVo> list = noticeMessageDao.messageListSend(msg_sender);
+		return list;
+	}
+	
+	@Override
 	public int notReadCount(String msg_receiver) {
 		return noticeMessageDao.notReadCount(msg_receiver);
 		
@@ -64,5 +70,13 @@ public class NoticeMessageServiceImple implements NoticeMessageService {
 		boolean result = noticeMessageDao.deleteMessage(msg_no, user_id);
 		return result;
 	}
+
+	@Override
+	public List<NoticeMessageVo> messageListSelf(String msg_sender, String msg_receiver) {
+		List<NoticeMessageVo> list = noticeMessageDao.messageListSelf(msg_sender, msg_receiver);
+		return list;
+	}
+
+	
 
 }

@@ -38,7 +38,7 @@ public class MypageController {
 	
 	@Inject
 	private NoticeBoardService noticeBoardService;
-	
+	//회원관리
 	@RequestMapping(value="/management",method=RequestMethod.GET)
 	public String management(Model model, HttpSession session) throws Exception{
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
@@ -47,7 +47,7 @@ public class MypageController {
 	
 		return "mypage/management";	
 	}
-	
+	//비밀번호 변경
 	@RequestMapping(value="/ChangePw",method=RequestMethod.POST)
 	@ResponseBody
 	public String ChangePw(HttpSession session, String user_pw) throws Exception{
@@ -59,7 +59,7 @@ public class MypageController {
 		memberService.changePw(user_id,user_pw);	
 		return "success";
 	}
-	
+	//이메일 변경
 	@RequestMapping(value="/ChangeEmail",method=RequestMethod.POST)
 	@ResponseBody
 	public String ChangeEmail(HttpSession session,String user_email) throws Exception{
@@ -69,31 +69,40 @@ public class MypageController {
 		memberService.changeEmail(user_id, user_email);
 		return "success";
 	}
+	//내가쓴게시글 관리
 	@RequestMapping(value = "/boardtext", method = RequestMethod.GET)
-	public String boardtext(NoticeBoardVo noticeBoardVo, HttpSession session, Model model){
+
+	public String boardtext(Model model, PagingDto pagingDto, HttpSession session){
+
+	
+		int count = noticeBoardService.getCount(pagingDto);
+		pagingDto.setCount(count);
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id);
+		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id, pagingDto);
 		model.addAttribute("list", list);
+		model.addAttribute("pagingDto", pagingDto);
 		return "mypage/boardtext";
 	}
 	
-
+	// 포인트 관리
 	@RequestMapping(value="/point",method=RequestMethod.GET)
 	public String point() throws Exception{
 		return "mypage/point";
 		
 	}
+	//영화 구매 내역
 	@RequestMapping(value="/purchase_history_movie",method=RequestMethod.GET)
 	public String purchase_history_movie(Model model,HttpSession session) throws Exception{	
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		List<BuyMovieVo> list = buyMovieService.buyMovieList(user_id);
 		model.addAttribute("list", list);
+		System.out.println(list);
 		return "mypage/purchase_history_movie";
 		
 	}	
-	
+	//받은 메세지 내용
 	@RequestMapping(value="/message_receiver_content",method=RequestMethod.GET)
 	public String message_receiver_content(Model model, HttpSession session,int msg_no) throws Exception{
 		MemberVo memberVo = (MemberVo)session.getAttribute(
@@ -107,6 +116,7 @@ public class MypageController {
 		return "mypage/message_receiver_content";
 	}
 	
+	//보낸 메세지 내용
 	@RequestMapping(value="/message_send_content",method=RequestMethod.GET)
 	public String message_send_content(Model model, HttpSession session,int msg_no) throws Exception{
 		MemberVo memberVo = (MemberVo)session.getAttribute(
@@ -119,7 +129,7 @@ public class MypageController {
 		return "mypage/message_send_content";
 	}
 	
-	
+	//메세지 리스트
 	@RequestMapping(value="/message" , method=RequestMethod.GET)
 	public String message(@ModelAttribute("pagingDto") PagingDto pagingDto,Model model, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
@@ -137,7 +147,7 @@ public class MypageController {
 	
 		return "mypage/message";
 	}
-	
+	// 메세지 보내기
 	@RequestMapping(value="/sendMessage", method=RequestMethod.POST)
 	@ResponseBody
 	public String sendMessage(@RequestBody MessageVo messageVo,
@@ -148,6 +158,7 @@ public class MypageController {
 		messageService.sendMessage(messageVo);
 		return "success";
 	}
+	//메세지 삭제
 	@RequestMapping(value = "/deleteMessage", method=RequestMethod.GET)
 	public String deleteMessage(int msg_no, HttpSession session,
 			RedirectAttributes rttr) throws Exception {
@@ -158,11 +169,18 @@ public class MypageController {
 		rttr.addFlashAttribute("msg_delete", String.valueOf(result));
 		return "redirect:/mypage/message";
 	}
+	//메세지 보내기
 	@RequestMapping(value="/message_send",method=RequestMethod.GET)
 	public String message_send() {
 		return "mypage/message_send";
 	}
+	//1:1문의 리스트
+	@RequestMapping(value="/inquiry_list",method=RequestMethod.GET)
+	public String inquiry_list() {
+		return "mypage/inquiry_list";
+	}
 	
+	//음식 구매 내역
 	@RequestMapping(value="/purchase_history_food",method=RequestMethod.GET)
 	public String purchase_history_food() {
 		return "mypage/purchase_history_food";

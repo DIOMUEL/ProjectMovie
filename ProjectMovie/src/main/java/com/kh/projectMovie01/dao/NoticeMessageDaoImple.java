@@ -39,6 +39,12 @@ public class NoticeMessageDaoImple implements NoticeMessageDao {
 	}
 
 	@Override
+	public List<NoticeMessageVo> messageListSend(String msg_sender) {
+		List<NoticeMessageVo> list = sqlSession.selectList(NAMESPACE + "messageListSend", msg_sender);
+		return list;
+	}
+
+	@Override
 	public int notReadCount(String msg_receiver) {
 		int count = sqlSession.selectOne(NAMESPACE + "notReadCount", msg_receiver);
 		return count;
@@ -73,5 +79,16 @@ public class NoticeMessageDaoImple implements NoticeMessageDao {
 		}
 		return false;
 	}
+
+	@Override
+	public List<NoticeMessageVo> messageListSelf(String msg_sender, String msg_receiver) {
+		Map<String, String> map = new HashMap<>();
+		map.put("msg_sender", msg_sender);
+		map.put("msg_receiver", msg_receiver);
+		List<NoticeMessageVo> list = sqlSession.selectList(NAMESPACE + "messageListSelf", map );
+		return list;
+	}
+
+	
 
 }

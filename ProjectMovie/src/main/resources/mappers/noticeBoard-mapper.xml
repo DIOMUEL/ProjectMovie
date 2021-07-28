@@ -93,10 +93,18 @@
 	</update>
 	
 	<!-- 내가쓴 게시글 -->
+<!-- 	<select id="myNoticeBoard" resultType="NoticeBoardVo"> -->
+<!-- 		select * from -->
+<!-- 		tbl_noticeboard -->
+<!-- 		where user_id = #{user_id} -->
+<!-- 	</select> -->
+
 	<select id="myNoticeBoard" resultType="NoticeBoardVo">
-		select * from
-		tbl_noticeboard
-		where user_id = #{user_id}
+			select * from
+			(select rownum rnum, a.* from
+			(select * from tbl_noticeboard
+			where user_id = #{user_id} order by re_group desc, re_seq asc) a)
+			where rnum between #{startRow} and #{endRow}
 	</select>
 
 </mapper>

@@ -31,7 +31,14 @@
 		<div class="single-info">
 			<h5># 쪽지</h5>
 			<ul class="subul">				
-				<li><a href="/mypage/message" class="btn btn-active">쪽지함</a></li>
+				<li><a href="/noticeMessage/messageList" class="btn btn-active">쪽지함</a></li>
+			</ul>
+		</div>
+		<div class="single-info">
+			<h5># 1:1 문의</h5>
+			<ul class="subul">	
+				<li><a href="/mypage/message" class="btn btn-active">1:1문의 보내기</a></li>			
+				<li><a href="/mypage/inquiry_list" class="btn btn-active">1:1문의 내역</a></li>				
 			</ul>
 		</div>
 		

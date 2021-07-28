@@ -43,29 +43,62 @@ public class NoticeMessageController {
 			return list;
 		}
 	
-		// 받은 메시지 목록
-		@RequestMapping(value="/messageListReceive", method=RequestMethod.GET)
+		//메시지목록
+		@RequestMapping(value="/messageList", method=RequestMethod.GET)
 		public String messageListReceive(HttpSession session, Model model) throws Exception {
 			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
-			String msg_receiver = memberVo.getUser_id();
-			List<NoticeMessageVo> list = noticeMessageService.messageListReceive(msg_receiver);
-			model.addAttribute("list", list);
-			return "message/message_receive_list";
+			String user_id = memberVo.getUser_id();
+			
+			List<NoticeMessageVo> receiveList = noticeMessageService.messageListReceive(user_id);
+			model.addAttribute("receiveList", receiveList);
+			
+			List<NoticeMessageVo> sendList = noticeMessageService.messageListSend(user_id);
+			model.addAttribute("sendList", sendList);
+			
+			List<NoticeMessageVo> selfList = noticeMessageService.messageListSelf(user_id, user_id);
+			model.addAttribute("selfList", selfList);
+			
+			return "mypage/message";
 		}
+		
+		
+		
+		// 받은 메시지 목록
+//		@RequestMapping(value="/messageListReceive", method=RequestMethod.GET)
+//		public String messageListReceive(HttpSession session, Model model) throws Exception {
+//			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+//			String msg_receiver = memberVo.getUser_id();
+//			List<NoticeMessageVo> receiveList = noticeMessageService.messageListReceive(msg_receiver);
+//			model.addAttribute("receiveList", receiveList);
+//			return "mypage/message";
+//		}
+		
+		// 보낸 메시지 목록
+//		@RequestMapping(value="/messageListSend", method=RequestMethod.GET)
+//		public String messageListSend(HttpSession session, Model model) throws Exception {
+//			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+//			String msg_sender= memberVo.getUser_id();
+//			List<NoticeMessageVo> sendList = noticeMessageService.messageListSend(msg_sender);
+//			model.addAttribute("sendList", sendList);
+//			return "mypage/message";
+//		}
+	
 		
 		// 쪽지 읽기
 		@RequestMapping(value= "/messageRead", method=RequestMethod.GET)
 		public String messageRead(int msg_no, HttpSession session, Model model) throws Exception {
 			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 			String user_id = memberVo.getUser_id();
-			NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);
+			NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);//
 			model.addAttribute("noticeMessageVo", noticeMessageVo);
-			int notReadCount = noticeMessageService.notReadCount(user_id);
+			int notReadCount = noticeMessageService.notReadCount(user_id);//
 			//int user_point = memberService.getUserPoint(user_id);
 			memberVo.setNotReadCount(notReadCount);
 			//memberVo.setUser_point(user_point);
-			return "message/message_read";
+			model.addAttribute("user_id", user_id);
+			return "mypage/messageRead";
 		}
+		
 		
 		// 쪽지 삭제
 		@RequestMapping(value = "/deleteMessage", method=RequestMethod.GET)
@@ -74,6 +107,7 @@ public class NoticeMessageController {
 			String user_id = memberVo.getUser_id();
 			boolean result = noticeMessageService.deleteMessage(msg_no, user_id);
 			rttr.addFlashAttribute("msg_delete", String.valueOf(result));
-			return "redirect:/message/messageListReceive";
+			return "redirect:/noticeMessage/messageList";
 		}
+		
 }

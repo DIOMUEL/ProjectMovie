@@ -63,10 +63,7 @@
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">상영일정:</h6>
-						<a class="collapse-item" href="#">상영 일정 조회</a> 
-						<a class="collapse-item" href="#">상영 일정 등록</a> 
-						<a class="collapse-item" href="#">상영 회차 조회</a> 
-						<a class="collapse-item" href="#">상영 회차 등록</a>
+						<a class="collapse-item" href="/administerPage/administerMovieScheduleManagementPage">상영 일정 관리</a> 
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">영화 상품:</h6>

@@ -5,35 +5,42 @@
 <script>
 $(document).ready(function() {
 	$("#send").hide();
-	$("#reciver").show();
-	$(".pagination > li > a").click(function(e) {
-		e.preventDefault(); // 페이지 이동 막기
-		var page = $(this).attr("href");
-		var frmPaging = $("#frmPaging");
-		frmPaging.find("[name=page]").val(page);
-		frmPaging.submit();
+	$("#receive").show();
+	$("#self").hide();
+// 	$(".pagination > li > a").click(function(e) {
+// 		e.preventDefault(); // 페이지 이동 막기
+// 		var page = $(this).attr("href");
+// 		var frmPaging = $("#frmPaging");
+// 		frmPaging.find("[name=page]").val(page);
+// 		frmPaging.submit();
 	
-	});
-	$(".send").click(function() {
+// 	});
+	$(".receive").click(function() {
 		$("#send").hide();
-		$("#reciver").show();
+		$("#receive").show();
+		$("#self").hide();
 	});
 	
-	$(".receiver").click(function() {
+	$(".send").click(function() {
 		$("#send").show();
-		$("#reciver").hide();
+		$("#receive").hide();
+		$("#self").hide();
 	})
-	$("#btnSendMessage").click(function() {
-		location.href = "/mypage/message_send";
+	
+	$(".self").click(function() {
+		$("#send").hide();
+		$("#receive").hide();
+		$("#self").show();
 	})
-	$(".a_title").click(function(e) {
-		e.preventDefault(); // prevent:막다, 방지하다, default: 기본
+
+// 	$(".a_title").click(function(e) {
+// 		e.preventDefault(); // prevent:막다, 방지하다, default: 기본
 		
-		var msg_no = $(this).attr("data-msg_no"); // 489
-		$("#frmPaging > input[name=msg_no]").val(msg_no);
-		$("#frmPaging").attr("action", "/mypage/message_send");
-		$("#frmPaging").submit();
-	});
+// 		var msg_no = $(this).attr("data-msg_no"); // 489
+// 		$("#frmPaging > input[name=msg_no]").val(msg_no);
+// 		$("#frmPaging").attr("action", "/mypage/message_send");
+// 		$("#frmPaging").submit();
+// 	});
 
 })
 
@@ -59,47 +66,25 @@ $(document).ready(function() {
 
 								<h2 style="color: white;">쪽지 함</h2>
 								<br>
-								<!-- Nav tabs -->
+								
+							</div>
+									<!-- Nav tabs -->
 								<ul class="nav nav-tabs">
-									<li class="nav-item send" ><a class="nav-link active" data-toggle="tab"
-										href="#home" >보낸쪽지함</a></li>
-									<li class="nav-item receiver"><a class="nav-link"
-										data-toggle="tab" href="#menu1" >받은 쪽지함</a></li>
+									<li class="nav-item receive" ><a class="nav-link active" data-toggle="tab"
+										href="#home" >받은쪽지함</a></li>
+									<li class="nav-item send"><a class="nav-link"
+										data-toggle="tab" href="#menu1" >보낸쪽지함</a></li>
+									<li class="nav-item self"><a class="nav-link"
+										data-toggle="tab" href="#menu2" >내게쓴쪽지함</a></li>	
 								</ul>
 
 								<!-- Tab panes -->
 								<div class="row" id="send">
 									<div class="col-md-12">
-										<table class="table" style="color: white;">
+										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>#</th>
-													<th>쪽지내용</th>
-													<th>보낸사람</th>
-													<th>보낸날짜</th>
-													<th>읽은날짜</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="messageVo" items="${send_MessageList}">
-													<tr>
-														<td>${messageVo.msg_no}</td>
-														<td><a href="/mypage/message_send_content?msg_no=${messageVo.msg_no}">${messageVo.msg_content}</a></td>
-														<td>${messageVo.msg_receiver}</td>
-														<td>${messageVo.msg_senddate}</td>
-														<td></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<div class="row" id="reciver">
-									<div class="col-md-12">
-										<table class="table"  style="color: white;">
-											<thead>
-												<tr>
-													<th>#</th>
+													<th>NO.</th>
 													<th>쪽지내용</th>
 													<th>받는사람</th>
 													<th>보낸날짜</th>
@@ -107,65 +92,119 @@ $(document).ready(function() {
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="messageVo" items="${receive_MessageList}">
-													<tr>
-														<td>${messageVo.msg_no}</td>
-														<td><a href="/mypage/message_receiver_content?msg_no=${messageVo.msg_no}">${messageVo.msg_content}</a> </td>
-														<td>${messageVo.msg_sender}</td>
-														<td>${messageVo.msg_senddate}</td>
-														<td></td>
-													</tr>
-												</c:forEach>
+											<c:forEach var="noticeSendMessageVo" items="${sendList}">
+												<tr>
+													<td>${noticeSendMessageVo.msg_no}</td>
+													<td>
+														<span
+															<c:if test="${empty noticeSendMessageVo.msg_opendate}">
+																style="font-weight:bold"
+															</c:if>
+														>
+														<a href="/noticeMessage/messageRead?msg_no=${noticeSendMessageVo.msg_no}">${noticeSendMessageVo.msg_content}</a></span>
+													</td>
+													<td>${noticeSendMessageVo.msg_receiver}</td>
+													<td>${noticeSendMessageVo.msg_senddate}</td>
+													<td>
+													<c:choose>
+													<c:when test="${empty noticeSendMessageVo.msg_opendate}">
+														읽지 않음
+													</c:when>
+													<c:otherwise>
+														${noticeSendMessageVo.msg_opendate}
+													</c:otherwise>
+													</c:choose>
+													</td>
+												</tr>
+											</c:forEach>	
 											</tbody>
 										</table>
-										
 									</div>
-							<!-- 페이징 -->
-	
-	<div class="row">
-		<div class="col-md-12">
-			<nav>
-				<ul class="pagination justify-content-center">
-				<c:if test="${pagingDto.startPage != 1}">
-					<li class="page-item">
-						<a class="page-link" 
-							href="${pagingDto.startPage - 1}">&laquo;</a>
-					</li>
-				</c:if>
-				<c:forEach var="v" begin="${pagingDto.startPage}" 
-								   end="${pagingDto.endPage}">
-					<li 
-					
-						<c:choose>
-							<c:when test="${pagingDto.page == v}">
-								class="page-item active"
-							</c:when>
-							<c:otherwise>
-								class="page-item"
-							</c:otherwise>
-						</c:choose>
-						
-					>
-						<a class="page-link" href="${v}">${v}</a>
-					</li>
-				</c:forEach>
-				<c:if test="${pagingDto.endPage < pagingDto.totalPage}">	
-					<li class="page-item">
-						<a class="page-link" 
-							href="${pagingDto.endPage + 1}">&raquo;</a>
-					</li>
-				</c:if>
-				</ul>
-			</nav>
-		</div>
-	</div>
-	
-	
-	<!-- // 페이징 -->
 								</div>
-								<br>
-								<input type="button" id="btnSendMessage" class="btn btn-outline-success"value="쪽지 보내기">
-							</div>
+								<div class="row" id="receive">
+									<div class="col-md-12">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>NO.</th>
+													<th>쪽지내용</th>
+													<th>보낸사람</th>
+													<th>보낸날짜</th>
+													<th>읽은날짜</th>
+												</tr>
+											</thead>
+											<tbody>
+											<c:forEach var="noticeReceiveMessageVo" items="${receiveList}">
+												<tr>
+													<td>${noticeReceiveMessageVo.msg_no}</td>
+													<td>
+														<span
+															<c:if test="${empty noticeReceiveMessageVo.msg_opendate}">
+																style="font-weight:bold"
+															</c:if>
+														>
+														<a href="/noticeMessage/messageRead?msg_no=${noticeReceiveMessageVo.msg_no}">${noticeReceiveMessageVo.msg_content}</a></span>
+													</td>
+													<td>${noticeReceiveMessageVo.msg_sender}</td>
+													<td>${noticeReceiveMessageVo.msg_senddate}</td>
+													<td>
+													<c:choose>
+													<c:when test="${empty noticeReceiveMessageVo.msg_opendate}">
+														읽지 않음
+													</c:when>
+													<c:otherwise>
+														${noticeReceiveMessageVo.msg_opendate}
+													</c:otherwise>
+													</c:choose>
+													</td>
+												</tr>
+											</c:forEach>	
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="self">
+									<div class="col-md-12">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>NO.</th>
+													<th>쪽지내용</th>
+													<th>보낸사람</th>
+													<th>보낸날짜</th>
+													<th>읽은날짜</th>
+												</tr>
+											</thead>
+											<tbody>
+											<c:forEach var="noticeSelfMessageVo" items="${selfList}">
+												<tr>
+													<td>${noticeSelfMessageVo.msg_no}</td>
+													<td>
+														<span
+															<c:if test="${empty noticeSelfMessageVo.msg_opendate}">
+																style="font-weight:bold"
+															</c:if>
+														>
+														<a href="/noticeMessage/messageRead?msg_no=${noticeSelfMessageVo.msg_no}">${noticeSelfMessageVo.msg_content}</a></span>
+													</td>
+													<td>${noticeSelfMessageVo.msg_sender}</td>
+													<td>${noticeSelfMessageVo.msg_senddate}</td>
+													<td>
+													<c:choose>
+													<c:when test="${empty noticeSelfMessageVo.msg_opendate}">
+														읽지 않음
+													</c:when>
+													<c:otherwise>
+														${noticeSelfMessageVo.msg_opendate}
+													</c:otherwise>
+													</c:choose>
+													</td>
+												</tr>
+											</c:forEach>	
+											</tbody>
+										</table>
+									</div>
+								</div>
 							<div class="col-lg-3"></div>
 						</div>
 					</div>

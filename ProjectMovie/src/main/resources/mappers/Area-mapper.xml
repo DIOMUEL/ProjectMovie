@@ -11,6 +11,7 @@
 		select * from tbl_area
 		order by area_no asc
 	</select>
+	
 	<!-- 지역추가 -->
 	<insert id="movieAreaAdd">
 		insert into tbl_area(area_no, area_name)

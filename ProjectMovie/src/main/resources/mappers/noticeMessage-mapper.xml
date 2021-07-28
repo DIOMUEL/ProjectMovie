@@ -11,7 +11,7 @@
 		values 
 			(seq_noticeMessage_no.nextval, #{msg_content}, #{msg_sender}, #{msg_receiver})
 	</insert>
-	
+
 	<select id="notReadCount" resultType="int">
 		select count(*) from tbl_noticeMessage
 		where msg_receiver = #{msg_receiver}
@@ -24,10 +24,25 @@
 		and msg_opendate is null
 		order by msg_no desc
 	</select>
-	
+
 	<select id="messageListReceive" resultType="NoticeMessageVo">
 		select * from tbl_noticeMessage
 		where msg_receiver = #{msg_receiver}
+		and msg_sender != #{msg_receiver}
+		order by msg_no desc
+	</select>
+	
+	<select id="messageListSend" resultType="NoticeMessageVo">
+		select * from tbl_noticeMessage
+		where msg_sender = #{msg_sender}
+		and msg_receiver != #{msg_sender}
+		order by msg_no desc
+	</select>
+	
+	<select id="messageListSelf" resultType="NoticeMessageVo">
+		select * from tbl_noticeMessage
+		where msg_sender = #{msg_sender}
+		and msg_receiver = #{msg_receiver}
 		order by msg_no desc
 	</select>
 	
