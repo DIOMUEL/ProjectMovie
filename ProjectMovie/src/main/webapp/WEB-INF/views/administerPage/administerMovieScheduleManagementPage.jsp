@@ -6,7 +6,7 @@
 		<div class="col-lg-9 col-md-8 col-12">
 			<div class="row" style="padding:20px;text-align:left;">
 				<h3>상영시간표</h3>
-				<div class="movie-option mb20">
+				<div class="movie-option mb20" style="margin-top:50px;">
 					<div class="option">
 						<ul>
 							<li><i class="iconset ico-stage" title="무대인사"></i>무대인사</li>
@@ -21,7 +21,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="reserve theater-list-box">
+				<div class="reserve theater-list-box" style="margin-top:50px;">
 					<div class="tab-block tab-layer mb30">
 						<ul>
 							<c:forEach items="${areaVo}" var="areaVo">
@@ -32,36 +32,40 @@
 						</ul>
 					</div>
 				</div>
+				<div style="margin-top:50px;">
+					<div style="float:left;">
+						<select class="selectTheaterName" name="theaterName" disabled>
+							<option value="0" selected>--영화관명--</option>
+						</select>
+					</div>
+					<div style="float:left;">
+						<select class="selectTheater" name="theater" disabled>
+							<option value="0" selected>--제0관--</option>
+						</select>
+					</div>	
+					<div style="float:left;">
+						<input type="date" class="form-control form-Read" id="movieSchedule_registTime" disabled/>
+					</div>
+					<div style="float:left;">
+						<button type="button" class="btn btn-primary" id="btnSearching" disabled>조회</button>
+					</div>
+				</div>	
 				<div>
-					<select class="selectTheaterName" name="theaterName">
-						<option value="0" selected>--영화관명--</option>
-					</select>
-					<select class="selectTheater" name="theater">
-						<option value="0" selected>--제0관--</option>
-					</select>
-					<div>
+					<form id="frmSeatSetting" role="form" action="/administerPage/administerMovieScheduleRegistPage" method="get">
 						<div class="form-group">
-							<input type="date" class="form-control form-Read" id="movieSchedule_registTime"/>
+							<input type="hidden" class="form-control" id="area_theater_no" name="area_theater_no"/>
 						</div>
-					</div>
-					<div>
-						<form id="frmSeatSetting" role="form" action="/administerPage/administerMovieScheduleRegistPage" method="get">
-							<div class="form-group">
-								<input type="hidden" class="form-control" id="area_theater_no" name="area_theater_no"/>
-							</div>
-							<div class="form-group">
-								<input type="hidden" class="form-control" id="theater_no" name="theater_no"/>
-							</div>
-							<div class="form-group">
-								<input type="hidden" class="form-control" id="theater_name" name="theater_name"/>
-							</div>
-							<div class="form-group"> 
-								<input type="hidden" class="form-control" id="theater_seatNum" name="theater_seatNum"/>
-							</div>
-							<button type="submit" style="display:none" class="btn btn-primary" id="btnAddScheduleMovie">추가</button>
-						</form>
-					</div>
-					<button type="button" class="btn btn-primary" id="btnSearching">조회</button>
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="theater_no" name="theater_no"/>
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="theater_name" name="theater_name"/>
+						</div>
+						<div class="form-group"> 
+							<input type="hidden" class="form-control" id="theater_seatNum" name="theater_seatNum"/>
+						</div>
+						<button type="submit" style="display:none" class="btn btn-primary" id="btnAddScheduleMovie">추가</button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -81,12 +85,10 @@
 											<th style="width:100px;">총타임(분)</th>
 											<th style="width:100px;">남은 좌석</th>
 											<th style="width:100px;">등록일</th>
-											<th style="width:100px;">수정</th>
 										</tr>
 									</thead>
-									<tbody style="vertical-align:middle;table-layout:fixed;">
+									<tbody style="vertical-align:middle;table-layout:fixed">
 										<tr style="height:50px;vertical-align:middle;">
-											<td style="vertical-align:middle;"></td>
 											<td style="vertical-align:middle;"></td>
 											<td style="vertical-align:middle;"></td>
 											<td style="vertical-align:middle;"></td>
@@ -151,6 +153,7 @@
 					$(".arrNo:eq("+ i +")").attr("value", arrNo[i]); 
 					//$(".selectTheaterName").children("option:eq("+ i+1 +")").attr("value", arrNo[i]); 
 				};
+				$(".selectTheaterName").attr("disabled", false);
 			});
 		});
 		//영화관이름 선택시 영화관 관명리스트 호출
@@ -187,8 +190,11 @@
 					$(".arrTNo:eq("+ i +")").attr("data-theater_seatNum", arrSeat[i]); 
 					//$(".selectTheaterName").children("option:eq("+ i+1 +")").attr("value", arrNo[i]); 
 				};
+				//영화관 클릭시 제몇관오픈
+				$(".selectTheater").attr("disabled", false);
 			});
 		});
+
 		//얻은값들 히든에 넣기
 		$(".selectTheater").change(function(){
 			var area_theater_no = $(".selectTheaterName").val();
@@ -203,14 +209,22 @@
 			$("#theater_no").attr("value", theater_no);
 			$("#theater_name").attr("value", theater_name);
 			$("#theater_seatNum").attr("value", theater_seatNum);
+			//제몇관 클릭시 날짜오픈
+			$("#movieSchedule_registTime").attr("disabled", false);
+		});
+		//날짜 클릭시  조회버튼 오픈
+		$("#movieSchedule_registTime").change(function(){
+			$("#btnSearching").attr("disabled", false);
 		});
 		//관별 상영 리스트 조회
 		$("#btnSearching").click(function(){
 			$("#btnAddScheduleMovie").attr("style", "");
 			$("#movieScheduleTable").attr("style", "text-align:center;height:auto;");
- 			var theater_no = $(".selectTheater").val();	
+ 			
+			var theater_no = $(".selectTheater").val();	
 			var movieSchedule_registTime = $("#movieSchedule_registTime").val();
- 			var url = "/administerPage/administerGetMovieScheduleList";
+ 			
+			var url = "/administerPage/administerGetMovieScheduleList";
 			var sendData = {
 					"movieSchedule_registTime" : movieSchedule_registTime,
 					"theater_no" : theater_no
@@ -219,20 +233,20 @@
 //  		console.log("theater_no : " + theater_no);
 			$.get(url, sendData, function(rData){
   				console.log("rData : ", rData);
-//  				var cloneTr;
-//  				$("#movieScheduleTable > tbody > tr:gt(0)").remove();
-// 				$.each(rData, function() {
-// 					cloneTr = $("#movieScheduleTable > tbody > tr:first").clone();
-// 					var td = cloneTr.find("td");
-// 					td.eq(0).text(this.movieschedule_recoding);
-// 					td.eq(1).text(this.movieSchedule_type);
-// 					td.eq(2).text(this.movieSchedule_playTime);
-// 					td.eq(3).text(this.movieSchedule_totalPlayTime);
-// 					td.eq(4).text(this.movieSchedule_seat);
-// 					td.eq(5).text(changeDateString(this.movieSchedule_registTime));
-// 					$("#movieScheduleTable > tbody").append(cloneTr);
-//  					td.show();
-// 				});
+ 				var cloneTr;
+ 				$("#movieScheduleTable > tbody > tr:gt(0)").remove();
+				$.each(rData, function() {
+					cloneTr = $("#movieScheduleTable > tbody > tr:first").clone();
+					var td = cloneTr.find("td");
+					td.eq(0).text(this.movieschedule_recoding);
+					td.eq(1).text(this.movieSchedule_type);
+					td.eq(2).text(this.movieSchedule_playTime);
+					td.eq(3).text(this.movieSchedule_totalPlayTime);
+					td.eq(4).text(this.movieSchedule_seat);
+					td.eq(5).text(changeDateString(this.movieSchedule_registTime));
+					$("#movieScheduleTable > tbody").append(cloneTr);
+ 					td.show();
+				});
 			});
 		});
 	});

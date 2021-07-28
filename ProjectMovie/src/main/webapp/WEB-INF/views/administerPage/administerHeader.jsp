@@ -78,13 +78,13 @@
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
 				aria-expanded="true" aria-controls="collapseUtilities"> 
 				<i class="fas fa-fw fa-wrench"></i> 
-				<span>스케줄</span>
+				<span>관리 스케줄</span>
 				</a>
 				<div id="collapseUtilities" class="collapse"
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">스케줄 설정 및 유지:</h6>
-						<a class="collapse-item" href="utilities-color.html">스케줄 관리</a> <a
+						<a class="collapse-item" href="/administerPage/administerScheduleManagement">스케줄 관리</a> <a
 							class="collapse-item" href="utilities-border.html">오늘 할일</a> <a
 							class="collapse-item" href="utilities-animation.html">메시지 관리</a>
 						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>

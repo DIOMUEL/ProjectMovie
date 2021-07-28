@@ -334,6 +334,7 @@ public class AdminController {
 //	}
 	//영화지역 선택시 영화관리스트 가지고오기
 	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
+	@ResponseBody
 	public List<MovieScheduleVo> administerGetMovieScheduleList(int theater_no, String movieSchedule_registTime) throws Exception {
 		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(theater_no, movieSchedule_registTime);
 //		System.out.println("theater_no : " + theater_no);
@@ -375,4 +376,11 @@ public class AdminController {
 		return "redirect:/administerPage/administerMovieScheduleManagementPage";
 	}
 	// --------------- 영화 스케줄 관리 END-----------------------
+	// --------------- 관리 스케줄 관리 -----------------------
+	@RequestMapping(value="/administerScheduleManagement", method=RequestMethod.GET)
+	public String administerScheduleManagement() throws Exception {
+
+		return "/administerPage/administerScheduleManagement";
+	}
+	// --------------- 관리 스케줄 관리 END-----------------------
 }
