@@ -135,9 +135,11 @@
 		movie_count = movie_count + 1
 		where movie_name = #{movie_name}
 	</update>
+	<!-- 각관의 영화상영스케줄 리스트 조회할때  -->
 	<select id="getMovieScheduleList" resultType="MovieScheduleVo">
-		select * from tbl_MovieSchedule
-		where theater_no = #{theater_no}
+		select * from tbl_MovieSchedule 
+		where movieSchedule_registTime between to_date(#{movieSchedule_registTime}) and to_date(#{movieSchedule_registTime})+1
+		and theater_no = #{theater_no}
 		order by movieSchedule_registTime asc
 	</select>
 </mapper>

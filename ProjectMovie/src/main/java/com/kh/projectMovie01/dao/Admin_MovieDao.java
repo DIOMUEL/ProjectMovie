@@ -27,5 +27,5 @@ public interface Admin_MovieDao {
 	public void insertMoviSchedule(MovieScheduleVo movieScheduleVo);
 	public void countUp(String movie_name);
 	public MovieScheduleVo lastMovieSchedule(int theater_no);
-	public List<MovieScheduleVo> getMovieScheduleList(int theater_no);
+	public List<MovieScheduleVo> getMovieScheduleList(int theater_no, String movieSchedule_registTime);
 }
