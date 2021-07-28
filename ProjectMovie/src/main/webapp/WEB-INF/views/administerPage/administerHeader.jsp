@@ -35,7 +35,7 @@
 			</a>
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
-				<a class="nav-link" href="index.html"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a>
+				<a class="nav-link"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a>
 			</li>
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -64,10 +64,6 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">상영일정:</h6>
 						<a class="collapse-item" href="/administerPage/administerMovieScheduleManagementPage">상영 일정 관리</a> 
-					</div>
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">영화 상품:</h6>
-						<a class="collapse-item" href="#">영화 상품 조회</a> 
 					</div>
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">매점 상품:</h6>

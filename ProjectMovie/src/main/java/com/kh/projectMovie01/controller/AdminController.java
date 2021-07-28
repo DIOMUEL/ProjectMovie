@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+import javax.xml.crypto.Data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -105,7 +106,7 @@ public class AdminController {
 	//영화 수정하기
 	@RequestMapping(value="/administerMovieModifyRun", method = RequestMethod.POST)
 	public String administerMovieModifyRun(MovieVo movieVo, RedirectAttributes rttr) throws Exception {
-		System.out.println("movieVo"+ movieVo);
+		//System.out.println("movieVo"+ movieVo);
 		String movie_code = movieVo.getMovie_code();
 		admin_MovieService.movieModify(movieVo);
 		rttr.addFlashAttribute("msg", "success");
@@ -114,7 +115,7 @@ public class AdminController {
 	//삭제하기
 	@RequestMapping(value="/administerMovieDeleteRun", method = RequestMethod.GET)
 	public String administerMovieDeleteRun(String movie_code, RedirectAttributes rttr) throws Exception {
-		System.out.println("movie_code"+ movie_code);
+		//System.out.println("movie_code"+ movie_code);
 		admin_MovieService.deleteMovie(movie_code);
 		rttr.addFlashAttribute("msgDelete", "success");
 		return "redirect:/administerPage/administerMovieListPage";
@@ -199,7 +200,7 @@ public class AdminController {
 		List<AreaTheaterVo> areaTheaterVo = null;
 		if(area_no != 0) {
 			areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
-			System.out.println("areaTheaterVo : "+ areaTheaterVo);
+			//System.out.println("areaTheaterVo : "+ areaTheaterVo);
 		}
 		return areaTheaterVo;
 	}
@@ -324,18 +325,20 @@ public class AdminController {
 		model.addAttribute("areaVo", areaVo);
 		return "/administerPage/administerMovieScheduleManagementPage";
 	}
+//	//영화지역 선택시 영화관리스트 가지고오기
+//	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
+//	@ResponseBody
+//	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
+//		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+//		return areaTheaterVo;
+//	}
 	//영화지역 선택시 영화관리스트 가지고오기
-	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
-	@ResponseBody
-	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
-		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
-		return areaTheaterVo;
-	}
-	//영화지역 선택시 영화관리스트 가지고오기
-	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
-	@ResponseBody
-	public List<MovieScheduleVo> administerGetMovieScheduleList(int theater_no) throws Exception {
-		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(theater_no);
+	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
+	public List<MovieScheduleVo> administerGetMovieScheduleList(int theater_no, String movieSchedule_registTime) throws Exception {
+		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(theater_no, movieSchedule_registTime);
+//		System.out.println("theater_no : " + theater_no);
+//		System.out.println("movieSchedule_registTime : " + movieSchedule_registTime);
+//		System.out.println("list : "+ list);
 		return list;
 	}
 	//영화 스케줄 등록 페이지

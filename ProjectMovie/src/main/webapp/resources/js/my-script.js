@@ -17,8 +17,7 @@ function changeDateString(timestamp) {
 	var hour = make2digits(d.getHours());
 	var minute = make2digits(d.getMinutes());
 	var second = make2digits(d.getSeconds());
-	return year + "-" + month + "-" + date 
-			+ " " + hour + ":" + minute + ":" + second;
+	return year + "-" + month + "-" + date;
 }
 
 function isImage(fileName) {
