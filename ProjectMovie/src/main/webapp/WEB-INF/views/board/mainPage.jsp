@@ -47,7 +47,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -57,7 +57,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -66,9 +66,8 @@ $(document).ready(function(){
                 </div><div class="mp-video-slide slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 1903px;" tabindex="0" role="tabpanel" id="slick-slide11" aria-describedby="slick-slide-control11">
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
-
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -77,9 +76,8 @@ $(document).ready(function(){
                 </div><div class="mp-video-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide12" aria-describedby="slick-slide-control12">
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
-
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -88,9 +86,8 @@ $(document).ready(function(){
                 </div><div class="mp-video-slide slick-slide" data-slick-index="3" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide13" aria-describedby="slick-slide-control13">
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
-
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -99,9 +96,8 @@ $(document).ready(function(){
                 </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 1903px;" tabindex="-1">
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
-
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -111,7 +107,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -121,7 +117,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">«Movie HomePage»</div>
@@ -131,7 +127,7 @@ $(document).ready(function(){
                         <div class="mp-video-item-video">
 
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src="" type="">
+                                <source src="" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -362,9 +358,7 @@ $(document).ready(function(){
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<h4>
-							Be Part <br /> Of Our <br /> MovieTheater
-						</h4>
+						<h4> Be Part <br/> Of Our <br/> MovieTheater </h4>
 					</div>
 				</li>
 			</ul>

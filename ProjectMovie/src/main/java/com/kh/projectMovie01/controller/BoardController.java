@@ -1,6 +1,7 @@
 package com.kh.projectMovie01.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -101,5 +102,10 @@ public class BoardController {
 		memberService.insertMember(memberVo);
 		session.setAttribute("msgInsertMember", "success");
 		return "redirect:/board/loginPage"; 
+	}
+	
+	@RequestMapping(value = "/board", method = RequestMethod.GET)
+	public String imsiPage(Locale locale, Model model) {
+		return "/board/imsi";
 	}
 }
