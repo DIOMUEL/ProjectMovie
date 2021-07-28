@@ -1,6 +1,6 @@
 package com.kh.projectMovie01.vo;
 
-import java.security.Timestamp;
+import java.sql.Date;
 
 public class MovieScheduleVo {
 
@@ -13,7 +13,7 @@ public class MovieScheduleVo {
 	private int movieSchedule_totalPlayTime;
 	private int movieSchedule_seat;
 	private int movieSchedule_count;
-	private Timestamp movieSchedule_registTime;
+	private Date movieSchedule_registTime;
 	
 	public MovieScheduleVo() {
 		super();
@@ -21,7 +21,7 @@ public class MovieScheduleVo {
 
 	public MovieScheduleVo(int movieschedule_recoding, int area_theater_no, int theater_no, String movieSchedule_type,
 			String movie_name, String movieSchedule_playTime, int movieSchedule_totalPlayTime, int movieSchedule_seat,
-			int movieSchedule_count, Timestamp movieSchedule_registTime) {
+			int movieSchedule_count, Date movieSchedule_registTime) {
 		super();
 		this.movieschedule_recoding = movieschedule_recoding;
 		this.area_theater_no = area_theater_no;
@@ -107,11 +107,11 @@ public class MovieScheduleVo {
 		this.movieSchedule_count = movieSchedule_count;
 	}
 
-	public Timestamp getMovieSchedule_registTime() {
+	public Date getMovieSchedule_registTime() {
 		return movieSchedule_registTime;
 	}
 
-	public void setMovieSchedule_registTime(Timestamp movieSchedule_registTime) {
+	public void setMovieSchedule_registTime(Date movieSchedule_registTime) {
 		this.movieSchedule_registTime = movieSchedule_registTime;
 	}
 

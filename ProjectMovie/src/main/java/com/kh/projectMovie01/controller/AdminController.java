@@ -324,18 +324,19 @@ public class AdminController {
 		model.addAttribute("areaVo", areaVo);
 		return "/administerPage/administerMovieScheduleManagementPage";
 	}
+//	//영화지역 선택시 영화관리스트 가지고오기
+//	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
+//	@ResponseBody
+//	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
+//		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
+//		return areaTheaterVo;
+//	}
 	//영화지역 선택시 영화관리스트 가지고오기
-	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
-	@ResponseBody
-	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
-		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
-		return areaTheaterVo;
-	}
-	//영화지역 선택시 영화관리스트 가지고오기
-	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
+	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
 	@ResponseBody
 	public List<MovieScheduleVo> administerGetMovieScheduleList(int theater_no) throws Exception {
 		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleList(theater_no);
+		System.out.println("list : "+ list);
 		return list;
 	}
 	//영화 스케줄 등록 페이지

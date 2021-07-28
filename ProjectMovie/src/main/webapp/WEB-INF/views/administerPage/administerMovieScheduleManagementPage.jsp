@@ -104,6 +104,7 @@
 <script src="/resources/administerPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/resources/js/my-script.js"></script>
 <script>
 	$(document).ready(function(){
 		//등록 성공했을때
@@ -207,41 +208,23 @@
 			};
 // 			console.log("theater_no : " + theater_no);
 			$.get(url, sendData, function(rData){
-// 				console.log("rData : ", rData);
-				var tr = $("#movieScheduleTable > tbody > tr");
+ 				console.log("rData : ", rData);
+ 				var cloneTr;
+ 				$("#movieScheduleTable > tbody > tr:gt(0)").remove();
 				$.each(rData, function() {
-					var td = tr.clone();
-					
-					td.insertAfter(tr);
+					cloneTr = $("#movieScheduleTable > tbody > tr:first").clone();
+					var td = cloneTr.find("td");
+					td.eq(0).text(this.movieschedule_recoding);
+					td.eq(1).text(this.movieSchedule_type);
+					td.eq(2).text(this.movieSchedule_playTime);
+					td.eq(3).text(this.movieSchedule_totalPlayTime);
+					td.eq(4).text(this.movieSchedule_seat);
+					td.eq(5).text(changeDateString(this.movieSchedule_registTime));
+					$("#movieScheduleTable > tbody").append(cloneTr);
  					td.show();
 				});
 			});
 		});
-// 		//각영화관마다의 영화스케줄 얻어오기
-// 		$(document).on("click",".btnTrigger",function(){
-// 			var theater_no = $(this).attr("data-theater_no");
-// 			var url = "/administerPage/administerGetMovieScheduleList";
-// 			var sendData = {
-// 					"theater_no" : theater_no
-// 			};
-// 			console.log("theater_no : " + theater_no);
-// 			$.get(url, sendData, function(rData){
-// 				$(this).remove();
-// 				var td0 = $("#movieSchedule > tr > td:eq(0)");
-// 				$.each(rData, function() {
-// 					var td = td0.clone();
-// 					$(".movieSchedule").remove("id");
-// 					var playTime = td.find(".playTime");
-// 					playTime.text(this.movieSchedule_totalPlayTime + "분");
-// 					var remainChair = td.find(".remainChair");
-// 					remainChair.text(this.movieSchedule_seat +"석");
-// 					var play_time = td.find(".play-time");
-// 					play_time.text(this.movieSchedule_playTime);
-// 					td.insertAfter(td0);
-// 					td.show();
-// 				});
-// 			});
-//  	});
 	});
 </script>
 </body>
