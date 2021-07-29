@@ -16,8 +16,34 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="/resources/administerPage/css/sb-admin-2.min.css" rel="stylesheet">
-
+<script src="/resources/administerPage/vendor/jquery/jquery.min.js"></script>
+<script src="/resources/administerPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$(".scheduleManagement").click(function(e){
+			e.preventDefault();
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = today.getMonth();
+			var date = today.getDate();
+			//console.log(year + "년" + month +"월"+ date +"일");
+			$("#managerSchedule_year").attr("value", year);
+			$("#managerSchedule_month").attr("value", month);
+			$("#managerSchedule_date").attr("value", date);
+			$("#frmManagement").submit();
+		});
+	});
+</script>
 </head>
+<form id="frmManagement" role="form" action="/administerPage/administerScheduleManagement" method="post">
+	<div class="form-group">
+		<input type="hidden" class="form-control" id="managerSchedule_year" name="managerSchedule_year"/>
+		<input type="hidden" class="form-control" id="managerSchedule_month" name="managerSchedule_month"/>
+		<input type="hidden" class="form-control" id="managerSchedule_date" name="managerSchedule_date"/>
+	</div>
+</form>
 <body id="page-top">
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -84,7 +110,7 @@
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">스케줄 설정 및 유지:</h6>
-						<a class="collapse-item" href="/administerPage/administerScheduleManagement">스케줄 관리</a> <a
+						<a class="collapse-item scheduleManagement" href="/administerPage/administerScheduleManagement">스케줄 관리</a> <a
 							class="collapse-item" href="utilities-border.html">오늘 할일</a> <a
 							class="collapse-item" href="utilities-animation.html">메시지 관리</a>
 						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>

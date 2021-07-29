@@ -17,7 +17,7 @@ import com.kh.projectMovie01.vo.MovieVo;
 @Repository
 public class Admin_MovieDaoImpl implements Admin_MovieDao {
 
-	private static final String NAMESPACE = "mappers.movie-mapper.";
+	private static final String NAMESPACE = "com.kh.projectMovie01.movie.";
 	
 	@Inject
 	private SqlSession sqlSession;	
