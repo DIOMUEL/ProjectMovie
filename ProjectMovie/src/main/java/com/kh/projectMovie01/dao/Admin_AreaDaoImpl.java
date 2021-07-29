@@ -16,7 +16,7 @@ import com.kh.projectMovie01.vo.TheaterSeatVo;
 @Repository
 public class Admin_AreaDaoImpl implements Admin_AreaDao {
 
-	private static final String NAMESPACE = "mappers.area-mapper.";
+	private static final String NAMESPACE = "com.kh.projectMovie01.area.";
 	
 	@Inject
 	private SqlSession sqlSession;	

@@ -1,6 +1,7 @@
 package com.kh.projectMovie01.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -40,7 +41,7 @@ public class BoardController {
 	@RequestMapping(value = "/loginRun", method = RequestMethod.POST)
 	public String loginRun(String user_id, String user_pw, HttpSession session, RedirectAttributes rttr) { 
 		MemberVo memberVo = memberService.loginMember(user_id, user_pw);
-		System.out.println("memberVo: "+ memberVo);
+		//System.out.println("memberVo: "+ memberVo);
 		String msg = null; 
 		String page = null;
 		if(memberVo != null) {
@@ -105,5 +106,10 @@ public class BoardController {
 		memberService.insertMember(memberVo);
 		session.setAttribute("msgInsertMember", "success");
 		return "redirect:/board/loginPage"; 
+	}
+	
+	@RequestMapping(value = "/board", method = RequestMethod.GET)
+	public String imsiPage(Locale locale, Model model) {
+		return "/board/imsi";
 	}
 }

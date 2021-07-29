@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.area-mapper">
+<mapper namespace="com.kh.projectMovie01.area">
 <!-- 영화관 지역 관련 -->
 	<!-- 전체 지역 조회 -->
 	<!-- & 영화좌석 페이지 입장시 지역들 원소 호출 -->

@@ -17,7 +17,7 @@ import com.kh.projectMovie01.vo.MovieVo;
 @Repository
 public class Admin_MovieDaoImpl implements Admin_MovieDao {
 
-	private static final String NAMESPACE = "mappers.movie-mapper.";
+	private static final String NAMESPACE = "com.kh.projectMovie01.movie.";
 	
 	@Inject
 	private SqlSession sqlSession;	
@@ -95,14 +95,17 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	}
 
 	@Override
-	public MovieScheduleVo lastMovieSchedule(int area_theater_no) {
-		MovieScheduleVo movieScheduleVo = sqlSession.selectOne(NAMESPACE + "lastMovieSchedule", area_theater_no);
+	public MovieScheduleVo lastMovieSchedule(int theater_no) {
+		MovieScheduleVo movieScheduleVo = sqlSession.selectOne(NAMESPACE + "lastMovieSchedule", theater_no);
 		return movieScheduleVo;
 	}
 
 	@Override
-	public List<MovieScheduleVo> getMovieScheduleList(int area_theater_no) {
-		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleList", area_theater_no);
+	public List<MovieScheduleVo> getMovieScheduleList(int theater_no, String movieSchedule_registTime) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("theater_no", theater_no);
+		map.put("movieSchedule_registTime", movieSchedule_registTime);
+		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleList", map);
 		return list;
 	}
 }

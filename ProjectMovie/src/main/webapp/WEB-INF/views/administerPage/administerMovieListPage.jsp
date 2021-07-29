@@ -52,7 +52,6 @@
 									<button type="button" class="btn btn-primary" id="btnList">목록</button>
 								</div>	
 								<!--  검색 끝 -->
-								<!--  페이지별 내용 -->
 								<table class="table" style="text-align:center;height:auto;" id="movie_table">
 									<thead>
 										<tr>

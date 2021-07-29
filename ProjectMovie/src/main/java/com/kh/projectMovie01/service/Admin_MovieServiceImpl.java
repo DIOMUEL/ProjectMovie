@@ -108,15 +108,14 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 		movieDao.countUp(movie_name);
 	}
 	@Override
-	public MovieScheduleVo lastMovieSchedule(int area_theater_no) {
-		MovieScheduleVo movieScheduleVo = movieDao.lastMovieSchedule(area_theater_no);
+	public MovieScheduleVo lastMovieSchedule(int theater_no) {
+		MovieScheduleVo movieScheduleVo = movieDao.lastMovieSchedule(theater_no);
 		return movieScheduleVo;
 	}
 
 	@Override
-	public List<MovieScheduleVo> getMovieScheduleList(int area_theater_no) {
-		List<MovieScheduleVo> list = movieDao.getMovieScheduleList(area_theater_no);
+	public List<MovieScheduleVo> getMovieScheduleList(int theater_no, String movieSchedule_registTime) {
+		List<MovieScheduleVo> list = movieDao.getMovieScheduleList(theater_no, movieSchedule_registTime);
 		return list;
 	}
-
 }

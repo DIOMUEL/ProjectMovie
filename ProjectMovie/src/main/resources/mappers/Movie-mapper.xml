@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.movie-mapper">
+<mapper namespace="com.kh.projectMovie01.movie">
 
 	<!-- 영화 조회 -->
 	<select id="getMovieList" resultType="MovieVo">
@@ -118,16 +118,16 @@
 	<!-- 등록된 마지막 영화 상영시간 -->
 	<select id="lastMovieSchedule" resultType="MovieScheduleVo">
 		select * from (select * from tbl_MovieSchedule
-		where area_theater_no = #{area_theater_no}
+		where theater_no = #{theater_no}
 		order by movieSchedule_registTime desc)
 		where rowNum  = 1
 	</select>
 	<!-- 영화 상영시간 스케줄 등록 -->
 	<insert id="insertMoviSchedule">
 		insert into tbl_MovieSchedule
-		(movieSchedule_recoding, area_theater_no, movieSchedule_type, movie_name, movieSchedule_playTime, movieSchedule_totalPlayTime, movieSchedule_seat, movieSchedule_registTime)
+		(movieSchedule_recoding, area_theater_no, theater_no, movieSchedule_type, movie_name, movieSchedule_playTime, movieSchedule_totalPlayTime, movieSchedule_seat, movieSchedule_registTime)
 		values
-		(seq_movieSchedule_recoding.nextval, #{area_theater_no}, #{movieSchedule_type}, #{movie_name}, #{movieSchedule_playTime}, #{movieSchedule_totalPlayTime}, #{movieSchedule_seat}, sysdate)
+		(seq_movieSchedule_recoding.nextval, #{area_theater_no}, #{theater_no}, #{movieSchedule_type}, #{movie_name}, #{movieSchedule_playTime}, #{movieSchedule_totalPlayTime}, #{movieSchedule_seat}, sysdate)
 	</insert>
 	<!-- 등록할때 마다 해당 영화 회차 카운트업 -->
 	<update id="countUp">
@@ -135,10 +135,11 @@
 		movie_count = movie_count + 1
 		where movie_name = #{movie_name}
 	</update>
-	<!-- 영화스케줄 페이지 각 영화관 영화스케줄 리스트 얻기 -->
+	<!-- 각관의 영화상영스케줄 리스트 조회할때  -->
 	<select id="getMovieScheduleList" resultType="MovieScheduleVo">
-		select * from tbl_MovieSchedule
-		where area_theater_no = #{area_theater_no}
-		order by movieSchedule_recoding asc
+		select * from tbl_MovieSchedule 
+		where movieSchedule_registTime between to_date(#{movieSchedule_registTime}) and to_date(#{movieSchedule_registTime})+1
+		and theater_no = #{theater_no}
+		order by movieSchedule_registTime asc
 	</select>
 </mapper>
