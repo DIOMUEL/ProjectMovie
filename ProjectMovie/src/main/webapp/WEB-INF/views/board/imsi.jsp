@@ -755,35 +755,6 @@ SCREENX PrimeZone 이용요금 안내</BR>
     <button type="button" class="btn-close">관람 등급 안내 닫기</button>
 </div>
     </script>
-	<script type="text/template" id="temp_priceinfo_online">
- <h4 class="marginT30">온라인 특별요금제</h4>
- <div class="tbl-specialfare">    
-	<table summary="Family 요금제 및 FrontSeat 요금제에 대한 정보">
-		<caption>온라인 특별요금제</caption>
-		<colgroup>
-			<col width="20%" />
-			<col width="*" />
-		</colgroup>
-		<tbody>
-			<tr>
-				<th scope="row">Family 요금제</th>
-				<td>4인 이상 온라인 예매 시 인하(주중 10% / 주말 5%)</td>
-			</tr>
-			<tr>
-				<th scope="row">FrontSeat 요금제</th>
-				<td>주말 상영영화 최전방열 온라인 예매 시 10% 인하</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<ul class="marginT10">
-    <li>* 온라인(홈페이지, 모바일) 예매 시 적용되며, 2D 일반관/일반좌석에 대해 적용됩니다.(단, 조조 제외)</li>
-    <li>* 온라인 특별 요금제는 IMAX, 4DX, 골드클래스 등 특별관 예매시 적용이 되지 않습니다.</li>
-    <li>* 시간대 안내 : 조조 '10시 이전', 프라임 '16시 ~ 23시 이전', 심야 '23시 이후'에 해당됩니다.</li>
-    <li>* Veatbox영화는 2D, 3D 요금에서 1천원 추가 적용</li>
-     <li style="display:none;"> * 시간대 안내 : 조조는 1회차 영화에만 해당됩니다.
-</ul>
-    </script>
 
 	<script type="text/javascript">
 //<![CDATA[
