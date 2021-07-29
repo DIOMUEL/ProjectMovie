@@ -377,9 +377,13 @@ public class AdminController {
 	}
 	// --------------- 영화 스케줄 관리 END-----------------------
 	// --------------- 관리 스케줄 관리 -----------------------
-	@RequestMapping(value="/administerScheduleManagement", method=RequestMethod.GET)
-	public String administerScheduleManagement() throws Exception {
-
+	//페이지 스케줄관리 페이지 이동시 날짜 정보 가지고 오늘 할일 테이블 정보 얻어오기
+	@RequestMapping(value="/administerScheduleManagement", method=RequestMethod.POST)
+	public String administerScheduleManagement(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+//		System.out.println("managerSchedule_year:"+managerSchedule_year);
+//		System.out.println("managerSchedule_month:"+managerSchedule_month);
+//		System.out.println("managerSchedule_date:"+managerSchedule_date);
+		
 		return "/administerPage/administerScheduleManagement";
 	}
 	// --------------- 관리 스케줄 관리 END-----------------------
