@@ -47,7 +47,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise1" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise1.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -57,7 +57,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise2" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise2.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -67,7 +67,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise3" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise3.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -77,7 +77,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise4" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise4.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -87,7 +87,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise5" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise5.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -97,7 +97,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise6" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise6.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -107,7 +107,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise7" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise7.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -117,7 +117,7 @@ $(document).ready(function(){
                     <div class="mp-video-item">
                         <div class="mp-video-item-video">
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise8" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise8.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">«Movie HomePage»</div>
@@ -127,7 +127,7 @@ $(document).ready(function(){
                         <div class="mp-video-item-video">
 
                             <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/img/portfolio/advertise9" type="video/mp4">
+                                <source src=".././resources/mainPage/assets/video/advertise9.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="mp-video-item-label">
@@ -335,7 +335,7 @@ $(document).ready(function(){
 						<a href="/introduce/introduce3"><img class="rounded-circle img-fluid" src=".././resources/mainPage/assets/img/about/PremiumSeat.jpg"
 							alt="..." /></a>
 					</div>
-					<div class="timeline-panel">66666666tttt
+					<div class="timeline-panel">
 						<div class="timeline-heading">
 							<h3 style="font-weight:bolder">PremiumSeat</h3>
 							<h4 class="subheading" style="font-family:'GravitasOne';">MORE COMFORTERABLE, MORE LUXURIOUSLY</h4>
