@@ -37,9 +37,14 @@ $(document).ready(function(){
 		location.href = "/noticeBoard/noticeBoardDeleteRun?b_no=${noticeBoardVo.b_no}";
 	});
 	
-	//댓글입력
+	//댓글등록
 	$("#btnCommentInsert").click(function() {
 		var c_content = $("#c_content").val();
+		if(c_content  == ""){
+			alert("댓글을 입력해 주세요");
+			return;
+		}
+		
 		var b_no = parseInt("${noticeBoardVo.b_no}");
 		var url = "/commentBoard/insertComment";
 		var sendData = {
@@ -59,12 +64,13 @@ $(document).ready(function(){
 				console.log(receivedData);
  				if (receivedData == "success") {
  					$("#btnCommentList").trigger("click");
+ 					$("#c_content").val("");
  				}
 			}
 		});
 	});
 	
-	//댓글목록
+	//댓글보기
 	$("#btnCommentList").click(function() {
 		var url = "/commentBoard/getCommentList/${noticeBoardVo.b_no}";
 		
@@ -146,7 +152,7 @@ $(document).ready(function(){
 	
 	var isLike = "${likeMap.isLike}";
 	if (isLike == "true") {
-		$("#likeHeart").css("color", "red");
+		$("#likeHeart").css("color", "green");
 	}
 	
 	$("#likeHeart").click(function() {
@@ -174,7 +180,7 @@ $(document).ready(function(){
 				isLike = "false";
 			} else {
 				console.log("false");
-				that.css("color", "red");
+				that.css("color", "green");
 				isLike = "true";
 			}
 			
@@ -227,9 +233,16 @@ $(document).ready(function(){
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
+		
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-			<form role="form" action="/noticeBoard/noticeBoardModifyRun" method="post">
+
+					<div class="jumbotron" style="background-color: black;">
+						<h2 style="color: white;">게시판 관리</h2>
+						<br>
+					</div>
+
+					<form role="form" action="/noticeBoard/noticeBoardModifyRun" method="post">
 				<input type="hidden" name="user_id" value="${noticeBoardVo.user_id}" />
 				<input type="hidden" name="b_no" value="${noticeBoardVo.b_no}" />
 				<label for="exampleFormControlInput1" class="form-label">제목</label>
@@ -239,7 +252,7 @@ $(document).ready(function(){
 				<label for="exampleFormControlTextarea1" class="form-label">내용</label>
 				<textarea class="form-control" id="b_content" name="b_content"
 					rows="3" readonly>${noticeBoardVo.b_content}</textarea>
-				<a type="button" class="btn btn-success" id="btnList">목록</a>
+				<a type="button" class="btn btn-success" id="btnList">게시판목록</a>
 				<button type="button" class="btn btn-warning" id="btnModify">수정</button>
 				<button type="submit" class="btn btn-primary" style="display:none" id="btnModifyFinish">수정완료</button>
 				<button type="button" class="btn btn-danger" id="btnDelete" >삭제</button>
@@ -253,7 +266,7 @@ $(document).ready(function(){
 			<br>
 			<div>
 				<textarea class="form-control" id="c_content" name="c_content" rows="3" >${commentVo.c_content}</textarea>
-				<button type="button" class="btn btn-primary" id="btnCommentInsert" >등록</button>	
+				<button type="button" class="btn btn-primary" id="btnCommentInsert" >댓글등록</button>	
 				<button type="button" class="btn btn-info" id="btnCommentList" >댓글보기</button>	
 			<br>
 			</div>
@@ -277,7 +290,8 @@ $(document).ready(function(){
 											<div class="dropdown-menu"
 												aria-labelledby="dropdownMenuButton">
 												<button class="dropdown-item searchType commentModify">수정</button> 
-												<button class="dropdown-item searchType commentDelete">삭제</button> 
+												<button class="dropdown-item searchType commentDelete">삭제</button>
+												<a class="dropdown-item searchType commenReport" href="/report/reportPage">신고</a> 
 											</div>
 										</div>
 									</div>

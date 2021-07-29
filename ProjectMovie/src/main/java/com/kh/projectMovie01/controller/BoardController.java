@@ -71,9 +71,12 @@ public class BoardController {
 
 	@RequestMapping(value = "/noticeBoardPage", method = RequestMethod.GET)
 	public String noticeBoardPage(Model model, PagingDto pagingDto) {
+		//MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		//String user_id = memberVo.getUser_id();
 		int count = noticeBoardService.getCount(pagingDto);
 		pagingDto.setCount(count);
 		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage(pagingDto);
+		//model.addAttribute("user_id", user_id);
 		model.addAttribute("list", list);
 		model.addAttribute("pagingDto", pagingDto);
 		//System.out.println(list);
@@ -89,6 +92,7 @@ public class BoardController {
 	public String registForm() {
 		return "board/registForm";
 	}
+	
 	@RequestMapping(value="/checkDupId", method=RequestMethod.GET)
 	@ResponseBody
 	public String checkDupId(String user_id)  throws Exception{
