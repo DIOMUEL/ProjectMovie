@@ -14,4 +14,6 @@ public interface Admin_ScheduleService {
 	public List<ScheduleManagementVo> searchScheduleList(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date);
 	//특정날짜 체크박스 업데이트YN
 	public void checkBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete);
+	//특정날짜 스케줄 삭제
+	public void deleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date);
 }

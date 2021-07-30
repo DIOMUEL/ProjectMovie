@@ -37,4 +37,9 @@ public class Admin_ScheduleServiceImpl implements Admin_ScheduleService {
 	public void checkBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete) {
 		admin_ScheduleDao.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
 	}
+
+	@Override
+	public void deleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) {
+		admin_ScheduleDao.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date);	
+	}
 }

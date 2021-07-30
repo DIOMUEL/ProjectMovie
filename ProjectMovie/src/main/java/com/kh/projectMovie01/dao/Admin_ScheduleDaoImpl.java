@@ -54,5 +54,15 @@ public class Admin_ScheduleDaoImpl implements Admin_ScheduleDao {
 		map.put("managerSchedule_date", managerSchedule_date);
 		map.put("managerSchedule_complete", managerSchedule_complete);
 		sqlSession.update(NAMESPACE + "checkBoxClick", map);	
+	}
+
+	@Override
+	public void deleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("managerSchedule_no", managerSchedule_no);
+		map.put("managerSchedule_year", managerSchedule_year);
+		map.put("managerSchedule_month", managerSchedule_month);
+		map.put("managerSchedule_date", managerSchedule_date);
+		sqlSession.delete(NAMESPACE + "deleteSchedule", map);	
 	}	
 }

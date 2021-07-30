@@ -387,7 +387,7 @@ public class AdminController {
 //		System.out.println("managerSchedule_month:"+managerSchedule_month);
 //		System.out.println("managerSchedule_date:"+managerSchedule_date);
 		List<ScheduleManagementVo> todaylist = admin_ScheduleDao.todayScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
-		//System.out.println("list : " + list);
+		System.out.println("todaylist : " + todaylist);
 		model.addAttribute("todaylist", todaylist);
 		return "/administerPage/administerScheduleManagement";
 	}
@@ -418,6 +418,22 @@ public class AdminController {
 	public String administerCheckBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete) throws Exception {
 		//System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
 		admin_ScheduleDao.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
+		return "success";
+	}
+	//페이지 스케줄관리 페이지 스케줄 삭제하기
+	@RequestMapping(value="/administerDeleteSchedule", method=RequestMethod.GET)
+	@ResponseBody
+	public String administerDeleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+		System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date);
+		//admin_ScheduleDao.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
+		return "success";
+	}
+	//페이지 스케줄관리 페이지 스케줄 삭제하기
+	@RequestMapping(value="/administerCompleteSchedulePersent", method=RequestMethod.GET)
+	@ResponseBody
+	public String administerCompleteSchedulePersent(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+		System.out.println(managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date);
+		//admin_ScheduleDao.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
 		return "success";
 	}
 // --------------- 관리 스케줄 관리 END-----------------------

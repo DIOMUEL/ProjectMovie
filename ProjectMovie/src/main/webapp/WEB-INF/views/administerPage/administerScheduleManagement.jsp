@@ -147,7 +147,7 @@ $(document).ready(function() {
 		
 	//스케줄 추가할때 숨은정보 모달창에 보내기
 	$("#modal-512696").click(function(){
-		console.log("클릭됨");
+// 		console.log("클릭됨");
 		var data_year = $(".select_day").attr("data-year");
 		var data_month = $(".select_day").attr("data-month");
 		var data_date = $(".select_day").attr("data-date");
@@ -217,7 +217,23 @@ $(document).ready(function() {
 	});
 	//삭제클릭시 해당 스케줄 삭제
 	$(document).on("click", ".deleteSchedule", function() {
+		//console.log("클릭됨");
+		var managerSchedule_no = $(this).parent().parent().find(".checkbox").attr("data-no");
+		var managerSchedule_year = $(this).parent().parent().find(".checkbox").attr("data-year");
+		var managerSchedule_month = $(this).parent().parent().find(".checkbox").attr("data-month");
+		var managerSchedule_date = $(this).parent().parent().find(".checkbox").attr("data-date");
 		
+		var sendData = {
+				"managerSchedule_no" : managerSchedule_no,
+				"managerSchedule_year" : managerSchedule_year,
+				"managerSchedule_month" : managerSchedule_month,
+				"managerSchedule_date" : managerSchedule_date
+		};
+		var url = "/administerPage/administerDeleteSchedule";
+
+		$.get(url, sendData, function(rData){
+			console.log(rData);
+		});
 	});
 });
 

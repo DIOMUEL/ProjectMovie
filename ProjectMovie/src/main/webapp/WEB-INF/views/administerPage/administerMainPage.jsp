@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
+<!-- Bootstrap core JavaScript-->
+<script src="/resources/administerPage/vendor/jquery/jquery.min.js"></script>
+<script src="/resources/administerPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var today = new Date();
+		var managerSchedule_year = today.getFullYear();
+		var managerSchedule_month = today.getMonth()+1;
+		var managerSchedule_date = today.getDate();
+// 		console.log("year : ",year);
+// 		console.log("month : ",month);
+// 		console.log("date : ",date);
+		var url ="/administerPage/administerCompleteSchedulePersent";
+		var sendData = {
+				"managerSchedule_year" : managerSchedule_year,
+				"managerSchedule_month" : managerSchedule_month,
+				"managerSchedule_date" : managerSchedule_date
+		}
+		$.get(url, sendData, function(rData){
+			console.log(rData);
+		});
+	});
+</script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<input type="hidden" id="label_rate20" value="${label_rate20}"/>
@@ -73,9 +98,7 @@
 								</div>
 								<div class="col">
 									<div class="progress progress-sm mr-2">
-										<div class="progress-bar bg-info" role="progressbar"
-											style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-											aria-valuemax="100"></div>
+										<div class="progress-bar bg-info" role="progressbar" style="width:90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 								</div>
 							</div>
