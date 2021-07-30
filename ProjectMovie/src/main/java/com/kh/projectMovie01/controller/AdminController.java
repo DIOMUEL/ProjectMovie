@@ -8,6 +8,7 @@ import javax.xml.crypto.Data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,11 +19,15 @@ import com.kh.projectMovie01.service.Admin_MovieService;
 import com.kh.projectMovie01.service.Admin_ScheduleService;
 import com.kh.projectMovie01.service.Admin_StoreService;
 import com.kh.projectMovie01.service.ChartService;
+import com.kh.projectMovie01.service.MessageService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.FoodVo;
+import com.kh.projectMovie01.vo.MemberVo;
+import com.kh.projectMovie01.vo.MessageVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
+import com.kh.projectMovie01.vo.PagingDto;
 import com.kh.projectMovie01.vo.ScheduleManagementVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
@@ -43,6 +48,8 @@ public class AdminController {
 	private Admin_StoreService admin_StoreService;
 	@Inject
 	private Admin_ScheduleService admin_ScheduleService;
+	@Inject
+	private MessageService messageService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -437,9 +444,9 @@ public class AdminController {
 		//System.out.println("persentage : "+persentage);
 		return persentage;
 	}
+	//메인페이지 팝업창 올리기
 	@RequestMapping(value="/administerManagerSchedule", method=RequestMethod.GET)
 	public String administerManagerSchedule() throws Exception {
-
 		return "/administerPage/administerManagerSchedule";
 	}
 	//메인페이지 팝업창 오늘자 할일  리스트호출
@@ -453,4 +460,22 @@ public class AdminController {
 		return todaylist;
 	}
 // --------------- 관리 스케줄 관리 END-----------------------
+// --------------- 메세지 관리 -----------------------
+	//메세지 리스트
+	@RequestMapping(value="/administerMessage" , method=RequestMethod.GET)
+	public String message(@ModelAttribute("pagingDto") PagingDto pagingDto,Model model, HttpSession session) throws Exception {
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		//System.out.println("user_id : " + user_id);
+
+		List<MessageVo> receive_MessageList = messageService.receive_MessageList(user_id);
+		model.addAttribute("receive_MessageList" , receive_MessageList);
+		//System.out.println(receive_MessageList);
+		
+		List<MessageVo> send_MessageList = messageService.send_MessageList(user_id);
+		model.addAttribute("send_MessageList" , send_MessageList);
+
+		return "/administerPage/administerMessage";
+	}
+// --------------- 메세지 관리 END-----------------------
 }

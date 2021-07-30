@@ -61,11 +61,48 @@
 				YN++;
 			});
 		});
+		//체크박스 클릭시 데이터베이스 YN 업데이트
+		$(document).on("click", ".checkbox", function() {
+//	 		console.log("클릭됨");
+			var managerSchedule_no = $(this).attr("data-no");
+			var managerSchedule_year = $(this).attr("data-year");
+			var managerSchedule_month = $(this).attr("data-month");
+			var managerSchedule_date = $(this).attr("data-date");
+			var managerSchedule_complete = $(this).attr("checked");
+			if(managerSchedule_complete == null){
+				$(this).attr("checked", true);
+				managerSchedule_complete = "Y";
+			}else if(managerSchedule_complete == "checked"){
+				$(this).attr("checked", false);
+				managerSchedule_complete = "N";
+			}
+//	 		console.log(managerSchedule_no);
+//	 		console.log(managerSchedule_year);
+//	 		console.log(managerSchedule_month);
+//	 		console.log(managerSchedule_date);
+//	 		console.log(managerSchedule_complete);
+			
+			var url = "/administerPage/administerCheckBoxClick";
+			var sendData = {
+					"managerSchedule_no" : managerSchedule_no,
+					"managerSchedule_year" : managerSchedule_year,
+					"managerSchedule_month" : managerSchedule_month,
+					"managerSchedule_date" : managerSchedule_date,
+					"managerSchedule_complete" : managerSchedule_complete
+			}
+			$.get(url, sendData, function(rData){
+				console.log("rData : ", rData);
+			});
+		});
 	});
+	function moveClose() {
+		  opener.location.href="/administerPage/administerMainPage";
+		  self.close();
+	}
 </script>
 <title>오늘자 할일 리스트</title>
 </head>
-<body>
+<body onload="window.resizeTo(550,450)">
 	<div class="row">
 		<div class="col-lg-9 col-md-8 col-12">
 			<table class="table">
@@ -75,6 +112,7 @@
 						<th>해야할일</th>
 						<th>내용</th>
 						<th>완료여부</th>
+						<td><input type="button" class="btn btn-success" value="체크 저장" onclick="moveClose();"/></td>
 					</tr>
 				</thead>
 				<tbody id="tableTbody">
@@ -82,7 +120,8 @@
 						<td></td>
 						<td></td>
 						<td></td>
-						<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox" data-no="${todaylist.managerSchedule_no}" data-year="${todaylist.managerSchedule_year}" data-month="${todaylist.managerSchedule_month}" data-date="${todaylist.managerSchedule_date}"></td>
+						<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox"></td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
@@ -93,6 +132,7 @@
 						<td></td>
 						<td></td>
 						<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox"></td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>

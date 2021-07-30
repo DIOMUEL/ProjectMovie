@@ -29,7 +29,7 @@
 		});
 	});
 	function showPopup() { 
-		window.open("/administerPage/administerManagerSchedule", "pop", "width=600, height=450, left=50%, top=50%");
+		window.open("/administerPage/administerManagerSchedule", "pop", "width=600, height=450, left=700, top=300");
 	}
 </script>
 <!-- Begin Page Content -->
@@ -123,13 +123,11 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div
-								class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-								메세지</div>
+							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">메세지</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-comments fa-2x text-gray-300"></i>
+							<a href="/administerPage/administerMessage"><i class="fas fa-comments fa-2x text-gray-300"></i></a>
 						</div>
 					</div>
 				</div>
