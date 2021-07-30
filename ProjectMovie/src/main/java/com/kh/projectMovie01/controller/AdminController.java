@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.projectMovie01.dao.Admin_ScheduleDao;
 import com.kh.projectMovie01.service.Admin_AreaService;
 import com.kh.projectMovie01.service.Admin_MovieService;
 import com.kh.projectMovie01.service.Admin_StoreService;
@@ -22,6 +23,7 @@ import com.kh.projectMovie01.vo.FoodVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
+import com.kh.projectMovie01.vo.ScheduleManagementVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.AreaTheaterVo;
@@ -39,6 +41,8 @@ public class AdminController {
 	private Admin_AreaService admin_AreaService;
 	@Inject
 	private Admin_StoreService admin_StoreService;
+	@Inject
+	private Admin_ScheduleDao admin_ScheduleDao;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -65,7 +69,7 @@ public class AdminController {
 	public String totalMovieChart(HttpSession session, Model model) {
 		return "/administerPage/totalMovieChart";
 	}
-	// --------------- 영화 등록및 조회 삭제 -----------------------
+// --------------- 영화 등록및 조회 삭제 -----------------------
 	//영화 등록리스트
 	@RequestMapping(value="/administerMovieListPage", method = RequestMethod.GET)
 	public String movie_list(Model model, Admin_PageingDto admin_PageingDto) throws Exception {
@@ -120,8 +124,8 @@ public class AdminController {
 		rttr.addFlashAttribute("msgDelete", "success");
 		return "redirect:/administerPage/administerMovieListPage";
 	}
-	// --------------- 영화 등록및 조회 삭제 End-----------------------
-	// --------------- 영화관 지역 관리 -----------------------
+// --------------- 영화 등록및 조회 삭제 End-----------------------
+// --------------- 영화관 지역 관리 -----------------------
 	//지역관리페이지
 	@RequestMapping(value="/administerMovieAreaManagement", method = RequestMethod.GET)
 	public String administerMovieAreaManagement(Model model) throws Exception {
@@ -184,8 +188,8 @@ public class AdminController {
 		admin_AreaService.areaTheaterDelete(area_theater_no);
 		return "success";
 	}
-	// --------------- 영화관 지역 관리  END-----------------------
-	// --------------- 영화관 좌석 및 영화관 관 관리 -----------------------
+// --------------- 영화관 지역 관리  END-----------------------
+// --------------- 영화관 좌석 및 영화관 관 관리 -----------------------
 	// 싯팅페이지 입장시 필요 자원 호출(지역)
 	@RequestMapping(value="/administerMovieTheaterSeatSetting", method = RequestMethod.GET)
 	public String administerMovieTheaterSeatSetting(Model model) throws Exception {
@@ -232,10 +236,9 @@ public class AdminController {
 		admin_AreaService.seatSettingDelete(theater_no);
 		return "success";
 	}
-	// --------------- 영화관 좌석 및 영화관 관 관리 END-----------------------
-	// --------------- 영화관 상품 스케줄 관리-----------------------
-	// --------------- 영화관 상품 스케줄 관리 END-----------------------
-	// --------------- 영화 매점 관리-----------------------
+// --------------- 영화관 좌석 및 영화관 관 관리 END-----------------------
+
+// --------------- 영화 매점 관리-----------------------
 	//매점관리페이지
 	@RequestMapping(value="/administerStoreManagement", method=RequestMethod.GET)
 	public String administerStoreManagement(Model model) {
@@ -316,8 +319,8 @@ public class AdminController {
 		admin_StoreService.deleteFood(food_num);
 		return "success";
 	}
-	// --------------- 영화 매점 관리 END-----------------------
-	// --------------- 영화 스케줄 관리 -----------------------
+// --------------- 영화 매점 관리 END-----------------------
+// --------------- 영화 스케줄 관리 -----------------------
 	//영화 스케줄 관리자 페이지
 	@RequestMapping(value="/administerMovieScheduleManagementPage", method=RequestMethod.GET)
 	public String administerMovieScheduleManagementPage(Model model) throws Exception {
@@ -375,16 +378,47 @@ public class AdminController {
 		rttr.addFlashAttribute("msgRegist", "success");
 		return "redirect:/administerPage/administerMovieScheduleManagementPage";
 	}
-	// --------------- 영화 스케줄 관리 END-----------------------
-	// --------------- 관리 스케줄 관리 -----------------------
+// --------------- 영화 스케줄 관리 END-----------------------
+// --------------- 관리 스케줄 관리 -----------------------
 	//페이지 스케줄관리 페이지 이동시 날짜 정보 가지고 오늘 할일 테이블 정보 얻어오기
 	@RequestMapping(value="/administerScheduleManagement", method=RequestMethod.POST)
-	public String administerScheduleManagement(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+	public String administerScheduleManagement(Model model, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
 //		System.out.println("managerSchedule_year:"+managerSchedule_year);
 //		System.out.println("managerSchedule_month:"+managerSchedule_month);
 //		System.out.println("managerSchedule_date:"+managerSchedule_date);
-		
+		List<ScheduleManagementVo> todaylist = admin_ScheduleDao.todayScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		//System.out.println("list : " + list);
+		model.addAttribute("todaylist", todaylist);
 		return "/administerPage/administerScheduleManagement";
 	}
-	// --------------- 관리 스케줄 관리 END-----------------------
+	//페이지 스케줄관리 페이지 스케줄 추가
+	@RequestMapping(value="/administerAddSchedule", method=RequestMethod.GET)
+	@ResponseBody
+	public String administerAddSchedule(ScheduleManagementVo scheduleManagementVo) throws Exception {
+		//System.out.println(scheduleManagementVo);
+		String YN = scheduleManagementVo.getmanagerSchedule_complete();
+		if(YN == null) {
+			YN = "N";
+		}
+		scheduleManagementVo.setmanagerSchedule_complete(YN);
+		admin_ScheduleDao.addSchedule(scheduleManagementVo);
+		return "success";
+	}
+	//페이지 스케줄관리 페이지 달력 날짜클릭시 당시 날짜 스케줄 불러오기 
+	@RequestMapping(value="/administerSearchSchedule", method=RequestMethod.GET)
+	@ResponseBody
+	public List<ScheduleManagementVo> administerSearchSchedule(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+		List<ScheduleManagementVo> thisDateList = admin_ScheduleDao.searchScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		//System.out.println("list" + list);
+		return thisDateList;
+	}
+	//페이지 스케줄관리 페이지 체크박스 클릭시 할일 데이터베이스 YN 교체하기
+	@RequestMapping(value="/administerCheckBoxClick", method=RequestMethod.GET)
+	@ResponseBody
+	public String administerCheckBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete) throws Exception {
+		//System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
+		admin_ScheduleDao.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
+		return "success";
+	}
+// --------------- 관리 스케줄 관리 END-----------------------
 }

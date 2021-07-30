@@ -28,7 +28,7 @@
 			var year = today.getFullYear();
 			var month = today.getMonth();
 			var date = today.getDate();
-			//console.log(year + "년" + month +"월"+ date +"일");
+// 			console.log(year + "년" + month +"월"+ date +"일");
 			$("#managerSchedule_year").attr("value", year);
 			$("#managerSchedule_month").attr("value", month);
 			$("#managerSchedule_date").attr("value", date);
