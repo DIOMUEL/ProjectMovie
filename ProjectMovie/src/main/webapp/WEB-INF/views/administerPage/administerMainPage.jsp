@@ -23,8 +23,14 @@
 		}
 		$.get(url, sendData, function(rData){
 			console.log(rData);
+			var persentage = rData
+			$(".persentage").text(persentage + "%");
+			$(".persentageBar").attr("style", "width:"+persentage+"%");
 		});
 	});
+	function showPopup() { 
+		window.open("/administerPage/administerManagerSchedule", "pop", "width=600, height=450, left=50%, top=50%");
+	}
 </script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -94,17 +100,17 @@
 							</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
-									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">70%</div>
+									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 persentage">70%</div>
 								</div>
 								<div class="col">
 									<div class="progress progress-sm mr-2">
-										<div class="progress-bar bg-info" role="progressbar" style="width:90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="progress-bar bg-info persentageBar" role="progressbar" style="width:90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+							<a class="btn" onclick="showPopup();"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></a>
 						</div>
 					</div>
 				</div>

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.projectMovie01.dao.Admin_ScheduleDao;
 import com.kh.projectMovie01.vo.ScheduleManagementVo;
@@ -42,4 +43,17 @@ public class Admin_ScheduleServiceImpl implements Admin_ScheduleService {
 	public void deleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) {
 		admin_ScheduleDao.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date);	
 	}
+
+	@Transactional
+	@Override
+	public int completeSchedulePersent(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) {
+		int totalCount = admin_ScheduleDao.totalScheduleCount(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		int yCount = admin_ScheduleDao.yScheduleCount(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+//		System.out.println("totalCount :"+totalCount);
+//		System.out.println("yCount :"+yCount);
+		int persentage = (yCount*100)/(totalCount);
+		return persentage;
+	}
+
+	
 }

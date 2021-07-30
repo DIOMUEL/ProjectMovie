@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.kh.projectMovie01.dao.Admin_ScheduleDao;
 import com.kh.projectMovie01.service.Admin_AreaService;
 import com.kh.projectMovie01.service.Admin_MovieService;
+import com.kh.projectMovie01.service.Admin_ScheduleService;
 import com.kh.projectMovie01.service.Admin_StoreService;
 import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.vo.ChartPieVo;
@@ -42,7 +42,7 @@ public class AdminController {
 	@Inject
 	private Admin_StoreService admin_StoreService;
 	@Inject
-	private Admin_ScheduleDao admin_ScheduleDao;
+	private Admin_ScheduleService admin_ScheduleService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -386,7 +386,7 @@ public class AdminController {
 //		System.out.println("managerSchedule_year:"+managerSchedule_year);
 //		System.out.println("managerSchedule_month:"+managerSchedule_month);
 //		System.out.println("managerSchedule_date:"+managerSchedule_date);
-		List<ScheduleManagementVo> todaylist = admin_ScheduleDao.todayScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		List<ScheduleManagementVo> todaylist = admin_ScheduleService.todayScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
 		System.out.println("todaylist : " + todaylist);
 		model.addAttribute("todaylist", todaylist);
 		return "/administerPage/administerScheduleManagement";
@@ -401,14 +401,14 @@ public class AdminController {
 			YN = "N";
 		}
 		scheduleManagementVo.setmanagerSchedule_complete(YN);
-		admin_ScheduleDao.addSchedule(scheduleManagementVo);
+		admin_ScheduleService.addSchedule(scheduleManagementVo);
 		return "success";
 	}
 	//페이지 스케줄관리 페이지 달력 날짜클릭시 당시 날짜 스케줄 불러오기 
 	@RequestMapping(value="/administerSearchSchedule", method=RequestMethod.GET)
 	@ResponseBody
 	public List<ScheduleManagementVo> administerSearchSchedule(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
-		List<ScheduleManagementVo> thisDateList = admin_ScheduleDao.searchScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		List<ScheduleManagementVo> thisDateList = admin_ScheduleService.searchScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
 		//System.out.println("list" + list);
 		return thisDateList;
 	}
@@ -417,24 +417,40 @@ public class AdminController {
 	@ResponseBody
 	public String administerCheckBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete) throws Exception {
 		//System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
-		admin_ScheduleDao.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
+		admin_ScheduleService.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
 		return "success";
 	}
 	//페이지 스케줄관리 페이지 스케줄 삭제하기
 	@RequestMapping(value="/administerDeleteSchedule", method=RequestMethod.GET)
 	@ResponseBody
 	public String administerDeleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
-		System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date);
-		//admin_ScheduleDao.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
+		//System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date);
+		admin_ScheduleService.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date);
 		return "success";
 	}
-	//페이지 스케줄관리 페이지 스케줄 삭제하기
+	//메인페이지 스케줄관리 페이지 할일 퍼센테이지
 	@RequestMapping(value="/administerCompleteSchedulePersent", method=RequestMethod.GET)
 	@ResponseBody
-	public String administerCompleteSchedulePersent(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
-		System.out.println(managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date);
-		//admin_ScheduleDao.deleteSchedule(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
-		return "success";
+	public int administerCompleteSchedulePersent(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+		//System.out.println(managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date);
+		int persentage = admin_ScheduleService.completeSchedulePersent(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		//System.out.println("persentage : "+persentage);
+		return persentage;
+	}
+	@RequestMapping(value="/administerManagerSchedule", method=RequestMethod.GET)
+	public String administerManagerSchedule() throws Exception {
+
+		return "/administerPage/administerManagerSchedule";
+	}
+	//메인페이지 팝업창 오늘자 할일  리스트호출
+	@RequestMapping(value="/administerTodayScheduleList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<ScheduleManagementVo> administerTodayScheduleList(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+//		System.out.println("managerSchedule_year:"+managerSchedule_year);
+//		System.out.println("managerSchedule_month:"+managerSchedule_month);
+//		System.out.println("managerSchedule_date:"+managerSchedule_date);
+		List<ScheduleManagementVo> todaylist = admin_ScheduleService.todayScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
+		return todaylist;
 	}
 // --------------- 관리 스케줄 관리 END-----------------------
 }

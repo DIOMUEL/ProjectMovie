@@ -64,5 +64,25 @@ public class Admin_ScheduleDaoImpl implements Admin_ScheduleDao {
 		map.put("managerSchedule_month", managerSchedule_month);
 		map.put("managerSchedule_date", managerSchedule_date);
 		sqlSession.delete(NAMESPACE + "deleteSchedule", map);	
+	}
+
+	@Override
+	public int totalScheduleCount(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("managerSchedule_year", managerSchedule_year);
+		map.put("managerSchedule_month", managerSchedule_month);
+		map.put("managerSchedule_date", managerSchedule_date);
+		int totalCount = sqlSession.selectOne(NAMESPACE + "totalScheduleCount", map);	
+		return totalCount;
+	}
+
+	@Override
+	public int yScheduleCount(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("managerSchedule_year", managerSchedule_year);
+		map.put("managerSchedule_month", managerSchedule_month);
+		map.put("managerSchedule_date", managerSchedule_date);
+		int yCount = sqlSession.selectOne(NAMESPACE + "yScheduleCount", map);	
+		return yCount;
 	}	
 }

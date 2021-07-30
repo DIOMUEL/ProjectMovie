@@ -16,4 +16,9 @@ public interface Admin_ScheduleDao {
 	public void checkBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete);
 	//특정날짜 스케줄 삭제
 	public void deleteSchedule(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date);
+//메인페이지 할일 퍼센트로 나타내기
+	//특정날짜 스케줄 갯수
+	public int totalScheduleCount(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date);
+	//특정날짜 'Y'스케줄 갯수
+	public int yScheduleCount(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date);
 }
