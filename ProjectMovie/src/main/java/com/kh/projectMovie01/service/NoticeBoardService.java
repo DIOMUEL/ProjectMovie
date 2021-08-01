@@ -14,5 +14,6 @@ public interface NoticeBoardService {
 	public void noticeBoardDeleteRun(int b_no);
 	public int getCount(PagingDto pagingDto);	
 	public List<NoticeBoardVo> myNoticeBoard(String user_id, PagingDto pagingDto);
+	
 
 }
