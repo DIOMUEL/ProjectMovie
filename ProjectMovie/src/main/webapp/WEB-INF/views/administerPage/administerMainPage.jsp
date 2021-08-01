@@ -1,6 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="administerHeader.jsp" %>
+<!-- Bootstrap core JavaScript-->
+<script src="/resources/administerPage/vendor/jquery/jquery.min.js"></script>
+<script src="/resources/administerPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var today = new Date();
+		var managerSchedule_year = today.getFullYear();
+		var managerSchedule_month = today.getMonth()+1;
+		var managerSchedule_date = today.getDate();
+// 		console.log("year : ",year);
+// 		console.log("month : ",month);
+// 		console.log("date : ",date);
+		var url ="/administerPage/administerCompleteSchedulePersent";
+		var sendData = {
+				"managerSchedule_year" : managerSchedule_year,
+				"managerSchedule_month" : managerSchedule_month,
+				"managerSchedule_date" : managerSchedule_date
+		}
+		$.get(url, sendData, function(rData){
+			console.log(rData);
+			var persentage = rData
+			$(".persentage").text(persentage + "%");
+			$(".persentageBar").attr("style", "width:"+persentage+"%");
+		});
+	});
+	function showPopup() { 
+		window.open("/administerPage/administerManagerSchedule", "pop", "width=600, height=450, left=700, top=300");
+	}
+</script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<input type="hidden" id="label_rate20" value="${label_rate20}"/>
@@ -69,19 +100,17 @@
 							</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
-									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">70%</div>
+									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 persentage">70%</div>
 								</div>
 								<div class="col">
 									<div class="progress progress-sm mr-2">
-										<div class="progress-bar bg-info" role="progressbar"
-											style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-											aria-valuemax="100"></div>
+										<div class="progress-bar bg-info persentageBar" role="progressbar" style="width:90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+							<a class="btn" onclick="showPopup();"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></a>
 						</div>
 					</div>
 				</div>
@@ -94,13 +123,11 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div
-								class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-								메세지</div>
+							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">메세지</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-comments fa-2x text-gray-300"></i>
+							<a href="/administerPage/administerMessage"><i class="fas fa-comments fa-2x text-gray-300"></i></a>
 						</div>
 					</div>
 				</div>

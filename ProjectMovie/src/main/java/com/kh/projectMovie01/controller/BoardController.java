@@ -15,8 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.NoticeBoardService;
+import com.kh.projectMovie01.service.NoticeMessageService;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.NoticeBoardVo;
+import com.kh.projectMovie01.vo.NoticeMessageVo;
 import com.kh.projectMovie01.vo.PagingDto;
 
 @Controller
@@ -27,6 +29,8 @@ public class BoardController {
 	private MemberService memberService;
 	@Inject
 	private NoticeBoardService noticeBoardService;
+	@Inject
+	private NoticeMessageService noticeMessageService;
 
 	@RequestMapping(value = "/mainPage", method = RequestMethod.GET) 
 	public String mainPage() { 
@@ -37,7 +41,6 @@ public class BoardController {
 	public String loginPage() {
 		return "board/loginPage"; 
 	}
-
 	@RequestMapping(value = "/loginRun", method = RequestMethod.POST)
 	public String loginRun(String user_id, String user_pw, HttpSession session, RedirectAttributes rttr) { 
 		MemberVo memberVo = memberService.loginMember(user_id, user_pw);
@@ -47,6 +50,8 @@ public class BoardController {
 		if(memberVo != null) {
 			String user_name = memberVo.getUser_name();
 			if(user_name.equals("admin")) {
+				int notReadCount = noticeMessageService.notReadCount(user_id);
+				memberVo.setNotReadCount(notReadCount);
 				session.setAttribute("loginVo", memberVo);
 				rttr.addFlashAttribute("user_name", user_name);
 				msg = "success";
@@ -72,9 +77,12 @@ public class BoardController {
 
 	@RequestMapping(value = "/noticeBoardPage", method = RequestMethod.GET)
 	public String noticeBoardPage(Model model, PagingDto pagingDto) {
+		//MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		//String user_id = memberVo.getUser_id();
 		int count = noticeBoardService.getCount(pagingDto);
 		pagingDto.setCount(count);
 		List<NoticeBoardVo> list = noticeBoardService.noticeBoardPage(pagingDto);
+		//model.addAttribute("user_id", user_id);
 		model.addAttribute("list", list);
 		model.addAttribute("pagingDto", pagingDto);
 		//System.out.println(list);
@@ -90,6 +98,7 @@ public class BoardController {
 	public String registForm() {
 		return "board/registForm";
 	}
+	
 	@RequestMapping(value="/checkDupId", method=RequestMethod.GET)
 	@ResponseBody
 	public String checkDupId(String user_id)  throws Exception{

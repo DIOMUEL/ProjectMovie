@@ -477,11 +477,11 @@
 	<script type="text/template" id="temp_priceinfo">
 <div class="layer-contents" style="width:650px; height:647px;">
         <div class="popwrap" id="wrap_theater_price">
-            <h1>CGV 강남 관람 가격 안내</h1>
+            <h1>영화관 관람 가격 안내</h1>
             <div class="pop-contents">
                 <div class="wrap-priceinfo">
                   <div class="sect-discount">
-						<h4>할인안내</h4>
+						<h4>할인 안내</h4>
 						<div class="table-dotline">
 							<table cellpadding="0" cellspacing="0" summary="극장 할인안내 테이블입니다.">
 								<caption>경로우대, 학생할인, 국가유공자할인. 장애우대할인, 심야할인 안내 입니다.</caption>

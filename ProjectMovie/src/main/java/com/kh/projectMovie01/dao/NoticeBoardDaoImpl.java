@@ -79,7 +79,7 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 	}
 
 	@Override
-	public List<NoticeBoardVo> myNoticeBoard(String user_id, PagingDto pagingDto) {
+	public List<NoticeBoardVo> myNoticeBoard(String user_id, PagingDto pagingDto) {		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
 		map.put("pagingDto", pagingDto);

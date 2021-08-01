@@ -80,11 +80,8 @@ public class NoticeBoardController {
 	@RequestMapping(value = "/noticeBoardDeleteRun", method = RequestMethod.GET)
 	public String noticeBoardDeleteRun(int b_no) {
 		noticeBoardService.noticeBoardDeleteRun(b_no);
-		return "redirect:/board/noticeBoardPage"; 
+		return "redirect:/board/noticeBoardPage";
 	}
 	
-
-	
-
 	
 }

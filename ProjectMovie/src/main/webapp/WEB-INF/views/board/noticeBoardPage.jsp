@@ -4,16 +4,22 @@
 <script>
 $(document).ready(function(){
 	
-// 	$("#btnWrite").click(function(e){
-// 		e.preventDefault();
-// 		if("${noticeBoardVo.user_id}" == ""){
+// 	$("#btnWrite").click(function(){
+// 		if("${sessionScope.loginVo}" == ""){
 // 			alert("로그인을 확인해주세요");
-// 			location.href = "/board/loginPage";
-// 		}else{
-// 			location.href = "/noticeBoard/noticeBoardWritePage";
+// 			return false;
 // 		}
-		
 // 	});
+	
+	$("#btnWrite").click(function(e){
+		e.preventDefault();
+		if("${sessionScope.loginVo}" == ""){
+			alert("로그인을 확인해주세요");
+			location.href = "/board/loginPage";
+		}else{
+			location.href = "/noticeBoard/noticeBoardWritePage";
+		}
+	});
 	
 	// 검색 옵션 
 	$(".searchType").click(function(e) {
@@ -44,10 +50,16 @@ $(document).ready(function(){
 	// 글제목 
 	$(".a_title").click(function(e) {
 		e.preventDefault();
-		var b_no = $(this).attr("data-bno");
-		$("#frmPaging > input[name=b_no]").val(b_no);
-		$("#frmPaging").attr("action", "/noticeBoard/noticeBoardContentPage");
-		$("#frmPaging").submit();
+		if("${sessionScope.loginVo}" == ""){
+			alert("로그인을 확인해주세요");
+			location.href = "/board/loginPage";
+		}else{
+			var b_no = $(this).attr("data-bno");
+			$("#frmPaging > input[name=b_no]").val(b_no);
+			$("#frmPaging").attr("action", "/noticeBoard/noticeBoardContentPage");
+			$("#frmPaging").submit();
+		}
+		
 	});
 	
 	// 페이지 
@@ -60,9 +72,16 @@ $(document).ready(function(){
 	});
 	
 	// 쪽지보내기 링크
-	$(".sendMessage").click(function() {
-		var user_id = $(this).attr("data-user_id");
-		$("#btnSendMessage").attr("data-msg_receiver", user_id);
+	$(".sendMessage").click(function(e) {
+		e.preventDefault();
+		if("${sessionScope.loginVo}" == ""){
+			alert("로그인을 확인해주세요");
+			location.href = "/board/loginPage";
+		}else{
+			var user_id = $(this).attr("data-user_id");
+			$("#btnSendMessage").attr("data-msg_receiver", user_id);
+		}
+		
 	});
 	// 쪽지 모달 보내기 버튼
 	$("#btnSendMessage").click(function() {
@@ -149,7 +168,13 @@ $(document).ready(function(){
 				<div class="col-md-3">
 				</div>
 				<div class="col-md-6">
-<!--tap -->				
+				
+					<div class="jumbotron" style="background-color: black;">
+						<h2 style="color: white;">고객게시판</h2>
+						<br>
+					</div>
+					
+					<!--tap -->				
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
@@ -259,11 +284,11 @@ $(document).ready(function(){
 	<div class="col-md-12">
 		<nav>
 			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link" href="${pagingDto.startPage}">&laquo;</a></li>
+<%-- 				<li class="page-item"><a class="page-link" href="${pagingDto.startPage}">&laquo;</a></li> --%>
 				<c:if test="${pagingDto.startPage != 1}">
 					<li class="page-item">
 						<a class="page-link" 
-							href="${pagingDto.startPage - 1}">이전</a>
+							href="${pagingDto.startPage - 1}">&laquo;</a>
 					</li>
 				</c:if>
 				<c:forEach var="v" begin="${pagingDto.startPage}" end="${pagingDto.endPage}">
@@ -283,10 +308,10 @@ $(document).ready(function(){
 				<c:if test="${pagingDto.endPage < pagingDto.totalPage}">	
 					<li class="page-item">
 						<a class="page-link" 
-							href="${pagingDto.endPage + 1}">다음</a>
+							href="${pagingDto.endPage + 1}">&raquo;</a>
 					</li>
 				</c:if>
-				<li class="page-item"><a class="page-link" href="${pagingDto.endPage}">&raquo;</a></li>
+<%-- 				<li class="page-item"><a class="page-link" href="${pagingDto.endPage}">&raquo;</a></li> --%>
 			</ul>
 		</nav>
 	</div>

@@ -14,11 +14,11 @@
 	});
 </script>
 <form id="frmPaging" action="/mypage/boardtext" method="get">
-	<input type="hidden" name="page" value="${pagingDto.page}" /> <input
-		type="hidden" name="perPage" value="${pagingDto.perPage}" /> <input
-		type="hidden" name="searchType" value="${pagingDto.searchType}" /> <input
-		type="hidden" name="keyword" value="${pagingDto.keyword}" /> <input
-		type="hidden" name="b_no" />
+	<input type="hidden" name="page" value="${pagingDto.page}" /> 
+	<input type="hidden" name="perPage" value="${pagingDto.perPage}" />
+	<input type="hidden" name="searchType" value="${pagingDto.searchType}" />
+    <input type="hidden" name="keyword" value="${pagingDto.keyword}" /> 
+    <input type="hidden" name="b_no" />
 </form>
 <br>
 <br>
