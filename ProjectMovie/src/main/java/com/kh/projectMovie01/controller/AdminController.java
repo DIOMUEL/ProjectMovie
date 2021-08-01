@@ -9,6 +9,7 @@ import javax.xml.crypto.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +21,7 @@ import com.kh.projectMovie01.service.Admin_ScheduleService;
 import com.kh.projectMovie01.service.Admin_StoreService;
 import com.kh.projectMovie01.service.ChartService;
 import com.kh.projectMovie01.service.MessageService;
+import com.kh.projectMovie01.service.NoticeMessageService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.FoodVo;
 import com.kh.projectMovie01.vo.MemberVo;
@@ -27,6 +29,7 @@ import com.kh.projectMovie01.vo.MessageVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
+import com.kh.projectMovie01.vo.NoticeMessageVo;
 import com.kh.projectMovie01.vo.PagingDto;
 import com.kh.projectMovie01.vo.ScheduleManagementVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
@@ -49,7 +52,7 @@ public class AdminController {
 	@Inject
 	private Admin_ScheduleService admin_ScheduleService;
 	@Inject
-	private MessageService messageService;
+	private NoticeMessageService noticeMessageService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -462,20 +465,55 @@ public class AdminController {
 // --------------- 관리 스케줄 관리 END-----------------------
 // --------------- 메세지 관리 -----------------------
 	//메세지 리스트
-	@RequestMapping(value="/administerMessage" , method=RequestMethod.GET)
-	public String message(@ModelAttribute("pagingDto") PagingDto pagingDto,Model model, HttpSession session) throws Exception {
+	@RequestMapping(value="/administerMessageBox" , method=RequestMethod.GET)
+	public String message(Model model, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		//System.out.println("user_id : " + user_id);
 
-		List<MessageVo> receive_MessageList = messageService.receive_MessageList(user_id);
-		model.addAttribute("receive_MessageList" , receive_MessageList);
-		//System.out.println(receive_MessageList);
+		List<NoticeMessageVo> receiveList = noticeMessageService.messageListReceive(user_id);
+		model.addAttribute("receiveList", receiveList);
 		
-		List<MessageVo> send_MessageList = messageService.send_MessageList(user_id);
-		model.addAttribute("send_MessageList" , send_MessageList);
-
-		return "/administerPage/administerMessage";
+		List<NoticeMessageVo> sendList = noticeMessageService.messageListSend(user_id);
+		model.addAttribute("sendList", sendList);
+		
+		List<NoticeMessageVo> selfList = noticeMessageService.messageListSelf(user_id, user_id);
+		model.addAttribute("selfList", selfList);
+		
+		return "/administerPage/administerMessageBox";
 	}
+	// 쪽지 읽기
+	@RequestMapping(value= "/administerMessageReadPage", method=RequestMethod.GET)
+	public String administerMessageReadPage(int msg_no, HttpSession session, Model model) throws Exception {
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);//
+		model.addAttribute("noticeMessageVo", noticeMessageVo);
+		int notReadCount = noticeMessageService.notReadCount(user_id);//
+		//int user_point = memberService.getUserPoint(user_id);
+		memberVo.setNotReadCount(notReadCount);
+		//memberVo.setUser_point(user_point);
+		model.addAttribute("user_id", user_id);
+		return "/administerPage/administerMessageReadPage";
+	}
+	//쪽지보내기
+	@RequestMapping(value="/sendMessage", method=RequestMethod.POST)
+	@ResponseBody
+	public String sendMessage(@RequestBody NoticeMessageVo noticeMessageVo, HttpSession session)throws Exception{
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		noticeMessageVo.setMsg_sender(memberVo.getUser_id());
+		noticeMessageService.sendMessage(noticeMessageVo);
+		return "success";
+	}
+	// 쪽지 삭제
+	@RequestMapping(value = "/deleteMessage", method=RequestMethod.GET)
+	public String deleteMessage(int msg_no, HttpSession session,RedirectAttributes rttr) throws Exception {
+		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		boolean result = noticeMessageService.deleteMessage(msg_no, user_id);
+		rttr.addFlashAttribute("msg_delete", String.valueOf(result));
+		return "redirect:/administerPage/administerMessageBox";
+	}
+	
 // --------------- 메세지 관리 END-----------------------
 }

@@ -7,14 +7,7 @@ $(document).ready(function() {
 	$("#send").hide();
 	$("#receive").show();
 	$("#self").hide();
-// 	$(".pagination > li > a").click(function(e) {
-// 		e.preventDefault(); // 페이지 이동 막기
-// 		var page = $(this).attr("href");
-// 		var frmPaging = $("#frmPaging");
-// 		frmPaging.find("[name=page]").val(page);
-// 		frmPaging.submit();
-	
-// 	});
+
 	$(".receive").click(function() {
 		$("#send").hide();
 		$("#receive").show();
@@ -32,15 +25,6 @@ $(document).ready(function() {
 		$("#receive").hide();
 		$("#self").show();
 	})
-
-// 	$(".a_title").click(function(e) {
-// 		e.preventDefault(); // prevent:막다, 방지하다, default: 기본
-		
-// 		var msg_no = $(this).attr("data-msg_no"); // 489
-// 		$("#frmPaging > input[name=msg_no]").val(msg_no);
-// 		$("#frmPaging").attr("action", "/mypage/message_send");
-// 		$("#frmPaging").submit();
-// 	});
 
 })
 
@@ -83,7 +67,7 @@ $(document).ready(function() {
 															style="font-weight:bold"
 														</c:if>
 													>
-													<a href="/noticeMessage/messageRead?msg_no=${noticeSendMessageVo.msg_no}">${noticeSendMessageVo.msg_content}</a></span>
+													<a href="/administerPage/administerMessageReadPage?msg_no=${noticeSendMessageVo.msg_no}">${noticeSendMessageVo.msg_content}</a></span>
 												</td>
 												<td>${noticeSendMessageVo.msg_receiver}</td>
 												<td>${noticeSendMessageVo.msg_senddate}</td>
@@ -125,7 +109,7 @@ $(document).ready(function() {
 															style="font-weight:bold"
 														</c:if>
 													>
-													<a href="/noticeMessage/messageRead?msg_no=${noticeReceiveMessageVo.msg_no}">${noticeReceiveMessageVo.msg_content}</a></span>
+													<a href="/administerPage/administerMessageReadPage?msg_no=${noticeReceiveMessageVo.msg_no}">${noticeReceiveMessageVo.msg_content}</a></span>
 												</td>
 												<td>${noticeReceiveMessageVo.msg_sender}</td>
 												<td>${noticeReceiveMessageVo.msg_senddate}</td>
@@ -167,7 +151,7 @@ $(document).ready(function() {
 															style="font-weight:bold"
 														</c:if>
 													>
-													<a href="/noticeMessage/messageRead?msg_no=${noticeSelfMessageVo.msg_no}">${noticeSelfMessageVo.msg_content}</a></span>
+													<a href="/administerPage/administerMessageReadPage?msg_no=${noticeSelfMessageVo.msg_no}">${noticeSelfMessageVo.msg_content}</a></span>
 												</td>
 												<td>${noticeSelfMessageVo.msg_sender}</td>
 												<td>${noticeSelfMessageVo.msg_senddate}</td>
