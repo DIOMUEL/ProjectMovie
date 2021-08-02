@@ -44,7 +44,7 @@ public class EmailController {
 		}
 		//System.out.println("buf : " + buf);
 		String code = String.valueOf(buf);
-		System.out.println("code : "+code);
+		//System.out.println("code : "+code);
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {		
 			@Override
 			public void prepare(MimeMessage mimeMessage) throws Exception {
