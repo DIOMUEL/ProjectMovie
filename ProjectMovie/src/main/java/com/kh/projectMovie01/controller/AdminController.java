@@ -338,13 +338,7 @@ public class AdminController {
 		model.addAttribute("areaVo", areaVo);
 		return "/administerPage/administerMovieScheduleManagementPage";
 	}
-//	//영화지역 선택시 영화관리스트 가지고오기
-//	@RequestMapping(value="/administerGetAreaTheaterList", method=RequestMethod.GET)
-//	@ResponseBody
-//	public List<AreaTheaterVo> administerGetAreaTheaterList(int area_no) throws Exception {
-//		List<AreaTheaterVo> areaTheaterVo = admin_AreaService.getAllAreaTheaterList(area_no);
-//		return areaTheaterVo;
-//	}
+
 	//영화지역 선택시 영화관리스트 가지고오기
 	@RequestMapping(value="/administerGetMovieScheduleList", method=RequestMethod.GET)
 	@ResponseBody
@@ -397,7 +391,7 @@ public class AdminController {
 //		System.out.println("managerSchedule_month:"+managerSchedule_month);
 //		System.out.println("managerSchedule_date:"+managerSchedule_date);
 		List<ScheduleManagementVo> todaylist = admin_ScheduleService.todayScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
-		System.out.println("todaylist : " + todaylist);
+		//System.out.println("todaylist : " + todaylist);
 		model.addAttribute("todaylist", todaylist);
 		return "/administerPage/administerScheduleManagement";
 	}
@@ -418,8 +412,9 @@ public class AdminController {
 	@RequestMapping(value="/administerSearchSchedule", method=RequestMethod.GET)
 	@ResponseBody
 	public List<ScheduleManagementVo> administerSearchSchedule(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+		//System.out.println(managerSchedule_year +","+ managerSchedule_month +","+ managerSchedule_date);
 		List<ScheduleManagementVo> thisDateList = admin_ScheduleService.searchScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
-		//System.out.println("list" + list);
+		//System.out.println("thisDateList: " + thisDateList);
 		return thisDateList;
 	}
 	//페이지 스케줄관리 페이지 체크박스 클릭시 할일 데이터베이스 YN 교체하기
@@ -482,18 +477,18 @@ public class AdminController {
 		
 		return "/administerPage/administerMessageBox";
 	}
-	// 쪽지 읽기
+	//쪽지 읽기
 	@RequestMapping(value= "/administerMessageReadPage", method=RequestMethod.GET)
 	public String administerMessageReadPage(int msg_no, HttpSession session, Model model) throws Exception {
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);//
-		model.addAttribute("noticeMessageVo", noticeMessageVo);
-		int notReadCount = noticeMessageService.notReadCount(user_id);//
-		//int user_point = memberService.getUserPoint(user_id);
+		NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);
+		int notReadCount = noticeMessageService.notReadCount(user_id);
 		memberVo.setNotReadCount(notReadCount);
-		//memberVo.setUser_point(user_point);
+		
+		model.addAttribute("noticeMessageVo", noticeMessageVo);
 		model.addAttribute("user_id", user_id);
+		
 		return "/administerPage/administerMessageReadPage";
 	}
 	//쪽지보내기
@@ -510,8 +505,10 @@ public class AdminController {
 	public String deleteMessage(int msg_no, HttpSession session,RedirectAttributes rttr) throws Exception {
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
+		
 		boolean result = noticeMessageService.deleteMessage(msg_no, user_id);
 		rttr.addFlashAttribute("msg_delete", String.valueOf(result));
+		
 		return "redirect:/administerPage/administerMessageBox";
 	}
 	

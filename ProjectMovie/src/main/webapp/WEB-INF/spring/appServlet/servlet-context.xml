@@ -36,20 +36,13 @@
 	</beans:bean>
 	
 	<!-- 인터셉터 -->
+	<beans:bean class="com.kh.projectMovie01.interceptor.AuthInterceptor" id="authInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<!-- ** = 뭐든 가능하다 -->
+			<mapping path="/administerPage/**/*"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+	</interceptors>
 
-<!-- 	<beans:bean class="com.kh.projectMovie01.interceptor.AuthInterceptor" -->
-<!-- 		id="authInterceptor"></beans:bean> -->
-	
-	
-<!-- 	<interceptors> -->
-
-<!-- 		<interceptor> -->
-<!-- 			<mapping path="/board/**/*"/> -->
-<!-- 			<mapping path="/message/**/*"/> -->
-<!-- 			<exclude-mapping path="/board/listAll"/> -->
-<!-- 			<beans:ref bean="authInterceptor"/> -->
-<!-- 		</interceptor> -->
-<!-- 	</interceptors> -->
-	
-	
 </beans:beans>

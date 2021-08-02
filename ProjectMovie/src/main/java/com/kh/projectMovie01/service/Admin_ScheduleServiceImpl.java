@@ -51,7 +51,12 @@ public class Admin_ScheduleServiceImpl implements Admin_ScheduleService {
 		int yCount = admin_ScheduleDao.yScheduleCount(managerSchedule_year, managerSchedule_month, managerSchedule_date);
 //		System.out.println("totalCount :"+totalCount);
 //		System.out.println("yCount :"+yCount);
-		int persentage = (yCount*100)/(totalCount);
+		int persentage;
+		if(totalCount == 0) {
+			persentage = 0;
+		}else {
+			persentage = (yCount*100)/(totalCount);
+		}
 		return persentage;
 	}
 
