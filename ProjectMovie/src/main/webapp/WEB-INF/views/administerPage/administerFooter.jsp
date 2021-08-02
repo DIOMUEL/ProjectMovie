@@ -24,10 +24,7 @@
 		<script src="/resources/administerPage/js/demo/chart-area-myDaysStoreAreaChart.js"></script>	
 		<script>
 			$(document).ready(function(){
-				var result = "${msg}"
-				if(result = "success"){
-					alert("환영합니다. 관리자님♬");
-				}
+				
 				//영화관련 그래프
 				$("#myTotal").click(function(){
 					$("#myTotalAreaChart").attr("style", "");

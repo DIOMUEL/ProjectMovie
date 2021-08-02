@@ -31,9 +31,9 @@ u<%@ page language="java" contentType="text/html; charset=UTF-8"
 <script>
 $(document).ready(function(){
 	var user_name = "${user_name}";
-	console.log(user_name);
+	//console.log(user_name);
 	var msgLoginMember = "${msgLoginMember}";
-	console.log(msgLoginMember);
+	//console.log(msgLoginMember);
 	if(msgLoginMember == "success"){
 		alert("환영합니다. "+ user_name + "님.");
 	}

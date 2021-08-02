@@ -8,6 +8,11 @@
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script>
 	$(document).ready(function(){
+		var user_name = "${user_name}"
+		var msgLoginMember = "${msgLoginMember}"
+		if(msgLoginMember == "success"){
+			alert("환영합니다. " +user_name+ "관리자님♬");	
+		}
 		//오늘 할일 리스트 퍼센트
 		var today = new Date();
 		var managerSchedule_year = today.getFullYear();
@@ -380,4 +385,5 @@
 		</div>
 	</div>
 </div>
+
 <%@ include file="administerFooter.jsp" %>
