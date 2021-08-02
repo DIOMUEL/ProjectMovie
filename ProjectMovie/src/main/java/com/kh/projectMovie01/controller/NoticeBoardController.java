@@ -38,8 +38,7 @@ public class NoticeBoardController {
 	private LikeService likeService;
 	
 	@RequestMapping(value = "/noticeBoardContentPage", method = RequestMethod.GET)
-	public String noticeBoardContentPage(
-			@ModelAttribute("pagingDto") PagingDto pagingDto, Model model, int b_no, HttpSession session) {
+	public String noticeBoardContentPage(@ModelAttribute("pagingDto") PagingDto pagingDto, Model model, int b_no, HttpSession session) {
 		NoticeBoardVo noticeBoardVo = noticeBoardService.noticeBoardContentPage(b_no);
 		model.addAttribute("noticeBoardVo", noticeBoardVo);
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");

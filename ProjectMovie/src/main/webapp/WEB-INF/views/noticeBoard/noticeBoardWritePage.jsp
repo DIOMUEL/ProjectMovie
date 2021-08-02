@@ -36,6 +36,12 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
+
+					<div class="jumbotron" style="background-color: black;">
+						<h2 style="color: white;">글쓰기</h2>
+						<br>
+					</div>
+
 					<form id="frmWrite" role="form"
 						action="/noticeBoard/noticeBoardWriteRun" method="post">
 						<label for="exampleFormControlInput1" class="form-label">제목</label>
