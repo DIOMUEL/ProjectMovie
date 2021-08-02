@@ -415,8 +415,9 @@ public class AdminController {
 	@RequestMapping(value="/administerSearchSchedule", method=RequestMethod.GET)
 	@ResponseBody
 	public List<ScheduleManagementVo> administerSearchSchedule(int managerSchedule_year, int managerSchedule_month, int managerSchedule_date) throws Exception {
+		//System.out.println(managerSchedule_year +","+ managerSchedule_month +","+ managerSchedule_date);
 		List<ScheduleManagementVo> thisDateList = admin_ScheduleService.searchScheduleList(managerSchedule_year, managerSchedule_month, managerSchedule_date);
-		//System.out.println("list" + list);
+		//System.out.println("thisDateList: " + thisDateList);
 		return thisDateList;
 	}
 	//페이지 스케줄관리 페이지 체크박스 클릭시 할일 데이터베이스 YN 교체하기

@@ -23,7 +23,7 @@
  	<select id="searchScheduleList" resultType="ScheduleManagementVo">
 		select * from tbl_managerSchedule
 		where managerSchedule_year = #{managerSchedule_year}
-		and managerSchedule_month = #{managerSchedule_month}+1
+		and managerSchedule_month = #{managerSchedule_month}
 		and managerSchedule_date = #{managerSchedule_date}
 	</select>
 	<!-- 등록된 스케줄 해당 체크박스 YN 업뎃 -->
