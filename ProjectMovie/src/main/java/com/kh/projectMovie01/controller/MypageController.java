@@ -47,6 +47,12 @@ public class MypageController {
 	
 		return "mypage/management";	
 	}
+	//회원 탈퇴
+	@RequestMapping(value="/managementdelete",method=RequestMethod.GET)
+	public String managementdelete() throws Exception{
+		
+		return "mypage/managementdelete";
+	}
 	//비밀번호 변경
 	@RequestMapping(value="/ChangePw",method=RequestMethod.POST)
 	@ResponseBody
