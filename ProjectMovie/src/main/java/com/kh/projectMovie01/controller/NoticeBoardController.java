@@ -45,9 +45,12 @@ public class NoticeBoardController {
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		LikeVo likeVo = new LikeVo(user_id, b_no);
+		System.out.println(likeVo);
 		boolean isLike = likeService.checkLike(likeVo);
 		model.addAttribute(isLike);
+		
 		int likeCount = likeService.likeCount(b_no);
+	
 		Map<String, Object> likeMap = new HashMap<String, Object>();
 		likeMap.put("isLike", isLike);
 		likeMap.put("likeCount", likeCount);

@@ -101,10 +101,10 @@
 
 	<select id="myNoticeBoard" resultType="NoticeBoardVo">
 			select * from
-			(select rownum rnum, a.* from
-			(select * from tbl_noticeboard
+				(select rownum rnum, a.* from
+					(select * from tbl_noticeboard
 			where user_id = #{user_id} order by re_group desc, re_seq asc) a)
-			where rnum between #{startRow} and #{endRow}
+			where rnum between #{pagingDto.startRow} and #{pagingDto.endRow}
 	</select>
 
 </mapper>

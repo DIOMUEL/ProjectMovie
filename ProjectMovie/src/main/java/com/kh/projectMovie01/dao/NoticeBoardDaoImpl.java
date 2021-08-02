@@ -84,6 +84,7 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 		map.put("user_id", user_id);
 		map.put("pagingDto", pagingDto);
 		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "myNoticeBoard", map);
+		
 		return list;
 	}
 

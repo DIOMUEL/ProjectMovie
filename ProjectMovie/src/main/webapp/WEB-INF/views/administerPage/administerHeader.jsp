@@ -55,9 +55,7 @@
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">
-					관리자님<br> 환영합니다.
-				</div>
+				<div class="sidebar-brand-text mx-3">관리자님<br> 환영합니다.</div>
 			</a>
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
@@ -111,7 +109,7 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">스케줄 설정 및 유지:</h6>
 						<a class="collapse-item scheduleManagement" href="/administerPage/administerScheduleManagement">스케줄 관리</a> 
-						<a class="collapse-item" href="/administerPage/administerMessage">메시지 관리</a>
+						<a class="collapse-item" href="/administerPage/administerMessageBox">메시지 관리</a>
 						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>
 					</div>
 				</div>
@@ -202,8 +200,9 @@
 								<a class="dropdown-item" href="/administerPage/administerMainPage"> 
 									<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>관리페이지
 								</a> 
-								<a class="dropdown-item" href="/mypage/Message"> 
+								<a class="dropdown-item" href="/administerPage/administerMessageBox"> 
 									<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
+									<span class="badge badge-danger badge-counter">${sessionScope.loginVo.notReadCount}</span>
 								</a> 
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/board/logout"> 
