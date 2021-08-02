@@ -8,6 +8,7 @@
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script>
 	$(document).ready(function(){
+		//오늘 할일 리스트 퍼센트
 		var today = new Date();
 		var managerSchedule_year = today.getFullYear();
 		var managerSchedule_month = today.getMonth()+1;
@@ -123,11 +124,11 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">메세지</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">않읽은 메세지</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${sessionScope.loginVo.notReadCount}</div>
 						</div>
 						<div class="col-auto">
-							<a href="/administerPage/administerMessage"><i class="fas fa-comments fa-2x text-gray-300"></i></a>
+							<a href="/administerPage/administerMessageBox"><i class="fas fa-comments fa-2x text-gray-300"></i></a>
 						</div>
 					</div>
 				</div>

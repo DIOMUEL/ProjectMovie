@@ -268,9 +268,8 @@ $(document).ready(function() {
 			if (cnt % 7 == 0) {
 				tag += "<tr>";
 			}
-			var today = new Date();
-			var thisyear = today.getFullYear();
-			var thismonth = today.getMonth();
+			var thisyear = nowDate.getFullYear();
+			var thismonth = nowDate.getMonth()+1;
 			
 			tag += "<td style='height:75px;' id='"+ i +"' data-year='"+ thisyear + "' data-month='"+ thismonth +"' data-date='"+ i + "'>" + i + "</td>";
 			cnt++;
