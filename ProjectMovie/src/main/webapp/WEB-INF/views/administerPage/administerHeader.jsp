@@ -22,13 +22,14 @@
 <script src="/resources/administerPage/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script>
 	$(document).ready(function(){
+		
 		$(".scheduleManagement").click(function(e){
 			e.preventDefault();
 			var today = new Date();
 			var year = today.getFullYear();
 			var month = today.getMonth();
 			var date = today.getDate();
-			//console.log(year + "년" + month +"월"+ date +"일");
+// 			console.log(year + "년" + month +"월"+ date +"일");
 			$("#managerSchedule_year").attr("value", year);
 			$("#managerSchedule_month").attr("value", month);
 			$("#managerSchedule_date").attr("value", date);
@@ -55,9 +56,7 @@
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">
-					관리자님<br> 환영합니다.
-				</div>
+				<div class="sidebar-brand-text mx-3">관리자님<br> 환영합니다.</div>
 			</a>
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
@@ -110,9 +109,8 @@
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">스케줄 설정 및 유지:</h6>
-						<a class="collapse-item scheduleManagement" href="/administerPage/administerScheduleManagement">스케줄 관리</a> <a
-							class="collapse-item" href="utilities-border.html">오늘 할일</a> <a
-							class="collapse-item" href="utilities-animation.html">메시지 관리</a>
+						<a class="collapse-item scheduleManagement" href="/administerPage/administerScheduleManagement">스케줄 관리</a> 
+						<a class="collapse-item" href="/administerPage/administerMessageBox">메시지 관리</a>
 						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>
 					</div>
 				</div>
@@ -154,14 +152,6 @@
 					</div>
 				</div>
 			</li>
-			<!-- Nav Item - Tables -->
-			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> 
-					<span>Tables</span>
-				</a>
-			</li>
-
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
 
@@ -203,8 +193,9 @@
 								<a class="dropdown-item" href="/administerPage/administerMainPage"> 
 									<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>관리페이지
 								</a> 
-								<a class="dropdown-item" href="/mypage/Message"> 
+								<a class="dropdown-item" href="/administerPage/administerMessageBox"> 
 									<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>메세지
+									<span class="badge badge-danger badge-counter">${sessionScope.loginVo.notReadCount}</span>
 								</a> 
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/board/logout"> 

@@ -307,7 +307,7 @@
 						<!--// bg-coupon-block -->
 
 						<ul class="dot-list mt15">
-							<li>본 혜택은 VIP 등급 유지 기간 중 제공됩니다. 직접 쿠폰을 선택하신 후 다운받으셔야 쿠폰을 이용하실 수 있습니다.</li>
+							<li>본 혜택은 silver 등급 유지 기간 중 제공됩니다. 직접 쿠폰을 선택하신 후 다운받으셔야 쿠폰을 이용하실 수 있습니다.</li>
 							<li>등급 별 VIP 쿠폰 제공이 상이하오니 VIP 쿠폰북 안내를 통해 확인해주세요.</li>
 							<li>쿠폰마다 유효 기간이 상이합니다. 유효기간을 꼭 확인해 주세요!</li>
 						</ul>
@@ -327,18 +327,27 @@
 										</td>
 										<td>
 											<div>
-												<p class="tit">VIP, VIP PREMIUM</p>
+												<p class="tit">silver, gold</p>
 												<p class="txt">영화 2천원 할인 쿠폰 2매</p>
 											</div>
 
 											<div class="mt05">
-												<p class="tit">VVIP</p>
+												<p class="tit">platinum</p>
 												<p class="txt">일반 2D 무료관람 쿠폰 1매</p>
 											</div>
 										</td>
 										<td>
 											<i class="iconset ico-plus-circle">+</i>
 											콤보 4천원 할인 쿠폰 1매
+										</td>
+										<div class="mt05">
+												<p class="tit">diamond</p>
+												<p class="txt">프리미엄좌석 무료관람 쿠폰 5매</p>
+											</div>
+										</td>
+										<td>
+											<i class="iconset ico-plus-circle">+</i>
+											콤보 6천원 할인 쿠폰 3매
 										</td>
 									</tr>
 								</tbody>

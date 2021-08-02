@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kh.projectMovie01.schedule">
+	
+	<!-- 각 달력에서 누른 날짜기준으로 그 날 일정 추가하기 -->
+	<insert id="addSchedule">
+		insert into tbl_managerSchedule
+			(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_title, managerSchedule_content, managerSchedule_complete, managerSchedule_sysdate)
+		values
+			(seq_managerSchedule_no.nextval, #{managerSchedule_year}, #{managerSchedule_month}, #{managerSchedule_date}, #{managerSchedule_title}, #{managerSchedule_content}, #{managerSchedule_complete, jdbcType=VARCHAR}, sysdate)
+	</insert>
+	<!-- 등록된 스케줄 일정 오늘 날짜의 리스트 호출 -->
+	<select id="todayScheduleList" resultType="ScheduleManagementVo">
+		select * from tbl_managerSchedule
+		where managerSchedule_year = #{managerSchedule_year}
+		and managerSchedule_month = #{managerSchedule_month}+1
+		and managerSchedule_date = #{managerSchedule_date}
+	</select>
+ 	<!-- 등록된 스케줄 일정 해당 날짜의 리스트 호출 -->
+ 	<select id="searchScheduleList" resultType="ScheduleManagementVo">
+		select * from tbl_managerSchedule
+		where managerSchedule_year = #{managerSchedule_year}
+		and managerSchedule_month = #{managerSchedule_month}
+		and managerSchedule_date = #{managerSchedule_date}
+	</select>
+	<!-- 등록된 스케줄 해당 체크박스 YN 업뎃 -->
+	<update id="checkBoxClick">
+		update tbl_managerSchedule set
+		managerSchedule_complete =  #{managerSchedule_complete}
+		where managerSchedule_year = #{managerSchedule_year}
+		and managerSchedule_month = #{managerSchedule_month}
+		and managerSchedule_date = #{managerSchedule_date}
+		and managerSchedule_no = #{managerSchedule_no}
+	</update>
+	<!-- 등록된 스케줄 해당 날짜 리스트 삭제 -->
+	<delete id="deleteSchedule">
+		delete from tbl_managerSchedule
+		where managerSchedule_year = #{managerSchedule_year}
+		and managerSchedule_month = #{managerSchedule_month}
+		and managerSchedule_date = #{managerSchedule_date}
+		and managerSchedule_no = #{managerSchedule_no}
+	</delete>
+	
+<!-- 어드민 메인페이지 할일 퍼센트  -->
+	<!-- 해당날짜 전체 리스트 -> 해당날짜 Y의 갯수 -> 퍼센트로 나타내기 -->
+		<!-- 해당날짜 전체 리스트 -->
+	<select id="totalScheduleCount" resultType="int">
+		select count(*) from tbl_managerSchedule
+		where managerSchedule_year = #{managerSchedule_year}
+		and managerSchedule_month = #{managerSchedule_month}
+		and managerSchedule_date = #{managerSchedule_date}
+	</select>
+	<!-- 해당날짜 Y의 갯수 -->
+	<select id="yScheduleCount" resultType="int">
+		select count(*) from tbl_managerSchedule
+		where managerSchedule_year = #{managerSchedule_year}
+		and managerSchedule_month = #{managerSchedule_month}
+		and managerSchedule_date = #{managerSchedule_date}
+		and managerSchedule_complete = 'Y'
+	</select>
+</mapper>

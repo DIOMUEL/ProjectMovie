@@ -34,4 +34,10 @@
 	 	user_email = #{user_email}
 		where user_id = #{user_id}
 	</update>
+	<!-- 회원탈퇴 -->
+	<delete id="deleteMember">
+		delete from tbl_member
+		user_pw = #{user_pw}
+		where user_id = #{user_id}
+	</delete>
 </mapper>
