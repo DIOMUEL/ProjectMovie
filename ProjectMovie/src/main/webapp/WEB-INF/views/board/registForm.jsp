@@ -66,6 +66,11 @@
 		});
 		
 		$("#btnCheckDupEmail").click(function(){
+			if($("#user_email").val().trim() == ""){
+				$("#user_email").focus();
+				alert("이메일을 입력해 주세요");
+				return false;
+			}
 			//이메일 인증하기 누르면 생년월일의 값의 하이픈을 제거('-')
 			var date = $("#user_date").val();
 			var dateControl = date.replace(/-/g,"");
@@ -84,6 +89,7 @@
 				$("#collectCode").val(rData);
 				//var collectCode = $("#collectCode").val();
 				//console.log("collectCode: "+collectCode);
+				alert("인증코드 발송");
 			});
 		});
 		//사용자가 이메일로 받은 코드를 입력하면 그 코드와 시스템에서 받은 코드와 비교하기
@@ -146,7 +152,7 @@
 				<div class="form-group">
 					<label for="user_email" style="color:yellow"> 이메일 </label> 
 					<button type="button" class="btn btn-primary" id="btnCheckDupEmail" disabled="disabled">이메일 인증</button>
-					<input type="text" class="form-control form-Read" id="user_email" name="user_email" readonly/>
+					<input type="email" class="form-control form-Read" id="user_email" name="user_email" readonly/>
 				</div>
 				<div class="form-group" style="display:none" id="checkCode">
 					<input type="text" id="responseCode" class="form-control" placeholder="이메일 인증 코드 6자리 입력"/>

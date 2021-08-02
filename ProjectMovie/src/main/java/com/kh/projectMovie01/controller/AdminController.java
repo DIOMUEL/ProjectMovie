@@ -502,14 +502,14 @@ public class AdminController {
 	}
 	// 쪽지 삭제
 	@RequestMapping(value = "/deleteMessage", method=RequestMethod.GET)
-	public String deleteMessage(int msg_no, HttpSession session,RedirectAttributes rttr) throws Exception {
+	@ResponseBody
+	public boolean deleteMessage(int msg_no, HttpSession session) throws Exception {
 		MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		
+		//System.out.println("msg_no : "+ msg_no);
 		boolean result = noticeMessageService.deleteMessage(msg_no, user_id);
-		rttr.addFlashAttribute("msg_delete", String.valueOf(result));
-		
-		return "redirect:/administerPage/administerMessageBox";
+		//System.out.println("result : "+ result);
+		return result;
 	}
 	
 // --------------- 메세지 관리 END-----------------------

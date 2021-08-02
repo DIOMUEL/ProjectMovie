@@ -77,8 +77,8 @@
 		    movie_total_time = #{movie_total_time},
 		    movie_main_image = #{movie_main_image},
 		    movie_grade = #{movie_grade},
-<!-- 		    movie_preview = #{movie_preview}, -->
-		    movie_content = #{movie_content}
+<!-- 		movie_preview = #{movie_preview}, -->
+		    movie_content = #{movie_content},
 		    movie_count = #{movie_count}
 		where movie_code = #{movie_code}
 	</update>

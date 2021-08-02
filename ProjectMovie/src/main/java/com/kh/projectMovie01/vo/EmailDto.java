@@ -3,7 +3,7 @@ package com.kh.projectMovie01.vo;
 public class EmailDto {
 	private String from = "rlaqjaals0213@gmail.com";
 	private String to;
-	private String subject = "ooo¿µÈ­°ü ÀÎÁõ ÄÚµåÀÔ´Ï´Ù.";
+	private String subject = "oooì˜í™”ê´€ ì¸ì¦ ì½”ë“œì…ë‹ˆë‹¤.";
 	private String content;
 
 	

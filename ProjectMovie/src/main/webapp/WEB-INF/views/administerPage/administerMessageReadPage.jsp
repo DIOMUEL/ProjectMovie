@@ -3,6 +3,7 @@
 <%@ include file="administerHeader.jsp" %>
 <script>
 $(document).ready(function() {
+	//모달창 답장하기 눌렀을때
 	$("#btnReplyOk").click(function() {
 		// 쪽지 내용
 		var msg_content = $("#msg_content").val();
@@ -31,11 +32,25 @@ $(document).ready(function() {
 			}
 		});
 	}); 
+	//모달창 삭제하기 눌렀을때
+	$("#btndeleteOk").click(function() {
+		// 쪽지 내용
+		var msg_no = "${noticeMessageVo.msg_no}";
+		var sendData = {
+				"msg_no"  : msg_no
+		};
+		console.log(sendData);
+		var url = "/administerPage/deleteMessage";
+		$.get(url, sendData, function(rData){
+			console.log(rData);
+			if (rData == true) {
+				alert("삭제완료.");
+				location.href = "/administerPage/administerMessageBox";
+			};
+		});
+	}); 
 });
 </script>
-<br>
-<br>
-<br>
 <!-- 쪽지 답장 모달 -->
 <div class="row">
 	<div class="col-md-12">
@@ -61,7 +76,30 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-<!-- // 쪽지 답장 모달 -->	
+<!-- // 쪽지 답장 모달 -->
+<!-- 쪽지 삭제 모달 -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="modal fade" id="modal-container-552191" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">삭제하시겠습니까?</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="btndeleteOk">삭제하기</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- // 쪽지 삭제모달 -->		
 <section class="page-section bg-light">
 	<input type='hidden' name='memberVo' />
 	<div class="container">
@@ -119,7 +157,8 @@ $(document).ready(function() {
 								<div class="col-md-12">
 									<a class="btn btn-success" href="/administerPage/administerMessageBox">받은쪽지함</a>
 									<a href="#modal-container-552199" class="btn btn-primary" data-toggle="modal">답장</a>
-									<a class="btn btn-danger" href="/administerPage/deleteMessage?msg_no=${noticeMessageVo.msg_no}">삭제</a>
+									<a class="btn btn-danger" href="#modal-container-552191" data-toggle="modal">삭제</a>
+									
 								</div>
 							</div>
 						</div>
@@ -128,7 +167,10 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
-	<br> <br> <br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 </section>
 </body>
 </html>

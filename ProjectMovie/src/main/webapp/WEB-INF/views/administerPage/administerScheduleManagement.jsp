@@ -51,7 +51,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">	
-		 		
+			<!-- 추가 모달창 -->	
 			<div class="modal fade" id="modal-container-512696" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -78,8 +78,28 @@
 					</div>					
 				</div>				
 			</div>
+			<!-- 삭제 모달창 -->
+			<div class="modal fade" id="modal-container-512691" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">삭제하시겠습니까?</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+						</div>
+						<div class="modal-footer">							 
+							<button type="button" class="btn btn-primary" id="btnDeleteSchedule">삭제</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancle">취소</button>
+						</div>
+					</div>					
+				</div>				
+			</div>
 		</div>
 	</div>
+	
 	<div class="row">
 		<div class="col-lg-9 col-md-8 col-12">
 			<div id="calendarForm"></div>
@@ -111,7 +131,7 @@
 							 	<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox" checked></td>
 							</c:otherwise>
 						</c:choose>
-						<td><button class="btn-primary deleteSchedule">삭제</button></td>
+						<td><a href="#modal-container-512691" class="btn-primary deleteSchedule" data-toggle="modal">삭제</a></td>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -123,7 +143,7 @@
 						<td></td>
 						<td></td>
 						<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox"></td>
-						<td><button class="btn-primary deleteSchedule" >삭제</button></td>
+						<td><a href="#modal-container-512691" class="btn-primary deleteSchedule" data-toggle="modal">삭제</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -158,6 +178,7 @@ $(document).ready(function() {
  		$("#btnAddSchedule").attr("data-month",data_month);
  		$("#btnAddSchedule").attr("data-date",data_date);
 	});
+	//스케줄추가하기
 	$("#btnAddSchedule").click(function() {
 		var managerSchedule_year = $(this).attr("data-year");
 		var managerSchedule_month = $(this).attr("data-month");
@@ -173,12 +194,12 @@ $(document).ready(function() {
 				"managerSchedule_content" : managerSchedule_content
 		};
 		var url = "/administerPage/administerAddSchedule";
-
 		$.get(url, sendData, function(rData){
 			//console.log("rData: "+rData);
 			if (rData == "success") {
 				alert("스케줄 추가 완료.");
 				$("#btnCancle").trigger("click");
+				$(".scheduleManagement").trigger("click");	
 			};
 		});
 	});
@@ -212,16 +233,29 @@ $(document).ready(function() {
 				"managerSchedule_complete" : managerSchedule_complete
 		}
 		$.get(url, sendData, function(rData){
-			console.log("rData : ", rData);
+			//console.log("rData : ", rData);
 		});
 	});
-	//삭제클릭시 해당 스케줄 삭제
+	//삭제 버튼 클릭시 모달창으로 
 	$(document).on("click", ".deleteSchedule", function() {
-		//console.log("클릭됨");
+		console.log("클릭됨");
 		var managerSchedule_no = $(this).parent().parent().find(".checkbox").attr("data-no");
 		var managerSchedule_year = $(this).parent().parent().find(".checkbox").attr("data-year");
 		var managerSchedule_month = $(this).parent().parent().find(".checkbox").attr("data-month");
 		var managerSchedule_date = $(this).parent().parent().find(".checkbox").attr("data-date");
+		
+		$("#btnDeleteSchedule").attr("data-no", managerSchedule_no);
+		$("#btnDeleteSchedule").attr("data-year", managerSchedule_year);
+		$("#btnDeleteSchedule").attr("data-month", managerSchedule_month);
+		$("#btnDeleteSchedule").attr("data-date", managerSchedule_date);
+	});
+	//삭제클릭시 해당 스케줄 삭제
+	$("#btnDeleteSchedule").click(function(){
+		//console.log("클릭됨");
+		var managerSchedule_no = $(this).attr("data-no");
+		var managerSchedule_year = $(this).attr("data-year");
+		var managerSchedule_month = $(this).attr("data-month");
+		var managerSchedule_date = $(this).attr("data-date");
 		
 		var sendData = {
 				"managerSchedule_no" : managerSchedule_no,
@@ -232,7 +266,12 @@ $(document).ready(function() {
 		var url = "/administerPage/administerDeleteSchedule";
 
 		$.get(url, sendData, function(rData){
-			console.log(rData);
+			//console.log(rData);
+			if (rData == "success") {
+				alert("스케줄 삭제 완료.");
+				$("#btnCancle").trigger("click");
+				$(".scheduleManagement").trigger("click");	
+			};
 		});
 	});
 });

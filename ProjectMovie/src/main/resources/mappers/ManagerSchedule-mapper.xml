@@ -10,7 +10,7 @@
 		insert into tbl_managerSchedule
 			(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_title, managerSchedule_content, managerSchedule_complete, managerSchedule_sysdate)
 		values
-			(seq_managerSchedule_no.nextval, #{managerSchedule_year}, #{managerSchedule_month}+1, #{managerSchedule_date}, #{managerSchedule_title}, #{managerSchedule_content}, #{managerSchedule_complete, jdbcType=VARCHAR}, sysdate)
+			(seq_managerSchedule_no.nextval, #{managerSchedule_year}, #{managerSchedule_month}, #{managerSchedule_date}, #{managerSchedule_title}, #{managerSchedule_content}, #{managerSchedule_complete, jdbcType=VARCHAR}, sysdate)
 	</insert>
 	<!-- 등록된 스케줄 일정 오늘 날짜의 리스트 호출 -->
 	<select id="todayScheduleList" resultType="ScheduleManagementVo">
