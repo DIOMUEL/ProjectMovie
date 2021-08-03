@@ -22,7 +22,7 @@ $(document).ready(function(){
 	//댓글수정
 	$("#btnModify").click(function(){
 // 		e.preventDefault();
-// 		if("${noticeBoardVo.user_id}" == ""){
+// 		if("${sessionScope.loginVo}" == ""){
 // 			alert("로그인을 확인해주세요");
 // 			location.href = "/board/loginPage";
 // 		}else{		
@@ -191,6 +191,71 @@ $(document).ready(function(){
 		
 	});
 	
+	
+	// 신고 링크
+// 	$(".sendReport").click(function(e) {
+// 		e.preventDefault();
+// 		if("${sessionScope.loginVo}" == ""){
+// 			alert("로그인을 확인해주세요");
+// 			location.href = "/board/loginPage";
+// 		}else{
+// 			var user_id = $(this).attr("data-user_id");
+// 			$("#btnSendReport").attr("data-rpt_receiver", user_id);
+// 		}
+		
+// 	});
+	
+	//신고링크
+	$("#commentTable").on("click", ".sendReport", function() {
+		var user_id = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(1).text();
+// 		var user_id = $(this).attr("data-user_id");
+		$("#btnSendReport").attr("data-rpt_receiver", user_id);
+
+	});
+	
+	//??
+	$("#dropdownMenuButton").click(function(){
+		var user_id = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(1).text();
+		var url = "";
+		
+		
+		
+		
+	});	
+	
+	// 신고하기 버튼
+	$("#btnSendReport").click(function() {
+		var that = $(this);
+		var rpt_content = $("input[name=rpt_content]:checked").val();
+//		var rpt_content = $("#rpt_content").val();
+		var rpt_receiver = $(this).attr("data-rpt_receiver");
+		var sendData = {
+				"rpt_receiver" : rpt_receiver,
+				"rpt_content" : rpt_content
+		};
+		console.log(sendData);
+		var url = "/report/sendReport";
+		
+		$.ajax({
+			"url" : url,
+			"method" : "post",
+			"dataType" : "text",
+			"headers" : {
+				"Content-Type" : "application/json"
+			},
+			"data" : JSON.stringify(sendData),
+			"success" : function(receivedData) {
+//				console.log(receivedData);
+				if (receivedData == "success") {
+					that.next().trigger("click");
+					$("#rpt_content").val("");
+					
+				}
+				
+			}
+		});
+	});
+	
 });
 </script>
 <!-- 모달창 -->
@@ -227,8 +292,73 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div>
-
 <!-- // 모달창 -->
+
+<!-- 신고 모달창 -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="modal fade" id="modal-container-105698" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">신고하기</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">
+<!-- 						<input type="text" class="form-control" id="rpt_content"/> -->
+						<form id="frmReport" role="form"
+						action="/report/sendReport" method="post">
+						<div class="form-check">
+							<input class="form-check-input" type="radio"
+								name="rpt_content" id="flexRadioDefault1" value="스팸홍보/도배글입니다." checked>
+								<label class="form-check-label" for="flexRadioDefault1">
+								스팸홍보/도배글입니다. </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio"
+								name="rpt_content" id="flexRadioDefault2" value="불법정보를 포함하고 있습니다.">
+							<label class="form-check-label" for="flexRadioDefault2">
+								불법정보를 포함하고 있습니다. </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio"
+								name="rpt_content" id="flexRadioDefault3" value="욕설/생명경시/혐오/차별적 표현입니다.">
+							<label class="form-check-label" for="flexRadioDefault2">	
+							욕설/생명경시/혐오/차별적 표현입니다. </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio"
+								name="rpt_content" id="flexRadioDefault4" value="개인정보 노출 게시물입니다.">
+							<label class="form-check-label" for="flexRadioDefault2">
+								개인정보 노출 게시물입니다. </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio"
+								name="rpt_content" id="flexRadioDefault5" value="불쾌한 표현이 있습니다.">
+							<label class="form-check-label" for="flexRadioDefault2">
+								불쾌한 표현이 있습니다. </label>
+						</div>
+					</form>
+					</div>
+					<div class="modal-footer">
+
+						<button type="button" class="btn btn-primary"
+							id="btnSendReport">신고하기</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<!-- // 신고 모달창 -->
 <section class="page-section bg-light">
 <div class="row">
 	<div class="col-md-12">
@@ -264,6 +394,7 @@ $(document).ready(function(){
 				</div>
 			</form>
 			<br>
+			<div>[현재댓글${noticeBoardVo.comment_cnt}]</div>
 			<div>
 				<textarea class="form-control" id="c_content" name="c_content" rows="3" >${commentVo.c_content}</textarea>
 				<button type="button" class="btn btn-primary" id="btnCommentInsert" >댓글등록</button>	
@@ -289,9 +420,19 @@ $(document).ready(function(){
 												&vellip;</button>
 											<div class="dropdown-menu"
 												aria-labelledby="dropdownMenuButton">
+												<c:choose>
+												<c:when test="${sessionScope.loginVo.user_id == commentVo.user_id}">
 												<button class="dropdown-item searchType commentModify">수정</button> 
 												<button class="dropdown-item searchType commentDelete">삭제</button>
-												<a class="dropdown-item searchType commenReport" href="/report/reportPage">신고</a> 
+												</c:when>
+												<c:otherwise>
+												<a class="dropdown-item searchType sendReport"
+												data-toggle="modal" 
+												href="#modal-container-105698" 
+												data-user_id="${commentVo.user_id}">신고</a>
+												</c:otherwise> 
+												</c:choose>
+<!-- 											<a class="dropdown-item searchType commenReport sendReport" href="/report/reportPage">신고</a>  -->
 											</div>
 										</div>
 									</div>
