@@ -29,9 +29,10 @@
 			</div>
 			<div class="row align-items-center">
 				<div class="col-lg-12 my-3 my-lg-0">
-					<p>서울특별시 마포구 월드컵로 240, 지상2층(성산동, 월드컵주경기장) · ARS 1544-0070 ·
-						대표자명 김진선 · 개인정보보호책임자 조상연 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 제 833호</p>
-					<p class="copy">COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved</p>
+					<p>446-77 울산광역시 남구 삼산로35번길 19 (신정동) · 사업자번호 : 610-86-10288 · 통신판매업신고번호 : 제 2012-울산남구-0050호 · ARS 1544-0070<br>
+						회사명 : (주)울산KH정보교육원  · 대표자 : 이호면 hmlee@ulsanit.com · Tel : 052-257-7600 · Fax : 052-257-7822<br>
+						개인정보보호책임자 : 이호면 hmlee@ulsanit.com · Tel : 052-257-7600</p>
+					<p class="copy">copyright © 울산KH정보교육원. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
