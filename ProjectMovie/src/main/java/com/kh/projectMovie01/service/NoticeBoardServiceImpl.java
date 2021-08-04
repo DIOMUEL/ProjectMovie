@@ -59,4 +59,16 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 		return list;
 	}
 
+	@Override
+	public List<NoticeBoardVo> noticeBoardHeadList(PagingDto pagingDto) {
+		List<NoticeBoardVo> list = noticeBoardDao.noticeBoardHeadList(pagingDto);
+		return list;
+	}
+
+	@Override
+	public List<NoticeBoardVo> noticeBoardBranchList(PagingDto pagingDto) {
+		List<NoticeBoardVo> list = noticeBoardDao.noticeBoardBranchList(pagingDto);
+		return list;
+	}
+
 }

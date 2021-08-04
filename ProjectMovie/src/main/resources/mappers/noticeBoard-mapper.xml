@@ -106,5 +106,25 @@
 			where user_id = #{user_id} order by re_group desc, re_seq asc) a)
 			where rnum between #{pagingDto.startRow} and #{pagingDto.endRow}
 	</select>
+	
+	<!-- 본사글목록 -->
+	<select id="noticeBoardHeadList" resultType="NoticeBoardVo">
+			select * from
+			(select rownum rnum, a.* from
+			(select * from tbl_noticeboard
+			where b_theater = '본사'
+			order by re_group desc, re_seq asc) a)
+			where rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 지사글목록 -->
+	<select id="noticeBoardBranchList" resultType="NoticeBoardVo">
+			select * from
+			(select rownum rnum, a.* from
+			(select * from tbl_noticeboard
+			where b_theater != '본사'
+			order by re_group desc, re_seq asc) a)
+			where rnum between #{startRow} and #{endRow}
+	</select>
 
 </mapper>

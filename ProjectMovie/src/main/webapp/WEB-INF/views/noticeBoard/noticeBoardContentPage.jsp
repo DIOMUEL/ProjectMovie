@@ -86,7 +86,7 @@ $(document).ready(function(){
 				td.eq(2).text(changeDateString(this.c_regdate));
 				td.eq(3).text(this.c_content);
 				td.eq(4).find("button").attr("data-cno", this.c_no);
- 				td.eq(4).find("button").attr("comment-user_id", this.user_id);
+//  			td.eq(4).find("button").attr("comment-user_id", this.user_id);
 				$("#commentTable > tbody").append(cloneTr);
 				cloneTr.show("slow");
 			});
@@ -414,7 +414,7 @@ $(document).ready(function(){
 											<div class="dropdown-menu"
 												aria-labelledby="dropdownMenuButton">
 												<c:choose>
-												<c:when test="${sessionScope.loginVo.user_id == comment-user_id}">
+												<c:when test="${sessionScope.loginVo.user_id == user_id}">
 												<button class="dropdown-item searchType commentModify">수정</button> 
 												<button class="dropdown-item searchType commentDelete">삭제</button>
 												</c:when>
