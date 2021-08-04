@@ -45,11 +45,51 @@ $(document).ready(function(){
 					<form id="frmWrite" role="form"
 						action="/noticeBoard/noticeBoardWriteRun" method="post">
 						<label for="exampleFormControlInput1" class="form-label">제목</label>
-						<input type="text" class="form-control" id="b_title"
-							name="b_title" /> <label for="exampleFormControlTextarea1"
-							class="form-label">내용</label>
-						<textarea class="form-control" id="b_content" name="b_content"
-							rows="3"></textarea>
+						<input type="text" class="form-control" id="b_title" name="b_title" /> 
+					<br>	
+						<label for="exampleFormControlInput2" class="form-label">극장</label>
+						<div class="form-check">
+							<div>
+							<input class="form-check-input" type="radio"
+								name="b_theater" id="flexRadioDefault1" value="본사" checked>본사
+							</div>
+							<div>
+							<input class="form-check-input" type="radio"
+								name="b_theater" id="flexRadioDefault1" value="서울">서울
+							</div>
+							<div>	
+							<input class="form-check-input" type="radio"
+								name="b_theater" id="flexRadioDefault1" value="대구">대구
+							</div>
+							<div>	
+							<input class="form-check-input" type="radio"
+								name="b_theater" id="flexRadioDefault1" value="부산">부산
+							</div>
+							<div>	
+							<input class="form-check-input" type="radio"
+								name="b_theater" id="flexRadioDefault1" value="울산">울산
+							</div>
+							<div>	
+							<input class="form-check-input" type="radio"
+								name="b_theater" id="flexRadioDefault1" value="대전">대전
+							</div>
+						</div>
+					<br>	
+						<label for="exampleFormControlInput3" class="form-label">구분</label>	
+						<div class="form-check">
+						<div>
+							<input class="form-check-input" type="radio"
+								name="b_division" id="flexRadioDefault1" value="공지" checked>공지
+						</div>
+						<div>		
+							<input class="form-check-input" type="radio"
+								name="b_division" id="flexRadioDefault1" value="기타">기타
+						</div>		
+						</div>	
+							
+					<br>		
+						<label for="exampleFormControlTextarea1" class="form-label">내용</label>
+						<textarea class="form-control" id="b_content" name="b_content" rows="3"></textarea>
 						<div>
 							<button type="submit" class="btn btn-success" id="btnWrite">작성완료</button>
 						</div>

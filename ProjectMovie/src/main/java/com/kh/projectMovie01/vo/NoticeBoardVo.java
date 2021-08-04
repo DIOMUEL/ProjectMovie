@@ -13,12 +13,32 @@ public class NoticeBoardVo {
 	private int re_seq;
 	private int re_level;
 	private int comment_cnt;
+	private String b_theater;
+	private String b_division;
+	
 	public NoticeBoardVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public String getB_theater() {
+		return b_theater;
+	}
+
+	public void setB_theater(String b_theater) {
+		this.b_theater = b_theater;
+	}
+
+	public String getB_division() {
+		return b_division;
+	}
+
+	public void setB_division(String b_division) {
+		this.b_division = b_division;
+	}
+
 	public NoticeBoardVo(int b_no, String b_title, String b_content, String user_id, Timestamp b_regdate, int b_viewcnt,
-			int re_group, int re_seq, int re_level, int comment_cnt) {
+			int re_group, int re_seq, int re_level, int comment_cnt, String b_theater, String b_division) {
 		super();
 		this.b_no = b_no;
 		this.b_title = b_title;
@@ -30,7 +50,10 @@ public class NoticeBoardVo {
 		this.re_seq = re_seq;
 		this.re_level = re_level;
 		this.comment_cnt = comment_cnt;
+		this.b_theater = b_theater;
+		this.b_division = b_division;
 	}
+
 	public int getB_no() {
 		return b_no;
 	}
@@ -91,12 +114,15 @@ public class NoticeBoardVo {
 	public void setComment_cnt(int comment_cnt) {
 		this.comment_cnt = comment_cnt;
 	}
+
 	@Override
 	public String toString() {
 		return "NoticeBoardVo [b_no=" + b_no + ", b_title=" + b_title + ", b_content=" + b_content + ", user_id="
 				+ user_id + ", b_regdate=" + b_regdate + ", b_viewcnt=" + b_viewcnt + ", re_group=" + re_group
-				+ ", re_seq=" + re_seq + ", re_level=" + re_level + ", comment_cnt=" + comment_cnt + "]";
+				+ ", re_seq=" + re_seq + ", re_level=" + re_level + ", comment_cnt=" + comment_cnt + ", b_theater="
+				+ b_theater + ", b_division=" + b_division + "]";
 	}
+	
 	
 	
 }
