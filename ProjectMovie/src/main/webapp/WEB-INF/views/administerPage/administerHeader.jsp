@@ -111,7 +111,7 @@
 						<h6 class="collapse-header">스케줄 설정 및 유지:</h6>
 						<a class="collapse-item scheduleManagement" href="/administerPage/administerScheduleManagement">스케줄 관리</a> 
 						<a class="collapse-item" href="/administerPage/administerMessageBox">메시지 관리</a>
-						<a class="collapse-item" href="utilities-other.html">게시판 관리</a>
+						<a class="collapse-item" href="/administerPage/administerReportNoticeBoard">게시판 관리</a>
 					</div>
 				</div>
 			</li>
