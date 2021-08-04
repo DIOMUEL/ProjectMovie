@@ -65,6 +65,12 @@ public class ReportServiceImple implements ReportService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public List<ReportVo> reportList() {
+		List<ReportVo> list = reportDao.reportList();
+		return list;
+	}
 	
 
 

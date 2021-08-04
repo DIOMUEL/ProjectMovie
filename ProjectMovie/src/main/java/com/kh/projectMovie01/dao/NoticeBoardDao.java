@@ -17,4 +17,5 @@ public interface NoticeBoardDao {
 	public void updateViewCnt(int b_no);
 	public void updateCommentCnt(int b_no, int count);
 	public List<NoticeBoardVo> myNoticeBoard(String user_id, PagingDto pagingDto);
+	
 }

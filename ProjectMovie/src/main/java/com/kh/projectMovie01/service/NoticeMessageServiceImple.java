@@ -8,7 +8,9 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.kh.projectMovie01.dao.NoticeMessageDao;
+import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.NoticeMessageVo;
+import com.kh.projectMovie01.vo.PagingDto;
 
 @Service
 public class NoticeMessageServiceImple implements NoticeMessageService {
@@ -75,6 +77,44 @@ public class NoticeMessageServiceImple implements NoticeMessageService {
 	public List<NoticeMessageVo> messageListSelf(String msg_sender, String msg_receiver) {
 		List<NoticeMessageVo> list = noticeMessageDao.messageListSelf(msg_sender, msg_receiver);
 		return list;
+	}
+	
+	
+	//관리자 쪽지함
+	@Override
+	public List<NoticeMessageVo> messageListReceiveAll(String msg_receiver, Admin_PageingDto admin_PageingDto) {
+		List<NoticeMessageVo> list = noticeMessageDao.messageListReceiveAll(msg_receiver, admin_PageingDto);
+		return list;
+	}
+
+	@Override
+	public List<NoticeMessageVo> messageListSendAll(String msg_sender, Admin_PageingDto admin_PageingDto) {
+		List<NoticeMessageVo> list = noticeMessageDao.messageListSendAll(msg_sender, admin_PageingDto);
+		return list;
+	}
+
+	@Override
+	public List<NoticeMessageVo> messageListSelfAll(String msg_sender, String msg_receiver, Admin_PageingDto admin_PageingDto) {
+		List<NoticeMessageVo> list = noticeMessageDao.messageListSelfAll(msg_sender, msg_receiver, admin_PageingDto);
+		return list;
+	}
+
+	@Override
+	public int getCountReceive(String msg_receiver) {
+		int count = noticeMessageDao.getCountReceive(msg_receiver);
+		return count;
+	}
+
+	@Override
+	public int getCountSend(String msg_sender) {
+		int count = noticeMessageDao.getCountSend(msg_sender);
+		return count;
+	}
+
+	@Override
+	public int getCountSelf(String msg_receiver) {
+		int count = noticeMessageDao.getCountSelf(msg_receiver);
+		return count;
 	}
 
 	

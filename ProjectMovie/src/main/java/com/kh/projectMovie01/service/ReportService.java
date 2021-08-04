@@ -17,4 +17,6 @@ public interface ReportService {
 	public ReportVo reportRead(int rpt_no);
 	public boolean deleteReport(int rpt_no, String user_id);
 	
+	//신고 받기 
+	public List<ReportVo> reportList();
 }

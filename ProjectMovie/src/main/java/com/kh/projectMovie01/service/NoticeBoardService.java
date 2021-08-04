@@ -15,5 +15,4 @@ public interface NoticeBoardService {
 	public int getCount(PagingDto pagingDto);	
 	public List<NoticeBoardVo> myNoticeBoard(String user_id, PagingDto pagingDto);
 	
-
 }
