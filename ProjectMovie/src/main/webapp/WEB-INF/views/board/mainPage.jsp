@@ -131,17 +131,17 @@ $(document).ready(function(){
 				<div class="col-md-4">
 						<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
 					<h4 class="my-3">웬디</h4>
-					<p class="text-muted"><a href="/movieintro/Movie1-1">영화 정보</a></p>
+					<p class="text-muted"><a href="/movieintro/Movie1_1">영화 정보</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
 					<h4 class="my-3">푸치니 투란도트</h4>
-					<p class="text-muted"><a href="/movieintro/Movie1-2">영화 정보</a></p>
+					<p class="text-muted"><a href="/movieintro/Movie1_2">영화 정보</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
 					<h4 class="my-3">메이드 인 루프탑</h4>
-					<p class="text-muted"><a href="/movieintro/Movie1-3">영화 정보</a></p>
+					<p class="text-muted"><a href="/movieintro/Movie1_3">영화 정보</a></p>
 				</div>
 			</div>
 		</div>
@@ -198,7 +198,7 @@ $(document).ready(function(){
 							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption" style="background-color:#00ff0000">
-							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/movieintro/Movie6">영화 정보</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/movieintro/Movie3">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
