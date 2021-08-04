@@ -53,7 +53,7 @@ $(document).ready(function(){
 		},
 	// 10초마다 자동으로 슬라이드가 넘어갑니다. 1초 = 1000
 		autoplay: {
-			delay: 5000,
+			delay: 10000,
 		},
 	});
 	var user_name = "${user_name}";
@@ -70,6 +70,7 @@ $(document).ready(function(){
 <br><br>
 	<div class="swiper-container" style="background-color:#424242; height:auto;">
 	    <div class="swiper-wrapper">
+	    <br>
 		    <div class="swiper-slide">
 		        <video muted autoplay loop>
 		            <source src="/resources/mainPage/assets/video/advertise2.mp4" type="video/mp4">
