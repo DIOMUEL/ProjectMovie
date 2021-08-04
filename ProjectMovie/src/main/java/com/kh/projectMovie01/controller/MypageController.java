@@ -49,25 +49,23 @@ public class MypageController {
 	}
 	//회원 탈퇴
 	@RequestMapping(value="/managementdelete",method=RequestMethod.GET)
-	public String managementdelete() throws Exception{	
-				
+	public String managementdelete() throws Exception{					
 		return "mypage/managementdelete";
 	}
 	@RequestMapping(value="/memberDelete", method = RequestMethod.POST)
-	public String memberDelete(MemberVo vo,HttpSession session, RedirectAttributes rttr,String user_pw) throws Exception{
-		
-		
+	public String memberDelete(MemberVo Vo,HttpSession session, RedirectAttributes rttr,String user_pw) throws Exception{			
 		MemberVo memberVo = (MemberVo) session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
 		String sessionPass = memberVo.getUser_pw();		
-		String voPass = vo.getUser_pw();		
+		String voPass = Vo.getUser_pw();		
 		if(!(sessionPass.equals(voPass))) {
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/mypage/managementdelete";
 		}
 		memberService.deleteMember(user_id,user_pw);
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/board/loginPage";
+				
 	}
 	//비밀번호 변경
 	@RequestMapping(value="/ChangePw",method=RequestMethod.POST)

@@ -37,7 +37,7 @@
 	<!-- 회원탈퇴 -->
 	<delete id="deleteMember">
 		delete from tbl_member
-		user_pw = #{user_pw}
-		where user_id = #{user_id}
+		where user_pw = #{user_pw}
+		 and user_id = #{user_id}
 	</delete>
 </mapper>

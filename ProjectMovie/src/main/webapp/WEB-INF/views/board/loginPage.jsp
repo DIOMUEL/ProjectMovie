@@ -4,6 +4,11 @@
 <title>로그인 페이지</title>
 <script>
 $(document).ready(function(){
+	var msg = "${msgdelete}";
+	if (msg == "success") {
+		alert("회원탈퇴가 완료되었습니다.");
+	}
+	
 	var msgInsertMember = "${msgInsertMember}";
 	if(msgInsertMember == "success"){
 		alert("회원가입 성공");
