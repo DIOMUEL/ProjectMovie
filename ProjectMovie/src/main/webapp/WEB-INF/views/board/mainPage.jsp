@@ -1,6 +1,10 @@
 u<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> 
 <style>
 @font-face {
   font-family: 'Monoton';
@@ -26,10 +30,32 @@ u<%@ page language="java" contentType="text/html; charset=UTF-8"
   font-weight: 800;
   src: url('.././resources/fontStyle/HennyPenny-Regular.ttf') format('truetype');
 }
+ video { max-width:80%; display:block; margin:20px auto; }
 </style>
 <title>메인메뉴</title>
 <script>
 $(document).ready(function(){
+	var mySwiper = new Swiper('.swiper-container', {
+		// 슬라이드를 버튼으로 움직일 수 있습니다.
+		navigation: {
+		    nextEl: '.swiper-button-next',
+		    prevEl: '.swiper-button-prev',
+		},
+		// 현재 페이지를 나타내는 점이 생깁니다. 클릭하면 이동합니다.
+	 	pagination: {
+		    el: '.swiper-pagination',
+		    type: 'bullets',
+		},
+	// 현재 페이지를 나타내는 스크롤이 생깁니다. 클릭하면 이동합니다.
+		scrollbar: {
+			el: '.swiper-scrollbar',
+			draggable: true,
+		},
+	// 10초마다 자동으로 슬라이드가 넘어갑니다. 1초 = 1000
+		autoplay: {
+			delay: 5000,
+		},
+	});
 	var user_name = "${user_name}";
 	//console.log(user_name);
 	var msgLoginMember = "${msgLoginMember}";
@@ -39,126 +65,61 @@ $(document).ready(function(){
 	}
 });
 </script>
-	<!-- 메인 화면-->
-	<header>
-    <div class="mp-video-slider-wrapper">
-        <div class="mp-video-slider slick-initialized slick-slider slick-dotted">
-                            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 17127px; transform: translate3d(-3806px, 0px, 0px);"><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 1903px;" tabindex="-1">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise1.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide" data-slick-index="0" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide10" aria-describedby="slick-slide-control10">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 1903px;" tabindex="0" role="tabpanel" id="slick-slide11" aria-describedby="slick-slide-control11">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide12" aria-describedby="slick-slide-control12">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise4.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide" data-slick-index="3" aria-hidden="true" style="width: 1903px;" tabindex="-1" role="tabpanel" id="slick-slide13" aria-describedby="slick-slide-control13">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise5.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 1903px;" tabindex="-1">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise6.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 1903px;" tabindex="-1">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise7.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 1903px;" tabindex="-1">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise8.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">«Movie HomePage»</div>
-                    	</div>
-                </div><div class="mp-video-slide slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 1903px;" tabindex="-1">
-                    <div class="mp-video-item">
-                        <div class="mp-video-item-video">
-
-                            <video loop="" muted="muted" preload="metadata" playsinline="" webkit-playsinline="">
-                                <source src=".././resources/mainPage/assets/video/advertise9.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="mp-video-item-label">
-                        </div>
-                    </div>
-                </div></div></div>
-        	<ul class="slick-dots" style="" role="tablist"><li class="" role="presentation">
-        	<button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 4" tabindex="-1">1</button></li>
-        	<li role="presentation" class="slick-active">
-        	<button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 4" tabindex="0" aria-selected="true">2</button></li>
-        	<li role="presentation" class="">
-        	<button type="button" role="tab" id="slick-slide-control12" aria-controls="slick-slide12" aria-label="3 of 4" tabindex="-1">3</button></li>
-        	<li role="presentation" class="">
-        	<button type="button" role="tab" id="slick-slide-control13" aria-controls="slick-slide13" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
-    	</div>
-    	<div class="header-content">
-        	<div class="container">
-            	<div class="row">
-               		<div class="col-12 col-sm-10 col-lg-10 col-xl-11 col-xxl-9 offset-0 offset-lg-1 offset-xl-0">
-                    	<div class="header-content-left">
-                        	<h1 class="animated fadeInLeft" style="opacity: 1;">
-                            	MOVIE<br>
-                            	MAIN<br>
-                            	<span style="color:red">PAGE</span>
-                        	</h1>
-                    	</div>
-                	</div>
-            	</div>
-        	</div>
-    	</div>
-	</header>
+<!-- 메인 화면-->
+<header>
+<br><br>
+	<div class="swiper-container" style="background-color:#424242; height:auto;">
+	    <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+		            <source src="/resources/mainPage/assets/video/advertise2.mp4" type="video/mp4">
+		        </video>
+		    </div>
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+			        <source src="/resources/mainPage/assets/video/advertise3.mp4" type="video/mp4">
+			    </video>
+		    </div>
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+			        <source src="/resources/mainPage/assets/video/advertise4.mp4" type="video/mp4">
+			    </video>
+		    </div> 
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+			        <source src="/resources/mainPage/assets/video/advertise5.mp4" type="video/mp4">
+			    </video>
+		    </div> 
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+			        <source src="/resources/mainPage/assets/video/advertise6.mp4" type="video/mp4">
+			    </video>
+		    </div> 
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+			        <source src="/resources/mainPage/assets/video/advertise7.mp4" type="video/mp4">
+			    </video>
+		    </div> 
+		    <div class="swiper-slide">
+		        <video muted autoplay loop>
+			        <source src="/resources/mainPage/assets/video/advertise8.mp4" type="video/mp4">
+			    </video>
+		    </div> 
+			<div class="swiper-slide">
+			    <video muted autoplay loop>
+			     	<source src="/resources/mainPage/assets/video/advertise9.mp4" type="video/mp4">
+				</video>
+			</div> 
+		</div>
+		<!-- If we need pagination -->
+	    <div class="swiper-pagination"></div>
+	    <!-- If we need navigation buttons -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	    <div class="swiper-scrollbar"></div> 
+	</div>
+	<br><br>
+</header>
 	<!-- 금주 영화 포스터 및 소개-->
 	<section class="page-section">
 		<div class="container">
@@ -170,17 +131,17 @@ $(document).ready(function(){
 				<div class="col-md-4">
 						<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-1.jpg" alt="..." />
 					<h4 class="my-3">웬디</h4>
-					<p class="text-muted"><a href="/movieintro/Movie1-1">영화 정보</a></p>
+					<p class="text-muted"><a href="/movieintro/Movie1_1">영화 정보</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-2.jpg" alt="..." />
 					<h4 class="my-3">푸치니 투란도트</h4>
-					<p class="text-muted"><a href="/movieintro/Movie1-2">영화 정보</a></p>
+					<p class="text-muted"><a href="/movieintro/Movie1_2">영화 정보</a></p>
 				</div>
 				<div class="col-md-4">
 					<img class="img-fluid" src=".././resources/mainPage/assets/img/portfolio/movie1-3.jpg" alt="..." />
 					<h4 class="my-3">메이드 인 루프탑</h4>
-					<p class="text-muted"><a href="/movieintro/Movie1-3">영화 정보</a></p>
+					<p class="text-muted"><a href="/movieintro/Movie1_3">영화 정보</a></p>
 				</div>
 			</div>
 		</div>
@@ -237,7 +198,7 @@ $(document).ready(function(){
 							<img class="img-fluid" style="width:100%;border-radius:5%" src=".././resources/mainPage/assets/img/portfolio/movie3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption" style="background-color:#00ff0000">
-							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/movieintro/Movie6">영화 정보</a></div>
+							<div class="portfolio-caption-subheading text-muted"><a class="btn btn-primary" href="/movieintro/Movie3">영화 정보</a></div>
 						</div>
 					</div>
 				</div>
@@ -432,4 +393,5 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <%@ include file="../include/footer.jsp" %>
