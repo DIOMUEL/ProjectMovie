@@ -49,9 +49,25 @@ public class MypageController {
 	}
 	//회원 탈퇴
 	@RequestMapping(value="/managementdelete",method=RequestMethod.GET)
-	public String managementdelete() throws Exception{
-		
+	public String managementdelete() throws Exception{	
+				
 		return "mypage/managementdelete";
+	}
+	@RequestMapping(value="/memberDelete", method = RequestMethod.POST)
+	public String memberDelete(MemberVo vo,HttpSession session, RedirectAttributes rttr,String user_pw) throws Exception{
+		
+		
+		MemberVo memberVo = (MemberVo) session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		String sessionPass = memberVo.getUser_pw();		
+		String voPass = vo.getUser_pw();		
+		if(!(sessionPass.equals(voPass))) {
+			rttr.addFlashAttribute("msg", false);
+			return "redirect:/mypage/managementdelete";
+		}
+		memberService.deleteMember(user_id,user_pw);
+		session.invalidate();
+		return "redirect:/";
 	}
 	//비밀번호 변경
 	@RequestMapping(value="/ChangePw",method=RequestMethod.POST)
@@ -86,9 +102,9 @@ public class MypageController {
 		List<NoticeBoardVo> list = noticeBoardService.myNoticeBoard(user_id, pagingDto);		
 		System.out.println(list);
 		
-//		model.addAttribute("list", list);
-//		model.addAttribute("pagingDto", pagingDto);
-//	
+		model.addAttribute("list", list);
+		model.addAttribute("pagingDto", pagingDto);
+	
 		return "mypage/boardtext";
 	}
 	
@@ -181,11 +197,7 @@ public class MypageController {
 	public String message_send() {
 		return "mypage/message_send";
 	}
-	//1:1문의 리스트
-	@RequestMapping(value="/inquiry_list",method=RequestMethod.GET)
-	public String inquiry_list() {
-		return "mypage/inquiry_list";
-	}
+	
 	
 	//음식 구매 내역
 	@RequestMapping(value="/purchase_history_food",method=RequestMethod.GET)
