@@ -174,19 +174,16 @@ $(document).ready(function(){
 						<br>
 					</div>
 					
-					<!--tap -->				
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
-    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-</div>
+<!--tap -->
+					<ul class="nav nav-tabs">
+						<li class="nav-item all"><a class="nav-link active"
+							data-toggle="tab" href="#home">전체</a></li>
+						<li class="nav-item head"><a class="nav-link"
+							data-toggle="tab" href="#menu1">본사</a></li>
+						<li class="nav-item branch"><a class="nav-link"
+							data-toggle="tab" href="#menu2">지점</a></li>
+					</ul>
+
 <!--//tap-->
 <!--검색창 -->
 <div class="row">
@@ -235,6 +232,8 @@ $(document).ready(function(){
 			<thead>
 				<tr>
 					<th style="background-color: #eeeeee; text-align: center;">번호</th>
+					<th style="background-color: #eeeeee; text-align: center;">극장</th>
+					<th style="background-color: #eeeeee; text-align: center;">구분</th>
 					<th style="background-color: #eeeeee; text-align: center;">제목</th>
 					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 					<th style="background-color: #eeeeee; text-align: center;">등록일</th>
@@ -246,6 +245,8 @@ $(document).ready(function(){
 			<c:forEach var="noticeBoardVo" items="${list}">
 				<tr>
 					<td>${noticeBoardVo.b_no}</td>
+					<td>${noticeBoardVo.b_theater}</td>
+					<td>${noticeBoardVo.b_division}</td>
 					<td><a class="a_title" href="#" data-bno="${noticeBoardVo.b_no}">${noticeBoardVo.b_title}</a>
 					<span class="badge badge-info">${noticeBoardVo.comment_cnt}</span></td>
 					<td>${noticeBoardVo.user_id}</td>

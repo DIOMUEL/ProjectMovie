@@ -19,7 +19,7 @@ $(document).ready(function(){
 		location.href = "/board/noticeBoardPage?page=${pagingDto.page}&perPage=${pagingDto.perPage}&searchType=${pagingDto.searchType}&keyword=${pagingDto.keyword}";
 	});
 	
-	//댓글수정
+	//게시글수정
 	$("#btnModify").click(function(){
 // 		e.preventDefault();
 // 		if("${sessionScope.loginVo}" == ""){
@@ -31,7 +31,7 @@ $(document).ready(function(){
 		$("[name^=b_]").prop("readonly", false);
 	});	
 	
-	//댓글삭제
+	//게시글삭제
 	$("#btnDelete").click(function(){
 		alert("삭제하시겠습니까?");
 		location.href = "/noticeBoard/noticeBoardDeleteRun?b_no=${noticeBoardVo.b_no}";
@@ -86,7 +86,7 @@ $(document).ready(function(){
 				td.eq(2).text(changeDateString(this.c_regdate));
 				td.eq(3).text(this.c_content);
 				td.eq(4).find("button").attr("data-cno", this.c_no);
-				
+ 				td.eq(4).find("button").attr("comment-user_id", this.user_id);
 				$("#commentTable > tbody").append(cloneTr);
 				cloneTr.show("slow");
 			});
@@ -191,7 +191,6 @@ $(document).ready(function(){
 		
 	});
 	
-	
 	// 신고 링크
 // 	$(".sendReport").click(function(e) {
 // 		e.preventDefault();
@@ -202,7 +201,6 @@ $(document).ready(function(){
 // 			var user_id = $(this).attr("data-user_id");
 // 			$("#btnSendReport").attr("data-rpt_receiver", user_id);
 // 		}
-		
 // 	});
 	
 	//신고링크
@@ -210,18 +208,13 @@ $(document).ready(function(){
 		var user_id = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(1).text();
 // 		var user_id = $(this).attr("data-user_id");
 		$("#btnSendReport").attr("data-rpt_receiver", user_id);
-
+		
 	});
 	
-	//??
-	$("#dropdownMenuButton").click(function(){
-		var user_id = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(1).text();
-		var url = "";
-		
-		
-		
-		
-	});	
+// 	$("#commentTable").on("click", "#dropdownMenuButton", function() {
+// 		var user_id = $(this).parent().parent().parent().parent().parent().find("td").eq(1).text();
+// 		$("#dropdownMenuButton").attr("comment-user_id", user_id);
+// 	});
 	
 	// 신고하기 버튼
 	$("#btnSendReport").click(function() {
@@ -421,7 +414,7 @@ $(document).ready(function(){
 											<div class="dropdown-menu"
 												aria-labelledby="dropdownMenuButton">
 												<c:choose>
-												<c:when test="${sessionScope.loginVo.user_id == commentVo.user_id}">
+												<c:when test="${sessionScope.loginVo.user_id == comment-user_id}">
 												<button class="dropdown-item searchType commentModify">수정</button> 
 												<button class="dropdown-item searchType commentDelete">삭제</button>
 												</c:when>

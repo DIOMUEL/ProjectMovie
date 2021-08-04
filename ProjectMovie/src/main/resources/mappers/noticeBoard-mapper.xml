@@ -57,9 +57,9 @@
 	<!-- 글쓰기 -->
 	<insert id="insertArticle">
 		insert into tbl_noticeboard
-		(b_no, b_title, b_content, user_id, re_group)
+		(b_no, b_title, b_theater, b_division, b_content, user_id, re_group)
 		values
-		(#{b_no}, #{b_title}, #{b_content, jdbcType=VARCHAR},
+		(#{b_no}, #{b_title}, #{b_theater}, #{b_division}, #{b_content, jdbcType=VARCHAR},
 		#{user_id}, #{b_no})
 	</insert>
 
