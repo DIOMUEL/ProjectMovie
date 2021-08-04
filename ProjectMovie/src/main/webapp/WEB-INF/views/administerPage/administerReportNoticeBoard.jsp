@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="administerHeader.jsp" %>
 <section class="page-section bg-light">
 	<div class="container">
 		<div class="contact-head">
 			<div class="row">
-				<div class="col-lg-8 col-12">
+				<div class="col-lg-10 col-12">
 					<div class="form-main" style="background-color:lightgreen">
 						<div class="title">
 							<div class="jumbotron" style="background-color:black;">
-								<h2 style="color: white;">쪽지 함</h2>
+								<h2 style="color: white;">게시판 신고함</h2>
 								<br>
 							</div>
 							<div class="row" id="receive">
@@ -19,7 +18,7 @@
 										<thead>
 											<tr>
 												<th>NO.</th>
-												<th>쪽지내용</th>
+												<th>신고내용</th>
 												<th>보낸사람</th>
 												<th>보낸날짜</th>
 												<th>읽은날짜</th>

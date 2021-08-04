@@ -68,7 +68,7 @@
 		where msg_no = #{msg_no}
 		and msg_receiver = #{user_id}
 	</delete>
-	<select id="selectReportList">
+	<select id="selectReportList" resultType="ReportVo">
 		select * from tbl_report
 		order by rpt_no desc
 	</select>
