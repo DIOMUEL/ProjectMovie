@@ -20,17 +20,17 @@ import com.kh.projectMovie01.service.Admin_MovieService;
 import com.kh.projectMovie01.service.Admin_ScheduleService;
 import com.kh.projectMovie01.service.Admin_StoreService;
 import com.kh.projectMovie01.service.ChartService;
-import com.kh.projectMovie01.service.MessageService;
 import com.kh.projectMovie01.service.NoticeMessageService;
+import com.kh.projectMovie01.service.ReportService;
 import com.kh.projectMovie01.vo.ChartPieVo;
 import com.kh.projectMovie01.vo.FoodVo;
 import com.kh.projectMovie01.vo.MemberVo;
-import com.kh.projectMovie01.vo.MessageVo;
 import com.kh.projectMovie01.vo.MovieImageVo;
 import com.kh.projectMovie01.vo.MovieScheduleVo;
 import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.NoticeMessageVo;
 import com.kh.projectMovie01.vo.PagingDto;
+import com.kh.projectMovie01.vo.ReportVo;
 import com.kh.projectMovie01.vo.ScheduleManagementVo;
 import com.kh.projectMovie01.vo.TheaterSeatVo;
 import com.kh.projectMovie01.vo.Admin_PageingDto;
@@ -53,6 +53,8 @@ public class AdminController {
 	private Admin_ScheduleService admin_ScheduleService;
 	@Inject
 	private NoticeMessageService noticeMessageService;
+	@Inject
+	private ReportService reportService;
 	//메인 페이지로 왔을때 차트 값 디비에서 받아오기
 	@RequestMapping(value="/administerMainPage", method=RequestMethod.GET)
 	public String administerMainPage(HttpSession session, Model model) {
@@ -461,20 +463,28 @@ public class AdminController {
 // --------------- 메세지 관리 -----------------------
 	//메세지 리스트
 	@RequestMapping(value="/administerMessageBox" , method=RequestMethod.GET)
-	public String message(Model model, HttpSession session) throws Exception {
+	public String message(Model model, Admin_PageingDto admin_PageingDto, HttpSession session) throws Exception {
 		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
 		String user_id = memberVo.getUser_id();
-		//System.out.println("user_id : " + user_id);
-
-		List<NoticeMessageVo> receiveList = noticeMessageService.messageListReceive(user_id);
+//		System.out.println("user_id : " + user_id);
+		int count = noticeMessageService.getCountReceive(user_id);
+		List<NoticeMessageVo> receiveList = noticeMessageService.messageListReceiveAll(user_id, admin_PageingDto);
+		admin_PageingDto.setTotalCount(count);
 		model.addAttribute("receiveList", receiveList);
+		model.addAttribute("pagingDtoReceive", admin_PageingDto);
 		
-		List<NoticeMessageVo> sendList = noticeMessageService.messageListSend(user_id);
+//		int count1 = noticeMessageService.getCountSend(user_id);
+		List<NoticeMessageVo> sendList = noticeMessageService.messageListSendAll(user_id, admin_PageingDto);
+//		admin_PageingDto.setTotalCount(count1);
 		model.addAttribute("sendList", sendList);
+		model.addAttribute("pagingDtoSend", admin_PageingDto);
 		
-		List<NoticeMessageVo> selfList = noticeMessageService.messageListSelf(user_id, user_id);
+//		int count2 = noticeMessageService.getCountSelf(user_id);
+		List<NoticeMessageVo> selfList = noticeMessageService.messageListSelfAll(user_id, user_id, admin_PageingDto);
+//		admin_PageingDto.setTotalCount(count2);
 		model.addAttribute("selfList", selfList);
-		
+		model.addAttribute("pagingDtoSelf", admin_PageingDto);
+
 		return "/administerPage/administerMessageBox";
 	}
 	//쪽지 읽기
@@ -513,4 +523,13 @@ public class AdminController {
 	}
 	
 // --------------- 메세지 관리 END-----------------------
+// --------------- 신고 게시판 관리 -----------------------
+	//게시판 신고 메세지
+	@RequestMapping(value="/administerReportNoticeBoard", method=RequestMethod.GET)
+	public String administerReportNoticeBoard(Model model) throws Exception {
+		List<ReportVo> list = reportService.reportList();
+		model.addAttribute("list", list);
+		return "/administerPage/administerReportNoticeBoard";
+	}
+// --------------- 신고 게시판 관리  END-----------------------
 }

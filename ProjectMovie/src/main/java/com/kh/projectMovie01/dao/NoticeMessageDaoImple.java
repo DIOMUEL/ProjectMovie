@@ -10,7 +10,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.projectMovie01.vo.Admin_PageingDto;
 import com.kh.projectMovie01.vo.NoticeMessageVo;
+import com.kh.projectMovie01.vo.PagingDto;
 
 @Repository
 public class NoticeMessageDaoImple implements NoticeMessageDao {
@@ -87,6 +89,53 @@ public class NoticeMessageDaoImple implements NoticeMessageDao {
 		map.put("msg_receiver", msg_receiver);
 		List<NoticeMessageVo> list = sqlSession.selectList(NAMESPACE + "messageListSelf", map );
 		return list;
+	}
+
+	//관리자 용 쪽지함
+	@Override
+	public List<NoticeMessageVo> messageListReceiveAll(String msg_receiver, Admin_PageingDto admin_PageingDto) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("msg_receiver", msg_receiver);
+		map.put("admin_PageingDto", admin_PageingDto);
+		List<NoticeMessageVo> list = sqlSession.selectList(NAMESPACE + "messageListReceiveAll", map );
+		return list;
+	}
+
+	@Override
+	public List<NoticeMessageVo> messageListSendAll(String msg_sender, Admin_PageingDto admin_PageingDto) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("msg_sender", msg_sender);
+		map.put("admin_PageingDto", admin_PageingDto);
+		List<NoticeMessageVo> list = sqlSession.selectList(NAMESPACE + "messageListSendAll", map );
+		return list;
+	}
+
+	@Override
+	public List<NoticeMessageVo> messageListSelfAll(String msg_sender, String msg_receiver, Admin_PageingDto admin_PageingDto) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("msg_sender", msg_sender);
+		map.put("msg_receiver", msg_receiver);
+		map.put("admin_PageingDto", admin_PageingDto);
+		List<NoticeMessageVo> list = sqlSession.selectList(NAMESPACE + "messageListSelfAll", map );
+		return list;
+	}
+
+	@Override
+	public int getCountReceive(String msg_receiver) {
+		int count = sqlSession.selectOne(NAMESPACE + "getCountReceive", msg_receiver);
+		return count;
+	}
+
+	@Override
+	public int getCountSend(String msg_sender) {
+		int count = sqlSession.selectOne(NAMESPACE + "getCountSend", msg_sender);
+		return count;
+	}
+
+	@Override
+	public int getCountSelf(String msg_receiver) {
+		int count = sqlSession.selectOne(NAMESPACE + "getCountSelf", msg_receiver);
+		return count;
 	}
 
 	

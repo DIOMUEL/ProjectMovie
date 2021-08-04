@@ -69,4 +69,55 @@
 		and msg_receiver = #{user_id}
 	</delete>
 
+<!-- 관리자 쪽지함 -->
+	<!--  관리자받은쪽지하 조회-->
+	<select id="messageListReceiveAll" resultType="NoticeMessageVo">
+		select * from (
+			select rownum rnum, a.* from (
+				select * from tbl_noticeMessage 
+				where msg_receiver = #{msg_receiver}
+				and msg_sender != #{msg_receiver}
+				order by msg_no desc)
+			 a)
+		where rnum between #{admin_PageingDto.startRow} and #{admin_PageingDto.endRow}
+	</select>
+	<select id="messageListSendAll" resultType="NoticeMessageVo">
+		select * from (
+			select rownum rnum, a.* from (
+				select * from tbl_noticeMessage 
+				where msg_sender = #{msg_sender}
+				and msg_receiver != #{msg_sender}
+				order by msg_no desc)
+			 a)
+		where rnum between #{admin_PageingDto.startRow} and #{admin_PageingDto.endRow}
+	</select>
+	<select id="messageListSelfAll" resultType="NoticeMessageVo">
+		select * from (
+			select rownum rnum, a.* from (
+				select * from tbl_noticeMessage 
+				where msg_sender = #{msg_sender}
+				and msg_receiver = #{msg_receiver}
+				order by msg_no desc)
+			 a)
+		where rnum between #{admin_PageingDto.startRow} and #{admin_PageingDto.endRow}
+	</select>
+	<!-- 관리자 받은 쪽지함 수 조회 -->
+	<select id="getCountReceive" resultType="int">
+		select count(*) from tbl_noticeMessage
+		where msg_receiver = #{msg_receiver}
+		and msg_sender != #{msg_receiver}
+		order by msg_no desc
+	</select>
+	<select id="getCountSend" resultType="int">
+		select count(*) from tbl_noticeMessage
+		where msg_sender = #{msg_sender}
+		and msg_receiver != #{msg_sender}
+		order by msg_no desc
+	</select>
+	<select id="getCountSelf" resultType="int">
+		select count(*) from tbl_noticeMessage
+		where msg_sender = #{msg_receiver}
+		and msg_receiver = #{msg_receiver}
+		order by msg_no desc
+	</select>
 </mapper>
