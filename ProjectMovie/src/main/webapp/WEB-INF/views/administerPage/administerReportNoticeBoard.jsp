@@ -34,7 +34,7 @@
 															style="font-weight:bold"
 														</c:if>
 													>
-													<a href="/administerPage/administerMessageReadPage?msg_no=${list.rpt_no}">${list.rpt_content}</a></span>
+													<a href="/noticeBoard/noticeBoardContentPage?msg_no=${list.rpt_c_no}">${list.rpt_content}</a></span>
 												</td>
 												<td>${list.rpt_sender}</td>
 												<td>${list.rpt_senddate}</td>
