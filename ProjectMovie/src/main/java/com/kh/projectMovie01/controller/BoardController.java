@@ -86,6 +86,13 @@ public class BoardController {
 		model.addAttribute("list", list);
 		model.addAttribute("pagingDto", pagingDto);
 		//System.out.println(list);
+		
+		List<NoticeBoardVo> headList = noticeBoardService.noticeBoardHeadList(pagingDto);
+		model.addAttribute("headList", headList);
+		
+		List<NoticeBoardVo> branchList = noticeBoardService.noticeBoardBranchList(pagingDto);
+		model.addAttribute("branchList", branchList);
+		
 		return "board/noticeBoardPage"; 
 	}
 

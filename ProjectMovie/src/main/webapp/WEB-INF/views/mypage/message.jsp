@@ -13,7 +13,6 @@ $(document).ready(function() {
 // 		var frmPaging = $("#frmPaging");
 // 		frmPaging.find("[name=page]").val(page);
 // 		frmPaging.submit();
-	
 // 	});
 	$(".receive").click(function() {
 		$("#send").hide();

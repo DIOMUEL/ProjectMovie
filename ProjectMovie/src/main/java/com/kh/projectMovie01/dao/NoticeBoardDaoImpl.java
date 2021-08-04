@@ -88,4 +88,18 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 		return list;
 	}
 
+	@Override
+	public List<NoticeBoardVo> noticeBoardHeadList(PagingDto pagingDto) {
+		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "noticeBoardHeadList", pagingDto);
+		
+		return list;
+	}
+
+	@Override
+	public List<NoticeBoardVo> noticeBoardBranchList(PagingDto pagingDto) {
+		List<NoticeBoardVo> list = sqlSession.selectList(NAMESPACE + "noticeBoardBranchList", pagingDto);
+		
+		return list;
+	}
+
 }

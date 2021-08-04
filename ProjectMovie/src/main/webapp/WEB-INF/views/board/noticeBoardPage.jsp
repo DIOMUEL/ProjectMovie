@@ -4,6 +4,32 @@
 <script>
 $(document).ready(function(){
 	
+	$("#headList").hide();
+	$("#list").show();
+	$("#branchList").hide();
+
+	
+	$(".list").click(function() {
+		$("#headList").hide();
+		$("#list").show();
+		$("#branchList").hide();
+	});
+	
+	$(".head").click(function() {
+		$("#headList").show();
+		$("#list").hide();
+		$("#branchList").hide();
+	})
+	
+	$(".branch").click(function() {
+		$("#headList").hide();
+		$("#list").hide();
+		$("#branchList").show();
+	})
+	
+	
+	
+	
 // 	$("#btnWrite").click(function(){
 // 		if("${sessionScope.loginVo}" == ""){
 // 			alert("로그인을 확인해주세요");
@@ -176,12 +202,12 @@ $(document).ready(function(){
 					
 <!--tap -->
 					<ul class="nav nav-tabs">
-						<li class="nav-item all"><a class="nav-link active"
+						<li class="nav-item list"><a class="nav-link active"
 							data-toggle="tab" href="#home">전체</a></li>
 						<li class="nav-item head"><a class="nav-link"
-							data-toggle="tab" href="#menu1">본사</a></li>
+							data-toggle="tab" href="#menu1">본사알림</a></li>
 						<li class="nav-item branch"><a class="nav-link"
-							data-toggle="tab" href="#menu2">지점</a></li>
+							data-toggle="tab" href="#menu2">지점알림</a></li>
 					</ul>
 
 <!--//tap-->
@@ -191,22 +217,22 @@ $(document).ready(function(){
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="dropdown">
-											<button class="btn btn-default dropdown-toggle" type="button"
-												id="dropdownMenuButton" data-toggle="dropdown">
-												검색옵션</button>
-											<div class="dropdown-menu"
-												aria-labelledby="dropdownMenuButton">
-												<a class="dropdown-item searchType" href="t">제목</a> 
-												<a class="dropdown-item searchType" href="c">내용</a> 
-												<a class="dropdown-item searchType" href="u">작성자</a> 
-												<a class="dropdown-item searchType" href="tc">제목+내용</a>
-											</div>
-										</div>
-									</div>
-								</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								id="dropdownMenuButton" data-toggle="dropdown">
+								검색옵션</button>
+							<div class="dropdown-menu"
+								aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item searchType" href="t">제목</a> 
+								<a class="dropdown-item searchType" href="c">내용</a> 
+								<a class="dropdown-item searchType" href="u">작성자</a> 
+								<a class="dropdown-item searchType" href="tc">제목+내용</a>
+							</div>
+						</div>
+					</div>
+				</div>
 				<nav class="navbar navbar-light bg-light">
 					<div class="container-fluid">
 						<form class="d-flex">
@@ -225,7 +251,7 @@ $(document).ready(function(){
 [전체 ${pagingDto.count}건]
 </div>
 <!--테이블 -->
-<div class="container">
+<div class="container" id="list">
 	<div class="row">
 		<table class="table table-striped"
 			style="text-align: center; border: 1px solid #dddddd">
@@ -253,23 +279,127 @@ $(document).ready(function(){
 					<td>${noticeBoardVo.b_regdate}</td>
 					<td>${noticeBoardVo.b_viewcnt}</td>
 					<td>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="dropdown">
-											<button class="btn btn-Info dropdown" type="button"
-												id="dropdownMenuButton" data-toggle="dropdown">
-												&vellip;</button>
-											<div class="dropdown-menu"
-												aria-labelledby="dropdownMenuButton">
-												<a class="dropdown-item searchType sendMessage"
-												data-toggle="modal"
-												href="#modal-container-105698"
-												data-user_id="${noticeBoardVo.user_id}">쪽지보내기</a> 
-											</div>
-										</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="dropdown">
+									<button class="btn btn-Info dropdown" type="button"
+										id="dropdownMenuButton" data-toggle="dropdown">
+										&vellip;</button>
+									<div class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item searchType sendMessage"
+										data-toggle="modal"
+										href="#modal-container-105698"
+										data-user_id="${noticeBoardVo.user_id}">쪽지보내기</a> 
 									</div>
 								</div>
-								</td>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="container" id="headList">
+	<div class="row">
+		<table class="table table-striped"
+			style="text-align: center; border: 1px solid #dddddd">
+			<thead>
+				<tr>
+					<th style="background-color: #eeeeee; text-align: center;">번호</th>
+					<th style="background-color: #eeeeee; text-align: center;">극장</th>
+					<th style="background-color: #eeeeee; text-align: center;">구분</th>
+					<th style="background-color: #eeeeee; text-align: center;">제목</th>
+					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+					<th style="background-color: #eeeeee; text-align: center;">등록일</th>
+					<th style="background-color: #eeeeee; text-align: center;">조회수</th>
+					<th style="background-color: #eeeeee; text-align: center;">&vellip;</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="noticeBoardVo" items="${headList}">
+				<tr>
+					<td>${noticeBoardVo.b_no}</td>
+					<td>${noticeBoardVo.b_theater}</td>
+					<td>${noticeBoardVo.b_division}</td>
+					<td><a class="a_title" href="#" data-bno="${noticeBoardVo.b_no}">${noticeBoardVo.b_title}</a>
+					<span class="badge badge-info">${noticeBoardVo.comment_cnt}</span></td>
+					<td>${noticeBoardVo.user_id}</td>
+					<td>${noticeBoardVo.b_regdate}</td>
+					<td>${noticeBoardVo.b_viewcnt}</td>
+					<td>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="dropdown">
+									<button class="btn btn-Info dropdown" type="button"
+										id="dropdownMenuButton" data-toggle="dropdown">
+										&vellip;</button>
+									<div class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item searchType sendMessage"
+										data-toggle="modal"
+										href="#modal-container-105698"
+										data-user_id="${noticeBoardVo.user_id}">쪽지보내기</a> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="container" id="branchList">
+	<div class="row">
+		<table class="table table-striped"
+			style="text-align: center; border: 1px solid #dddddd">
+			<thead>
+				<tr>
+					<th style="background-color: #eeeeee; text-align: center;">번호</th>
+					<th style="background-color: #eeeeee; text-align: center;">극장</th>
+					<th style="background-color: #eeeeee; text-align: center;">구분</th>
+					<th style="background-color: #eeeeee; text-align: center;">제목</th>
+					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+					<th style="background-color: #eeeeee; text-align: center;">등록일</th>
+					<th style="background-color: #eeeeee; text-align: center;">조회수</th>
+					<th style="background-color: #eeeeee; text-align: center;">&vellip;</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="noticeBoardVo" items="${branchList}">
+				<tr>
+					<td>${noticeBoardVo.b_no}</td>
+					<td>${noticeBoardVo.b_theater}</td>
+					<td>${noticeBoardVo.b_division}</td>
+					<td><a class="a_title" href="#" data-bno="${noticeBoardVo.b_no}">${noticeBoardVo.b_title}</a>
+					<span class="badge badge-info">${noticeBoardVo.comment_cnt}</span></td>
+					<td>${noticeBoardVo.user_id}</td>
+					<td>${noticeBoardVo.b_regdate}</td>
+					<td>${noticeBoardVo.b_viewcnt}</td>
+					<td>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="dropdown">
+									<button class="btn btn-Info dropdown" type="button"
+										id="dropdownMenuButton" data-toggle="dropdown">
+										&vellip;</button>
+									<div class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item searchType sendMessage"
+										data-toggle="modal"
+										href="#modal-container-105698"
+										data-user_id="${noticeBoardVo.user_id}">쪽지보내기</a> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
 				</tr>
 			</c:forEach>
 			</tbody>
