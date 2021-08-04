@@ -32,7 +32,9 @@ $(document).ready(function() {
 
 							</div>
 						</div>
-
+						<p><h1 style="color: red;">주의 !</h1><br>
+						 회원 탈퇴시 모든 정보가 사라집니다. 
+						</p>
 						<form class="form" method="post" id="frmMyPage" action="/mypage/memberDelete">														
 								<div class="col-12">
 									<div class="form-group">

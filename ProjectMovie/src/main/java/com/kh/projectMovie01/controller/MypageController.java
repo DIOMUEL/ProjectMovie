@@ -62,9 +62,9 @@ public class MypageController {
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/mypage/managementdelete";
 		}
-		memberService.deleteMember(user_id,user_pw);
-		session.invalidate();
-		return "redirect:/board/loginPage";
+			memberService.deleteMember(user_id,user_pw);
+			session.invalidate();
+			return "redirect:/board/loginPage";
 				
 	}
 	//비밀번호 변경
