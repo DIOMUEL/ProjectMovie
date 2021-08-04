@@ -82,7 +82,7 @@ public class ReportDaoImple implements ReportDao {
 	}
 
 	@Override
-	public List<ReportVo> reportList() {
+	public List<ReportVo> selectReportList() {
 		List<ReportVo> list = sqlSession.selectList(NAMESPACE + "selectReportList");
 		return list;
 	}

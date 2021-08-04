@@ -67,8 +67,8 @@ public class ReportServiceImple implements ReportService {
 	}
 
 	@Override
-	public List<ReportVo> reportList() {
-		List<ReportVo> list = reportDao.reportList();
+	public List<ReportVo> selectReportList() {
+		List<ReportVo> list = reportDao.selectReportList();
 		return list;
 	}
 	

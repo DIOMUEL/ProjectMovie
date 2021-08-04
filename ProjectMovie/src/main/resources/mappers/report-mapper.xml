@@ -69,7 +69,7 @@
 		and msg_receiver = #{user_id}
 	</delete>
 	<select id="selectReportList">
-		select * from tbl_noticeMessage
-		order by msg_no desc
+		select * from tbl_report
+		order by rpt_no desc
 	</select>
 </mapper>

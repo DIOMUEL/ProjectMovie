@@ -527,7 +527,7 @@ public class AdminController {
 	//게시판 신고 메세지
 	@RequestMapping(value="/administerReportNoticeBoard", method=RequestMethod.GET)
 	public String administerReportNoticeBoard(Model model) throws Exception {
-		List<ReportVo> list = reportService.reportList();
+		List<ReportVo> list = reportService.selectReportList();
 		model.addAttribute("list", list);
 		return "/administerPage/administerReportNoticeBoard";
 	}
