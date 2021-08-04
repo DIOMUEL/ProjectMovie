@@ -11,82 +11,79 @@
 			// 비밀번호 입력란과 비밀번호 확인 입력란의 값이 같은지			
 			var pw_chack1 = $("#pw_chack1").val();
 			var pw_chack2 = $("#pw_chack2").val();
-			
+
 			if (pw_chack1 == "" || pw_chack2 == "") {
-				$("#alert-danger").hide();				
+				$("#alert-danger").hide();
 				return false;
-			} 
-			else {
+			} else {
 				// 두개의 비밀번호 값이 같지 않다면
 				if (pw_chack1 != pw_chack2) {
-					
-					$("#alert-danger").show();	
-					
+
+					$("#alert-danger").show();
+
 					return false; // 서버(컨트롤러)로 전송하지 않고 funtion()을 중단
-				} 
+				}
 			}
-			
+
 			$("#btnModalClose").trigger("click");
 			$("#btnManagement").trigger("click");
-			
-// 			return false;
-			
-			
+
+			// 			return false;
+
 			var url = "/mypage/ChangePw";
 			var sendData = {
-					"user_pw" : pw_chack1
+				"user_pw" : pw_chack1
 			};
 			console.log(sendData);
-			
-			$.post(url, sendData, function(receivedData){
+
+			$.post(url, sendData, function(receivedData) {
 				console.log(receivedData);
 				if (receivedData == "success") {
 					alert('비밀번호가 변경 되었습니다.');
 				}
-			});	
+			});
 		});
-		
+
 		$("#btn_pw_check").click(function() {
 			var text_check = $("#text_pw_check").val();
 			var user_pw = "${memberVo.user_pw}";
-			if(text_check == user_pw ) {
+			if (text_check == user_pw) {
 				alert("비밀번호가 일치 합니다")
 				$("#pw_check_from").hide();
 				$("#modifyForm").show();
-			}else if(text_check == ""){
+			} else if (text_check == "") {
 				alert("비밀 번호을 입력해 주세요")
-			}else{
+			} else {
 				alert("비밀번호가 일치하지 안습니다.")
 			}
 		});
-	
+
 		$("#btn_modify").click(function() {
 			$("#btn_modify").hide();
-			$("#user_email").attr("readonly",false);
-			$("#btn_modifyOk").show();			
-			
+			$("#user_email").attr("readonly", false);
+			$("#btn_modifyOk").show();
+
 		});
-		
+
 		$("#btn_modifyOk").click(function() {
 			$("#btn_modify").show();
 			$("#btn_modifyOk").hide();
-			$("#user_email").attr("readonly",true);
+			$("#user_email").attr("readonly", true);
 			var user_email = $("#user_email").val();
-			
+
 			var url = "/mypage/ChangeEmail";
 			var sendData = {
-					"user_email" : user_email
+				"user_email" : user_email
 			};
 			console.log(sendData);
-			
-			$.post(url, sendData, function(receivedData){
+
+			$.post(url, sendData, function(receivedData) {
 				console.log(receivedData);
-				 if (receivedData == "success") {
+				if (receivedData == "success") {
 					alert('회원정보가 수정되었습니다.');
-				} 
-			});	 
+				}
+			});
 		})
-	
 
 	});
 </script>
@@ -110,12 +107,12 @@
 					<div class="modal-body">
 
 						<h5>새비밀번호</h5>
-						<input type="password" class="form-control c_content" id="pw_chack1"
-							name="pw_chack1" /> <br>
+						<input type="password" class="form-control c_content"
+							id="pw_chack1" name="pw_chack1" /> <br>
 						<h5>비밀번호 확인</h5>
 						<input type="password" class="form-control" id="pw_chack2"
 							name="pw_chack2" /> <br>
-						
+
 						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
 							않습니다</div>
 					</div>
@@ -150,8 +147,7 @@
 
 					<div class="form-main">
 						<div class="title">
-							<div class="jumbotron"
-								style="background-color:black;">
+							<div class="jumbotron" style="background-color: black;">
 								<h4 style="color: white;">My 정보관리</h4>
 								<h3 style="color: white;">회원 정보 관리</h3>
 
@@ -159,29 +155,36 @@
 						</div>
 
 						<form class="form" method="post" id="frmMyPage">
-					<!-- 비밀 번호 확인 창 -->
-						<div class="col-12" id="pw_check_from">
-						
-						<br>
-						<br>
-						<br>
-							<div class="form-group">
-							<p>
-							비밀번호를 입력해 주세요
-							</p>
-								<label for="user_pw_check">비밀번호:</label>
-								<input type="password" id="text_pw_check" class="form-control">
-								<br>
-								<input type="button" id="btn_pw_check"value="비밀번호 확인" >
-							</div>
-						</div>
-					<!-- /비밀번호 확인 창 -->
-							<div class="row"  id="modifyForm">
-								<div class="form-group">
+							<!-- 비밀 번호 확인 창 -->
+							<div class="col-12" id="pw_check_from">
 
-									<label for="exampleInputFile"> 사진 </label> <input type="file"
-										class="form-control-file" id="file" name="file" />
+								<br> <br> <br>
+								<div class="form-group">
+									<p>비밀번호를 입력해 주세요</p>
+									<label for="user_pw_check">비밀번호:</label> <input type="password"
+										id="text_pw_check" class="form-control"> <br> <input
+										type="button" id="btn_pw_check" value="비밀번호 확인">
 								</div>
+							</div>
+							<!-- /비밀번호 확인 창 -->
+							<div class="row" id="modifyForm">
+								<div class="form-group">
+									<img id="img-wrap"
+										onerror="this.src='/resources/images/undraw_profile.svg'"
+										src="${sessionScope.principal.userprofile}" width="100"
+										height="90" />
+
+								</div>
+								<div class="form-group be-light">
+									<input type="file" name="userProfile" id="img_preview" />
+								</div>
+								<input type="hidden" name="id"
+									value="${sessionScope.principal.id}">
+								<div class="form-group">
+									<button class="btn btn-primary w-100">프로필변경</button>
+								</div>
+								
+
 
 								<div class="col-12">
 									<div class="form-group">
@@ -192,11 +195,9 @@
 								</div>
 								<div class="col-12">
 									<div class="form-group">
-										<label for="user_pw">비밀번호:<span></span></label>
-										<br>
-										 <a
+										<label for="user_pw">비밀번호:<span></span></label> <br> <a
 											id="user_pw" href="#modal-container-284734" role="button"
-											class="btn btn-primary" data-toggle="modal" >변경 하기</a>
+											class="btn btn-primary" data-toggle="modal">변경 하기</a>
 									</div>
 								</div>
 								<div class="col-12">
@@ -218,21 +219,24 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_point">포인트:<span></span></label> <input
-											name="user_point" id="user_point" type="text" class="form-control" value="" class="form-control" readonly>
+											name="user_point" id="user_point" type="text"
+											class="form-control" value="" class="form-control" readonly>
 									</div>
 								</div>
 
 
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
-										<input type="button" class="btn btn-primary" id="btn_modify" style="color: blue;" value="회원 정보 수정">				
-								
-									<div class="form-group button">
-										<input type="button" class="btn btn-primary" id="btn_modifyOk"style="color: blue;" value="수정 완료">
-								</div>
-						
-	
-							</div>
+										<input type="button" class="btn btn-primary" id="btn_modify"
+											style="color: blue;" value="회원 정보 수정">
+
+										<div class="form-group button">
+											<input type="button" class="btn btn-primary"
+												id="btn_modifyOk" style="color: blue;" value="수정 완료">
+										</div>
+
+
+									</div>
 						</form>
 					</div>
 				</div>

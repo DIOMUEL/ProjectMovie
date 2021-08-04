@@ -52,7 +52,15 @@
 							<li class="nav-item dropdown no-arrow">
 								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
 									<span class="mr-2 d-none d-lg-inline text-gray-600 small">"${sessionScope.loginVo.user_name}"님</span> 
-										<img class="img-profile rounded-circle" width="35" src=".././resources/images/undraw_profile.svg"/>
+										<img class="img-profile rounded-circle" width="35" 
+										<c:choose>
+                                	<c:when test="${not empty sessionScope.loginVo.user_pic}">
+                                		src="/displayImage?fileName=${sessionScope.loginVo.user_pic }"
+                                	</c:when>
+                                	<c:otherwise>
+                                     	src="/resources/images/undraw_profile.svg"
+                                  	</c:otherwise>
+                                 </c:choose>/>
 								</a> <!-- Dropdown - User Information -->
 								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 									<c:choose>
