@@ -87,6 +87,11 @@ public class ReportDaoImple implements ReportDao {
 		return list;
 	}
 
+	@Override
+	public void reportDeleteRun(int rpt_no) {
+		sqlSession.delete(NAMESPACE + "reportDeleteRun", rpt_no);
+	}
+
 	
 	
 

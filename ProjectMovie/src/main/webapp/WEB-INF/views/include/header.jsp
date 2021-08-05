@@ -28,13 +28,8 @@
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:black">
 		<div class="container">
 			<a class="navbar-brand" href="/board/mainPage">
-			<img src=".././resources/mainPage/assets/img/navbar-logo.svg" alt="..." /></a>
-			<!-- <button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				메뉴 <i class="fas fa-bars ms-1"></i>
-			</button> -->
+				<img src=".././resources/mainPage/assets/img/navbar-logo.svg" alt="..." />
+			</a>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
 			<!-- 로그인이 안되어있는경우 -->

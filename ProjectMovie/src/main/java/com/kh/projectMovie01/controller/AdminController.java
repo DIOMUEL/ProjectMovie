@@ -531,5 +531,12 @@ public class AdminController {
 		model.addAttribute("list", list);
 		return "/administerPage/administerReportNoticeBoard";
 	}
+	//게시판 신고 메세지
+	@RequestMapping(value="/administerReportDeleteRun", method=RequestMethod.GET)
+	@ResponseBody
+	public String administerReportDeleteRun(int rpt_no) throws Exception {
+		reportService.reportDeleteRun(rpt_no);
+		return "success";
+	}
 // --------------- 신고 게시판 관리  END-----------------------
 }

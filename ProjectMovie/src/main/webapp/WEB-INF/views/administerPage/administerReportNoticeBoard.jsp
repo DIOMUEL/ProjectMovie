@@ -1,6 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="administerHeader.jsp" %>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on("click",".btnDeleteReport",function(){
+		var q = confirm("삭제하시겠습니까?");
+		if(q == true){
+			var rpt_no = $(this).attr("data-rpt_no");
+			var url = "/administerPage/administerReportDeleteRun";
+				var sendData = {
+					"rpt_no" : rpt_no
+			};
+			$.get(url, sendData, function(rData){
+					//console.log("rData: "+rData);
+				if (rData == "success") {
+					alert("삭제 완료.");
+				};
+			});
+		};
+	});
+});
+</script>
+
 <section class="page-section bg-light">
 	<div class="container">
 		<div class="contact-head">
@@ -22,6 +43,7 @@
 												<th>보낸사람</th>
 												<th>보낸날짜</th>
 												<th>읽은날짜</th>
+												<th>삭제</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -34,7 +56,7 @@
 															style="font-weight:bold"
 														</c:if>
 													>
-													<a href="/noticeBoard/noticeBoardContentPage?msg_no=${list.rpt_c_no}">${list.rpt_content}</a></span>
+													<a href="/noticeBoard/noticeBoardContentPage?b_no=${list.b_no}">${list.rpt_content}</a></span>
 												</td>
 												<td>${list.rpt_sender}</td>
 												<td>${list.rpt_senddate}</td>
@@ -48,6 +70,7 @@
 												</c:otherwise>
 												</c:choose>
 												</td>
+												<td><a class="btn-danger btnDeleteReport" style="color:white;" data-rpt_no="${list.rpt_no}">삭제</a></td>
 											</tr>
 										</c:forEach>	
 										</tbody>

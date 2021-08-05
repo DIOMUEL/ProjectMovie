@@ -178,9 +178,12 @@
 		<div id="content-wrapper" class="d-flex flex-column">
 			<!-- Main Content -->
 			<div id="content">
+						
 				<!-- Topbar -->
 				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top">
+						
 					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/mainPage">메인</a></li>
 						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/mainPage#services">서비스</a></li>
 						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/noticeBoardPage">고객게시판</a></li>
 						<li class="nav-item"><a class="nav-link color" style="color:black" href="/board/ticketingPage">예매하기</a></li>
