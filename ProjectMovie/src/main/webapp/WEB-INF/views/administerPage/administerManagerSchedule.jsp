@@ -90,9 +90,9 @@
 					"managerSchedule_date" : managerSchedule_date,
 					"managerSchedule_complete" : managerSchedule_complete
 			}
-// 			$.get(url, sendData, function(rData){
-// 				console.log("rData : ", rData);
-// 			});
+			$.get(url, sendData, function(rData){
+				console.log("rData : ", rData);
+			});
 		});
 	});
 	function moveClose() {

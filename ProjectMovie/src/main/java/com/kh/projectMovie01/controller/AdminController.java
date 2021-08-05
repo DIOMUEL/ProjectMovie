@@ -423,7 +423,7 @@ public class AdminController {
 	@RequestMapping(value="/administerCheckBoxClick", method=RequestMethod.GET)
 	@ResponseBody
 	public String administerCheckBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete) throws Exception {
-		//System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
+		System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
 		admin_ScheduleService.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
 		return "success";
 	}
