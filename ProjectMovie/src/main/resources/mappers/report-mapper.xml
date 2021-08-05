@@ -7,9 +7,9 @@
 
 <insert id="insertReport">
 		insert into tbl_report
-			(rpt_no, rpt_content, rpt_sender, rpt_receiver)
+			(rpt_no, rpt_content, rpt_sender, rpt_receiver, rpt_c_no, b_no)
 		values 
-			(seq_report_no.nextval, #{rpt_content}, #{rpt_sender}, #{rpt_receiver})
+			(seq_report_no.nextval, #{rpt_content}, #{rpt_sender}, #{rpt_receiver}, #{rpt_c_no}, #{b_no})
 	</insert>
 
 	<select id="notReadCount" resultType="int">

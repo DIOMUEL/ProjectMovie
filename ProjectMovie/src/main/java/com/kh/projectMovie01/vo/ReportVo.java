@@ -9,15 +9,33 @@ public class ReportVo {
 	private String rpt_receiver;
 	private Timestamp rpt_senddate;
 	private Timestamp rpt_opendate;
+	private int rpt_c_no;
+	private int b_no;
 	public ReportVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ReportVo(String rpt_content, String rpt_sender, String rpt_receiver) {
+//	public ReportVo(String rpt_content, String rpt_sender, String rpt_receiver) {
+//		super();
+//		this.rpt_content = rpt_content;
+//		this.rpt_sender = rpt_sender;
+//		this.rpt_receiver = rpt_receiver;
+//	}
+	
+	public ReportVo(String rpt_content, String rpt_sender, String rpt_receiver, int rpt_c_no, int b_no) {
 		super();
 		this.rpt_content = rpt_content;
 		this.rpt_sender = rpt_sender;
 		this.rpt_receiver = rpt_receiver;
+		this.rpt_c_no = rpt_c_no;
+		this.b_no = b_no;
+	}
+	
+	public int getRpt_c_no() {
+		return rpt_c_no;
+	}
+	public void setRpt_c_no(int rpt_c_no) {
+		this.rpt_c_no = rpt_c_no;
 	}
 	public int getRpt_no() {
 		return rpt_no;
@@ -55,12 +73,25 @@ public class ReportVo {
 	public void setRpt_opendate(Timestamp rpt_opendate) {
 		this.rpt_opendate = rpt_opendate;
 	}
+	
+	public int getB_no() {
+		return b_no;
+	}
+
+	public void setB_no(int b_no) {
+		this.b_no = b_no;
+	}
+
 	@Override
 	public String toString() {
 		return "ReportVo [rpt_no=" + rpt_no + ", rpt_content=" + rpt_content + ", rpt_sender=" + rpt_sender
 				+ ", rpt_receiver=" + rpt_receiver + ", rpt_senddate=" + rpt_senddate + ", rpt_opendate=" + rpt_opendate
-				+ "]";
+				+ ", rpt_c_no=" + rpt_c_no + ", b_no=" + b_no + "]";
 	}
+
+	
+
+	
 	
 	
 }

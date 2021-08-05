@@ -111,6 +111,7 @@ public class PagingDto {
 		if (this.endPage > this.totalPage) {
 			this.endPage = this.totalPage;
 		}
+		
 	}
 
 	public int getStartPage() {
