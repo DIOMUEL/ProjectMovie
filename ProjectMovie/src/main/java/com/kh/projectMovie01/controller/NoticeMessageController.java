@@ -34,7 +34,7 @@ public class NoticeMessageController {
 		return "success";
 	}
 	
-	// 읽지 않은 메시지 목록
+	    //안읽은 메시지 
 		@RequestMapping(value="/messageListNotRead", method=RequestMethod.GET)
 		@ResponseBody
 		public List<NoticeMessageVo> messageListNotRead(HttpSession session) throws Exception {
@@ -89,9 +89,9 @@ public class NoticeMessageController {
 		public String messageRead(int msg_no, HttpSession session, Model model) throws Exception {
 			MemberVo memberVo = (MemberVo)session.getAttribute("loginVo");
 			String user_id = memberVo.getUser_id();
-			NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);//
+			NoticeMessageVo noticeMessageVo = noticeMessageService.messageRead(msg_no);
 			model.addAttribute("noticeMessageVo", noticeMessageVo);
-			int notReadCount = noticeMessageService.notReadCount(user_id);//
+			int notReadCount = noticeMessageService.notReadCount(user_id);
 			//int user_point = memberService.getUserPoint(user_id);
 			memberVo.setNotReadCount(notReadCount);
 			//memberVo.setUser_point(user_point);

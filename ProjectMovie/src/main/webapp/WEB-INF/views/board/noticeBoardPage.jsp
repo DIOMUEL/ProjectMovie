@@ -410,7 +410,7 @@ $(document).ready(function(){
 <div>
 <a class="btn btn-primary" id="btnWrite" href="/noticeBoard/noticeBoardWritePage">글쓰기</a>
 </div>
-<!--페이징 -->
+<!-- 페이징 -->
 <div class="row">
 	<div class="col-md-12">
 		<nav>
@@ -447,7 +447,7 @@ $(document).ready(function(){
 		</nav>
 	</div>
 </div>
-<!--//페이징 -->
+<!-- //페이징 -->
 				</div>
 				<div class="col-md-3">
 				</div>

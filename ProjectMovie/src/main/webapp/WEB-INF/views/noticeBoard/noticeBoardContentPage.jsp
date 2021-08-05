@@ -86,7 +86,7 @@ $(document).ready(function(){
 				td.eq(2).text(changeDateString(this.c_regdate));
 				td.eq(3).text(this.c_content);
 				td.eq(4).find("button").attr("data-cno", this.c_no);
-//  			td.eq(4).find("button").attr("comment-user_id", this.user_id);
+// 				td.eq(4).find("button").attr("c_user_id", this.user_id);
 				$("#commentTable > tbody").append(cloneTr);
 				cloneTr.show("slow");
 			});
@@ -207,11 +207,29 @@ $(document).ready(function(){
 	$("#commentTable").on("click", ".sendReport", function() {
 		var user_id = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(1).text();
 		var c_no = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(0).text();
-		
+		console.log(user_id);
 // 		var user_id = $(this).attr("data-user_id");
 		$("#btnSendReport").attr("data-rpt_receiver", user_id);
 		$("#btnSendReport").attr("data-rpt_c_no", c_no);
 	});
+	
+	//신고 유저
+// 	$("#commentTable").on("click", "#dropdownMenuButton", function() {
+// 		var c_user_id = $(this).parent().parent().parent().parent().parent().find("td").eq(1).text();
+// 		console.log(c_user_id);
+// 		var sendData = {
+// 				"c_user_id" : c_user_id
+// 		}
+// 		var url = "/noticeBoard/noticeBoardContentPage";
+// 		$.get(url, sendData, function(){
+// 			console.log(sendData);
+// 		});
+// 		var cloneTr = $("#commentTable > tbody > tr:first");
+// 		var td = cloneTr.find("td");
+// 		td.eq(4).find("button").attr("c_user_id", c_user_id);
+// 		$("#commentTable").attr("c_user_id", c_user_id);
+// 	});
+	
 	
 // 	$("#commentTable").on("click", "#dropdownMenuButton", function() {
 // 		var user_id = $(this).parent().parent().parent().parent().parent().find("td").eq(1).text();
@@ -359,6 +377,7 @@ $(document).ready(function(){
 </div>
 <!-- // 신고 모달창 -->
 <section class="page-section bg-light">
+${c_user_id}
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -419,18 +438,18 @@ $(document).ready(function(){
 												&vellip;</button>
 											<div class="dropdown-menu"
 												aria-labelledby="dropdownMenuButton">
-												<c:choose>
-												<c:when test="${sessionScope.loginVo.user_id == user_id}">
+<%-- 												<c:choose> --%>
+<%-- 												<c:when test="${sessionScope.loginVo.user_id == user_id}"> --%>
 												<button class="dropdown-item searchType commentModify">수정</button> 
 												<button class="dropdown-item searchType commentDelete">삭제</button>
-												</c:when>
-												<c:otherwise>
+<%-- 												</c:when> --%>
+<%-- 												<c:otherwise> --%>
 												<a class="dropdown-item searchType sendReport"
 												data-toggle="modal" 
 												href="#modal-container-105698" 
 												data-user_id="${commentVo.user_id}">신고</a>
-												</c:otherwise> 
-												</c:choose>
+<%-- 												</c:otherwise>  --%>
+<%-- 												</c:choose> --%>
 <!-- 											<a class="dropdown-item searchType commenReport sendReport" href="/report/reportPage">신고</a>  -->
 											</div>
 										</div>
