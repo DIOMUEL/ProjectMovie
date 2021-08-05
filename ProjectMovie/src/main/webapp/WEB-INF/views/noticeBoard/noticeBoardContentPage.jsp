@@ -206,9 +206,11 @@ $(document).ready(function(){
 	//신고링크
 	$("#commentTable").on("click", ".sendReport", function() {
 		var user_id = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(1).text();
+		var c_no = $(this).parent().parent().parent().parent().parent().parent().find("td").eq(0).text();
+		
 // 		var user_id = $(this).attr("data-user_id");
 		$("#btnSendReport").attr("data-rpt_receiver", user_id);
-		
+		$("#btnSendReport").attr("data-rpt_c_no", c_no);
 	});
 	
 // 	$("#commentTable").on("click", "#dropdownMenuButton", function() {
@@ -222,9 +224,13 @@ $(document).ready(function(){
 		var rpt_content = $("input[name=rpt_content]:checked").val();
 //		var rpt_content = $("#rpt_content").val();
 		var rpt_receiver = $(this).attr("data-rpt_receiver");
+		var rpt_c_no = $(this).attr("data-rpt_c_no");
+		var b_no = parseInt("${noticeBoardVo.b_no}");
 		var sendData = {
 				"rpt_receiver" : rpt_receiver,
-				"rpt_content" : rpt_content
+				"rpt_content" : rpt_content,
+				"rpt_c_no" : rpt_c_no,
+				"b_no" : b_no
 		};
 		console.log(sendData);
 		var url = "/report/sendReport";
