@@ -22,4 +22,5 @@ public interface ReportDao {
 	public boolean deleteReport(int rpt_no, String user_id);
 	//신고 받기 
 	public List<ReportVo> selectReportList();
+	public void reportDeleteRun(int rpt_no);
 }

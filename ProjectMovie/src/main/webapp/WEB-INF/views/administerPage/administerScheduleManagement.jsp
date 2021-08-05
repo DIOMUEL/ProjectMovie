@@ -128,7 +128,7 @@
 								<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox" data-no="${todaylist.managerSchedule_no}" data-year="${todaylist.managerSchedule_year}" data-month="${todaylist.managerSchedule_month}" data-date="${todaylist.managerSchedule_date}"></td>
 							</c:when>
 							<c:otherwise>
-							 	<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox" checked></td>
+							 	<td><input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox" data-no="${todaylist.managerSchedule_no}" data-year="${todaylist.managerSchedule_year}" data-month="${todaylist.managerSchedule_month}" data-date="${todaylist.managerSchedule_date}" checked></td>
 							</c:otherwise>
 						</c:choose>
 						<td><a href="#modal-container-512691" class="btn-primary deleteSchedule" data-toggle="modal">삭제</a></td>

@@ -423,7 +423,7 @@ public class AdminController {
 	@RequestMapping(value="/administerCheckBoxClick", method=RequestMethod.GET)
 	@ResponseBody
 	public String administerCheckBoxClick(int managerSchedule_no, int managerSchedule_year, int managerSchedule_month, int managerSchedule_date, String managerSchedule_complete) throws Exception {
-		//System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
+		System.out.println(managerSchedule_no + "," + managerSchedule_year + "," + managerSchedule_month + "," + managerSchedule_date + "," + managerSchedule_complete);
 		admin_ScheduleService.checkBoxClick(managerSchedule_no, managerSchedule_year, managerSchedule_month, managerSchedule_date, managerSchedule_complete);
 		return "success";
 	}
@@ -530,6 +530,13 @@ public class AdminController {
 		List<ReportVo> list = reportService.selectReportList();
 		model.addAttribute("list", list);
 		return "/administerPage/administerReportNoticeBoard";
+	}
+	//게시판 신고 메세지
+	@RequestMapping(value="/administerReportDeleteRun", method=RequestMethod.GET)
+	@ResponseBody
+	public String administerReportDeleteRun(int rpt_no) throws Exception {
+		reportService.reportDeleteRun(rpt_no);
+		return "success";
 	}
 // --------------- 신고 게시판 관리  END-----------------------
 }

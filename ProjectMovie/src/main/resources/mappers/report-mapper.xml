@@ -68,8 +68,13 @@
 		where msg_no = #{msg_no}
 		and msg_receiver = #{user_id}
 	</delete>
+	<!-- 신고리스트조회 -->
 	<select id="selectReportList" resultType="ReportVo">
 		select * from tbl_report
 		order by rpt_no desc
 	</select>
+	<delete id="reportDeleteRun">
+		delete from tbl_report
+		where rpt_no = #{rpt_no}
+	</delete>
 </mapper>

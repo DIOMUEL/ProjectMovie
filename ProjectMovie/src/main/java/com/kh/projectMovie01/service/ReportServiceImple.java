@@ -71,6 +71,11 @@ public class ReportServiceImple implements ReportService {
 		List<ReportVo> list = reportDao.selectReportList();
 		return list;
 	}
+
+	@Override
+	public void reportDeleteRun(int rpt_no) {
+		reportDao.reportDeleteRun(rpt_no);
+	}
 	
 
 

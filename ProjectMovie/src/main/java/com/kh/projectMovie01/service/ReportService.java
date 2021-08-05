@@ -19,4 +19,5 @@ public interface ReportService {
 	
 	//신고 받기 
 	public List<ReportVo> selectReportList();
+	public void reportDeleteRun(int rpt_no);
 }
