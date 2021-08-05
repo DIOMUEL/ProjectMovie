@@ -76,11 +76,11 @@
 				$(this).attr("checked", false);
 				managerSchedule_complete = "N";
 			}
-//	 		console.log(managerSchedule_no);
-//	 		console.log(managerSchedule_year);
-//	 		console.log(managerSchedule_month);
-//	 		console.log(managerSchedule_date);
-//	 		console.log(managerSchedule_complete);
+	 		console.log(managerSchedule_no);
+	 		console.log(managerSchedule_year);
+	 		console.log(managerSchedule_month);
+	 		console.log(managerSchedule_date);
+	 		console.log(managerSchedule_complete);
 			
 			var url = "/administerPage/administerCheckBoxClick";
 			var sendData = {
@@ -90,9 +90,9 @@
 					"managerSchedule_date" : managerSchedule_date,
 					"managerSchedule_complete" : managerSchedule_complete
 			}
-			$.get(url, sendData, function(rData){
-				console.log("rData : ", rData);
-			});
+// 			$.get(url, sendData, function(rData){
+// 				console.log("rData : ", rData);
+// 			});
 		});
 	});
 	function moveClose() {
