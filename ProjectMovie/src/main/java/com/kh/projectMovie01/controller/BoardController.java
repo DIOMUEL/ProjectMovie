@@ -57,6 +57,8 @@ public class BoardController {
 				msg = "success";
 				page = "redirect:/administerPage/administerMainPage";
 			}else if(!user_name.equals("admin")) {
+				int notReadCount = noticeMessageService.notReadCount(user_id);
+				memberVo.setNotReadCount(notReadCount);
 				session.setAttribute("loginVo", memberVo);
 				rttr.addFlashAttribute("user_name", user_name);
 				msg = "success";
