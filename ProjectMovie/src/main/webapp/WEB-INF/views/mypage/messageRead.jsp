@@ -35,7 +35,7 @@ $(document).ready(function() {
 });
 </script>
 
-<br>
+
 <br>
 <br>
 <section class="page-section bg-light">

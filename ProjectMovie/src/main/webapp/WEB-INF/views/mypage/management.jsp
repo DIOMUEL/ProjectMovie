@@ -84,8 +84,9 @@
 				}
 			});
 		})
+		
 
-	});
+});
 </script>
 <%-- ${memberVo} --%>
 <!-- 모달창 -->
@@ -133,7 +134,7 @@
 </div>
 
 <!-- // 모달창 -->
-<br>
+
 <br>
 <br>
 <br>
@@ -169,24 +170,7 @@
 							</div>
 							<!-- /비밀번호 확인 창 -->
 							<div class="row" id="modifyForm">
-								<div class="form-group">
-									<img id="img-wrap"
-										onerror="this.src='/resources/images/undraw_profile.svg'"
-										src="${sessionScope.principal.userprofile}" width="100"
-										height="90" />
-
-								</div>
-								<div class="form-group be-light">
-									<input type="file" name="userProfile" id="img_preview" />
-								</div>
-								<input type="hidden" name="id"
-									value="${sessionScope.principal.id}">
-								<div class="form-group">
-									<button class="btn btn-primary w-100">프로필변경</button>
-								</div>
-								
-
-
+							
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_id">아이디:<span></span></label> <input

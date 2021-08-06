@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 
 </script>
-<br>
+
 <br>
 <br>
 <br>
@@ -74,19 +74,18 @@ $(document).ready(function() {
 												<tr>
 													<th>일자</th>
 													<th>구분</th>
-													<th>내용</th>
-													<th></th>
-													<th>포인트</th>
+													<th>내용</th>	
+													<th>사용</th>												
+													<th>현재 포인트</th>
 												</tr>
 											</thead>
 											<tbody>
 
 												<tr>
-													<td>${messageVo.msg_no}</td>
-													<td></td>
+													<td>${messageVo.msg_no}</td>													
 													<td>${messageVo.msg_sender}</td>
 													<td>${messageVo.msg_senddate}</td>
-
+													<td></td>
 													<td></td>
 												</tr>
 

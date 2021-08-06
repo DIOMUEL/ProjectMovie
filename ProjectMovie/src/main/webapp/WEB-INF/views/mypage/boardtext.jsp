@@ -20,7 +20,7 @@
     <input type="hidden" name="keyword" value="${pagingDto.keyword}" /> 
     <input type="hidden" name="b_no" />
 </form>
-<br>
+
 <br>
 <br>
 <br>
@@ -54,6 +54,7 @@
 													<th>제목</th>
 													<th>내용</th>
 													<th>글쓴날짜</th>
+													<td></td>
 												</tr>
 											</thead>
 											<tbody>
