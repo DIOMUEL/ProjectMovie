@@ -412,7 +412,7 @@ ${c_user_id}
 				</div>
 			</form>
 			<br>
-			<div>[현재댓글${noticeBoardVo.comment_cnt}]</div>
+			<div>[현재댓글${noticeBoardVo.comment_cnt}건]</div>
 			<div>
 				<textarea class="form-control" id="c_content" name="c_content" rows="3" >${commentVo.c_content}</textarea>
 				<button type="button" class="btn btn-primary" id="btnCommentInsert" >댓글등록</button>	
