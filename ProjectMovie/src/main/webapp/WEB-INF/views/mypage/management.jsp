@@ -84,8 +84,9 @@
 				}
 			});
 		})
+		
 
-	});
+});
 </script>
 <%-- ${memberVo} --%>
 <!-- 모달창 -->
@@ -133,7 +134,7 @@
 </div>
 
 <!-- // 모달창 -->
-<br>
+
 <br>
 <br>
 <br>
@@ -169,24 +170,7 @@
 							</div>
 							<!-- /비밀번호 확인 창 -->
 							<div class="row" id="modifyForm">
-								<div class="form-group">
-									<img id="img-wrap"
-										onerror="this.src='/resources/images/undraw_profile.svg'"
-										src="${sessionScope.principal.userprofile}" width="100"
-										height="90" />
-
-								</div>
-								<div class="form-group be-light">
-									<input type="file" name="userProfile" id="img_preview" />
-								</div>
-								<input type="hidden" name="id"
-									value="${sessionScope.principal.id}">
-								<div class="form-group">
-									<button class="btn btn-primary w-100">프로필변경</button>
-								</div>
-								
-
-
+							
 								<div class="col-12">
 									<div class="form-group">
 										<label for="user_id">아이디:<span></span></label> <input
@@ -221,7 +205,7 @@
 									<div class="form-group">
 										<label for="user_point">포인트:<span></span></label> <input
 											name="user_point" id="user_point" type="text"
-											class="form-control" value="" class="form-control" readonly>
+											class="form-control" value="${loginVo.user_point }" class="form-control" readonly>
 									</div>
 								</div>
 
@@ -229,11 +213,11 @@
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
 										<input type="button" class="btn btn-primary" id="btn_modify"
-											style="color: blue;" value="회원 정보 수정">
+											 value="회원 정보 수정">
 
 										<div class="form-group button">
 											<input type="button" class="btn btn-primary"
-												id="btn_modifyOk" style="color: blue;" value="수정 완료">
+												id="btn_modifyOk"  value="수정 완료">
 										</div>
 
 

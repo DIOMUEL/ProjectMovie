@@ -1,9 +1,11 @@
 package com.kh.projectMovie01.controller;
 
+import java.io.FileInputStream;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,17 +13,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.projectMovie01.service.BuyFoodService;
 import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.MessageService;
 import com.kh.projectMovie01.service.NoticeBoardService;
+import com.kh.projectMovie01.service.PointService;
+import com.kh.projectMovie01.vo.BuyFoodVo;
 import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.MessageVo;
 import com.kh.projectMovie01.vo.NoticeBoardVo;
 import com.kh.projectMovie01.vo.PagingDto;
+import com.kh.projectMovie01.vo.PointVo;
 
 @Controller
 @RequestMapping(value="/mypage")
@@ -38,6 +45,10 @@ public class MypageController {
 	
 	@Inject
 	private NoticeBoardService noticeBoardService;
+	@Inject
+	private BuyFoodService buyFoodService;
+	@Inject
+	private PointService pointService;
 	//회원관리
 	@RequestMapping(value="/management",method=RequestMethod.GET)
 	public String management(Model model, HttpSession session) throws Exception{
@@ -47,6 +58,8 @@ public class MypageController {
 	
 		return "mypage/management";	
 	}
+	
+	
 	//회원 탈퇴
 	@RequestMapping(value="/managementdelete",method=RequestMethod.GET)
 	public String managementdelete() throws Exception{					
@@ -108,7 +121,12 @@ public class MypageController {
 	
 	// 포인트 관리
 	@RequestMapping(value="/point",method=RequestMethod.GET)
-	public String point() throws Exception{
+	public String point(Model model,HttpSession session) throws Exception{
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<PointVo> list = pointService.pointList(user_id);
+		model.addAttribute("list", list);
+		System.out.println(list);
 		return "mypage/point";
 		
 	}
@@ -199,8 +217,14 @@ public class MypageController {
 	
 	//음식 구매 내역
 	@RequestMapping(value="/purchase_history_food",method=RequestMethod.GET)
-	public String purchase_history_food() {
+	public String purchase_history_food(Model model,HttpSession session) {
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<BuyFoodVo> list = buyFoodService.buyFoodList(user_id);
+		model.addAttribute("list", list);
+		System.out.println(list);
 		return "mypage/purchase_history_food";
 		
 	}
+	
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<br>
+
 <br>
 <br>
 <br>
@@ -32,19 +32,19 @@
 													<th>상품명</th>
 													<th>가격</th>
 													<th>구매일자</th>
-													<th>비고</th>
+													
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="messageVo" items="${list}">
+												<c:forEach var="buyFoodVo" items="${list}">
 													<tr>
-														<td>${messageVo.msg_no}</td>
-														<td></td>
-														<td>${messageVo.msg_sender}</td>
-														<td>${messageVo.msg_senddate}</td>
-														<td></td>
+														<td>${buyFoodVo.bf_no}</td>
+														<td>${buyFoodVo.bf_foodname}</td>
+														<td>${buyFoodVo.bf_price}원</td>
+														<td>${buyFoodVo.bf_datepurch}</td>														
 													</tr>
-												</c:forEach>
+											</c:forEach>	
+												
 											</tbody>
 										</table>
 									</div>
