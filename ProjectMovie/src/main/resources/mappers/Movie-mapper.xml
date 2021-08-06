@@ -142,4 +142,10 @@
 		and theater_no = #{theater_no}
 		order by movieSchedule_registTime asc
 	</select>
+	<!-- 티케팅관련 -->
+	<select id="getMovieScheduleListTikecting" resultType="MovieScheduleVo">
+		select * from tbl_MovieSchedule 
+		where movie_name = #{movie_name}
+		order by movieSchedule_registTime asc
+	</select>
 </mapper>

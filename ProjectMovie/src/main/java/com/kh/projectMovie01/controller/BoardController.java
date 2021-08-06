@@ -13,10 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.projectMovie01.dao.Admin_MovieDao;
+import com.kh.projectMovie01.service.Admin_AreaService;
+import com.kh.projectMovie01.service.Admin_MovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.NoticeBoardService;
 import com.kh.projectMovie01.service.NoticeMessageService;
+import com.kh.projectMovie01.vo.AreaVo;
 import com.kh.projectMovie01.vo.MemberVo;
+import com.kh.projectMovie01.vo.MovieVo;
 import com.kh.projectMovie01.vo.NoticeBoardVo;
 import com.kh.projectMovie01.vo.NoticeMessageVo;
 import com.kh.projectMovie01.vo.PagingDto;
@@ -31,7 +36,10 @@ public class BoardController {
 	private NoticeBoardService noticeBoardService;
 	@Inject
 	private NoticeMessageService noticeMessageService;
-
+	@Inject
+	private Admin_MovieService admin_MovieService;
+	@Inject
+	private Admin_AreaService admin_AreaService;
 	@RequestMapping(value = "/mainPage", method = RequestMethod.GET) 
 	public String mainPage() { 
 		return "board/mainPage"; 
@@ -97,10 +105,18 @@ public class BoardController {
 		
 		return "board/noticeBoardPage"; 
 	}
-
+	//예매페이지
 	@RequestMapping(value = "/ticketingPage", method = RequestMethod.GET)
-	public String ticketingPage() { 
+	public String ticketingPage(Model model) { 
+		List<MovieVo> movieList = admin_MovieService.nameListAll();
+		List<AreaVo> areaVo = admin_AreaService.getAllAreaList();
+		model.addAttribute("areaVo", areaVo);
+		model.addAttribute("movieList", movieList);
 		return "board/ticketingPage"; 
+	}
+	@RequestMapping(value = "/reserveResult", method = RequestMethod.GET)
+	public String reserveResult() { 
+		return "board/reserveResult"; 
 	}
 
 	@RequestMapping(value = "/registForm", method = RequestMethod.GET)

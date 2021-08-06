@@ -118,4 +118,10 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 		List<MovieScheduleVo> list = movieDao.getMovieScheduleList(theater_no, movieSchedule_registTime);
 		return list;
 	}
+
+	@Override
+	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name) {
+		List<MovieScheduleVo> list = movieDao.getMovieScheduleListTikecting(movie_name);
+		return list;
+	}
 }

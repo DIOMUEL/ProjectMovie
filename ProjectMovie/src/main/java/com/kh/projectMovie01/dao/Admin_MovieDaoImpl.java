@@ -108,4 +108,10 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleList", map);
 		return list;
 	}
+//티케팅관련
+	@Override
+	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name) {
+		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleListTikecting", movie_name);
+		return list;
+	}
 }

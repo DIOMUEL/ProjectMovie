@@ -28,4 +28,7 @@ public interface Admin_MovieDao {
 	public void countUp(String movie_name);
 	public MovieScheduleVo lastMovieSchedule(int theater_no);
 	public List<MovieScheduleVo> getMovieScheduleList(int theater_no, String movieSchedule_registTime);
+
+	//티케팅관련
+	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name);
 }
