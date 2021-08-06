@@ -21,13 +21,14 @@ import com.kh.projectMovie01.service.BuyMovieService;
 import com.kh.projectMovie01.service.MemberService;
 import com.kh.projectMovie01.service.MessageService;
 import com.kh.projectMovie01.service.NoticeBoardService;
-
+import com.kh.projectMovie01.service.PointService;
 import com.kh.projectMovie01.vo.BuyFoodVo;
 import com.kh.projectMovie01.vo.BuyMovieVo;
 import com.kh.projectMovie01.vo.MemberVo;
 import com.kh.projectMovie01.vo.MessageVo;
 import com.kh.projectMovie01.vo.NoticeBoardVo;
 import com.kh.projectMovie01.vo.PagingDto;
+import com.kh.projectMovie01.vo.PointVo;
 
 @Controller
 @RequestMapping(value="/mypage")
@@ -46,6 +47,8 @@ public class MypageController {
 	private NoticeBoardService noticeBoardService;
 	@Inject
 	private BuyFoodService buyFoodService;
+	@Inject
+	private PointService pointService;
 	//회원관리
 	@RequestMapping(value="/management",method=RequestMethod.GET)
 	public String management(Model model, HttpSession session) throws Exception{
@@ -118,7 +121,12 @@ public class MypageController {
 	
 	// 포인트 관리
 	@RequestMapping(value="/point",method=RequestMethod.GET)
-	public String point() throws Exception{
+	public String point(Model model,HttpSession session) throws Exception{
+		MemberVo memberVo =(MemberVo)session.getAttribute("loginVo");
+		String user_id = memberVo.getUser_id();
+		List<PointVo> list = pointService.pointList(user_id);
+		model.addAttribute("list", list);
+		System.out.println(list);
 		return "mypage/point";
 		
 	}

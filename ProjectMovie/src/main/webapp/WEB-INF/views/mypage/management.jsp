@@ -205,7 +205,7 @@
 									<div class="form-group">
 										<label for="user_point">포인트:<span></span></label> <input
 											name="user_point" id="user_point" type="text"
-											class="form-control" value="" class="form-control" readonly>
+											class="form-control" value="${loginVo.user_point }" class="form-control" readonly>
 									</div>
 								</div>
 
@@ -213,11 +213,11 @@
 								<div class="col-12" style="margin-top: 20px;">
 									<div class="form-group button">
 										<input type="button" class="btn btn-primary" id="btn_modify"
-											style="color: blue;" value="회원 정보 수정">
+											 value="회원 정보 수정">
 
 										<div class="form-group button">
 											<input type="button" class="btn btn-primary"
-												id="btn_modifyOk" style="color: blue;" value="수정 완료">
+												id="btn_modifyOk"  value="수정 완료">
 										</div>
 
 

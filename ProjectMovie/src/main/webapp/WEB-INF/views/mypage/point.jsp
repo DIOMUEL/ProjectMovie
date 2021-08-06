@@ -4,19 +4,20 @@
 <%@ include file="../include/header.jsp"%>
 <script>
 $(document).ready(function() {
-	var value = "4500";
-		if(value > 0 ){
+	var value = "${loginVo.user_point}";
+		
+		if(value >= 0 ){
 			$("#rankimg").attr("src","/resources/Rankimg/bronze.png");
-		}
+		};
 		if(value > 10000){
 			$("#rankimg").attr("src","/resources/Rankimg/silver.png");
-		}
+		};
 		if(value > 50000){
 			$("#rankimg").attr("src","/resources/Rankimg/gold.png");
-		}
+		};
 		if(value > 100000){
 			$("#rankimg").attr("src","/resources/Rankimg/platinum.png");
-		}
+		};
 		if(value > 500000){
 			$("#rankimg").attr("src","/resources/Rankimg/diamond.png");
 		};
@@ -44,7 +45,7 @@ $(document).ready(function() {
 								<div class="row">
 									<div class="col-md-6">
 										<div class="jumbotron">
-											<h4>0 P</h4>
+											<h4>${loginVo.user_point}P</h4>
 											<p>현재 포인트</p>
 										</div>
 									</div>
@@ -75,20 +76,20 @@ $(document).ready(function() {
 													<th>일자</th>
 													<th>구분</th>
 													<th>내용</th>	
-													<th>사용</th>												
+													<th>증가/감소</th>												
 													<th>현재 포인트</th>
 												</tr>
 											</thead>
 											<tbody>
-
-												<tr>
-													<td>${messageVo.msg_no}</td>													
-													<td>${messageVo.msg_sender}</td>
-													<td>${messageVo.msg_senddate}</td>
-													<td></td>
-													<td></td>
-												</tr>
-
+												<c:forEach var="PointVo" items="${list}">
+													<tr>
+														<td>${PointVo.point_no}</td>
+														<td>${PointVo.point_code}</td>
+														<td>${PointVo.point_content}</td>
+														<td></td>														
+														<td></td>														
+													</tr>
+											</c:forEach>	
 											</tbody>
 										</table>
 									</div>

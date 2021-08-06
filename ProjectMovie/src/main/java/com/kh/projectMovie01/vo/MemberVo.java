@@ -10,10 +10,26 @@ public class MemberVo {
 	private String user_email;
 	private Timestamp user_reg_date;
 	private int notReadCount;
-	private String user_pic; 
+	private int user_point;
+	
 	public MemberVo() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
+	public MemberVo(String user_id, String user_pw, String user_name, int user_rrn, String user_email,
+			Timestamp user_reg_date, int notReadCount, int user_point) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_rrn = user_rrn;
+		this.user_email = user_email;
+		this.user_reg_date = user_reg_date;
+		this.notReadCount = notReadCount;
+		this.user_point = user_point;
+	}
+	
+	
 	public String getUser_id() {
 		return user_id;
 	}
@@ -56,30 +72,18 @@ public class MemberVo {
 	public void setNotReadCount(int notReadCount) {
 		this.notReadCount = notReadCount;
 	}
-	public String getUser_pic() {
-		return user_pic;
+	public int getUser_point() {
+		return user_point;
 	}
-	public void setUser_pic(String user_pic) {
-		this.user_pic = user_pic;
+	public void setUser_point(int user_point) {
+		this.user_point = user_point;
 	}
-	public MemberVo(String user_id, String user_pw, String user_name, int user_rrn, String user_email,
-			Timestamp user_reg_date, int notReadCount, String user_pic) {
-		super();
-		this.user_id = user_id;
-		this.user_pw = user_pw;
-		this.user_name = user_name;
-		this.user_rrn = user_rrn;
-		this.user_email = user_email;
-		this.user_reg_date = user_reg_date;
-		this.notReadCount = notReadCount;
-		this.user_pic = user_pic;
-	}
+	
 	@Override
 	public String toString() {
 		return "MemberVo [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_rrn="
 				+ user_rrn + ", user_email=" + user_email + ", user_reg_date=" + user_reg_date + ", notReadCount="
-				+ notReadCount + ", user_pic=" + user_pic + "]";
+				+ notReadCount + ", user_point=" + user_point + "]";
 	}
-	
 	
 }
