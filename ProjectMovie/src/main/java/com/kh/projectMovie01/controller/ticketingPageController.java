@@ -3,6 +3,7 @@ package com.kh.projectMovie01.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.xml.crypto.Data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +31,15 @@ public class ticketingPageController {
 		List<AreaTheaterVo> areaTheaterlist = admin_AreaService.getAllAreaTheaterList(area_no);
 		return areaTheaterlist;
 	}
-	//영화 이름을통해 스케줄에 불러오기
+
+	//연도와 영화 이름으로 스케줄 찾기
 	@RequestMapping(value="/ticketingSchedule", method=RequestMethod.GET)
 	@ResponseBody
-	public List<MovieScheduleVo> ticketingSchedule(String movie_name) throws Exception {
-		List<MovieScheduleVo> list = admin_MovieService.getMovieScheduleListTikecting(movie_name);
-		return list;
+	public List<MovieScheduleVo> ticketingSchedule(String movie_name, String movieSchedule_registTime) throws Exception {
+//		System.out.println("movie_name" + movie_name);
+//		System.out.println("movieSchedule_registTime" + movieSchedule_registTime);
+		List<MovieScheduleVo> scheduleList = admin_MovieService.getMovieScheduleListTikecting(movie_name, movieSchedule_registTime);
+//		System.out.println("scheduleList" + scheduleList);
+		return scheduleList;
 	}
 }

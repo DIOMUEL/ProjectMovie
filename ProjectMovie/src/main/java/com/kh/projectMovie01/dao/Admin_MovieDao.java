@@ -30,5 +30,5 @@ public interface Admin_MovieDao {
 	public List<MovieScheduleVo> getMovieScheduleList(int theater_no, String movieSchedule_registTime);
 
 	//티케팅관련
-	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name);
+	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name, String movieSchedule_registTime);
 }

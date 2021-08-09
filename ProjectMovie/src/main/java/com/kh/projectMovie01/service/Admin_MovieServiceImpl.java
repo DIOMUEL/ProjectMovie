@@ -3,6 +3,7 @@ package com.kh.projectMovie01.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.xml.crypto.Data;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -120,8 +121,8 @@ public class Admin_MovieServiceImpl implements Admin_MovieService {
 	}
 
 	@Override
-	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name) {
-		List<MovieScheduleVo> list = movieDao.getMovieScheduleListTikecting(movie_name);
+	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name, String movieSchedule_registTime) {
+		List<MovieScheduleVo> list = movieDao.getMovieScheduleListTikecting(movie_name, movieSchedule_registTime);
 		return list;
 	}
 }

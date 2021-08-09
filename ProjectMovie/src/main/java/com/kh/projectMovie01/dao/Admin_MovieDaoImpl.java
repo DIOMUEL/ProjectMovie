@@ -110,8 +110,11 @@ public class Admin_MovieDaoImpl implements Admin_MovieDao {
 	}
 //티케팅관련
 	@Override
-	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name) {
-		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleListTikecting", movie_name);
+	public List<MovieScheduleVo> getMovieScheduleListTikecting(String movie_name, String movieSchedule_registTime) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("movie_name", movie_name);
+		map.put("movieSchedule_registTime", movieSchedule_registTime);
+		List<MovieScheduleVo> list = sqlSession.selectList(NAMESPACE + "getMovieScheduleListTikecting", map);
 		return list;
 	}
 }
