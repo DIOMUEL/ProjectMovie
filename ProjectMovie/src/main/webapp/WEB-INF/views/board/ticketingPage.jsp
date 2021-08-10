@@ -24,29 +24,24 @@
 			};
 			console.log("movieSchedule_registTime"+ movieSchedule_registTime);
 			$.get(url, sendData, function(rData){
+				
 				var arrAREA_THEATER_NO = new Array();
 				var arrTHEATER_NO = new Array();
 				var arrMOVIESCHEDULE_PLAYTIME = new Array();
+				$(".selectArea").children('option:not(:first)').remove();
 				for(i=0; i<rData.length; i++){
 					arrAREA_THEATER_NO[i] = rData[i].area_theater_no;		
 					arrTHEATER_NO[i] = rData[i].theater_no;		
-					arrMOVIESCHEDULE_PLAYTIME[i] = rData[i].movieschedule_playtime;		
+					arrMOVIESCHEDULE_PLAYTIME[i] = rData[i].movieSchedule_playTime;		
 				};
-// 				$(".selectArea").children('option:not(:first)').remove();
-// 				var arrName = new Array();//[.......]
-// 				var arrNo = new Array();
-// 				for(i=0; i<rData.length; i++){
-// 					arrName[i] = rData[i].area_name;		
-// 					arrNo[i] = rData[i].area_no;		
-// 				};
-	
-// 				$.each(arrName, function(key, value) { 
-// 					$(".selectArea").append($("<option></option>").attr("class", "arrNo").text(value)); 	
-// 				});
-// 				for(i=0; i<rData.length; i++){
-// 					$(".arrNo:eq("+ i +")").attr("value", arrNo[i]);  
-// 				};
-// 				$("#movieSchedule_registTime").attr("disabled", false);
+				
+				$.each(arrMOVIESCHEDULE_PLAYTIME, function(key, value) { 
+					$(".selectArea").append($("<option></option>").attr("class", "arr").text(value)); 	
+				});
+				for(i=0; i<rData.length; i++){
+					$(".arr:eq("+ i +")").attr("data-AREA_THEATER_NO", arrAREA_THEATER_NO[i]);  
+				};
+				$("#movieSchedule_registTime").attr("disabled", false);
 			});		
 		});
 		//그연도에 있는 지역들 호출
@@ -123,9 +118,9 @@
 								<option value="0" selected>--지역--</option>
 							</select>
 							<!-- 지역-영화관 셀랙트 -->
-<!-- 							<select class="selectAreaTheaterName" name="AreatheaterName"> -->
-<!-- 								<option value="0" selected>--지역영화관--</option> -->
-<!-- 							</select> -->
+							<select class="selectAreaTheaterName" name="AreatheaterName">
+								<option value="0" selected>--지역영화관--</option>
+							</select>
 							
 							<!-- 지역-영화관+영화이름+날짜- 관 셀랙트 -->
 <!-- 							<select class="selectTheaterName" name="theaterName"> -->
